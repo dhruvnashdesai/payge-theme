@@ -1,0 +1,412 @@
+/* Video Library Page Styles */
+
+/* Hero Video Section - Visible to All */
+.hero-video-section {
+    padding: 4rem 0;
+    background-color: #ecede7;
+}
+
+.hero-video-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.hero-video-wrapper {
+    position: relative;
+}
+
+.hero-video-placeholder {
+    aspect-ratio: 16/9;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-placeholder-content {
+    text-align: center;
+    color: #f0e7d7;
+}
+
+.play-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-video-info h1 {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 3rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-weight: normal;
+}
+
+.hero-video-info p {
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+}
+
+/* Video Grid Section */
+.video-grid-section {
+    padding: 4rem 0;
+    position: relative;
+}
+
+.video-grid-section h2 {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+/* 3-Column Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+}
+
+.video-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-4px);
+}
+
+.video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-placeholder-thumb {
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 26, 26, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-card:hover .video-overlay {
+    opacity: 1;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #1a1a1a;
+}
+
+.video-duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.video-description {
+    font-size: 0.875rem;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.video-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+/* Paywall Overlay for Non-Members */
+.video-grid-section.no-membership::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: max(100%, 80vh);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 10;
+    margin-left: calc(-50vw + 50%);
+}
+
+/* Paywall Overlay Content */
+.paywall-overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+.paywall-cta {
+    background: rgba(26, 26, 26, 0.9);
+    color: #f0e7d7;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.paywall-cta h3 {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #f0e7d7;
+    font-weight: normal;
+}
+
+.paywall-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.paywall-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.paywall-buttons .btn {
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    display: inline-block;
+    font-weight: normal;
+}
+
+.paywall-buttons .btn-primary {
+    background-color: #f0e7d7;
+    color: #1a1a1a;
+    border: none;
+}
+
+.paywall-buttons .btn-primary:hover {
+    background-color: #e8dcc7;
+    transform: translateY(-2px);
+}
+
+.paywall-buttons .btn-secondary {
+    background-color: transparent;
+    color: #f0e7d7;
+    border: 2px solid #f0e7d7;
+}
+
+.paywall-buttons .btn-secondary:hover {
+    background-color: #f0e7d7;
+    color: #1a1a1a;
+}
+
+/* Membership Notice */
+.membership-notice {
+    text-align: center;
+    background-color: #f0e7d7;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+}
+
+.membership-notice h2 {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.membership-notice p {
+    font-size: 1.1rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Subscription CTA */
+.subscription-cta {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    color: #f0e7d7;
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.subscription-cta h3 {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #f0e7d7;
+    font-weight: normal;
+}
+
+.subscription-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    display: inline-block;
+    font-weight: normal;
+}
+
+.cta-buttons .btn-primary {
+    background-color: #f0e7d7;
+    color: #1a1a1a;
+    border: none;
+}
+
+.cta-buttons .btn-primary:hover {
+    background-color: #e8dcc7;
+    transform: translateY(-2px);
+}
+
+.cta-buttons .btn-secondary {
+    background-color: transparent;
+    color: #f0e7d7;
+    border: 2px solid #f0e7d7;
+}
+
+.cta-buttons .btn-secondary:hover {
+    background-color: #f0e7d7;
+    color: #1a1a1a;
+}
+
+/* Hide CTA for members */
+.video-library-page.has-membership .subscription-cta {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-video-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .hero-video-info h1 {
+        font-size: 2rem;
+    }
+
+    .paywall-cta {
+        padding: 2rem 1.5rem;
+    }
+
+    .paywall-cta h3 {
+        font-size: 1.5rem;
+    }
+
+    .paywall-cta p {
+        font-size: 1rem;
+    }
+
+    .paywall-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .paywall-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,294 @@
+/* Membership Levels Page Styles */
+
+/* Hero Section */
+.membership-hero {
+    background-color: #ecede7;
+    padding: 4rem 0 2rem 0;
+    text-align: center;
+}
+
+.membership-hero-content h1 {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 3rem;
+    color: #1a1a1a;
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+/* Pricing Section */
+.membership-pricing-section {
+    padding: 2rem 0 6rem 0;
+    background-color: #ecede7;
+}
+
+.membership-pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Membership Cards */
+.membership-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.membership-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured Card */
+.membership-card.featured {
+    border-color: #f0e7d7;
+    background: linear-gradient(135deg, #fafafa 0%, white 100%);
+}
+
+.featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: #f0e7d7;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Card Icons */
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: #f0e7d7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: #1a1a1a;
+}
+
+.premium-card .card-icon {
+    background: #1a1a1a;
+    color: #f0e7d7;
+}
+
+/* Card Titles */
+.card-title {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-weight: normal;
+}
+
+/* Pricing */
+.card-price {
+    margin-bottom: 1.5rem;
+}
+
+.price-amount {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    font-weight: normal;
+    display: block;
+    line-height: 1;
+}
+
+.price-period {
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Trial Badge */
+.trial-badge {
+    background: #e8f5e8;
+    color: #2d7d32;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+/* Card Features */
+.card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    text-align: left;
+}
+
+.card-features li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    color: #4a4a4a;
+    font-size: 0.9rem;
+}
+
+.card-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2d7d32;
+    font-weight: bold;
+}
+
+/* Card Description */
+.card-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Card Buttons */
+.card-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    font-weight: normal;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.card-btn.primary {
+    background-color: #1a1a1a;
+    color: #f0e7d7;
+    border: 2px solid #1a1a1a;
+}
+
+.card-btn.primary:hover {
+    background-color: #333;
+    border-color: #333;
+    transform: translateY(-2px);
+}
+
+.card-btn.secondary {
+    background-color: transparent;
+    color: #1a1a1a;
+    border: 2px solid #1a1a1a;
+}
+
+.card-btn.secondary:hover {
+    background-color: #1a1a1a;
+    color: #f0e7d7;
+    transform: translateY(-2px);
+}
+
+/* Free Card Specific */
+.free-card {
+    border-color: #e0e0e0;
+}
+
+.free-card .price-amount {
+    color: #2d7d32;
+}
+
+/* Additional Info */
+.membership-info {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.membership-info p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.membership-info a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.membership-info a:hover {
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .membership-hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .membership-hero-content p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .membership-pricing-section {
+        padding: 4rem 0;
+    }
+
+    .membership-pricing-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .membership-card {
+        padding: 1.5rem;
+    }
+
+    .price-amount {
+        font-size: 2rem;
+    }
+
+    .card-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .membership-hero {
+        padding: 3rem 0;
+    }
+
+    .membership-pricing-section {
+        padding: 3rem 0;
+    }
+
+    .featured-badge {
+        font-size: 0.7rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+    }
+}

@@ -1,0 +1,430 @@
+/* Video Library Page Styles */
+
+/* Page Header */
+.page-header {
+    padding: 3vw 0;
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.page-header h1 {
+    margin-bottom: 16px;
+}
+
+.page-header p {
+    font-size: 1.125rem;
+    color: #4a4a4a;
+    max-width: 60ch;
+    margin: 0 auto;
+}
+
+/* Video Library Section */
+.video-library {
+    padding: 3vw 0;
+    min-height: 80vh;
+}
+
+/* Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.video-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.6));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-card:hover .video-overlay {
+    opacity: 1;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover .play-button {
+    transform: scale(1);
+}
+
+.play-button::after {
+    content: "▶";
+    color: #1a1a1a;
+    font-size: 20px;
+    margin-left: 4px;
+}
+
+.video-duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.video-description {
+    font-size: 0.875rem;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.video-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.video-level {
+    padding: 2px 8px;
+    background: #f0f0f0;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.video-level.beginner {
+    background: #e8f5e8;
+    color: #2d7d32;
+}
+
+.video-level.intermediate {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.video-level.advanced {
+    background: #ffebee;
+    color: #c62828;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+}
+
+.empty-state h3 {
+    margin-bottom: 16px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .page-header {
+        padding: 4vw 0;
+    }
+
+    .video-library {
+        padding: 4vw 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .video-info {
+        padding: 1rem;
+    }
+}
+
+/* Paywall and Membership Styles */
+.membership-notice {
+    text-align: center;
+    background-color: #f0e7d7;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+}
+
+.membership-notice h2 {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.membership-notice p {
+    font-size: 1.1rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Restricted Video Cards */
+.video-card-restricted {
+    position: relative !important;
+    opacity: 0.8 !important;
+}
+
+.video-card-restricted .video-thumbnail {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Apply blur directly to images in restricted cards */
+.video-card.video-card-restricted .video-thumbnail img {
+    filter: blur(8px) !important;
+    -webkit-filter: blur(8px) !important;
+    -moz-filter: blur(8px) !important;
+    transition: filter 0.3s ease !important;
+    transform: scale(1.05) !important;
+}
+
+/* Apply blur to placeholder thumbs in restricted cards */
+.video-card.video-card-restricted .video-placeholder-thumb {
+    filter: blur(8px) !important;
+    -webkit-filter: blur(8px) !important;
+    -moz-filter: blur(8px) !important;
+    transition: filter 0.3s ease !important;
+    transform: scale(1.05) !important;
+    background: #ccc !important;
+}
+
+/* Additional backdrop blur layer */
+.video-card-restricted .video-thumbnail::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+}
+
+/* Lock overlay on top of everything */
+.video-blur-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: rgba(26, 26, 26, 0.6) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 20 !important;
+}
+
+.subscription-prompt {
+    text-align: center;
+    color: #f0e7d7;
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+}
+
+.subscription-prompt .lock-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.subscription-prompt span {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+/* Disable interaction for restricted cards */
+.video-card-restricted {
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Subscription CTA */
+.subscription-cta {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    color: #f0e7d7;
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.subscription-cta h3 {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #f0e7d7;
+    font-weight: normal;
+}
+
+.subscription-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    display: inline-block;
+    font-weight: normal;
+}
+
+.cta-buttons .btn-primary {
+    background-color: #f0e7d7;
+    color: #1a1a1a;
+    border: none;
+}
+
+.cta-buttons .btn-primary:hover {
+    background-color: #e8dcc7;
+    transform: translateY(-2px);
+}
+
+.cta-buttons .btn-secondary {
+    background-color: transparent;
+    color: #f0e7d7;
+    border: 2px solid #f0e7d7;
+}
+
+.cta-buttons .btn-secondary:hover {
+    background-color: #f0e7d7;
+    color: #1a1a1a;
+}
+
+/* Main element class styling for membership status */
+.video-library-page.no-membership .video-grid-restricted .video-card:nth-child(n+4) {
+    opacity: 0.6;
+}
+
+.video-library-page.has-membership .subscription-cta {
+    display: none;
+}
+
+/* Responsive Design for Paywall */
+@media (max-width: 768px) {
+    .subscription-cta {
+        padding: 3rem 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .subscription-cta h3 {
+        font-size: 2rem;
+    }
+
+    .subscription-cta p {
+        font-size: 1.1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .membership-notice {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .membership-notice h2 {
+        font-size: 1.5rem;
+    }
+
+    .subscription-prompt .lock-icon {
+        font-size: 1.5rem;
+    }
+
+    .subscription-prompt span {
+        font-size: 0.8rem;
+    }
+}

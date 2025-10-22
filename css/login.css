@@ -1,0 +1,266 @@
+/* Custom Login Page Styles */
+
+.login-page {
+    background-color: #ecede7;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.login-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+/* Card Header */
+.login-header {
+    padding: 2rem 2rem 1rem 2rem;
+    text-align: left;
+}
+
+.login-title {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem 0;
+    font-weight: normal;
+}
+
+.login-description {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Card Content */
+.login-content {
+    padding: 1rem 2rem 2rem 2rem;
+}
+
+/* Error Messages */
+.login-error {
+    background-color: #fff5f5;
+    border: 1px solid #ffcdd2;
+    color: #c62828;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
+
+/* Form Styling */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-field label {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.password-label-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.forgot-password-link {
+    font-size: 0.8rem;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.forgot-password-link:hover {
+    color: #1a1a1a;
+    text-decoration: underline;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.form-field input::placeholder {
+    color: #999;
+}
+
+.form-field input:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+}
+
+/* Submit Button */
+.login-submit-btn {
+    width: 100%;
+    background-color: #1a1a1a;
+    color: #f0e7d7;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+/* Completely reset and override the button */
+.login-submit-btn {
+    position: relative !important;
+    overflow: hidden !important;
+    text-indent: -9999px !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+.login-submit-btn * {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.login-submit-btn::before,
+.login-submit-btn::after {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+}
+
+/* Force the button text content */
+.login-submit-btn::before {
+    content: "LOG IN" !important;
+    display: flex !important;
+    visibility: visible !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #000000 !important;
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    z-index: 100 !important;
+    background: transparent !important;
+    text-indent: 0 !important;
+    line-height: normal !important;
+    pointer-events: none !important;
+}
+
+.login-submit-btn:hover {
+    background-color: #333;
+    transform: translateY(-1px);
+}
+
+.login-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Footer */
+.login-footer {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.login-footer a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-page {
+        padding: 2rem 1rem;
+    }
+
+    .login-container {
+        max-width: 100%;
+    }
+
+    .login-header {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+    }
+
+    .login-content {
+        padding: 1rem 1.5rem 1.5rem 1.5rem;
+    }
+
+    .login-title {
+        font-size: 1.25rem;
+    }
+
+    .password-label-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .forgot-password-link {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-page {
+        padding: 1rem;
+    }
+
+    .login-header {
+        padding: 1rem;
+    }
+
+    .login-content {
+        padding: 1rem;
+    }
+
+    .login-submit-btn {
+        padding: 1rem;
+    }
+}
