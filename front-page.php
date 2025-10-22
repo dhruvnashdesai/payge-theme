@@ -1,5 +1,10 @@
 <?php get_header(); ?>
 
+<!-- DEBUG: Front page template is loading -->
+<div style="background: yellow; padding: 10px; text-align: center; margin: 10px;">
+    DEBUG: Front-page.php template loaded successfully
+</div>
+
 <?php
 // Get customizer values with defaults
 $hero_title = get_theme_mod('payge_hero_title', 'Transform Your Body Through Pilates');
