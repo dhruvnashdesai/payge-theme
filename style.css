@@ -2,7 +2,7 @@
 Theme Name: Payge Theme
 Description: A modern, minimalist WordPress theme designed for Pilates studios and wellness professionals. Features a clean design with video library functionality and membership pricing sections.
 Author: Payge Studio
-Version: 1.0
+Version: 1.0.1
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: payge-theme
@@ -10,6 +10,8 @@ Tags: pilates, wellness, fitness, video-library, membership, clean, modern, resp
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 8.0
+
+/* GitHub deployment test - updated via automated deployment */
 */
 
 /* Custom Font */
