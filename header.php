@@ -16,6 +16,58 @@
     <link rel="profile" href="https://gmpg.org/xfn/11">
 
     <?php wp_head(); ?>
+
+    <!-- EMERGENCY CSS - BYPASS FILE LOADING ISSUES -->
+    <style>
+        /* Force hero section to be visible */
+        .hero {
+            width: 100% !important;
+            min-height: 600px !important;
+            background: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), #6c7c7c !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 50px !important;
+        }
+
+        .hero-image-container {
+            width: 90% !important;
+            height: 500px !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-radius: 20px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+        }
+
+        .hero-text-content h1,
+        .hero-text-content h2,
+        .hero-text-content h3 {
+            color: white !important;
+            margin: 10px 0 !important;
+            opacity: 1 !important;
+            transform: none !important;
+            display: block !important;
+        }
+
+        .hero-line-1 { font-size: 48px !important; font-weight: bold !important; }
+        .hero-line-2 { font-size: 24px !important; }
+        .hero-line-3 { font-size: 18px !important; }
+
+        /* DEBUG: Confirm this CSS loads */
+        body::before {
+            content: "EMERGENCY CSS LOADED" !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            background: lime !important;
+            color: black !important;
+            padding: 10px !important;
+            z-index: 9999 !important;
+            font-weight: bold !important;
+        }
+    </style>
 </head>
 
 <body <?php body_class(); ?>>
