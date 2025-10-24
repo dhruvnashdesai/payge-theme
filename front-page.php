@@ -17,13 +17,20 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
 
 <main class="landing-page">
     <!-- Harmoni-Style Hero Section -->
-    <section class="hero">
-        <div class="hero-image-container">
+    <section class="hero" style="background: purple !important; min-height: 500px !important; padding: 50px !important;">
+
+        <!-- DEBUG: Hero section HTML is generating -->
+        <div style="background: white; color: black; padding: 20px; margin: 20px; border: 5px solid red;">
+            <h1>DEBUG: HERO SECTION HTML IS WORKING</h1>
+            <p>If you see this, the HTML is generating but CSS might not be applied</p>
+        </div>
+
+        <div class="hero-image-container" style="background: cyan !important; min-height: 300px !important;">
             <div class="hero-content">
                 <div class="hero-text-content">
-                    <h1 class="hero-line-1" data-text="POWERED BY PAYGE"></h1>
-                    <h2 class="hero-line-2" data-text="PILATES INSPIRED STRENGTH MOVEMENT"></h2>
-                    <h3 class="hero-line-3" data-text="EST. 2025"></h3>
+                    <h1 class="hero-line-1" data-text="POWERED BY PAYGE" style="color: black !important; font-size: 48px !important;">POWERED BY PAYGE</h1>
+                    <h2 class="hero-line-2" data-text="PILATES INSPIRED STRENGTH MOVEMENT" style="color: black !important; font-size: 24px !important;">PILATES INSPIRED STRENGTH MOVEMENT</h2>
+                    <h3 class="hero-line-3" data-text="EST. 2025" style="color: black !important; font-size: 18px !important;">EST. 2025</h3>
                 </div>
                 <div class="hero-buttons">
                     <a href="/membership-levels" class="universal-btn">
