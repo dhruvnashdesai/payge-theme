@@ -14,12 +14,25 @@ Requires PHP: 8.0
 /* GitHub deployment test - updated via automated deployment */
 */
 
-/* DEBUG: Force visible hero section */
+/* DEBUG: Force all hero elements visible - override animations */
+.hero,
+.hero-content,
+.hero-text-content,
+.hero-line-1,
+.hero-line-2,
+.hero-line-3,
+.hero-buttons,
+.hero-image-container {
+    opacity: 1 !important;
+    transform: none !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
 .hero {
     width: 100% !important;
     min-height: 500px !important;
     background-color: #ff0000 !important; /* Bright red - impossible to miss */
-    display: block !important;
     position: relative !important;
 }
 
@@ -27,7 +40,6 @@ Requires PHP: 8.0
     width: 100% !important;
     height: 400px !important;
     background-color: #00ff00 !important; /* Bright green */
-    display: block !important;
 }
 
 /* Custom Font */
