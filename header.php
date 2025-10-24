@@ -41,14 +41,30 @@
             text-align: center !important;
         }
 
-        .hero-text-content h1,
-        .hero-text-content h2,
-        .hero-text-content h3 {
-            color: white !important;
-            margin: 10px 0 !important;
+        /* Force all nested elements visible */
+        .hero-content,
+        .hero-text-content,
+        .hero-line-1,
+        .hero-line-2,
+        .hero-line-3,
+        .hero-buttons {
             opacity: 1 !important;
             transform: none !important;
             display: block !important;
+            visibility: visible !important;
+        }
+
+        .hero-text-content {
+            text-align: center !important;
+            margin: 20px 0 !important;
+        }
+
+        .hero-line-1,
+        .hero-line-2,
+        .hero-line-3 {
+            color: white !important;
+            margin: 10px 0 !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
         }
 
         .hero-line-1 { font-size: 48px !important; font-weight: bold !important; }
