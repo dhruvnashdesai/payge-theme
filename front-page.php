@@ -1,5 +1,10 @@
 <?php get_header(); ?>
 
+<!-- DEBUG: Front page template is loading -->
+<div style="background: yellow; padding: 10px; text-align: center; margin: 10px;">
+    DEBUG: Front-page.php template loaded successfully
+</div>
+
 <?php
 // Get customizer values with defaults
 $hero_title = get_theme_mod('payge_hero_title', 'Transform Your Body Through Pilates');
@@ -12,13 +17,28 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
 
 <main class="landing-page">
     <!-- Harmoni-Style Hero Section -->
-    <section class="hero">
-        <div class="hero-image-container">
-            <div class="hero-content">
-                <div class="hero-text-content">
-                    <h1 class="hero-line-1" data-text="POWERED BY PAYGE"></h1>
-                    <h2 class="hero-line-2" data-text="PILATES INSPIRED STRENGTH MOVEMENT"></h2>
-                    <h3 class="hero-line-3" data-text="EST. 2025"></h3>
+    <section class="hero" style="background: purple !important; min-height: 500px !important; padding: 50px !important;">
+
+        <!-- DEBUG: Hero section HTML is generating -->
+        <div style="background: white; color: black; padding: 20px; margin: 20px; border: 5px solid red;">
+            <h1>DEBUG: HERO SECTION HTML IS WORKING</h1>
+            <p>If you see this, the HTML is generating but CSS might not be applied</p>
+        </div>
+
+        <div class="hero-image-container" style="background: cyan !important; min-height: 300px !important;">
+
+            <!-- DEBUG: Show exact HTML structure -->
+            <div style="background: yellow; color: black; padding: 10px; margin: 10px; border: 3px solid black;">
+                <strong>DEBUG HTML STRUCTURE:</strong><br>
+                hero-image-container exists ✓<br>
+                About to render hero-content, hero-text-content, and hero-line elements...
+            </div>
+
+            <div class="hero-content" style="background: orange !important; padding: 20px !important;">
+                <div class="hero-text-content" style="background: red !important; padding: 15px !important;">
+                    <h1 class="hero-line-1" style="background: white !important; color: black !important; padding: 10px !important; font-size: 48px !important; margin: 10px 0 !important;">POWERED BY PAYGE</h1>
+                    <h2 class="hero-line-2" style="background: white !important; color: black !important; padding: 10px !important; font-size: 24px !important; margin: 10px 0 !important;">PILATES INSPIRED STRENGTH MOVEMENT</h2>
+                    <h3 class="hero-line-3" style="background: white !important; color: black !important; padding: 10px !important; font-size: 18px !important; margin: 10px 0 !important;">EST. 2025</h3>
                 </div>
                 <div class="hero-buttons">
                     <a href="/membership-levels" class="universal-btn">
