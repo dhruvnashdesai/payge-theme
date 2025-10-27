@@ -61,7 +61,7 @@
                 <?php if (is_user_logged_in()): ?>
                     <a href="<?php echo function_exists('pmpro_url') ? pmpro_url('account') : home_url('/membership-account/'); ?>" class="membership-account-btn">Account</a>
                 <?php else: ?>
-                    <a href="<?php echo home_url('/login'); ?>" class="membership-account-btn">Log In</a>
+                    <a href="<?php echo home_url('/member-login'); ?>" class="membership-account-btn">Log In</a>
                 <?php endif; ?>
             </div>
         </div>

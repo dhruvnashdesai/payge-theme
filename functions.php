@@ -436,7 +436,7 @@ add_action('wp_logout', 'payge_theme_logout_redirect');
  */
 function payge_theme_login_url_redirect($login_url) {
     if (!is_admin()) {
-        return home_url('/login/');
+        return home_url('/member-login/');
     }
     return $login_url;
 }
@@ -448,7 +448,7 @@ add_filter('login_url', 'payge_theme_login_url_redirect');
 function payge_theme_override_all_login_urls($url, $path, $orig_scheme) {
     // If it's a login URL, redirect to our custom login page
     if (strpos($path, 'wp-login.php') !== false || strpos($url, 'wordpress.com/log-in') !== false) {
-        return home_url('/login/');
+        return home_url('/member-login/');
     }
     return $url;
 }
@@ -460,19 +460,19 @@ add_filter('site_url', 'payge_theme_override_all_login_urls', 10, 3);
 function payge_theme_aggressive_login_redirect() {
     // Block any wp-login.php access
     if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], 'wp-login.php') !== false) {
-        wp_redirect(home_url('/login/'), 301);
+        wp_redirect(home_url('/member-login/'), 301);
         exit;
     }
 
     // Block WordPress.com login redirects
     if (isset($_GET['action']) && $_GET['action'] === 'jetpack-sso') {
-        wp_redirect(home_url('/login/'), 301);
+        wp_redirect(home_url('/member-login/'), 301);
         exit;
     }
 
     // Block any wordpress.com login URLs
     if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], 'wordpress.com/log-in') !== false) {
-        wp_redirect(home_url('/login/'), 301);
+        wp_redirect(home_url('/member-login/'), 301);
         exit;
     }
 }
