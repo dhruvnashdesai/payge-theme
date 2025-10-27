@@ -107,10 +107,9 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
 
                     <!-- Video Container -->
                     <div class="pricing-video-container">
-                        <video autoplay muted loop playsinline class="pricing-video">
+                        <video autoplay muted loop playsinline class="pricing-video animate-in" preload="auto">
                             <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/filler-vid.mp4" type="video/mp4">
-                            <!-- Fallback image -->
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pricing-fallback.jpg" alt="Pricing video">
+                            Your browser does not support the video tag.
                         </video>
                     </div>
 
