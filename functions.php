@@ -105,6 +105,18 @@ function payge_theme_scripts() {
     // Enqueue theme stylesheet
     wp_enqueue_style('payge-theme-style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
 
+    // Add custom font CSS with correct absolute path
+    $font_css = "
+        @font-face {
+            font-family: 'TAN AEGEAN';
+            src: url('" . get_template_directory_uri() . "/assets/fonts/TAN-AEGEAN-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    ";
+    wp_add_inline_style('payge-theme-style', $font_css);
+
     // Enqueue custom CSS for front page and video library
     if (is_front_page()) {
         wp_enqueue_style('payge-theme-front-page', get_template_directory_uri() . '/css/front-page.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
