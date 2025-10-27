@@ -26,23 +26,7 @@ get_header();
 
             <!-- PMPro Login Form -->
             <div class="login-content">
-                <?php
-                // Use PMPro's built-in login shortcode
-                if (function_exists('pmpro_login_forms_handler')) {
-                    echo do_shortcode('[pmpro_login show_menu="false" show_logout_link="false"]');
-                } else {
-                    // Fallback to WordPress login form if PMPro isn't available
-                    wp_login_form(array(
-                        'redirect' => home_url('/library/'),
-                        'form_id' => 'loginform',
-                        'label_username' => 'Email or Username',
-                        'label_password' => 'Password',
-                        'label_remember' => 'Remember Me',
-                        'label_log_in' => 'Log In',
-                        'remember' => true
-                    ));
-                }
-                ?>
+                <?php echo do_shortcode('[pmpro_login show_menu="false" show_logout_link="false"]'); ?>
 
                 <div class="login-footer">
                     Don't have an account?

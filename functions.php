@@ -432,16 +432,15 @@ function payge_theme_logout_redirect() {
 add_action('wp_logout', 'payge_theme_logout_redirect');
 
 /**
- * Custom Login Redirect to PMPro login page
+ * Custom Login Redirect to /login page
  */
-function payge_theme_login_url_redirect($login_url, $redirect, $force_reauth) {
+function payge_theme_login_url_redirect($login_url) {
     if (!is_admin()) {
-        // Always return our custom login page URL
         return home_url('/login/');
     }
     return $login_url;
 }
-add_filter('login_url', 'payge_theme_login_url_redirect', 10, 3);
+add_filter('login_url', 'payge_theme_login_url_redirect');
 
 /**
  * Force all login URLs to use PMPro login page
@@ -456,44 +455,28 @@ function payge_theme_override_all_login_urls($url, $path, $orig_scheme) {
 add_filter('site_url', 'payge_theme_override_all_login_urls', 10, 3);
 
 /**
- * Redirect wp_login_url() calls to our custom login page
+ * Aggressive login redirect prevention - runs very early
  */
-function payge_theme_custom_login_url($login_url, $redirect) {
-    return home_url('/login/');
-}
-add_filter('wp_login_url', 'payge_theme_custom_login_url', 10, 2);
-
-/**
- * Prevent all wp-login.php access and redirect to custom login
- */
-function payge_theme_block_wp_login() {
-    global $pagenow;
-
-    if ($pagenow == 'wp-login.php' && !is_admin() && !current_user_can('administrator')) {
-        wp_redirect(home_url('/login/'));
+function payge_theme_aggressive_login_redirect() {
+    // Block any wp-login.php access
+    if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], 'wp-login.php') !== false) {
+        wp_redirect(home_url('/login/'), 301);
         exit;
     }
-}
-add_action('init', 'payge_theme_block_wp_login');
 
-/**
- * Override WordPress.com login redirects and block wp-login.php access
- */
-function payge_theme_prevent_wpcom_login_redirect() {
-    // Prevent any WordPress.com login redirects
+    // Block WordPress.com login redirects
     if (isset($_GET['action']) && $_GET['action'] === 'jetpack-sso') {
-        wp_redirect(home_url('/login/'));
+        wp_redirect(home_url('/login/'), 301);
         exit;
     }
 
-    // Block direct access to wp-login.php for non-admin users
-    global $pagenow;
-    if ($pagenow === 'wp-login.php' && !current_user_can('administrator') && !isset($_GET['action'])) {
-        wp_redirect(home_url('/login/'));
+    // Block any wordpress.com login URLs
+    if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], 'wordpress.com/log-in') !== false) {
+        wp_redirect(home_url('/login/'), 301);
         exit;
     }
 }
-// Temporarily commented out to debug login page
+add_action('template_redirect', 'payge_theme_aggressive_login_redirect', 1);
 // add_action('init', 'payge_theme_prevent_wpcom_login_redirect');
 
 /**
