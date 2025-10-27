@@ -76,20 +76,16 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
                     <!-- Main Video -->
                     <div class="community-image">
                         <?php
-                        // Get video from WordPress customizer or fallback to placeholder
-                        $community_video_url = get_theme_mod('payge_community_video_url', '');
+                        // Get video from WordPress customizer or use default video
+                        $community_video_url = get_theme_mod('payge_community_video_url', get_template_directory_uri() . '/assets/videos/fillervideo.mp4');
                         $fallback_image = get_template_directory_uri() . '/assets/images/testimonial-1.jpg';
+                        ?>
 
-                        if (!empty($community_video_url)) : ?>
-                            <video autoplay muted loop playsinline poster="<?php echo $fallback_image; ?>">
-                                <source src="<?php echo esc_url($community_video_url); ?>" type="video/mp4">
-                                <!-- Fallback image for unsupported browsers/mobile -->
-                                <img src="<?php echo $fallback_image; ?>" alt="Community member practicing">
-                            </video>
-                        <?php else : ?>
-                            <!-- Fallback image when no video is set -->
+                        <video autoplay muted loop playsinline poster="<?php echo $fallback_image; ?>">
+                            <source src="<?php echo esc_url($community_video_url); ?>" type="video/mp4">
+                            <!-- Fallback image for unsupported browsers/mobile -->
                             <img src="<?php echo $fallback_image; ?>" alt="Community member practicing">
-                        <?php endif; ?>
+                        </video>
                     </div>
 
                     <!-- Secondary Image - Top Right -->
@@ -112,7 +108,7 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
                     <!-- Video Container -->
                     <div class="pricing-video-container">
                         <video autoplay muted loop playsinline class="pricing-video">
-                            <source src="<?php echo get_template_directory_uri(); ?>/assets/images/filler-vid.mp4" type="video/mp4">
+                            <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/filler-vid.mp4" type="video/mp4">
                             <!-- Fallback image -->
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pricing-fallback.jpg" alt="Pricing video">
                         </video>
