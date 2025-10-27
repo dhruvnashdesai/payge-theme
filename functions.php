@@ -431,6 +431,30 @@ function payge_theme_login_url_redirect($login_url) {
 add_filter('login_url', 'payge_theme_login_url_redirect');
 
 /**
+ * Force all login URLs to use PMPro login page
+ */
+function payge_theme_override_all_login_urls($url, $path, $orig_scheme) {
+    // If it's a login URL, redirect to our custom login page
+    if (strpos($path, 'wp-login.php') !== false || strpos($url, 'wordpress.com/log-in') !== false) {
+        return home_url('/login/');
+    }
+    return $url;
+}
+add_filter('site_url', 'payge_theme_override_all_login_urls', 10, 3);
+
+/**
+ * Override WordPress.com login redirects
+ */
+function payge_theme_prevent_wpcom_login_redirect() {
+    // Prevent any WordPress.com login redirects
+    if (isset($_GET['action']) && $_GET['action'] === 'jetpack-sso') {
+        wp_redirect(home_url('/login/'));
+        exit;
+    }
+}
+add_action('init', 'payge_theme_prevent_wpcom_login_redirect');
+
+/**
  * Security enhancements
  */
 // Remove WordPress version from head
