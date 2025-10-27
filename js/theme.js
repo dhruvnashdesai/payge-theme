@@ -210,7 +210,7 @@
                 $button.text(originalText).prop('disabled', false);
 
                 // Show success message or load actual videos
-                console.log('Load more videos functionality ready for Vimeotheque integration');
+                // Ready for Vimeotheque integration
             }, 1000);
         });
 
@@ -218,7 +218,7 @@
         $(document).on('click', '.video-card', function() {
             // This will be enhanced when Vimeotheque is integrated
             var title = $(this).find('.video-title').text();
-            console.log('Video clicked:', title);
+            // Video interaction ready for Vimeotheque integration
 
             // Add loading state
             $(this).addClass('loading');
@@ -308,37 +308,31 @@
 
         // Hero Animation Functions (defined early for use in window.load)
         window.wrapTextInLetters = function(element) {
-            // Get the HTML content to preserve <br> tags
-            const html = element.innerHTML;
+            // Get text from data-text attribute
+            const text = element.getAttribute('data-text');
+            if (!text) return;
 
-            // Split by <br> tags to handle line breaks
-            const lines = html.split('<br>');
-            let wrappedHTML = '';
+            element.innerHTML = '';
 
-            for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
-                const lineText = lines[lineIndex].trim();
+            // Wrap each character
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                const span = document.createElement('span');
+                span.classList.add('hero-letter');
 
-                // Wrap each character in the line
-                for (let i = 0; i < lineText.length; i++) {
-                    const char = lineText[i];
-                    if (char === ' ') {
-                        wrappedHTML += '<span class="letter space"> </span>';
-                    } else {
-                        wrappedHTML += '<span class="letter">' + char + '</span>';
-                    }
+                if (char === ' ') {
+                    span.classList.add('space');
+                    span.innerHTML = '&nbsp;';
+                } else {
+                    span.textContent = char;
                 }
 
-                // Add line break between lines (except after the last line)
-                if (lineIndex < lines.length - 1) {
-                    wrappedHTML += '<br>';
-                }
+                element.appendChild(span);
             }
-
-            element.innerHTML = wrappedHTML;
         };
 
         window.animateLetters = function(element, delay = 0) {
-            const letters = element.querySelectorAll('.letter');
+            const letters = element.querySelectorAll('.hero-letter');
             letters.forEach((letter, index) => {
                 setTimeout(() => {
                     letter.classList.add('animate-in');
@@ -347,7 +341,7 @@
         };
 
         window.animateLettersQuick = function(element, delay = 0) {
-            const letters = element.querySelectorAll('.letter');
+            const letters = element.querySelectorAll('.hero-letter');
             letters.forEach((letter, index) => {
                 setTimeout(() => {
                     letter.classList.add('animate-in');
@@ -444,15 +438,19 @@
 
         // Initialize hero animations on front page
         if ($('body').hasClass('home')) {
-            // Wrap headline and subtitle text in letter spans
-            const headline = document.querySelector('.hero-headline');
-            const subtitle = document.querySelector('.hero-subtitle');
+            // Wrap hero text lines in letter spans
+            const heroLine1 = document.querySelector('.hero-line-1');
+            const heroLine2 = document.querySelector('.hero-line-2');
+            const heroLine3 = document.querySelector('.hero-line-3');
 
-            if (headline) {
-                window.wrapTextInLetters(headline);
+            if (heroLine1) {
+                window.wrapTextInLetters(heroLine1);
             }
-            if (subtitle) {
-                window.wrapTextInLetters(subtitle);
+            if (heroLine2) {
+                window.wrapTextInLetters(heroLine2);
+            }
+            if (heroLine3) {
+                window.wrapTextInLetters(heroLine3);
             }
 
             // Initialize scroll animations
@@ -510,31 +508,32 @@
                 $('.hero-content').addClass('animate-in');
             }, 1200); // Start after image animation
 
-            // Step 3: Animate headline and subtitle letters simultaneously
+            // Step 3: Animate hero text lines
             setTimeout(() => {
-                const headline = document.querySelector('.hero-headline');
-                const subtitle = document.querySelector('.hero-subtitle');
-                if (headline) {
-                    window.animateLetters(headline, 0);
+                const heroLine1 = document.querySelector('.hero-line-1');
+                const heroLine2 = document.querySelector('.hero-line-2');
+                const heroLine3 = document.querySelector('.hero-line-3');
+
+                if (heroLine1) {
+                    window.animateLetters(heroLine1, 0);
                 }
-                if (subtitle) {
-                    window.animateLettersQuick(subtitle, 0);
+                if (heroLine2) {
+                    window.animateLettersQuick(heroLine2, 500);
+                }
+                if (heroLine3) {
+                    window.animateLettersQuick(heroLine3, 800);
                 }
             }, 1400); // Start 200ms after content fade
 
             // Step 5: Animate buttons
             setTimeout(() => {
-                $('.hero-buttons .btn-primary, .hero-buttons .btn-secondary').each(function(index) {
+                $('.hero-buttons .universal-btn, .hero-buttons .btn-primary, .hero-buttons .btn-secondary').each(function(index) {
                     const $btn = $(this);
                     setTimeout(() => {
                         $btn.css({
-                            'opacity': '0',
-                            'transform': 'translateY(20px)'
-                        }).animate({
-                            'opacity': '1'
-                        }, 600).css({
+                            'opacity': '1',
                             'transform': 'translateY(0)',
-                            'transition': 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
+                            'transition': 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
                         });
                     }, index * 200); // Stagger buttons
                 });
