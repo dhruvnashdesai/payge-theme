@@ -113,7 +113,7 @@ $levels = pmpro_getAllLevels(false, true);
             <!-- Additional Info -->
             <div class="membership-info">
                 <p>All memberships include our satisfaction guarantee. Cancel anytime with no hassle.</p>
-                <p>Already a member? <a href="/login">Log in here</a></p>
+                <p>Already a member? <a href="<?php echo function_exists('pmpro_url') ? pmpro_url('login') : home_url('/login/'); ?>">Log in here</a></p>
             </div>
 
         </div>

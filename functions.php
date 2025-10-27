@@ -420,15 +420,19 @@ function payge_theme_logout_redirect() {
 add_action('wp_logout', 'payge_theme_logout_redirect');
 
 /**
- * Custom Login Redirect to /login page
+ * Custom Login Redirect to PMPro login page
  */
-function payge_theme_login_url_redirect($login_url) {
+function payge_theme_login_url_redirect($login_url, $redirect, $force_reauth) {
     if (!is_admin()) {
+        // Use PMPro login URL if available, otherwise fallback to /login/
+        if (function_exists('pmpro_url')) {
+            return pmpro_url('login', '', 'https');
+        }
         return home_url('/login/');
     }
     return $login_url;
 }
-add_filter('login_url', 'payge_theme_login_url_redirect');
+add_filter('login_url', 'payge_theme_login_url_redirect', 10, 3);
 
 /**
  * Force all login URLs to use PMPro login page
@@ -443,7 +447,7 @@ function payge_theme_override_all_login_urls($url, $path, $orig_scheme) {
 add_filter('site_url', 'payge_theme_override_all_login_urls', 10, 3);
 
 /**
- * Override WordPress.com login redirects
+ * Override WordPress.com login redirects and block wp-login.php access
  */
 function payge_theme_prevent_wpcom_login_redirect() {
     // Prevent any WordPress.com login redirects
@@ -451,8 +455,30 @@ function payge_theme_prevent_wpcom_login_redirect() {
         wp_redirect(home_url('/login/'));
         exit;
     }
+
+    // Block direct access to wp-login.php for non-admin users
+    global $pagenow;
+    if ($pagenow === 'wp-login.php' && !current_user_can('administrator') && !isset($_GET['action'])) {
+        wp_redirect(home_url('/login/'));
+        exit;
+    }
 }
 add_action('init', 'payge_theme_prevent_wpcom_login_redirect');
+
+/**
+ * Redirect wp-login.php to PMPro login page
+ */
+function payge_theme_redirect_wp_login() {
+    global $pagenow;
+    if ($pagenow === 'wp-login.php' && $_SERVER['REQUEST_METHOD'] === 'GET' && !isset($_GET['action'])) {
+        if (!current_user_can('administrator')) {
+            $login_url = function_exists('pmpro_url') ? pmpro_url('login') : home_url('/login/');
+            wp_redirect($login_url);
+            exit;
+        }
+    }
+}
+add_action('wp_loaded', 'payge_theme_redirect_wp_login');
 
 /**
  * Security enhancements
