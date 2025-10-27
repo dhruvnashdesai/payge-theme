@@ -18,16 +18,22 @@ Requires PHP: 8.0
 /* Custom Font - TAN AEGEAN */
 @font-face {
     font-family: 'TAN AEGEAN';
-    src: url('./assets/fonts/TAN-AEGEAN-Regular.otf') format('opentype'),
-         url('./assets/fonts/TAN-AEGEAN-Regular.otf') format('truetype');
+    src: url('./assets/fonts/TAN-AEGEAN-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
+/* DEBUG: Test if font loads by adding background color */
+h1, h2, h3, .hero-line-1, .hero-line-2, .hero-line-3, .community-title, .pricing-title, .faq-title {
+    font-family: 'TAN AEGEAN', Georgia, serif !important;
+    background-color: rgba(255, 0, 0, 0.1) !important; /* Light red background to identify TAN AEGEAN elements */
+}
+
 /* Fallback font stack */
 .tan-aegean-font {
     font-family: 'TAN AEGEAN', Georgia, 'Times New Roman', serif;
+    background-color: yellow !important; /* Yellow background for testing */
 }
 
 /* Reset and Base Styles */
