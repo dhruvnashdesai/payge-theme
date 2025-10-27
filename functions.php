@@ -463,7 +463,8 @@ function payge_theme_prevent_wpcom_login_redirect() {
         exit;
     }
 }
-add_action('init', 'payge_theme_prevent_wpcom_login_redirect');
+// Temporarily commented out to debug login page
+// add_action('init', 'payge_theme_prevent_wpcom_login_redirect');
 
 /**
  * Redirect wp-login.php to PMPro login page
@@ -478,7 +479,8 @@ function payge_theme_redirect_wp_login() {
         }
     }
 }
-add_action('wp_loaded', 'payge_theme_redirect_wp_login');
+// Temporarily commented out to debug login page
+// add_action('wp_loaded', 'payge_theme_redirect_wp_login');
 
 /**
  * Security enhancements
