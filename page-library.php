@@ -50,7 +50,19 @@ $is_logged_in = is_user_logged_in();
                 <!-- Title and description on right -->
                 <div class="hero-video-info">
                     <h1>Video Library</h1>
-                    <p>Access our complete collection of Pilates classes designed for all levels of practice.</p>
+                    <p>Sign up to get the full video library</p>
+                    <div class="hero-signup-button">
+                        <a href="<?php echo function_exists('pmpro_url') ? pmpro_url('levels') : '/membership-levels/'; ?>" class="universal-btn">
+                            <span class="universal-btn-circle">
+                                <span class="universal-btn-arrow">
+                                    <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20.7071 8.07136C21.0976 7.68084 21.0976 7.04767 20.7071 6.65715L14.3431 0.293189C13.9526 -0.0973355 13.3195 -0.0973355 12.9289 0.293189C12.5384 0.683713 12.5384 1.31688 12.9289 1.7074L18.5858 7.36426L12.9289 13.0211C12.5384 13.4116 12.5384 14.0448 12.9289 14.4353C13.3195 14.8258 13.9526 14.8258 14.3431 14.4353L20.7071 8.07136ZM0 7.36426L8.74228e-08 8.36426L20 8.36426L20 7.36426L20 6.36426L-8.74228e-08 6.36426L0 7.36426Z" fill="black"/>
+                                    </svg>
+                                </span>
+                            </span>
+                            <span class="universal-btn-text">Sign Up</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
