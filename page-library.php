@@ -20,32 +20,16 @@ $is_logged_in = is_user_logged_in();
             <div class="hero-video-content">
                 <div class="hero-video-wrapper">
                     <?php
-                    // Debug: Check what's happening with post ID 45
+                    // Get the featured video with custom unbranded embed
                     $featured_video = get_post(45);
 
-                    echo '<div style="background: lightblue; padding: 10px; margin: 10px 0; font-size: 12px;">';
-                    echo '<strong>DEBUG:</strong><br>';
-
-                    if ($featured_video) {
-                        echo 'Post found - ID: ' . $featured_video->ID . '<br>';
-                        echo 'Post type: ' . $featured_video->post_type . '<br>';
-                        echo 'Post status: ' . $featured_video->post_status . '<br>';
-                        echo 'Post title: ' . $featured_video->post_title . '<br>';
-                    } else {
-                        echo 'No post found with ID 45<br>';
-                    }
-
-                    // Check what the shortcode produces
-                    echo 'Shortcode output: ';
-                    $shortcode_output = do_shortcode('[cvm_video id="45"]');
-                    echo 'Length: ' . strlen($shortcode_output) . ' characters<br>';
-                    echo '</div>';
-
                     if ($featured_video && $featured_video->post_type === 'vimeo-video' && $featured_video->post_status === 'publish') {
-                        // Display the actual Vimeo video using Vimeotheque shortcode
+                        // Display unbranded Vimeo video
                         echo '<div class="hero-video-embed">';
-                        echo '<p>Attempting to display video...</p>';
-                        echo do_shortcode('[cvm_video id="45"]');
+
+                        // Use Vimeotheque shortcode with custom parameters to remove branding
+                        echo do_shortcode('[cvm_video id="45" title="0" byline="0" portrait="0" color="878175"]');
+
                         echo '</div>';
                     } else {
                         // Fallback placeholder if video not found
@@ -54,8 +38,7 @@ $is_logged_in = is_user_logged_in();
                             <div class="video-placeholder-content">
                                 <div class="play-icon">▶</div>
                                 <h3>Featured Class</h3>
-                                <p>Preview video coming soon</p>
-                                <p style="color: red;">Post check failed</p>
+                                <p>Preview video loading...</p>
                             </div>
                         </div>
                         <?php
