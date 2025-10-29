@@ -10,6 +10,51 @@
     // Document ready
     $(document).ready(function() {
 
+        // Force all login links to use our custom login page
+        function interceptLoginLinks() {
+            // Intercept all login-related links
+            $('a[href*="wp-login.php"], a[href*="wordpress.com/log-in"], a[href*="jetpack-sso"]').each(function() {
+                $(this).attr('href', '/login/');
+            });
+
+            // Also check for any dynamic login links
+            $(document).on('click', 'a[href*="wp-login.php"], a[href*="wordpress.com/log-in"], a[href*="jetpack-sso"]', function(e) {
+                e.preventDefault();
+                window.location.href = '/login/';
+                return false;
+            });
+        }
+
+        // Run immediately and periodically to catch dynamic content
+        interceptLoginLinks();
+        setInterval(interceptLoginLinks, 1000);
+
+        // Prevent any redirects to WordPress.com login
+        function preventWordPressComRedirects() {
+            // Monitor for location changes to WordPress.com
+            if (window.location.href.indexOf('wordpress.com/log-in') !== -1) {
+                window.location.href = '/login/';
+                return;
+            }
+
+            // Override any window.location changes to WordPress.com
+            var originalLocation = window.location;
+            Object.defineProperty(window, 'location', {
+                get: function() {
+                    return originalLocation;
+                },
+                set: function(value) {
+                    if (typeof value === 'string' && value.indexOf('wordpress.com') !== -1) {
+                        originalLocation.href = '/login/';
+                    } else {
+                        originalLocation.href = value;
+                    }
+                }
+            });
+        }
+
+        preventWordPressComRedirects();
+
         // Harmoni-style header scroll effect
         $(window).on('scroll', function() {
             var scrollTop = $(window).scrollTop();
