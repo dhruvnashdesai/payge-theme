@@ -471,35 +471,25 @@ function payge_theme_disable_jetpack_sso_redirect() {
 add_action('init', 'payge_theme_disable_jetpack_sso_redirect', 1);
 
 /**
- * Aggressive login redirect prevention - runs very early
+ * Safer login redirect prevention - TEMPORARILY SIMPLIFIED
  */
-function payge_theme_aggressive_login_redirect() {
-    // Block any wp-login.php access
-    if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], 'wp-login.php') !== false) {
-        wp_redirect(home_url('/login/'), 301);
-        exit;
-    }
+function payge_theme_safer_login_redirect() {
+    // Only redirect if not already on login page and not admin
+    if (!is_admin() && !is_page('login')) {
+        // Block wp-login.php access only
+        if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], 'wp-login.php') !== false) {
+            wp_redirect(home_url('/login/'), 301);
+            exit;
+        }
 
-    // Block WordPress.com login redirects
-    if (isset($_GET['action']) && $_GET['action'] === 'jetpack-sso') {
-        wp_redirect(home_url('/login/'), 301);
-        exit;
-    }
-
-    // Block any wordpress.com login URLs
-    if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], 'wordpress.com/log-in') !== false) {
-        wp_redirect(home_url('/login/'), 301);
-        exit;
-    }
-
-    // Block Jetpack SSO redirects
-    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'wordpress.com') !== false) {
-        wp_redirect(home_url('/login/'), 301);
-        exit;
+        // Block WordPress.com login redirects
+        if (isset($_GET['action']) && $_GET['action'] === 'jetpack-sso') {
+            wp_redirect(home_url('/login/'), 301);
+            exit;
+        }
     }
 }
-add_action('template_redirect', 'payge_theme_aggressive_login_redirect', 1);
-add_action('wp_loaded', 'payge_theme_aggressive_login_redirect', 1);
+add_action('template_redirect', 'payge_theme_safer_login_redirect', 1);
 
 /**
  * Override WordPress login URL completely
@@ -536,15 +526,11 @@ add_action('login_form', 'payge_theme_remove_jetpack_sso', 1);
 add_action('wp_login_form', 'payge_theme_remove_jetpack_sso', 1);
 
 /**
- * Disable Jetpack SSO completely for login redirects
+ * Disable Jetpack SSO completely for login redirects - SAFER VERSION
  */
 function payge_theme_disable_jetpack_sso_completely() {
-    // Remove all Jetpack SSO hooks
-    if (class_exists('Jetpack_SSO')) {
-        remove_all_filters('login_url');
-        remove_all_filters('wp_login_url');
-        remove_all_actions('login_init');
-
+    // Only proceed if not on admin pages and Jetpack exists
+    if (!is_admin() && class_exists('Jetpack_SSO')) {
         // Override Jetpack's login URL filter
         add_filter('jetpack_sso_bypass_login_forward_wpcom', '__return_true', 999);
         add_filter('jetpack_remove_login_form', '__return_true', 999);
@@ -558,22 +544,22 @@ function payge_theme_disable_jetpack_sso_completely() {
 add_action('plugins_loaded', 'payge_theme_disable_jetpack_sso_completely', 999);
 
 /**
- * Very early login URL override - before plugins load
+ * Safer login URL override - only for specific cases
  */
-function payge_theme_very_early_login_override() {
-    if (!is_admin() && !current_user_can('administrator')) {
-        // Override any login URL generation
-        add_filter('login_url', function() { return home_url('/login/'); }, 999);
-        add_filter('wp_login_url', function() { return home_url('/login/'); }, 999);
-        add_filter('site_url', function($url, $path) {
-            if (strpos($path, 'wp-login.php') !== false) {
-                return home_url('/login/');
-            }
-            return $url;
-        }, 999, 2);
+function payge_theme_safer_login_override() {
+    // Only override if not admin and not already on login page
+    if (!is_admin() && !is_page('login') && !current_user_can('administrator')) {
+        // Override specific login URL functions
+        add_filter('login_url', function($url) {
+            return home_url('/login/');
+        }, 100);
+
+        add_filter('wp_login_url', function($url) {
+            return home_url('/login/');
+        }, 100);
     }
 }
-add_action('muplugins_loaded', 'payge_theme_very_early_login_override');
+add_action('init', 'payge_theme_safer_login_override');
 
 /**
  * Security enhancements
