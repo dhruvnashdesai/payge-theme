@@ -6,19 +6,10 @@
  * @package Payge_Theme
  */
 
-// Error reporting for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 // Check if user is already logged in
 if (is_user_logged_in()) {
     wp_redirect(home_url('/library/'));
     exit;
-}
-
-// Check if PMPro is active
-if (!function_exists('pmpro_url')) {
-    echo '<div style="padding: 20px; background: #ffcccc; color: #cc0000; margin: 20px;">Error: Paid Memberships Pro plugin is not active. Please activate the plugin to use the login functionality.</div>';
 }
 
 get_header();

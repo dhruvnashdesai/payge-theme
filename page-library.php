@@ -55,7 +55,7 @@ $is_logged_in = is_user_logged_in();
                                     <a href="<?php echo function_exists('pmpro_url') ? pmpro_url('levels') : '/membership-levels/'; ?>" class="btn btn-primary">Choose Your Plan</a>
                                 <?php else : ?>
                                     <a href="<?php echo function_exists('pmpro_url') ? pmpro_url('levels') : '/membership-levels/'; ?>" class="btn btn-primary">Subscribe Now</a>
-                                    <a href="<?php echo home_url('/member-login'); ?>" class="btn btn-secondary" onclick="window.location.href='<?php echo home_url('/member-login'); ?>'; return false;">Already a Member? Log In</a>
+                                    <a href="<?php echo home_url('/login/'); ?>" class="btn btn-secondary">Already a Member? Log In</a>
                                 <?php endif; ?>
                             </div>
                         </div>
