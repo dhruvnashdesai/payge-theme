@@ -78,10 +78,6 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
                         </video>
                     </div>
 
-                    <!-- Secondary Image - Top Right -->
-                    <div class="community-secondary-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pic1.png" alt="Pilates practice">
-                    </div>
                 </div>
             </div>
         </div>
