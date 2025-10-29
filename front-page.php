@@ -46,8 +46,7 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
 
                     <!-- Community Description -->
                     <div class="community-description-container">
-                        <p class="community-description-single">POWERED was created with the intention of growing a strong and supportive community. These classes are a fusion of sculpt-style training with Pilates-inspired movements, designed to build strength, flexibility, and coordination—all while keeping you deeply connected to your body.</p>
-                        <p class="community-description-single">Every session is crafted to help you get out of your head and into your body, focusing on the deep mind-body connection. I believe everyone deserves the chance to move their body—anytime, anywhere. POWERED offers something for every body and every level—meeting you where you are at and building you up from there!</p>
+                        <p class="community-description-single"><strong>POWERED</strong> was created with the intention of growing a strong and supportive community. These classes are a fusion of sculpt-style training with Pilates-inspired movements, designed to build <strong>strength, flexibility, and coordination</strong>—all while keeping you deeply connected to your body. Every session is crafted to help you get <strong>out of your head and into your body</strong>, focusing on the deep <strong>mind-body connection</strong>. I believe everyone deserves the chance to move their body—<strong>anytime, anywhere</strong>. POWERED offers something for <strong>every body and every level</strong>— meeting you where you are at and building you up from there!</p>
                     </div>
 
                     <a href="/membership-levels" class="community-btn">
