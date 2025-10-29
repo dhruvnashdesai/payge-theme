@@ -94,7 +94,7 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
                     <!-- Video Container -->
                     <div class="pricing-video-container">
                         <video autoplay muted loop playsinline class="pricing-video" preload="auto" style="opacity: 1 !important; transform: scale(1) !important; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
-                            <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/filler-vid.mp4" type="video/mp4">
+                            <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/landscapevid.mp4" type="video/mp4">
                             <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: red; font-weight: bold; z-index: 10;">VIDEO NOT LOADING: <?php echo get_template_directory_uri(); ?>/assets/videos/filler-vid.mp4</p>
                         </video>
                     </div>
