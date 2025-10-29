@@ -21,7 +21,7 @@
     height: calc(120vh - 100px); /* Extended height - goes beyond viewport */
     min-height: 800px;
     background-color: #6c7c7c; /* Fallback color if image doesn't load */
-    background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('../assets/images/payge-hero.png');
+    background-image: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('../assets/images/paygeheroimage.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
