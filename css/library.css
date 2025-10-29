@@ -8,7 +8,7 @@
 
 .hero-video-content {
     display: grid;
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 50% 50%;
     gap: 3rem;
     align-items: center;
 }
@@ -41,39 +41,52 @@
     color: #4a4a4a;
     line-height: 1.6;
     margin: 0 0 1.5rem 0;
+    margin-left: 0.2rem;
 }
 
 .hero-signup-button {
     margin-top: 1.5rem;
 }
 
-/* Universal Button Styles */
+/* Universal Button Component - Matches Front Page */
 .universal-btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+    background-color: white;
+    color: #131313;
     text-decoration: none;
-    color: #1a1a1a;
     font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: 1rem;
     font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 0.9rem;
+    border-radius: 50px;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    z-index: 1;
 }
 
 .universal-btn:hover {
-    transform: translateX(8px);
+    transform: scale(0.95);
+    color: #131313;
 }
 
 .universal-btn-circle {
-    width: 50px;
-    height: 50px;
-    border: 2px solid #1a1a1a;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: #f0e7d7;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3;
 }
 
 .universal-btn-circle::before {
@@ -81,42 +94,42 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 0;
-    height: 0;
-    background-color: #1a1a1a;
+    width: 40px;
+    height: 40px;
+    background-color: #f0e7d7;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
 }
 
 .universal-btn:hover .universal-btn-circle::before {
+    transform: translate(-50%, -50%) scale(10);
+}
+
+.universal-btn-arrow {
+    width: 16px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+}
+
+.universal-btn-arrow svg {
     width: 100%;
     height: 100%;
 }
 
-.universal-btn-arrow {
-    position: relative;
-    z-index: 2;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.universal-btn-arrow svg {
-    width: 21px;
-    height: 15px;
-}
-
 .universal-btn-arrow svg path {
-    transition: fill 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.universal-btn:hover .universal-btn-arrow svg path {
-    fill: white;
+    fill: #131313;
 }
 
 .universal-btn-text {
-    font-size: 1rem;
     font-weight: 500;
+    color: #131313;
+    z-index: 4;
+    position: relative;
 }
 
 /* Mobile responsive */
