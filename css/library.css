@@ -178,6 +178,7 @@
 .video-grid-section {
     padding: 4rem 0;
     position: relative;
+    background-color: #ecede7;
 }
 
 .video-grid-section h2 {
@@ -306,8 +307,8 @@
     width: 100vw;
     height: max(100%, 80vh);
     background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     z-index: 10;
     margin-left: calc(-50vw + 50%);
 }
@@ -329,8 +330,8 @@
     color: #f0e7d7;
     padding: 3rem 2rem;
     border-radius: 12px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .paywall-cta h3 {
