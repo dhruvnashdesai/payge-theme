@@ -20,52 +20,26 @@ $is_logged_in = is_user_logged_in();
             <div class="hero-video-content">
                 <div class="hero-video-wrapper">
                     <?php
-                    // Get the specific featured/preview video
-                    $featured_video_args = array(
-                        'post_type' => 'vimeo-video',
-                        'posts_per_page' => 1,
-                        'post_status' => 'publish',
-                        'p' => 1131704532, // Your specific video post ID
-                    );
+                    // Get the specific featured/preview video (WordPress post ID 45)
+                    $featured_video = get_post(45);
 
-                    $featured_video = new WP_Query($featured_video_args);
-
-                    if ($featured_video->have_posts()) :
-                        while ($featured_video->have_posts()) : $featured_video->the_post();
-                            // Get Vimeotheque video data
-                            if (function_exists('cvm_get_video_post')) {
-                                $video_post = cvm_get_video_post(get_the_ID());
-                                $video_id = $video_post ? $video_post->video_id : '';
-
-                                if ($video_id) {
-                                    // Display the actual Vimeo video
-                                    echo '<div class="hero-video-embed">';
-                                    echo do_shortcode('[cvm_video id="' . get_the_ID() . '"]');
-                                    echo '</div>';
-                                } else {
-                                    // Fallback if video data not found
-                                    echo '<div class="hero-video-placeholder">';
-                                    echo '<div class="video-placeholder-content">';
-                                    echo '<div class="play-icon">▶</div>';
-                                    echo '<h3>' . get_the_title() . '</h3>';
-                                    echo '<p>' . get_the_excerpt() . '</p>';
-                                    echo '</div></div>';
-                                }
-                            }
-                        endwhile;
-                        wp_reset_postdata();
-                    else :
-                        // Original placeholder if no video found
+                    if ($featured_video && $featured_video->post_type === 'vimeo-video' && $featured_video->post_status === 'publish') {
+                        // Display the actual Vimeo video using Vimeotheque shortcode
+                        echo '<div class="hero-video-embed">';
+                        echo do_shortcode('[cvm_video id="45"]');
+                        echo '</div>';
+                    } else {
+                        // Fallback placeholder if video not found
                         ?>
                         <div class="hero-video-placeholder">
                             <div class="video-placeholder-content">
                                 <div class="play-icon">▶</div>
                                 <h3>Featured Class</h3>
-                                <p>Morning Flow - Full Body Pilates</p>
+                                <p>Preview video coming soon</p>
                             </div>
                         </div>
                         <?php
-                    endif;
+                    }
                     ?>
                 </div>
 
