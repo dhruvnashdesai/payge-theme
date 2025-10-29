@@ -42,7 +42,7 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
             <div class="community-layout">
                 <!-- Left Side Content -->
                 <div class="community-content">
-                    <h2 class="community-title">Where strength meets <em>mobility</em></h2>
+                    <h2 class="community-title">Movement for the Mind & Body</h2>
 
                     <!-- Community Navigation Buttons -->
                     <div class="community-nav">
