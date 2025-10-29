@@ -29,12 +29,7 @@
         // interceptLoginLinks();
         // setInterval(interceptLoginLinks, 1000);
 
-        // Simple login link interceptor - safer version
-        $(document).on('click', 'a[href*="wordpress.com/log-in"]', function(e) {
-            e.preventDefault();
-            window.location.href = '/login/';
-            return false;
-        });
+        // JavaScript login interceptors removed - letting PMPro handle login natively
 
         // Harmoni-style header scroll effect
         $(window).on('scroll', function() {

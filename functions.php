@@ -431,17 +431,7 @@ function payge_theme_logout_redirect() {
 }
 add_action('wp_logout', 'payge_theme_logout_redirect');
 
-/**
- * Simple login URL override - no complex redirects
- */
-function payge_theme_simple_login_url($login_url) {
-    if (!is_admin()) {
-        return home_url('/login/');
-    }
-    return $login_url;
-}
-add_filter('login_url', 'payge_theme_simple_login_url');
-add_filter('wp_login_url', 'payge_theme_simple_login_url');
+// Login URL override functions removed - letting PMPro handle login URLs natively
 
 /**
  * Security enhancements
