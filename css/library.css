@@ -8,8 +8,8 @@
 
 .hero-video-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 45% 55%;
+    gap: 3rem;
     align-items: center;
 }
 
@@ -28,11 +28,12 @@
 
 .hero-video-info h1 {
     font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #1a1a1a;
     margin: 0 0 1rem 0;
     font-weight: normal;
     line-height: 1.1;
+    white-space: nowrap;
 }
 
 .hero-video-info p {
