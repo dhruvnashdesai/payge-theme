@@ -44,19 +44,10 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
                 <div class="community-content">
                     <h2 class="community-title">Movement for the Mind & Body</h2>
 
-                    <!-- Community Navigation Buttons -->
-                    <div class="community-nav">
-                        <button class="nav-button active" data-content="1">1</button>
-                        <button class="nav-button" data-content="2">2</button>
-                        <button class="nav-button" data-content="3">3</button>
-                        <button class="nav-button" data-content="4">4</button>
-                    </div>
-
+                    <!-- Community Description -->
                     <div class="community-description-container">
-                        <p class="community-description active" data-content="1">Founded with a passion for creating a welcoming space where everyone can connect, grow, and thrive, we've become a vibrant community of individuals dedicated to improving their body, mind, and spirit.</p>
-                        <p class="community-description" data-content="2">Through expert instruction and personalized attention, we guide you on a transformative journey that strengthens not just your body, but your confidence and mental clarity as well.</p>
-                        <p class="community-description" data-content="3">Our comprehensive approach combines traditional Pilates principles with modern techniques, ensuring every session challenges you while respecting your individual pace and goals.</p>
-                        <p class="community-description" data-content="4">Join a supportive community where beginners feel welcomed and advanced practitioners continue to grow, all within our beautifully designed studio space.</p>
+                        <p class="community-description-single">POWERED was created with the intention of growing a strong and supportive community. These classes are a fusion of sculpt-style training with Pilates-inspired movements, designed to build strength, flexibility, and coordination—all while keeping you deeply connected to your body.</p>
+                        <p class="community-description-single">Every session is crafted to help you get out of your head and into your body, focusing on the deep mind-body connection. I believe everyone deserves the chance to move their body—anytime, anywhere. POWERED offers something for every body and every level—meeting you where you are at and building you up from there!</p>
                     </div>
 
                     <a href="/membership-levels" class="community-btn">
