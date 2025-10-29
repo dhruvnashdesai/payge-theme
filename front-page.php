@@ -67,7 +67,7 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
                     <div class="community-image">
                         <?php
                         // Get video from WordPress customizer or use default video
-                        $community_video_url = get_theme_mod('payge_community_video_url', get_template_directory_uri() . '/assets/videos/fillervideo.mp4');
+                        $community_video_url = get_theme_mod('payge_community_video_url', get_template_directory_uri() . '/assets/videos/section2vid.mp4');
                         $fallback_image = get_template_directory_uri() . '/assets/images/testimonial-1.jpg';
                         ?>
 
