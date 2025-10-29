@@ -17,39 +17,38 @@ $is_logged_in = is_user_logged_in();
     <!-- Hero Video Section - Visible to All -->
     <section class="hero-video-section">
         <div class="container">
-            <div class="hero-video-content">
-                <div class="hero-video-wrapper">
-                    <?php
-                    // Get the featured video with custom unbranded embed
-                    $featured_video = get_post(45);
+            <!-- Title above video -->
+            <div class="hero-video-header">
+                <h1>Video Library</h1>
+            </div>
 
-                    if ($featured_video && $featured_video->post_type === 'vimeo-video' && $featured_video->post_status === 'publish') {
-                        // Display unbranded Vimeo video
-                        echo '<div class="hero-video-embed">';
+            <!-- Video embed -->
+            <div class="hero-video-wrapper">
+                <?php
+                // Get the featured video with custom unbranded embed
+                $featured_video = get_post(45);
 
-                        // Use Vimeotheque shortcode with custom parameters to remove branding
-                        echo do_shortcode('[cvm_video id="45" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
+                if ($featured_video && $featured_video->post_type === 'vimeo-video' && $featured_video->post_status === 'publish') {
+                    // Display unbranded Vimeo video
+                    echo '<div class="hero-video-embed">';
 
-                        echo '</div>';
-                    } else {
-                        // Fallback placeholder if video not found
-                        ?>
-                        <div class="hero-video-placeholder">
-                            <div class="video-placeholder-content">
-                                <div class="play-icon">▶</div>
-                                <h3>Featured Class</h3>
-                                <p>Preview video loading...</p>
-                            </div>
-                        </div>
-                        <?php
-                    }
+                    // Use Vimeotheque shortcode with custom parameters to remove branding
+                    echo do_shortcode('[cvm_video id="45" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
+
+                    echo '</div>';
+                } else {
+                    // Fallback placeholder if video not found
                     ?>
-                </div>
-
-                <div class="hero-video-info">
-                    <h1>Video Library</h1>
-                    <p>Access our complete collection of Pilates classes. From beginner-friendly sessions to advanced workouts, find the perfect class for your practice.</p>
-                </div>
+                    <div class="hero-video-placeholder">
+                        <div class="video-placeholder-content">
+                            <div class="play-icon">▶</div>
+                            <h3>Featured Class</h3>
+                            <p>Preview video loading...</p>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </section>
