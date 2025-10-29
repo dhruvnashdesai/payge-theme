@@ -28,7 +28,7 @@ $is_logged_in = is_user_logged_in();
                         echo '<div class="hero-video-embed">';
 
                         // Use Vimeotheque shortcode with custom parameters to remove branding
-                        echo do_shortcode('[cvm_video id="45" title="0" byline="0" portrait="0" color="878175"]');
+                        echo do_shortcode('[cvm_video id="45" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
 
                         echo '</div>';
                     } else {
