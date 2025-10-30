@@ -144,7 +144,7 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
         <div class="container">
             <div class="faq-header">
                 <h2 class="faq-title">Frequently Asked Questions</h2>
-                <p class="faq-subtitle">Everything you need to know about our Pilates classes</p>
+                <p class="faq-subtitle">Everything you need to know about POWERED classes</p>
             </div>
 
             <div class="faq-list">
