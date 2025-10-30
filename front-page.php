@@ -89,7 +89,7 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
             <div class="pricing-layout">
                 <!-- Left Side Content -->
                 <div class="pricing-content">
-                    <h2 class="pricing-title">Pricing for the girls</h2>
+                    <h2 class="pricing-title">Pricing</h2>
 
                     <!-- Video Container -->
                     <div class="pricing-video-container">

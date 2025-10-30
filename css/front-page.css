@@ -570,7 +570,7 @@
 
 .pricing-title {
     font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
     font-weight: normal;
     color: #131313;
     margin: 2rem 0 1rem 0;
