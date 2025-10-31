@@ -6,8 +6,18 @@ $hero_title = get_theme_mod('payge_hero_title', 'Transform Your Body Through Pil
 $hero_subtitle = get_theme_mod('payge_hero_subtitle', 'Discover strength, flexibility, and mindfulness in our premium studio');
 $hero_button_text = get_theme_mod('payge_hero_button_text', 'Start Your Journey');
 $hero_button_url = get_theme_mod('payge_hero_button_url', '#');
-$monthly_price = get_theme_mod('payge_monthly_price', '29');
-$annual_price = get_theme_mod('payge_annual_price', '290');
+
+// Get PMPro level data
+$pmpro_levels = function_exists('pmpro_getAllLevels') ? pmpro_getAllLevels() : array();
+$monthly_level = null;
+
+// Find the first level (assuming monthly membership)
+if (!empty($pmpro_levels)) {
+    $monthly_level = array_values($pmpro_levels)[0];
+}
+
+$monthly_price = $monthly_level ? number_format($monthly_level->initial_payment, 2) : '29.00';
+$monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
 ?>
 
 <main class="landing-page">
@@ -121,13 +131,11 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
                                 <path d="M12 2L15 9L22 9L17 14L19 21L12 17L5 21L7 14L2 9L9 9Z"/>
                             </svg>
                         </div>
-                        <h3 class="card-title">Monthly Access</h3>
+                        <h3 class="card-title"><?php echo esc_html($monthly_title); ?></h3>
                         <div class="card-price">
-                            <span class="price-original">$<?php echo esc_html($monthly_price); ?></span>
-                            <span class="price-amount">$27.99</span>
-                            <span class="price-period">first 3 months</span>
+                            <span class="price-amount">$<?php echo esc_html($monthly_price); ?></span>
+                            <span class="price-period">per month</span>
                         </div>
-                        <div class="founder-badge">Founder Pricing</div>
                         <div class="card-content-wrapper">
                             <p class="card-description">Perfect for trying our classes before committing. Ideal for unpredictable schedules.</p>
                         </div>
