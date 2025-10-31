@@ -11,9 +11,14 @@ $hero_button_url = get_theme_mod('payge_hero_button_url', '#');
 $pmpro_levels = function_exists('pmpro_getAllLevels') ? pmpro_getAllLevels() : array();
 $monthly_level = null;
 
+// Debug: Check if we have levels
+echo '<!-- Debug: PMPro function exists: ' . (function_exists('pmpro_getAllLevels') ? 'yes' : 'no') . ' -->';
+echo '<!-- Debug: Number of levels: ' . count($pmpro_levels) . ' -->';
+
 // Find the first level (assuming monthly membership)
 if (!empty($pmpro_levels)) {
     $monthly_level = array_values($pmpro_levels)[0];
+    echo '<!-- Debug: Level found: ' . $monthly_level->name . ' Price: ' . $monthly_level->initial_payment . ' -->';
 }
 
 $monthly_price = $monthly_level ? number_format($monthly_level->initial_payment, 2) : '29.00';
