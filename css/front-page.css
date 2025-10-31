@@ -1552,7 +1552,7 @@
 
     .pricing-layout {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1rem;
         max-width: 100%;
         width: 100%;
         overflow: hidden;
