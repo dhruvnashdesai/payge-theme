@@ -1609,27 +1609,27 @@
 
 /* FAQ Section */
 .faq-section {
-    padding: 6rem 0;
+    padding: 4rem 0;
     background-color: #ecede7;
 }
 
 .faq-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
 }
 
 .faq-title {
     font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
     font-weight: normal;
     color: #131313;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.8rem 0;
     line-height: 1.2;
 }
 
 .faq-subtitle {
     font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #666;
     margin: 0;
     line-height: 1.5;
@@ -1659,7 +1659,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 1.2rem 1.8rem;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -1670,7 +1670,7 @@
 
 .faq-question-text {
     font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #131313;
     font-weight: normal;
 }

@@ -159,7 +159,7 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span class="faq-question-text">What should I bring to my first class?</span>
+                        <span class="faq-question-text">What is POWERED?</span>
                         <div class="faq-toggle">
                             <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M20.7071 8.07136C21.0976 7.68084 21.0976 7.04767 20.7071 6.65715L14.3431 0.293189C13.9526 -0.0973355 13.3195 -0.0973355 12.9289 0.293189C12.5384 0.683713 12.5384 1.31688 12.9289 1.7074L18.5858 7.36426L12.9289 13.0211C12.5384 13.4116 12.5384 14.0448 12.9289 14.4353C13.3195 14.8258 13.9526 14.8258 14.3431 14.4353L20.7071 8.07136ZM0 7.36426L8.74228e-08 8.36426L20 8.36426L20 7.36426L20 6.36426L-8.74228e-08 6.36426L0 7.36426Z" fill="black"/>
@@ -167,13 +167,13 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p>Just bring a water bottle and wear comfortable workout clothes. We provide all the mats and equipment you'll need for class.</p>
+                        <p>An online platform created with the goal to give you access to fun workouts anywhere and anytime. These classes are a fusion of sculpt-style training with Pilates-inspired movements, designed to build strength, flexibility, and coordination—all while keeping you deeply connected to your body.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span class="faq-question-text">Are classes suitable for beginners?</span>
+                        <span class="faq-question-text">Will there be classes for beginners?</span>
                         <div class="faq-toggle">
                             <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M20.7071 8.07136C21.0976 7.68084 21.0976 7.04767 20.7071 6.65715L14.3431 0.293189C13.9526 -0.0973355 13.3195 -0.0973355 12.9289 0.293189C12.5384 0.683713 12.5384 1.31688 12.9289 1.7074L18.5858 7.36426L12.9289 13.0211C12.5384 13.4116 12.5384 14.0448 12.9289 14.4353C13.3195 14.8258 13.9526 14.8258 14.3431 14.4353L20.7071 8.07136ZM0 7.36426L8.74228e-08 8.36426L20 8.36426L20 7.36426L20 6.36426L-8.74228e-08 6.36426L0 7.36426Z" fill="black"/>
@@ -181,13 +181,13 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely! Our classes are designed to accommodate all fitness levels. We offer modifications for every exercise to ensure everyone feels comfortable and challenged.</p>
+                        <p>Yes! POWERED offers classes for all levels—beginner, intermediate, and advanced. Workouts range from 10 to 50 minutes, so you can choose what fits your schedule and experience level.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span class="faq-question-text">How often should I attend classes?</span>
+                        <span class="faq-question-text">What equipment do I need?</span>
                         <div class="faq-toggle">
                             <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M20.7071 8.07136C21.0976 7.68084 21.0976 7.04767 20.7071 6.65715L14.3431 0.293189C13.9526 -0.0973355 13.3195 -0.0973355 12.9289 0.293189C12.5384 0.683713 12.5384 1.31688 12.9289 1.7074L18.5858 7.36426L12.9289 13.0211C12.5384 13.4116 12.5384 14.0448 12.9289 14.4353C13.3195 14.8258 13.9526 14.8258 14.3431 14.4353L20.7071 8.07136ZM0 7.36426L8.74228e-08 8.36426L20 8.36426L20 7.36426L20 6.36426L-8.74228e-08 6.36426L0 7.36426Z" fill="black"/>
@@ -195,13 +195,13 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p>We recommend 2-3 classes per week for optimal results. However, even one class per week can provide significant benefits for your strength, flexibility, and overall well-being.</p>
+                        <p>Many classes will require no equipment at all, making it easy to join from anywhere. For those workouts that do use props, you might find yourself using some of the following: a set of weights, ankle weights, yoga blocks, a Pilates ball, resistance bands, or sliders.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span class="faq-question-text">Can I cancel my membership anytime?</span>
+                        <span class="faq-question-text">What certifications does Payge have?</span>
                         <div class="faq-toggle">
                             <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M20.7071 8.07136C21.0976 7.68084 21.0976 7.04767 20.7071 6.65715L14.3431 0.293189C13.9526 -0.0973355 13.3195 -0.0973355 12.9289 0.293189C12.5384 0.683713 12.5384 1.31688 12.9289 1.7074L18.5858 7.36426L12.9289 13.0211C12.5384 13.4116 12.5384 14.0448 12.9289 14.4353C13.3195 14.8258 13.9526 14.8258 14.3431 14.4353L20.7071 8.07136ZM0 7.36426L8.74228e-08 8.36426L20 8.36426L20 7.36426L20 6.36426L-8.74228e-08 6.36426L0 7.36426Z" fill="black"/>
@@ -209,98 +209,11 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, you have complete flexibility with your membership. You can cancel anytime with 30 days notice, and we offer the option to pause your membership if needed.</p>
+                        <p>I earned my mat Pilates certification through STOTT Pilates by Merrithew. This training inspired me to create the sculpt-style classes I now teach, blending strength and mindful movement.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Testimonials Section - Harmoni Style -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/test.png" alt="Testimonial">
-                    </div>
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"Joining these Pilates classes has been life-changing. I feel more energized every day."</p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Sarah, Pilates Enthusiast</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/test.png" alt="Testimonial">
-                    </div>
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"Joining these yoga classes has been life-changing. I feel more energized every day."</p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Sarah, Yoga Enthusiast</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/test.png" alt="Testimonial">
-                    </div>
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"The instructors are amazing and the flexibility I've gained is incredible."</p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Mike, Fitness Enthusiast</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/test.png" alt="Testimonial">
-                    </div>
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"Best decision I ever made for my health and wellness journey."</p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Emma, Wellness Coach</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/test.png" alt="Testimonial">
-                    </div>
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"The community here is so supportive and welcoming to all levels."</p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Lisa, Community Member</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/test.png" alt="Testimonial">
-                    </div>
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"I've never felt stronger or more confident in my body than I do now."</p>
-                        <div class="testimonial-author">
-                            <span class="author-name">Alex, Regular Member</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Navigation -->
-            <div class="testimonials-navigation">
-                <button class="nav-btn prev-btn" aria-label="Previous testimonials">‹</button>
-                <button class="nav-btn next-btn" aria-label="Next testimonials">›</button>
-            </div>
-        </div>
-    </section>
-</main>
-
 
 <?php get_footer(); ?>
