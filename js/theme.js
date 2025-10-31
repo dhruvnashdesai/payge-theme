@@ -46,7 +46,8 @@
         // Mobile menu toggle
         $('.menu-toggle').on('click', function() {
             $(this).toggleClass('active');
-            $('.primary-menu').toggleClass('active');
+            $('#primary-menu, .nav-menu').toggleClass('active');
+            $('.auth-navigation').toggleClass('active');
             $('body').toggleClass('menu-open');
         });
 
