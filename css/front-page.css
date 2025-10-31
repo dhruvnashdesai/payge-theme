@@ -1468,17 +1468,17 @@
     }
 
     .hero {
-        min-height: 70vh;
-        height: 70vh;
+        min-height: 55vh;
+        height: 55vh;
     }
 
     .hero-image-container {
-        height: calc(70vh - 60px);
-        min-height: 500px;
+        height: calc(55vh - 50px);
+        min-height: 400px;
     }
 
     .hero-content {
-        margin-top: 80px;
+        margin-top: 60px;
     }
 }
 
