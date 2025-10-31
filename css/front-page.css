@@ -1470,7 +1470,6 @@
     .hero {
         min-height: 55vh;
         height: 55vh;
-        background-color: #ff0000 !important;
     }
 
     .hero-image-container {
@@ -1480,10 +1479,6 @@
 
     .hero-content {
         margin-top: 60px;
-    }
-
-    .hero-line-1 {
-        color: #ff0000 !important;
     }
 }
 
