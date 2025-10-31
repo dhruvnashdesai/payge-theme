@@ -102,6 +102,29 @@ a:hover {
     padding: 0 3vw;
 }
 
+/* Mobile Header - Apply to all pages */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .auth-navigation {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block !important;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .menu-close {
+        display: block !important;
+    }
+}
+
 /* Grid System */
 .grid {
     display: grid;

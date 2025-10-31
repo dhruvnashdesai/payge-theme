@@ -1676,7 +1676,7 @@
         display: none !important;
     }
 
-    /* Close button */
+    /* Close button - Mobile only */
     .menu-close {
         position: fixed !important;
         top: 2rem !important;
@@ -1693,6 +1693,7 @@
         transition: all 0.3s ease !important;
         width: auto !important;
         height: auto !important;
+        display: block !important;
     }
 
     .nav-menu.active + .menu-close,
@@ -1750,6 +1751,11 @@
     .main-navigation {
         position: relative;
     }
+}
+
+/* Hide mobile close button on desktop */
+.menu-close {
+    display: none !important;
 }
 
 /* Transform Section - Vertical Carousel */
