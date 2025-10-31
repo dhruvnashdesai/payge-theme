@@ -1530,7 +1530,7 @@
     }
 
     .pricing-cards .pricing-card {
-        width: calc(100% - 2rem) !important;
+        width: calc(100% - 1rem) !important;
         max-width: none !important;
         margin: 0 auto;
         padding: 1.5rem !important;
@@ -1540,7 +1540,7 @@
 
     .pricing-section {
         overflow-x: hidden;
-        padding: 4rem 1rem;
+        padding: 4rem 0.5rem;
     }
 
     .pricing-layout {
@@ -1562,7 +1562,7 @@
         justify-content: center;
         width: 100%;
         overflow: hidden;
-        padding: 0 1rem;
+        padding: 0 0.5rem;
     }
 }
 
