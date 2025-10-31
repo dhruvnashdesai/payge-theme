@@ -1520,6 +1520,24 @@
         justify-content: center;
         padding-right: 0;
     }
+
+    .pricing-title {
+        text-align: center;
+    }
+
+    .contact-btn {
+        display: none;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .pricing-cards {
+        justify-content: center;
+    }
 }
 
 /* Transform Section - Vertical Carousel */
