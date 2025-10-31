@@ -1481,6 +1481,10 @@
     .hero-content {
         margin-top: 60px;
     }
+
+    .hero-line-1 {
+        color: #ff0000 !important;
+    }
 }
 
 /* Transform Section - Vertical Carousel */
