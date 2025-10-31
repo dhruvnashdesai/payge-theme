@@ -1485,6 +1485,10 @@
         font-size: clamp(1.8rem, 3.5vw, 2.4rem);
         line-height: 1.2;
     }
+
+    .pricing-video-container {
+        display: none;
+    }
 }
 
 /* Transform Section - Vertical Carousel */
