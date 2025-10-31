@@ -1604,35 +1604,36 @@
         z-index: 99999 !important;
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-20px);
         transition: all 0.3s ease-in-out;
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
         list-style: none !important;
         margin: 0 !important;
         padding: 0 !important;
         pointer-events: none;
-        gap: 0 !important;
     }
 
     .nav-menu.active {
+        display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
-        transform: translateY(0) !important;
         pointer-events: all !important;
     }
 
+    .nav-menu ul,
+    .nav-menu {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     .nav-menu li {
-        display: block !important;
-        margin: 0.5rem 0 !important;
+        list-style-type: none !important;
+        margin: 20px 0 !important;
         padding: 0 !important;
         border: none !important;
-        list-style: none !important;
         width: auto !important;
         float: none !important;
+        text-align: center !important;
     }
 
     .nav-menu li a {
