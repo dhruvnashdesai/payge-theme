@@ -1530,10 +1530,10 @@
     }
 
     .pricing-card {
-        width: 90%;
-        max-width: 240px;
+        width: 85%;
+        max-width: 220px;
         margin: 0 auto;
-        padding: 1rem;
+        padding: 0.8rem;
         box-sizing: border-box;
     }
 
