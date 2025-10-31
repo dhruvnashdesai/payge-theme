@@ -1575,6 +1575,19 @@
     .faq-title {
         line-height: 1.3;
     }
+
+    /* Mobile Header - Hide nav items, show hamburger */
+    .nav-menu {
+        display: none;
+    }
+
+    .auth-navigation {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block !important;
+    }
 }
 
 /* Transform Section - Vertical Carousel */
