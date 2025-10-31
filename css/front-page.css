@@ -1593,7 +1593,7 @@
         padding: 0.5rem;
     }
 
-    /* Full-screen mobile menu overlay */
+    /* Mobile Menu Overlay - Fixed Implementation */
     .nav-menu {
         position: fixed;
         top: 0;
@@ -1601,80 +1601,110 @@
         width: 100vw;
         height: 100vh;
         background: #ecede7;
-        z-index: 9999;
+        z-index: 99999 !important;
         opacity: 0;
-        transform: translateY(-100vh);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        pointer-events: none;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .nav-menu.active {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: all;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: all 0.3s ease-in-out;
         display: flex !important;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        pointer-events: none;
     }
 
-    .nav-menu.active li {
-        display: block;
-        margin: 1rem 0;
-        padding: 0;
-        border: none;
-        list-style: none;
+    .nav-menu.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        pointer-events: all !important;
     }
 
-    .nav-menu.active li a {
-        font-size: 2.5rem;
-        font-weight: 500;
+    .nav-menu li {
+        display: block !important;
+        margin: 0.75rem 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        list-style: none !important;
+        width: auto !important;
+        float: none !important;
+    }
+
+    .nav-menu li a {
+        font-size: 2.2rem !important;
+        font-weight: 500 !important;
         color: #131313 !important;
         text-decoration: none !important;
-        display: inline-block;
-        padding: 1.5rem 2rem;
-        transition: all 0.3s ease;
-        position: relative;
-        z-index: 10002;
+        display: block !important;
+        padding: 1rem 2rem !important;
+        transition: all 0.2s ease !important;
+        position: relative !important;
+        z-index: 100000 !important;
+        width: auto !important;
+        height: auto !important;
+        line-height: 1.2 !important;
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
     }
 
-    .nav-menu.active li a:hover,
-    .nav-menu.active li a:focus,
-    .nav-menu.active li a:active {
+    .nav-menu li a:hover,
+    .nav-menu li a:focus,
+    .nav-menu li a:active,
+    .nav-menu li a:visited {
         color: #666 !important;
-        transform: scale(1.05);
+        transform: scale(1.05) !important;
         text-decoration: none !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Override any WordPress theme menu styles */
+    .nav-menu * {
+        box-sizing: border-box !important;
+    }
+
+    .nav-menu::before,
+    .nav-menu::after,
+    .nav-menu li::before,
+    .nav-menu li::after {
+        display: none !important;
     }
 
     /* Close button */
     .menu-close {
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-        background: none;
-        border: none;
-        font-size: 2rem;
-        color: #131313;
-        cursor: pointer;
-        padding: 0.5rem;
-        z-index: 10001;
-        opacity: 0;
-        transition: all 0.3s ease;
+        position: fixed !important;
+        top: 2rem !important;
+        right: 2rem !important;
+        background: none !important;
+        border: none !important;
+        font-size: 2rem !important;
+        color: #131313 !important;
+        cursor: pointer !important;
+        padding: 0.5rem !important;
+        z-index: 100001 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: all 0.3s ease !important;
+        width: auto !important;
+        height: auto !important;
     }
 
     .nav-menu.active + .menu-close,
     .menu-close.active {
-        opacity: 1;
-        pointer-events: all;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: all !important;
     }
 
     .menu-close:hover {
-        color: #666;
-        transform: scale(1.1);
+        color: #666 !important;
+        transform: scale(1.1) !important;
     }
 
     .auth-navigation {
