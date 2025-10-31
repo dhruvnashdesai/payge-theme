@@ -1593,7 +1593,7 @@
         padding: 0.5rem;
     }
 
-    /* Mobile Menu Overlay - Fixed Implementation */
+    /* Mobile Menu Overlay - Flexbox Implementation */
     .nav-menu {
         position: fixed;
         top: 0;
@@ -1609,31 +1609,28 @@
         margin: 0 !important;
         padding: 0 !important;
         pointer-events: none;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
     }
 
     .nav-menu.active {
-        display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: all !important;
     }
 
-    .nav-menu ul,
-    .nav-menu {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
     .nav-menu li {
         list-style-type: none !important;
-        margin: 20px 0 !important;
+        margin: 1rem 0 !important;
         padding: 0 !important;
         border: none !important;
         width: auto !important;
         float: none !important;
         text-align: center !important;
+        flex-shrink: 0 !important;
     }
 
     .nav-menu li a {
