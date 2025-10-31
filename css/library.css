@@ -578,12 +578,16 @@
 
     .nav-menu li {
         display: block !important;
-        margin: 0.75rem 0 !important;
+        margin: 2rem 0 !important;
         padding: 0 !important;
         border: none !important;
         list-style: none !important;
         width: auto !important;
         float: none !important;
+    }
+
+    .nav-menu li:first-child {
+        margin-top: 1.5rem !important;
     }
 
     .nav-menu li a {
