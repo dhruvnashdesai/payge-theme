@@ -1593,25 +1593,28 @@
         padding: 0.5rem;
     }
 
-    /* Mobile menu dropdown styles */
+    /* Full-screen mobile menu overlay */
     .nav-menu {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 0;
         left: 0;
-        right: 0;
+        width: 100vw;
+        height: 100vh;
         background: #ecede7;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        z-index: 1000;
+        z-index: 9999;
         opacity: 0;
-        transform: translateY(-10px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateY(-100vh);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         pointer-events: none;
-        padding: 2rem 1rem;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
+        padding: 0;
     }
 
     .nav-menu.active {
-        display: block !important;
         opacity: 1;
         transform: translateY(0);
         pointer-events: all;
@@ -1619,64 +1622,63 @@
 
     .nav-menu.active li {
         display: block;
-        margin: 1rem 0;
+        margin: 2rem 0;
         padding: 0;
         border: none;
     }
 
     .nav-menu.active li a {
-        font-size: 1.2rem;
+        font-size: 2rem;
         font-weight: 500;
         color: #131313;
         text-decoration: none;
         display: block;
-        padding: 0.75rem 1rem;
-        border-radius: 8px;
-        transition: all 0.2s ease;
+        padding: 1rem 2rem;
+        transition: all 0.3s ease;
     }
 
     .nav-menu.active li a:hover {
-        background-color: rgba(19, 19, 19, 0.05);
-        color: #131313;
+        color: #666;
+        transform: scale(1.05);
     }
 
     .auth-navigation {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #ecede7;
-        z-index: 999;
+        position: fixed;
+        bottom: 10vh;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10000;
         opacity: 0;
-        transform: translateY(-10px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         pointer-events: none;
-        padding: 1rem;
-        text-align: center;
-        margin-top: -4px;
     }
 
     .auth-navigation.active {
         display: block !important;
         opacity: 1;
-        transform: translateY(0);
         pointer-events: all;
     }
 
     .auth-navigation.active .membership-account-btn {
         display: inline-block;
-        padding: 0.75rem 2rem;
+        padding: 1rem 3rem;
         background-color: #131313;
         color: #ecede7;
-        border-radius: 8px;
+        border-radius: 50px;
         text-decoration: none;
         font-weight: 500;
-        transition: all 0.2s ease;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
     }
 
     .auth-navigation.active .membership-account-btn:hover {
         background-color: #333;
-        transform: translateY(-1px);
+        transform: translateY(-2px);
+    }
+
+    /* Hide body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
     }
 
     /* Position mobile menu container */
