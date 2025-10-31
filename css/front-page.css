@@ -1489,6 +1489,7 @@
     .community-title {
         font-size: clamp(1.8rem, 3.5vw, 2.4rem);
         line-height: 1.2;
+        margin-bottom: 2rem;
     }
 
     .pricing-video-container {
@@ -1501,6 +1502,7 @@
 
     .community-description-mobile {
         display: block;
+        font-size: 1.2rem;
     }
 }
 
