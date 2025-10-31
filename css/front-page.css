@@ -1537,20 +1537,31 @@
         box-sizing: border-box;
     }
 
+    .pricing-section {
+        overflow-x: hidden;
+        padding: 4rem 1rem;
+    }
+
     .pricing-layout {
         grid-template-columns: 1fr;
         gap: 2rem;
         max-width: 100%;
+        width: 100%;
+        overflow: hidden;
     }
 
     .pricing-content {
         padding-right: 0;
         text-align: center;
+        width: 100%;
+        overflow: hidden;
     }
 
     .pricing-cards {
         justify-content: center;
         width: 100%;
+        overflow: hidden;
+        padding: 0 1rem;
     }
 }
 
