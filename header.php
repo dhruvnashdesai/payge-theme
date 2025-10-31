@@ -43,17 +43,11 @@
                     </span>
                     <span class="screen-reader-text"><?php esc_html_e('Primary Menu', 'payge-theme'); ?></span>
                 </button>
-                <?php
-                wp_nav_menu(
-                    array(
-                        'theme_location' => 'primary',
-                        'menu_id'        => 'primary-menu',
-                        'container'      => false,
-                        'menu_class'     => 'nav-menu',
-                        'fallback_cb'    => 'payge_theme_fallback_menu',
-                    )
-                );
-                ?>
+                <!-- Temporary hardcoded menu for debugging -->
+                <ul id="primary-menu" class="nav-menu">
+                    <li><a href="<?php echo esc_url(home_url('/')); ?>">Home</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/library/')); ?>">Library</a></li>
+                </ul>
                 <button class="menu-close" aria-label="Close menu">✕</button>
             </nav>
 

@@ -1651,6 +1651,22 @@
         box-shadow: none !important;
     }
 
+    /* Debug: Make menu visible with background for testing */
+    .nav-menu.active {
+        background: red !important;
+    }
+
+    .nav-menu.active li {
+        background: blue !important;
+        min-height: 50px !important;
+        border: 2px solid yellow !important;
+    }
+
+    .nav-menu.active li a {
+        background: green !important;
+        color: white !important;
+    }
+
     .nav-menu li a:hover,
     .nav-menu li a:focus,
     .nav-menu li a:active,
