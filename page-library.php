@@ -79,8 +79,8 @@ $is_logged_in = is_user_logged_in();
                 <?php if (!$has_membership) : ?>
                     <div class="paywall-overlay-content">
                         <div class="paywall-cta">
-                            <h3>Unlock Your Full Pilates Journey</h3>
-                            <p>Get unlimited access to our complete video library with expert-led classes for all levels.</p>
+                            <h3>Unlock your fitness journey with POWERED</h3>
+                            <p>Get unlimited access to our complete video library with classes for all levels</p>
                             <div class="paywall-buttons">
                                 <?php if ($is_logged_in) : ?>
                                     <a href="<?php echo function_exists('pmpro_url') ? pmpro_url('levels') : '/membership-levels/'; ?>" class="btn btn-primary">Choose Your Plan</a>
