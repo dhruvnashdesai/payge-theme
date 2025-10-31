@@ -48,7 +48,17 @@
             $(this).toggleClass('active');
             $('#primary-menu, .nav-menu').toggleClass('active');
             $('.auth-navigation').toggleClass('active');
+            $('.menu-close').toggleClass('active');
             $('body').toggleClass('menu-open');
+        });
+
+        // Mobile menu close
+        $('.menu-close').on('click', function() {
+            $('.menu-toggle').removeClass('active');
+            $('#primary-menu, .nav-menu').removeClass('active');
+            $('.auth-navigation').removeClass('active');
+            $('.menu-close').removeClass('active');
+            $('body').removeClass('menu-open');
         });
 
         // Video card click handler

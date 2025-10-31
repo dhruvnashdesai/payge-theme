@@ -1622,7 +1622,7 @@
 
     .nav-menu.active li {
         display: block;
-        margin: 2rem 0;
+        margin: 0.5rem 0;
         padding: 0;
         border: none;
     }
@@ -1635,11 +1635,40 @@
         display: block;
         padding: 1rem 2rem;
         transition: all 0.3s ease;
+        pointer-events: all;
+        cursor: pointer;
     }
 
     .nav-menu.active li a:hover {
         color: #666;
         transform: scale(1.05);
+    }
+
+    /* Close button */
+    .menu-close {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #131313;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 10001;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu.active + .menu-close,
+    .menu-close.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .menu-close:hover {
+        color: #666;
+        transform: scale(1.1);
     }
 
     .auth-navigation {

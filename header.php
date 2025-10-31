@@ -54,6 +54,7 @@
                     )
                 );
                 ?>
+                <button class="menu-close" aria-label="Close menu">✕</button>
             </nav>
 
             <!-- Auth Button -->
