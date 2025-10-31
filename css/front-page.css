@@ -1508,7 +1508,7 @@
     }
 
     .community-btn {
-        margin: 0 auto 3rem auto;
+        display: none;
     }
 
     .community-media {
