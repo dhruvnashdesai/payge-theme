@@ -1461,7 +1461,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .section {
         padding: 3vw 0;
         min-height: 50vh;
