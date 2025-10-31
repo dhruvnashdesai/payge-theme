@@ -1758,8 +1758,10 @@
 }
 
 /* Hide mobile close button on desktop */
-.menu-close {
-    display: none !important;
+@media (min-width: 769px) {
+    .menu-close {
+        display: none !important;
+    }
 }
 
 /* Transform Section - Vertical Carousel */
