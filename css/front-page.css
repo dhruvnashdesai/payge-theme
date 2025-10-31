@@ -1614,6 +1614,7 @@
         justify-content: center !important;
         align-items: center !important;
         text-align: center !important;
+        gap: 0.5rem !important;
     }
 
     .nav-menu.active {
@@ -1624,7 +1625,7 @@
 
     .nav-menu li {
         list-style-type: none !important;
-        margin: 1rem 0 !important;
+        margin: 0 !important;
         padding: 0 !important;
         border: none !important;
         width: auto !important;
