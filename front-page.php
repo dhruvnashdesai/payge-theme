@@ -136,6 +136,7 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
                             <span class="price-amount">$<?php echo esc_html($monthly_price); ?></span>
                             <span class="price-period">per month</span>
                         </div>
+                        <div class="founder-badge">Founder Pricing</div>
                         <div class="card-content-wrapper">
                             <p class="card-description">Get access to our full library of online workouts at the founders price</p>
                         </div>
