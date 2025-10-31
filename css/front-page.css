@@ -1529,12 +1529,13 @@
         display: none;
     }
 
-    .pricing-card {
-        width: 85%;
-        max-width: 220px;
+    .pricing-cards .pricing-card {
+        width: 85% !important;
+        max-width: 220px !important;
         margin: 0 auto;
-        padding: 0.8rem;
+        padding: 0.8rem !important;
         box-sizing: border-box;
+        flex-shrink: 1;
     }
 
     .pricing-section {
