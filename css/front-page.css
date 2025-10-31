@@ -1535,8 +1535,20 @@
         margin: 0 auto;
     }
 
+    .pricing-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 100%;
+    }
+
+    .pricing-content {
+        padding-right: 0;
+        text-align: center;
+    }
+
     .pricing-cards {
         justify-content: center;
+        width: 100%;
     }
 }
 
