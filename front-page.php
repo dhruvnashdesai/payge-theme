@@ -11,14 +11,9 @@ $hero_button_url = get_theme_mod('payge_hero_button_url', '#');
 $pmpro_levels = function_exists('pmpro_getAllLevels') ? pmpro_getAllLevels() : array();
 $monthly_level = null;
 
-// Debug: Check if we have levels
-echo '<!-- Debug: PMPro function exists: ' . (function_exists('pmpro_getAllLevels') ? 'yes' : 'no') . ' -->';
-echo '<!-- Debug: Number of levels: ' . count($pmpro_levels) . ' -->';
-
 // Find the first level (assuming monthly membership)
 if (!empty($pmpro_levels)) {
     $monthly_level = array_values($pmpro_levels)[0];
-    echo '<!-- Debug: Level found: ' . $monthly_level->name . ' Price: ' . $monthly_level->initial_payment . ' -->';
 }
 
 $monthly_price = $monthly_level ? number_format($monthly_level->initial_payment, 2) : '29.00';
@@ -142,7 +137,7 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
                             <span class="price-period">per month</span>
                         </div>
                         <div class="card-content-wrapper">
-                            <p class="card-description">Perfect for trying our classes before committing. Ideal for unpredictable schedules.</p>
+                            <p class="card-description">Get access to our full library of online workouts at the founders price</p>
                         </div>
                         <a href="/membership-levels" class="card-btn">Sign Up</a>
                     </div>
