@@ -1,53 +1,23 @@
-/* Custom Login Page Styles */
+/* Clean Single Card Login Design */
 
-.login-page {
-    background-color: #ecede7;
-    min-height: 100vh;
-    padding: 4rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Page wrapper - creates the background and centering */
+.login-page-wrapper,
+.login-page,
+body.login-page,
+body.pmpro-login {
+    background-color: #ecede7 !important;
+    min-height: 100vh !important;
+    padding: 4rem 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
 }
 
-.login-container {
+.login-page-container {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-}
-
-.login-card {
-    background: white;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-}
-
-/* Card Header */
-.login-header {
-    padding: 2rem 2rem 1rem 2rem;
-    text-align: left;
-}
-
-.login-title {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: 1.5rem;
-    color: #1a1a1a;
-    margin: 0 0 0.5rem 0;
-    font-weight: normal;
-}
-
-.login-description {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0;
-    line-height: 1.4;
-}
-
-/* Card Content */
-.login-content {
-    padding: 1rem 2rem 2rem 2rem;
 }
 
 /* Error Messages */
@@ -265,33 +235,20 @@
     }
 }
 
-/* PMPro Login Form Styling */
-/* Apply same styling to PMPro login forms */
+/* Single Clean PMPro Login Card */
 .pmpro_login_wrap,
-.pmpro_login {
-    background-color: #ecede7;
-    min-height: 100vh;
-    padding: 4rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.pmpro_login,
+#pmpro_login {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 600px !important;
 }
 
-.pmpro_login_wrap form,
-.pmpro_login form,
-#pmpro_login_form {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    padding: 2rem;
-    box-sizing: border-box;
-}
-
+/* Hide duplicate titles - only show one clean header */
 .pmpro_login_wrap h2,
 .pmpro_login h2 {
     font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
@@ -311,9 +268,26 @@
     color: #666 !important;
     font-weight: normal !important;
     margin-top: 0.5rem !important;
+    margin-bottom: 2rem !important;
     text-align: left !important;
 }
 
+/* Create the main card around the form */
+.pmpro_login_wrap form,
+.pmpro_login form,
+#pmpro_login_form {
+    background: white !important;
+    border-radius: 12px !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    padding: 2rem !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+}
+
+/* Form field styling */
 .pmpro_login_wrap label,
 .pmpro_login label {
     font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
@@ -322,6 +296,7 @@
     color: #1a1a1a !important;
     display: block !important;
     margin-bottom: 0.5rem !important;
+    margin-top: 1rem !important;
 }
 
 .pmpro_login_wrap input[type="text"],
@@ -339,7 +314,7 @@
     transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
     background-color: white !important;
     box-sizing: border-box !important;
-    margin: 0 0 1.5rem 0 !important;
+    margin: 0 !important;
 }
 
 .pmpro_login_wrap input[type="text"]:focus,
@@ -353,6 +328,7 @@
     box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1) !important;
 }
 
+/* Submit button styling */
 .pmpro_login_wrap input[type="submit"],
 .pmpro_login input[type="submit"],
 .pmpro_btn {
@@ -368,7 +344,7 @@
     letter-spacing: 0.5px !important;
     cursor: pointer !important;
     transition: all 0.2s ease !important;
-    margin-top: 1rem !important;
+    margin-top: 2rem !important;
     margin-bottom: 1rem !important;
     height: auto !important;
     line-height: normal !important;
@@ -381,17 +357,40 @@
     transform: translateY(-1px) !important;
 }
 
-/* Mobile responsive for PMPro forms */
+/* Lost password link styling */
+.pmpro_login_wrap .pmpro_lost_password,
+.pmpro_login .pmpro_lost_password,
+.pmpro_login_wrap a[href*="lost-password"],
+.pmpro_login a[href*="lost-password"] {
+    display: block !important;
+    text-align: center !important;
+    margin-top: 1rem !important;
+    font-size: 0.875rem !important;
+    color: #666 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.pmpro_login_wrap .pmpro_lost_password:hover,
+.pmpro_login .pmpro_lost_password:hover,
+.pmpro_login_wrap a[href*="lost-password"]:hover,
+.pmpro_login a[href*="lost-password"]:hover {
+    color: #1a1a1a !important;
+    text-decoration: underline !important;
+}
+
+/* Mobile responsive */
 @media (max-width: 768px) {
-    .pmpro_login_wrap,
-    .pmpro_login {
-        padding: 2rem 1rem;
+    .login-page-wrapper,
+    .login-page,
+    body.login-page,
+    body.pmpro-login {
+        padding: 2rem 1rem !important;
     }
 
     .pmpro_login_wrap form,
     .pmpro_login form,
     #pmpro_login_form {
-        max-width: 100%;
-        padding: 1.5rem;
+        padding: 1.5rem !important;
     }
 }
