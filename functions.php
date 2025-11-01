@@ -130,13 +130,13 @@ function payge_theme_scripts() {
         wp_enqueue_style('payge-theme-membership-levels', get_template_directory_uri() . '/css/membership-levels.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
     }
 
-    // Load login styles on custom login page AND PMPro login pages
-    if (is_page('login') || is_page_template('page-login.php') ||
-        (function_exists('pmpro_is_login_page') && pmpro_is_login_page()) ||
-        strpos($_SERVER['REQUEST_URI'] ?? '', 'login') !== false ||
-        strpos($_SERVER['REQUEST_URI'] ?? '', 'pmpro') !== false) {
-        wp_enqueue_style('payge-theme-login', get_template_directory_uri() . '/css/login.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
-    }
+    // DISABLED - Load login styles on custom login page AND PMPro login pages
+    // if (is_page('login') || is_page_template('page-login.php') ||
+    //     (function_exists('pmpro_is_login_page') && pmpro_is_login_page()) ||
+    //     strpos($_SERVER['REQUEST_URI'] ?? '', 'login') !== false ||
+    //     strpos($_SERVER['REQUEST_URI'] ?? '', 'pmpro') !== false) {
+    //     wp_enqueue_style('payge-theme-login', get_template_directory_uri() . '/css/login.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
+    // }
 
     // Enqueue PMPro custom styling (check if PMPro is active and load on all pages)
     if (function_exists('pmpro_hasMembershipLevel')) {
@@ -268,181 +268,16 @@ function payge_theme_login_stylesheet() {
 add_action('login_enqueue_scripts', 'payge_theme_login_stylesheet');
 
 /**
- * Customize Login Page
+ * Customize Login Page - DISABLED
  */
-function payge_theme_login_page_customization() {
-    ?>
-    <style type="text/css">
-        /* PMPro Login Page Card Styling */
-        .pmpro_login_wrap,
-        .login #login {
-            width: 600px !important;
-            max-width: 600px !important;
-            padding: 0 !important;
-            background: white !important;
-            border-radius: 12px !important;
-            border: 1px solid #e0e0e0 !important;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
-            overflow: hidden !important;
-            margin: 3rem auto !important;
-        }
-
-        .login #loginform,
-        .pmpro_login_wrap form,
-        .pmpro_login_wrap .pmpro_login_form {
-            background: white !important;
-            border: none !important;
-            box-shadow: none !important;
-            padding: 2rem !important;
-            border-radius: 0 !important;
-            text-align: left !important;
-        }
-
-        .login #loginform h1,
-        .pmpro_login_wrap h2 {
-            font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
-            font-size: 1.5rem !important;
-            color: #1a1a1a !important;
-            margin: 0 0 1.5rem 0 !important;
-            font-weight: normal !important;
-            text-align: left !important;
-        }
-
-        .login #loginform h1 a {
-            display: none !important;
-        }
-
-        .login #loginform h1:before,
-        .pmpro_login_wrap h2:before {
-            content: 'Sign into your account' !important;
-            display: block !important;
-            font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
-            font-size: 1.5rem !important;
-            color: #1a1a1a !important;
-            font-weight: normal !important;
-            text-align: left !important;
-            margin-bottom: 0.5rem !important;
-        }
-
-        .login #loginform h1:after,
-        .pmpro_login_wrap h2:after {
-            content: 'Enter your details below to access your account' !important;
-            display: block !important;
-            font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
-            font-size: 0.9rem !important;
-            color: #666 !important;
-            font-weight: normal !important;
-            margin-top: 0.5rem !important;
-            text-align: left !important;
-        }
-
-        .pmpro_login_wrap h2 {
-            font-size: 0 !important;
-            line-height: 0 !important;
-        }
-
-        .login #loginform .user-user-login-wrap,
-        .login #loginform .user-pass-wrap {
-            margin-bottom: 1.5rem !important;
-        }
-
-        .login #loginform label {
-            font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
-            font-size: 0.875rem !important;
-            font-weight: 500 !important;
-            color: #1a1a1a !important;
-            display: block !important;
-            margin-bottom: 0.5rem !important;
-        }
-
-        .login #loginform input[type="text"],
-        .login #loginform input[type="password"],
-        .pmpro_login_wrap input[type="text"],
-        .pmpro_login_wrap input[type="email"],
-        .pmpro_login_wrap input[type="password"] {
-            width: 100% !important;
-            padding: 0.75rem 1rem !important;
-            border: 2px solid #e0e0e0 !important;
-            border-radius: 6px !important;
-            font-size: 0.9rem !important;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
-            background-color: white !important;
-            box-sizing: border-box !important;
-            font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
-            margin: 0 !important;
-        }
-
-        .login #loginform input[type="text"]:focus,
-        .login #loginform input[type="password"]:focus,
-        .pmpro_login_wrap input[type="text"]:focus,
-        .pmpro_login_wrap input[type="email"]:focus,
-        .pmpro_login_wrap input[type="password"]:focus {
-            outline: none !important;
-            border-color: #1a1a1a !important;
-            box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1) !important;
-        }
-
-        .login #loginform .forgetmenot {
-            display: none !important;
-        }
-
-        .login #loginform #wp-submit,
-        .pmpro_login_wrap input[type="submit"],
-        .pmpro_login_wrap .pmpro_btn {
-            width: 100% !important;
-            background-color: #1a1a1a !important;
-            color: #f0e7d7 !important;
-            border: none !important;
-            padding: 0.75rem 1rem !important;
-            border-radius: 6px !important;
-            font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
-            font-size: 0.9rem !important;
-            text-transform: uppercase !important;
-            letter-spacing: 0.5px !important;
-            cursor: pointer !important;
-            transition: all 0.2s ease !important;
-            margin-top: 1rem !important;
-            margin-bottom: 1rem !important;
-            height: auto !important;
-            line-height: normal !important;
-        }
-
-        .login #loginform #wp-submit:hover,
-        .pmpro_login_wrap input[type="submit"]:hover,
-        .pmpro_login_wrap .pmpro_btn:hover {
-            background-color: #333 !important;
-            transform: translateY(-1px) !important;
-        }
-
-        .login #nav {
-            text-align: left !important;
-            padding: 0 2rem 1rem 2rem !important;
-            margin: 0 !important;
-            font-size: 0.875rem !important;
-            color: #666 !important;
-            background: white !important;
-            border: none !important;
-        }
-
-        .login #nav a {
-            color: #666 !important;
-            text-decoration: none !important;
-            transition: color 0.2s ease !important;
-            font-size: 0.875rem !important;
-        }
-
-        .login #nav a:hover {
-            color: #1a1a1a !important;
-            text-decoration: underline !important;
-        }
-
-        .login #backtoblog {
-            display: none !important;
-        }
-    </style>
-    <?php
-}
-add_action('login_enqueue_scripts', 'payge_theme_login_page_customization');
+// function payge_theme_login_page_customization() {
+//     ?>
+//     <style type="text/css">
+//         /* DISABLED - PMPro Login Page Card Styling */
+//     </style>
+//     <?php
+// }
+// add_action('login_enqueue_scripts', 'payge_theme_login_page_customization');
 
 /**
  * PMPro Logout Redirect Fix
