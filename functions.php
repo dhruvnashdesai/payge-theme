@@ -145,7 +145,23 @@ function payge_theme_scripts() {
     }
 
     // Enqueue custom JavaScript - Skip on PMPro pages to avoid conflicts
-    if (!is_page('membership-checkout') && !is_page('membership-levels') && !is_page('membership-account')) {
+    $is_pmpro_page = false;
+
+    // Check for PMPro pages
+    if (function_exists('pmpro_is_checkout') && pmpro_is_checkout()) {
+        $is_pmpro_page = true;
+    }
+
+    // Check URL for PMPro-related paths
+    $current_url = $_SERVER['REQUEST_URI'] ?? '';
+    if (strpos($current_url, 'membership') !== false ||
+        strpos($current_url, 'checkout') !== false ||
+        strpos($current_url, 'pmpro') !== false ||
+        strpos($current_url, 'levels') !== false) {
+        $is_pmpro_page = true;
+    }
+
+    if (!$is_pmpro_page) {
         wp_enqueue_script('payge-theme-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), wp_get_theme()->get('Version'), true);
     }
 }
@@ -461,12 +477,13 @@ function payge_theme_remove_query_strings($src) {
 add_filter('script_loader_src', 'payge_theme_remove_query_strings', 15, 1);
 add_filter('style_loader_src', 'payge_theme_remove_query_strings', 15, 1);
 
-// Defer parsing of JavaScript
-function payge_theme_defer_parsing_of_js($url) {
-    if (is_admin()) return $url;
-    if (false === strpos($url, '.js')) return $url;
-    if (strpos($url, 'jquery.js')) return $url;
-    return str_replace(' src', ' defer src', $url);
-}
-add_filter('script_loader_tag', 'payge_theme_defer_parsing_of_js', 10);
+// Defer parsing of JavaScript - DISABLED for PMPro compatibility
+// This was causing "JavaScript errors on the page" for PMPro signup forms
+// function payge_theme_defer_parsing_of_js($url) {
+//     if (is_admin()) return $url;
+//     if (false === strpos($url, '.js')) return $url;
+//     if (strpos($url, 'jquery.js')) return $url;
+//     return str_replace(' src', ' defer src', $url);
+// }
+// add_filter('script_loader_tag', 'payge_theme_defer_parsing_of_js', 10);
 
