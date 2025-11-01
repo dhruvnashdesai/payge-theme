@@ -130,13 +130,13 @@ function payge_theme_scripts() {
         wp_enqueue_style('payge-theme-membership-levels', get_template_directory_uri() . '/css/membership-levels.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
     }
 
-    // DISABLED - Load login styles on custom login page AND PMPro login pages
-    // if (is_page('login') || is_page_template('page-login.php') ||
-    //     (function_exists('pmpro_is_login_page') && pmpro_is_login_page()) ||
-    //     strpos($_SERVER['REQUEST_URI'] ?? '', 'login') !== false ||
-    //     strpos($_SERVER['REQUEST_URI'] ?? '', 'pmpro') !== false) {
-    //     wp_enqueue_style('payge-theme-login', get_template_directory_uri() . '/css/login.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
-    // }
+    // Load minimal login styles - just background container
+    if (is_page('login') || is_page_template('page-login.php') ||
+        (function_exists('pmpro_is_login_page') && pmpro_is_login_page()) ||
+        strpos($_SERVER['REQUEST_URI'] ?? '', 'login') !== false ||
+        strpos($_SERVER['REQUEST_URI'] ?? '', 'pmpro') !== false) {
+        wp_enqueue_style('payge-theme-login', get_template_directory_uri() . '/css/login.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
+    }
 
     // Enqueue PMPro custom styling (check if PMPro is active and load on all pages)
     if (function_exists('pmpro_hasMembershipLevel')) {
