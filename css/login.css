@@ -235,22 +235,48 @@ body.pmpro-login {
     }
 }
 
-/* Single Clean PMPro Login Card */
+/* Remove ALL PMPro wrapper styling to eliminate nested cards */
 .pmpro_login_wrap,
 .pmpro_login,
-#pmpro_login {
+#pmpro_login,
+.pmpro_login_wrap div,
+.pmpro_login div,
+.pmpro_login_wrap .pmpro_login_wrap,
+.pmpro_login .pmpro_login,
+div[id*="pmpro"],
+div[class*="pmpro_login"] {
     background: none !important;
+    background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
     margin: 0 !important;
     width: 100% !important;
     max-width: 600px !important;
+    border-radius: 0 !important;
 }
 
-/* Hide duplicate titles - only show one clean header */
+/* Target and neutralize any possible card containers */
+.pmpro_login_wrap *:not(form):not(input):not(label):not(h2):not(a) {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* Completely hide PMPro titles to avoid duplication */
 .pmpro_login_wrap h2,
 .pmpro_login h2 {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Create our own title using the form's ::before pseudo-element */
+.pmpro_login_wrap form::before,
+.pmpro_login form::before,
+#pmpro_login_form::before {
+    content: 'Sign into your account' !important;
+    display: block !important;
     font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
     font-size: 1.5rem !important;
     color: #1a1a1a !important;
@@ -259,8 +285,9 @@ body.pmpro-login {
     text-align: left !important;
 }
 
-.pmpro_login_wrap h2:after,
-.pmpro_login h2:after {
+.pmpro_login_wrap form::after,
+.pmpro_login form::after,
+#pmpro_login_form::after {
     content: 'Enter your details below to access your account' !important;
     display: block !important;
     font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
