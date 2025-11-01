@@ -261,8 +261,9 @@
             }, 500);
         });
 
-        // Form validation for contact forms
-        $('form').on('submit', function(e) {
+        // Form validation for contact forms - DISABLED for PMPro compatibility
+        // Skip PMPro forms to avoid conflicts
+        $('form').not('.pmpro_form, #pmpro_form, [action*="pmpro"], [action*="checkout"], [action*="membership"]').on('submit', function(e) {
             var form = $(this);
             var hasErrors = false;
 

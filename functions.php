@@ -144,8 +144,10 @@ function payge_theme_scripts() {
         wp_enqueue_script('comment-reply');
     }
 
-    // Enqueue custom JavaScript
-    wp_enqueue_script('payge-theme-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), wp_get_theme()->get('Version'), true);
+    // Enqueue custom JavaScript - Skip on PMPro pages to avoid conflicts
+    if (!is_page('membership-checkout') && !is_page('membership-levels') && !is_page('membership-account')) {
+        wp_enqueue_script('payge-theme-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), wp_get_theme()->get('Version'), true);
+    }
 }
 add_action('wp_enqueue_scripts', 'payge_theme_scripts');
 
