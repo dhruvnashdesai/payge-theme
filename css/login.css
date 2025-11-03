@@ -46,4 +46,100 @@ body[class*="login"] {
     .menu-close {
         display: none !important;
     }
+
+    /* Make login form more compact on mobile */
+    .container {
+        padding: 1rem !important;
+        max-width: 100% !important;
+    }
+
+    /* Optimize PMPro login form for mobile */
+    .pmpro_login,
+    .wp-block-pmpro-login,
+    .pmpro_checkout {
+        max-width: 350px !important;
+        margin: 0 auto !important;
+        padding: 1.5rem !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        border-radius: 8px !important;
+        background: white !important;
+    }
+
+    /* Compact form elements */
+    .pmpro_login h2,
+    .wp-block-pmpro-login h2,
+    .pmpro_checkout h2 {
+        font-size: 1.25rem !important;
+        margin-bottom: 0.75rem !important;
+        text-align: center !important;
+    }
+
+    .pmpro_login p,
+    .wp-block-pmpro-login p,
+    .pmpro_checkout p {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.75rem !important;
+        text-align: center !important;
+    }
+
+    /* Compact input fields */
+    .pmpro_login input[type="text"],
+    .pmpro_login input[type="email"],
+    .pmpro_login input[type="password"],
+    .wp-block-pmpro-login input[type="text"],
+    .wp-block-pmpro-login input[type="email"],
+    .wp-block-pmpro-login input[type="password"] {
+        padding: 0.75rem !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Compact submit button */
+    .pmpro_login input[type="submit"],
+    .pmpro_login button,
+    .wp-block-pmpro-login input[type="submit"],
+    .wp-block-pmpro-login button {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.9rem !important;
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+    }
+
+    /* Compact links and additional text */
+    .pmpro_login a,
+    .wp-block-pmpro-login a {
+        font-size: 0.85rem !important;
+        display: block !important;
+        text-align: center !important;
+        margin-top: 1rem !important;
+    }
+}
+
+/* Extra compact for very small screens */
+@media (max-width: 480px) {
+    .pmpro_login,
+    .wp-block-pmpro-login,
+    .pmpro_checkout {
+        max-width: 320px !important;
+        padding: 1.25rem !important;
+        margin: 0.5rem auto !important;
+    }
+
+    .pmpro_login h2,
+    .wp-block-pmpro-login h2,
+    .pmpro_checkout h2 {
+        font-size: 1.1rem !important;
+    }
+
+    .pmpro_login input[type="text"],
+    .pmpro_login input[type="email"],
+    .pmpro_login input[type="password"],
+    .wp-block-pmpro-login input[type="text"],
+    .wp-block-pmpro-login input[type="email"],
+    .wp-block-pmpro-login input[type="password"] {
+        padding: 0.65rem !important;
+        font-size: 0.85rem !important;
+    }
 }
