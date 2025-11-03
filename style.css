@@ -893,12 +893,31 @@ body[class*="membership-levels"] .site-main,
     text-decoration: underline !important;
 }
 
-/* Hide main page title on membership account pages */
+/* PMPro Membership Account Page Customizations - Following PMPro CSS Guidelines */
+
+/* Hide main page title using PMPro body classes */
 body.pmpro_account .entry-title,
 body.pmpro_account h1.entry-title,
+body.pmpro_account .page-title,
+body[class*="pmpro"] .entry-title,
 body[class*="membership-account"] .entry-title,
-body[class*="membership-account"] h1.entry-title {
+body[class*="membership-account"] h1.entry-title,
+.pmpro_account .entry-header .entry-title {
     display: none !important;
+}
+
+/* Update all PMPro account page titles to Helvetica World font */
+body.pmpro_account h1,
+body.pmpro_account h2,
+body.pmpro_account h3,
+body.pmpro_account h4,
+body[class*="pmpro"] h1,
+body[class*="pmpro"] h2,
+body[class*="pmpro"] h3,
+body[class*="membership-account"] h1,
+body[class*="membership-account"] h2,
+body[class*="membership-account"] h3 {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Override any PMPro footer styling on membership account pages */

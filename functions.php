@@ -336,3 +336,25 @@ add_filter('style_loader_src', 'payge_theme_remove_query_strings', 15, 1);
 // }
 // add_filter('script_loader_tag', 'payge_theme_defer_parsing_of_js', 10);
 
+/**
+ * Force theme CSS to load after PMPro CSS - Following PMPro CSS Guidelines
+ * This ensures our custom styles override PMPro's default styles
+ */
+function payge_theme_force_css_priority() {
+    // Only on PMPro account and membership pages
+    if (function_exists('pmpro_is_account_page') &&
+        (pmpro_is_account_page() ||
+         strpos($_SERVER['REQUEST_URI'] ?? '', 'membership-account') !== false)) {
+
+        // Add cache busting to force CSS reload
+        wp_dequeue_style('payge-theme-style');
+        wp_enqueue_style(
+            'payge-theme-style-pmpro',
+            get_stylesheet_uri(),
+            array(),
+            time() . '-' . rand(1000, 9999)
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'payge_theme_force_css_priority', 999);
+
