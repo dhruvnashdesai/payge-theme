@@ -10,6 +10,23 @@
     // Document ready
     $(document).ready(function() {
 
+        // Ensure mobile menu elements are properly hidden on desktop
+        function resetMobileMenuOnDesktop() {
+            if ($(window).width() > 768) {
+                $('.menu-toggle').removeClass('active');
+                $('#primary-menu, .nav-menu').removeClass('active');
+                $('.auth-navigation').removeClass('active');
+                $('.menu-close').removeClass('active');
+                $('body').removeClass('menu-open');
+            }
+        }
+
+        // Run on page load
+        resetMobileMenuOnDesktop();
+
+        // Run on window resize
+        $(window).on('resize', resetMobileMenuOnDesktop);
+
         // TEMPORARILY DISABLED - Force all login links to use our custom login page
         // function interceptLoginLinks() {
         //     // Intercept all login-related links
@@ -43,13 +60,15 @@
             }
         });
 
-        // Mobile menu toggle
+        // Mobile menu toggle - only on mobile screens
         $('.menu-toggle').on('click', function() {
-            $(this).toggleClass('active');
-            $('#primary-menu, .nav-menu').toggleClass('active');
-            $('.auth-navigation').toggleClass('active');
-            $('.menu-close').toggleClass('active');
-            $('body').toggleClass('menu-open');
+            if ($(window).width() <= 768) {
+                $(this).toggleClass('active');
+                $('#primary-menu, .nav-menu').toggleClass('active');
+                $('.auth-navigation').toggleClass('active');
+                $('.menu-close').toggleClass('active');
+                $('body').toggleClass('menu-open');
+            }
         });
 
         // Mobile menu close

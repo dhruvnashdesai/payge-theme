@@ -505,6 +505,7 @@ body.home .logo-image {
     position: relative;
 }
 
+
 .hamburger {
     display: block;
     position: relative;
@@ -565,6 +566,23 @@ body.home .logo-image {
 
 .footer-navigation a:hover {
     color: white;
+}
+
+/* Ensure mobile menu elements are hidden on desktop */
+@media (min-width: 769px) {
+    .menu-close,
+    .menu-close.active {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    .auth-navigation.active {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
 }
 
 /* Entry Content */
