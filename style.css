@@ -997,6 +997,25 @@ body[class*="pmpro"] table td,
     border-bottom: 1px solid #eee !important;
 }
 
+/* Force TAN AEGEAN font for specific homepage and library titles */
+body.home .hero-line-1,
+body.home .hero-line-2,
+body.home .hero-line-3,
+body.home .community-title,
+body.home .pricing-title,
+body.home .faq-title,
+body.front-page-template .hero-line-1,
+body.front-page-template .hero-line-2,
+body.front-page-template .hero-line-3,
+body.front-page-template .community-title,
+body.front-page-template .pricing-title,
+body.front-page-template .faq-title,
+body.library-template .hero-video-info h1,
+body[class*="library"] .hero-video-info h1,
+.video-grid-section h2 {
+    font-family: 'TAN AEGEAN', Georgia, serif !important;
+}
+
 /* Override any PMPro footer styling on membership account pages */
 body.pmpro_page .site-footer,
 body.pmpro_account .site-footer,
