@@ -37,6 +37,27 @@ body[class*="login"] {
     margin: 1.5rem 0;
 }
 
+/* Left-align the login form title */
+.login-page-container .wp-block-pmpro-login h2,
+.login-page-container .pmpro_login h2,
+.login-page-container .pmpro_login .pmpro_login-h2 {
+    text-align: left !important;
+    margin-bottom: 0.5rem;
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* Ensure subheading is also left-aligned */
+.login-page-container .pmpro_login p:first-of-type,
+.login-page-container .pmpro_login .pmpro_login-fields-divider + p {
+    text-align: left !important;
+    margin-bottom: 1.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
     .login-page-container .wp-block-pmpro-login {
