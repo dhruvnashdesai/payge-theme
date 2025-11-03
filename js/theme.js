@@ -27,6 +27,20 @@
         // Run on window resize
         $(window).on('resize', resetMobileMenuOnDesktop);
 
+        // Force left-align login form titles if CSS isn't working
+        if ($('body').hasClass('page-template-page-login') || window.location.href.indexOf('/login') !== -1) {
+            setTimeout(function() {
+                $('.login-page-container h1, .login-page-container h2, .login-page-container h3').css({
+                    'text-align': 'left',
+                    'font-family': '"Helvetica World", Helvetica, Arial, sans-serif'
+                });
+                $('.wp-block-pmpro-login h1, .wp-block-pmpro-login h2, .wp-block-pmpro-login h3').css({
+                    'text-align': 'left',
+                    'font-family': '"Helvetica World", Helvetica, Arial, sans-serif'
+                });
+            }, 100);
+        }
+
         // TEMPORARILY DISABLED - Force all login links to use our custom login page
         // function interceptLoginLinks() {
         //     // Intercept all login-related links

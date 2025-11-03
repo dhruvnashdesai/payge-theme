@@ -38,7 +38,10 @@ body[class*="login"] {
     margin: 1.5rem 0;
 }
 
-/* Left-align the login form title - comprehensive selectors */
+/* AGGRESSIVE title targeting - override PMPro inline styles */
+.login-page-container h1[style*="text-align"],
+.login-page-container h2[style*="text-align"],
+.login-page-container h3[style*="text-align"],
 .login-page-container h1,
 .login-page-container h2,
 .login-page-container h3,
@@ -50,7 +53,10 @@ body[class*="login"] {
 .login-page-container .pmpro_login h3,
 .login-page-container .pmpro_login .pmpro_login-h2,
 body.login-page .pmpro_login h2,
-body.pmpro-login .pmpro_login h2 {
+body.pmpro-login .pmpro_login h2,
+.login-page-container [class*="heading"],
+.login-page-container [class*="title"],
+.login-page-container *:contains("Sign in to your account") {
     text-align: left !important;
     margin-bottom: 0.5rem !important;
     font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
@@ -87,6 +93,20 @@ body.pmpro-login .pmpro_login p {
 .login-page-container .pmpro_login form,
 .login-page-container .pmpro_login div,
 .login-page-container .wp-block-pmpro-login div {
+    text-align: left !important;
+}
+
+/* Nuclear option - override ANY inline text-align styles */
+.login-page-container h1[style],
+.login-page-container h2[style],
+.login-page-container h3[style] {
+    text-align: left !important;
+}
+
+/* Alternative approach: Add specific CSS to override block editor styles */
+.wp-block-pmpro-login h1,
+.wp-block-pmpro-login h2,
+.wp-block-pmpro-login h3 {
     text-align: left !important;
 }
 
