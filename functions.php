@@ -122,7 +122,7 @@ function payge_theme_scripts() {
 
     // Enqueue custom CSS for front page and video library
     if (is_front_page()) {
-        wp_enqueue_style('payge-theme-front-page', get_template_directory_uri() . '/css/front-page.css', array('payge-theme-style'), time());
+        wp_enqueue_style('payge-theme-front-page', get_template_directory_uri() . '/css/front-page.css', array('payge-theme-style'), time() . rand(1, 1000));
     }
 
     if (is_page('library') || is_page_template('page-library.php')) {

@@ -1577,6 +1577,16 @@
     }
 
     /* Mobile Header - Show navigation normally */
+    .site-header {
+        padding: 1rem 0;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
     .nav-menu {
         display: flex;
         flex-direction: row;
@@ -1587,7 +1597,6 @@
     .auth-navigation {
         display: flex;
         justify-content: center;
-        margin-top: 1rem;
     }
 
     /* Mobile navigation styling simplified */
