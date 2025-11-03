@@ -126,7 +126,7 @@ function payge_theme_scripts() {
     }
 
     if (is_page('library') || is_page_template('page-library.php')) {
-        wp_enqueue_style('payge-theme-library', get_template_directory_uri() . '/css/library.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
+        wp_enqueue_style('payge-theme-library', get_template_directory_uri() . '/css/library.css', array('payge-theme-style'), time() . rand(1, 1000));
     }
 
     if (is_page('membership-levels') || is_page_template('page-membership-levels.php')) {
