@@ -806,7 +806,7 @@ body.profile-page-view .pmpro_form h2,
 body.change-password-view .pmpro_form h2 {
     background: #f0e7d7 !important;
     color: #1a1a1a !important;
-    font-family: 'TAN AEGEAN', Arial, sans-serif !important;
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
     font-size: 1.2rem !important;
     margin: 0 !important;
     padding: 1.5rem 2rem !important;
@@ -985,7 +985,7 @@ body.invoice-page h2,
 .pmpro_invoice h2 {
     background-color: #f0e7d7;
     color: #1a1a1a;
-    font-family: 'TAN AEGEAN', Arial, sans-serif;
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
     font-size: 1.5rem;
     margin: 0 0 2rem 0;
     padding: 1.5rem 2rem;
@@ -1072,7 +1072,7 @@ body.pmpro-profile .pmpro_profile_form select {
 
 body.pmpro-profile .pmpro_profile_form label {
     display: block !important;
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
     font-size: 0.9rem !important;
     color: #1a1a1a !important;
     margin-bottom: 0.5rem !important;
@@ -1086,7 +1086,7 @@ body.pmpro-profile .pmpro_profile_form .pmpro_btn-submit {
     border: none !important;
     padding: 1rem 2rem !important;
     border-radius: 6px !important;
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
     font-size: 0.9rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
