@@ -133,6 +133,12 @@ function payge_theme_scripts() {
         wp_enqueue_style('payge-theme-membership-levels', get_template_directory_uri() . '/css/membership-levels.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
     }
 
+    // Enqueue login page CSS
+    if (is_page('login') || is_page_template('page-login.php') ||
+        (function_exists('pmpro_is_login_page') && pmpro_is_login_page())) {
+        wp_enqueue_style('payge-theme-login', get_template_directory_uri() . '/css/login.css', array('payge-theme-style'), time());
+    }
+
     // Ensure header styles load on all pages including login
     if (is_page('login') || is_page_template('page-login.php') ||
         (function_exists('pmpro_is_login_page') && pmpro_is_login_page()) ||
