@@ -15,8 +15,8 @@ if (is_user_logged_in()) {
 get_header();
 ?>
 
-<main class="login-page-wrapper">
-    <div class="login-page-container">
+<main id="primary" class="site-main">
+    <div class="container">
         <?php
         // Simple content display with fallback
         if (have_posts()) {
