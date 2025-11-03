@@ -934,6 +934,36 @@ body[class*="membership-account"] img.avatar,
     display: none !important;
 }
 
+/* Update order history and invoice titles to Helvetica World */
+body.pmpro_account .pmpro_account-invoices h2,
+body.pmpro_account .pmpro_account-invoices h3,
+body[class*="pmpro"] .pmpro_account-invoices h2,
+body[class*="pmpro"] .pmpro_account-invoices h3,
+.pmpro_account-invoices h2,
+.pmpro_account-invoices h3,
+.pmpro_invoices h2,
+.pmpro_invoices h3,
+body.invoice-page h1,
+body.invoice-page h2,
+.pmpro_invoice h1,
+.pmpro_invoice h2 {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
+/* Update date fields and table headers to Helvetica World */
+body.pmpro_account table th,
+body.pmpro_account table td,
+body[class*="pmpro"] table th,
+body[class*="pmpro"] table td,
+.pmpro_account-invoices table th,
+.pmpro_account-invoices table td,
+.pmpro_invoices table th,
+.pmpro_invoices table td,
+.pmpro_invoice table th,
+.pmpro_invoice table td {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
 /* Override any PMPro footer styling on membership account pages */
 body.pmpro_page .site-footer,
 body.pmpro_account .site-footer,
