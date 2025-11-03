@@ -1023,6 +1023,13 @@ body.front-page-template .hero-line-3,
     font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
 }
 
+/* Hide "Your Complete Video Library" title on library page */
+body.library-template .video-grid-section h2,
+body[class*="library"] .video-grid-section h2,
+.video-grid-section h2 {
+    display: none !important;
+}
+
 /* Override any PMPro footer styling on membership account pages */
 body.pmpro_page .site-footer,
 body.pmpro_account .site-footer,
