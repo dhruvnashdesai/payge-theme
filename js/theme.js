@@ -10,22 +10,7 @@
     // Document ready
     $(document).ready(function() {
 
-        // Ensure mobile menu elements are properly hidden on desktop
-        function resetMobileMenuOnDesktop() {
-            if ($(window).width() > 768) {
-                $('.menu-toggle').removeClass('active');
-                $('#primary-menu, .nav-menu').removeClass('active');
-                $('.auth-navigation').removeClass('active');
-                $('.menu-close').removeClass('active');
-                $('body').removeClass('menu-open');
-            }
-        }
-
-        // Run on page load
-        resetMobileMenuOnDesktop();
-
-        // Run on window resize
-        $(window).on('resize', resetMobileMenuOnDesktop);
+        // Mobile menu removed - no longer needed
 
 
         // TEMPORARILY DISABLED - Force all login links to use our custom login page
@@ -61,25 +46,7 @@
             }
         });
 
-        // Mobile menu toggle - only on mobile screens
-        $('.menu-toggle').on('click', function() {
-            if ($(window).width() <= 768) {
-                $(this).toggleClass('active');
-                $('#primary-menu, .nav-menu').toggleClass('active');
-                $('.auth-navigation').toggleClass('active');
-                $('.menu-close').toggleClass('active');
-                $('body').toggleClass('menu-open');
-            }
-        });
-
-        // Mobile menu close
-        $('.menu-close').on('click', function() {
-            $('.menu-toggle').removeClass('active');
-            $('#primary-menu, .nav-menu').removeClass('active');
-            $('.auth-navigation').removeClass('active');
-            $('.menu-close').removeClass('active');
-            $('body').removeClass('menu-open');
-        });
+        // Mobile menu JavaScript removed - no longer needed
 
         // Video card click handler
         $('.video-card').on('click', function() {

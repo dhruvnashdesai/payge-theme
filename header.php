@@ -35,14 +35,6 @@
 
             <!-- Navigation Menu -->
             <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                    <span class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
-                    <span class="screen-reader-text"><?php esc_html_e('Primary Menu', 'payge-theme'); ?></span>
-                </button>
                 <?php
                 wp_nav_menu(
                     array(
@@ -54,7 +46,6 @@
                     )
                 );
                 ?>
-                <button class="menu-close" aria-label="Close menu">✕</button>
             </nav>
 
             <!-- Auth Button -->

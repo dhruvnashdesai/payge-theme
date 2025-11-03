@@ -99,26 +99,42 @@ a:hover {
     padding: 0 3vw;
 }
 
-/* Mobile Header - Apply to all pages */
+/* Mobile Header - Show navigation normally */
 @media (max-width: 768px) {
+    .site-header {
+        padding: 1rem 0;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
     .nav-menu {
-        display: none;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .nav-menu li {
+        margin: 0;
+    }
+
+    .nav-menu a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0;
     }
 
     .auth-navigation {
-        display: none;
+        display: flex;
+        justify-content: center;
     }
 
-    .menu-toggle {
-        display: block !important;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0.5rem;
-    }
-
+    .menu-toggle,
     .menu-close {
-        display: block !important;
+        display: none !important;
     }
 }
 
@@ -494,37 +510,7 @@ body.home .logo-image {
     border-color: rgba(240, 231, 215, 0.5);
 }
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    position: relative;
-}
-
-
-.hamburger {
-    display: block;
-    position: relative;
-}
-
-.hamburger span {
-    display: block;
-    height: 2px;
-    width: 20px;
-    background: #1a1a1a;
-    margin: 4px 0;
-    transition: 0.3s;
-}
-
-/* Front page mobile menu button */
-.front-page-template .hamburger span {
-    background: #f0e7d7;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
+/* Hamburger menu removed - no longer needed */
 
 /* Footer Styles */
 .site-footer {
