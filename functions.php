@@ -136,7 +136,7 @@ function payge_theme_scripts() {
     // Enqueue login page CSS
     if (is_page('login') || is_page_template('page-login.php') ||
         (function_exists('pmpro_is_login_page') && pmpro_is_login_page())) {
-        wp_enqueue_style('payge-theme-login', get_template_directory_uri() . '/css/login.css', array('payge-theme-style'), time() . rand(5000, 9999));
+        wp_enqueue_style('payge-theme-login', get_template_directory_uri() . '/css/login.css', array('payge-theme-style'), time() . rand(8000, 9999));
     }
 
     // Ensure header styles load on all pages including login
