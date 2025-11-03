@@ -341,24 +341,26 @@ add_filter('style_loader_src', 'payge_theme_remove_query_strings', 15, 1);
  * This ensures our custom styles override PMPro's default styles
  */
 function payge_theme_force_css_priority() {
-    // Check for PMPro pages including login, account, and membership pages
+    // Check for SPECIFIC PMPro pages only - avoid homepage and library
     $is_pmpro_page = false;
+    $current_url = $_SERVER['REQUEST_URI'] ?? '';
 
     // Check for account pages
     if (function_exists('pmpro_is_account_page') && pmpro_is_account_page()) {
         $is_pmpro_page = true;
     }
 
-    // Check for login pages
-    if (function_exists('pmpro_is_login_page') && pmpro_is_login_page()) {
+    // Check for login pages - but NOT homepage or library
+    if (function_exists('pmpro_is_login_page') && pmpro_is_login_page() &&
+        !is_front_page() && !is_page('library')) {
         $is_pmpro_page = true;
     }
 
-    // Check URL for PMPro-related paths including login
-    $current_url = $_SERVER['REQUEST_URI'] ?? '';
-    if (strpos($current_url, 'membership-account') !== false ||
-        strpos($current_url, '/login') !== false ||
-        strpos($current_url, 'pmpro') !== false) {
+    // Only target specific membership URLs, exclude homepage and library
+    if ((strpos($current_url, 'membership-account') !== false ||
+         strpos($current_url, '/login') !== false) &&
+        strpos($current_url, '/library') === false &&
+        $current_url !== '/' && !is_front_page()) {
         $is_pmpro_page = true;
     }
 
