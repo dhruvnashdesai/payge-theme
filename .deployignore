@@ -1,0 +1,9 @@
+# Exclude from deployment
+.git/
+.gitignore
+.gitattributes
+.deployignore
+.DS_Store
+debug-*.php
+node_modules/
+*.log

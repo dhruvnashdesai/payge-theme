@@ -1,0 +1,10 @@
+# Exclude development and build files from deployment
+.git/ export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+.DS_Store export-ignore
+debug-login.php export-ignore
+debug-pmpro.php export-ignore
+
+# Keep videos but note they're large files
+# Consider hosting on CDN in future for better performance
