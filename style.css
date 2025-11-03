@@ -893,6 +893,14 @@ body[class*="membership-levels"] .site-main,
     text-decoration: underline !important;
 }
 
+/* Hide main page title on membership account pages */
+body.pmpro_account .entry-title,
+body.pmpro_account h1.entry-title,
+body[class*="membership-account"] .entry-title,
+body[class*="membership-account"] h1.entry-title {
+    display: none !important;
+}
+
 /* Override any PMPro footer styling on membership account pages */
 body.pmpro_page .site-footer,
 body.pmpro_account .site-footer,
