@@ -920,6 +920,20 @@ body[class*="membership-account"] h3 {
     font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
 }
 
+/* Hide profile picture/avatar on PMPro account pages */
+body.pmpro_account .avatar,
+body.pmpro_account img.avatar,
+body[class*="pmpro"] .avatar,
+body[class*="pmpro"] img.avatar,
+body[class*="membership-account"] .avatar,
+body[class*="membership-account"] img.avatar,
+.pmpro_account .avatar,
+.pmpro_account img.avatar,
+.pmpro_account-profile .avatar,
+.pmpro_account-membership .avatar {
+    display: none !important;
+}
+
 /* Override any PMPro footer styling on membership account pages */
 body.pmpro_page .site-footer,
 body.pmpro_account .site-footer,
