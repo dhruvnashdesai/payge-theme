@@ -12,11 +12,6 @@
 get_header();
 ?>
 
-<!-- DEBUG: INDEX.PHP template is loading instead of front-page.php -->
-<div style="background: orange; color: white; padding: 20px; text-align: center; font-size: 24px; font-weight: bold;">
-    DEBUG: INDEX.PHP TEMPLATE IS LOADING - This means front-page.php is not being used
-</div>
-
 <?php ?>
 
 <main id="primary" class="site-main">
