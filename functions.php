@@ -341,11 +341,28 @@ add_filter('style_loader_src', 'payge_theme_remove_query_strings', 15, 1);
  * This ensures our custom styles override PMPro's default styles
  */
 function payge_theme_force_css_priority() {
-    // Only on PMPro account and membership pages
-    if (function_exists('pmpro_is_account_page') &&
-        (pmpro_is_account_page() ||
-         strpos($_SERVER['REQUEST_URI'] ?? '', 'membership-account') !== false)) {
+    // Check for PMPro pages including login, account, and membership pages
+    $is_pmpro_page = false;
 
+    // Check for account pages
+    if (function_exists('pmpro_is_account_page') && pmpro_is_account_page()) {
+        $is_pmpro_page = true;
+    }
+
+    // Check for login pages
+    if (function_exists('pmpro_is_login_page') && pmpro_is_login_page()) {
+        $is_pmpro_page = true;
+    }
+
+    // Check URL for PMPro-related paths including login
+    $current_url = $_SERVER['REQUEST_URI'] ?? '';
+    if (strpos($current_url, 'membership-account') !== false ||
+        strpos($current_url, '/login') !== false ||
+        strpos($current_url, 'pmpro') !== false) {
+        $is_pmpro_page = true;
+    }
+
+    if ($is_pmpro_page) {
         // Add cache busting to force CSS reload
         wp_dequeue_style('payge-theme-style');
         wp_enqueue_style(

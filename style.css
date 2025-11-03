@@ -964,43 +964,37 @@ body[class*="pmpro"] table td,
     font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
 }
 
-/* PMPro Login Page Customizations - Reduce Card Height & Left-Align Title */
+/* PMPro Login Page Customizations - Using Correct Selectors */
 
 /* Reduce login card height and adjust padding */
-body.pmpro-login .pmpro_login,
-body.pmpro-login .pmpro_login_wrap,
-body.pmpro-login .wp-block-pmpro-login,
-.pmpro_login,
-.wp-block-pmpro-login {
+.pmpro_login_wrap {
     padding: 1.5rem 2rem !important;
     min-height: auto !important;
     height: auto !important;
     max-height: none !important;
 }
 
-/* Left-align login title instead of center */
-body.pmpro-login .pmpro_login h1,
-body.pmpro-login .pmpro_login h2,
-body.pmpro-login .pmpro_login_wrap h1,
-body.pmpro-login .pmpro_login_wrap h2,
-body.pmpro-login .wp-block-pmpro-login h1,
-body.pmpro-login .wp-block-pmpro-login h2,
-.pmpro_login h1,
-.pmpro_login h2,
-.wp-block-pmpro-login h1,
-.wp-block-pmpro-login h2 {
+/* Left-align login title instead of center - Override existing center alignment */
+.pmpro_login_wrap h2,
+.pmpro_login_wrap .login-title,
+.pmpro_login_wrap .pmpro_login_header {
     text-align: left !important;
     margin-bottom: 0.75rem !important;
     padding-left: 0 !important;
+    padding-bottom: 0.5rem !important;
 }
 
-/* Reduce spacing between form elements */
-body.pmpro-login .pmpro_login .pmpro_checkout-field,
-body.pmpro-login .pmpro_login_wrap .pmpro_checkout-field,
-body.pmpro-login .wp-block-pmpro-login .pmpro_checkout-field,
-.pmpro_login .pmpro_checkout-field,
-.wp-block-pmpro-login .pmpro_checkout-field {
+/* Left-align login description too */
+.pmpro_login_wrap .login-description {
+    text-align: left !important;
     margin-bottom: 1rem !important;
+}
+
+/* Reduce header spacing */
+.pmpro_login_wrap .pmpro_login_header {
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid #eee !important;
 }
 
 /* Override any PMPro footer styling on membership account pages */
