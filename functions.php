@@ -56,6 +56,9 @@ function payge_theme_setup() {
     // Add support for editor styles.
     add_theme_support('editor-styles');
 
+    // Add wide and full alignment support for blocks
+    add_theme_support('align-wide');
+
     // Enqueue editor styles.
     add_editor_style('editor-style.css');
 
