@@ -201,30 +201,24 @@ add_filter('body_class', 'payge_theme_body_classes');
 /**
  * Custom template tags for this theme.
  */
-// Temporarily disabled to test JSON error
-// require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/template-tags.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-// Temporarily disabled to test JSON error
-// require get_template_directory() . '/inc/template-functions.php';
+require get_template_directory() . '/inc/template-functions.php';
 
 /**
  * Customizer additions.
  */
-// Temporarily disabled to test JSON error
-// require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Custom post types and fields for video library
  */
-// Temporarily disabled to test JSON error
-// require get_template_directory() . '/inc/custom-post-types.php';
+require get_template_directory() . '/inc/custom-post-types.php';
 
 
-// TESTING - Bottom half temporarily disabled
-/*
 /**
  * Modify excerpt length
  */
@@ -384,7 +378,4 @@ function payge_theme_force_css_priority() {
 }
 // Temporarily disabled to test JSON error
 // add_action('wp_enqueue_scripts', 'payge_theme_force_css_priority', 999);
-
-*/
-// END TESTING - Bottom half temporarily disabled
 
