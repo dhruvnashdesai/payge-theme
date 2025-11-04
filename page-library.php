@@ -93,9 +93,9 @@ $is_logged_in = is_user_logged_in();
                     </div>
                 <?php endif; ?>
                 <?php
-                // Query Vimeotheque videos
+                // Query both Vimeotheque videos AND manual videos
                 $video_args = array(
-                    'post_type' => 'cvm_video',
+                    'post_type' => array('cvm_video', 'video'), // Support both types
                     'posts_per_page' => -1,
                     'post_status' => 'publish',
                     'orderby' => 'date',
@@ -106,10 +106,20 @@ $is_logged_in = is_user_logged_in();
 
                 if ($video_query->have_posts()) :
                     while ($video_query->have_posts()) : $video_query->the_post();
-                        // Get Vimeotheque video data
-                        $video_post = cvm_get_video_post(get_the_ID());
-                        $video_url = $video_post ? $video_post->video_id : '';
-                        $video_duration = $video_post ? $video_post->duration : '';
+                        $post_type = get_post_type();
+
+                        // Handle both Vimeotheque and manual videos
+                        if ($post_type === 'cvm_video') {
+                            // Vimeotheque video
+                            $video_post = cvm_get_video_post(get_the_ID());
+                            $video_url = $video_post ? $video_post->video_id : '';
+                            $video_duration = $video_post ? $video_post->duration : '';
+                        } else {
+                            // Manual video
+                            $video_url = get_post_meta(get_the_ID(), 'vimeo_video_id', true);
+                            $video_duration = get_post_meta(get_the_ID(), 'video_duration', true);
+                        }
+
                         $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
                 ?>
                         <div class="video-card" data-video-id="<?php echo esc_attr($video_url); ?>">
