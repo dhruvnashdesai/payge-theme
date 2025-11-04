@@ -223,6 +223,8 @@ add_filter('body_class', 'payge_theme_body_classes');
 // require get_template_directory() . '/inc/custom-post-types.php';
 
 
+// TESTING - Bottom half temporarily disabled
+/*
 /**
  * Modify excerpt length
  */
@@ -382,4 +384,7 @@ function payge_theme_force_css_priority() {
 }
 // Temporarily disabled to test JSON error
 // add_action('wp_enqueue_scripts', 'payge_theme_force_css_priority', 999);
+
+*/
+// END TESTING - Bottom half temporarily disabled
 
