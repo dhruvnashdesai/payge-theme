@@ -175,9 +175,10 @@ function payge_theme_scripts() {
         $is_pmpro_page = true;
     }
 
-    if (!$is_pmpro_page) {
-        wp_enqueue_script('payge-theme-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), wp_get_theme()->get('Version'), true);
-    }
+    // Temporarily disabled to test JSON error
+    // if (!$is_pmpro_page) {
+    //     wp_enqueue_script('payge-theme-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), wp_get_theme()->get('Version'), true);
+    // }
 }
 add_action('wp_enqueue_scripts', 'payge_theme_scripts');
 
