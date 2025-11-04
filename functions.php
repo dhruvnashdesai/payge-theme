@@ -205,22 +205,26 @@ function payge_theme_body_classes($classes) {
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+// Temporarily disabled to test JSON error
+// require get_template_directory() . '/inc/template-tags.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/template-functions.php';
+// Temporarily disabled to test JSON error
+// require get_template_directory() . '/inc/template-functions.php';
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+// Temporarily disabled to test JSON error
+// require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Custom post types and fields for video library
  */
-require get_template_directory() . '/inc/custom-post-types.php';
+// Temporarily disabled to test JSON error
+// require get_template_directory() . '/inc/custom-post-types.php';
 
 
 /**
