@@ -24,12 +24,13 @@ $is_logged_in = is_user_logged_in();
                     // Get the featured video with custom unbranded embed
                     $featured_video = get_post(45);
 
-                    if ($featured_video && $featured_video->post_type === 'vimeo-video' && $featured_video->post_status === 'publish') {
+                    // Temporarily disabled to test JSON error
+                    if (false && $featured_video && $featured_video->post_type === 'vimeo-video' && $featured_video->post_status === 'publish') {
                         // Display unbranded Vimeo video
                         echo '<div class="hero-video-embed">';
 
                         // Use Vimeotheque shortcode with custom parameters to remove branding
-                        echo do_shortcode('[cvm_video id="45" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
+                        // echo do_shortcode('[cvm_video id="45" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
 
                         echo '</div>';
                     } else {
@@ -94,8 +95,9 @@ $is_logged_in = is_user_logged_in();
                 <?php endif; ?>
                 <?php
                 // Query both Vimeotheque videos AND manual videos
+                // Temporarily disabled cvm_video to test JSON error
                 $video_args = array(
-                    'post_type' => array('cvm_video', 'video'), // Support both types
+                    'post_type' => array('video'), // Support both types
                     'posts_per_page' => -1,
                     'post_status' => 'publish',
                     'orderby' => 'date',
@@ -109,11 +111,14 @@ $is_logged_in = is_user_logged_in();
                         $post_type = get_post_type();
 
                         // Handle both Vimeotheque and manual videos
-                        if ($post_type === 'cvm_video') {
+                        // Temporarily disabled to test JSON error
+                        if (false && $post_type === 'cvm_video') {
                             // Vimeotheque video
-                            $video_post = cvm_get_video_post(get_the_ID());
-                            $video_url = $video_post ? $video_post->video_id : '';
-                            $video_duration = $video_post ? $video_post->duration : '';
+                            // $video_post = cvm_get_video_post(get_the_ID());
+                            // $video_url = $video_post ? $video_post->video_id : '';
+                            // $video_duration = $video_post ? $video_post->duration : '';
+                            $video_url = '';
+                            $video_duration = '';
                         } else {
                             // Manual video
                             $video_url = get_post_meta(get_the_ID(), 'vimeo_video_id', true);
