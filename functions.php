@@ -324,8 +324,9 @@ function payge_theme_remove_query_strings($src) {
     $parts = explode('?ver', $src);
     return $parts[0];
 }
-add_filter('script_loader_src', 'payge_theme_remove_query_strings', 15, 1);
-add_filter('style_loader_src', 'payge_theme_remove_query_strings', 15, 1);
+// Temporarily disabled to test JSON error
+// add_filter('script_loader_src', 'payge_theme_remove_query_strings', 15, 1);
+// add_filter('style_loader_src', 'payge_theme_remove_query_strings', 15, 1);
 
 // Defer parsing of JavaScript - DISABLED for PMPro compatibility
 // This was causing "JavaScript errors on the page" for PMPro signup forms
