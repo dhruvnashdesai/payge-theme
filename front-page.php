@@ -167,7 +167,7 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p>An online platform created with the goal to give you access to fun workouts anywhere and anytime. These classes are a fusion of sculpt-style training with Pilates-inspired movements, designed to build strength, flexibility, and coordination—all while keeping you deeply connected to your body.</p>
+                        <p>An online platform created with the goal to give you access to fun workouts anywhere and anytime. These classes are a fusion of sculpt style training with Pilates inspired movements, designed to build strength, flexibility, and coordination, all while keeping you deeply connected to your body.</p>
                     </div>
                 </div>
 
