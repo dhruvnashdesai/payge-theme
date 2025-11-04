@@ -181,7 +181,7 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! POWERED offers classes for all levels—beginner, intermediate, and advanced. Workouts range from 10 to 50 minutes, so you can choose what fits your schedule and experience level.</p>
+                        <p>Yes! POWERED offers classes for all levels: beginner, intermediate, and advanced. Workouts range from 10 to 50 minutes, so you can choose what fits your schedule and experience level.</p>
                     </div>
                 </div>
 
