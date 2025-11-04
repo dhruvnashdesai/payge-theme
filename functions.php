@@ -375,5 +375,6 @@ function payge_theme_force_css_priority() {
         );
     }
 }
-add_action('wp_enqueue_scripts', 'payge_theme_force_css_priority', 999);
+// Temporarily disabled to test JSON error
+// add_action('wp_enqueue_scripts', 'payge_theme_force_css_priority', 999);
 
