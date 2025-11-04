@@ -196,7 +196,8 @@ function payge_theme_body_classes($classes) {
 
     return $classes;
 }
-add_filter('body_class', 'payge_theme_body_classes');
+// Temporarily disabled to test JSON error
+// add_filter('body_class', 'payge_theme_body_classes');
 
 /**
  * Custom template tags for this theme.
