@@ -73,7 +73,8 @@ function payge_theme_setup() {
         $content_width = 1200;
     }
 }
-add_action('after_setup_theme', 'payge_theme_setup');
+// Temporarily disabled to test JSON error
+// add_action('after_setup_theme', 'payge_theme_setup');
 
 /**
  * Register widget area.
@@ -99,7 +100,8 @@ function payge_theme_widgets_init() {
         'after_title'   => '</h3>',
     ));
 }
-add_action('widgets_init', 'payge_theme_widgets_init');
+// Temporarily disabled to test JSON error
+// add_action('widgets_init', 'payge_theme_widgets_init');
 
 /**
  * Enqueue scripts and styles.
@@ -180,7 +182,8 @@ function payge_theme_scripts() {
     //     wp_enqueue_script('payge-theme-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), wp_get_theme()->get('Version'), true);
     // }
 }
-add_action('wp_enqueue_scripts', 'payge_theme_scripts');
+// Temporarily disabled to test JSON error
+// add_action('wp_enqueue_scripts', 'payge_theme_scripts');
 
 /**
  * Add custom body classes
@@ -298,7 +301,8 @@ function payge_theme_logout_redirect() {
     wp_redirect(home_url('/'));
     exit();
 }
-add_action('wp_logout', 'payge_theme_logout_redirect');
+// Temporarily disabled to test JSON error
+// add_action('wp_logout', 'payge_theme_logout_redirect');
 
 // Login URL override functions removed - letting PMPro handle login URLs natively
 
@@ -312,10 +316,12 @@ remove_action('wp_head', 'wp_generator');
 function payge_theme_remove_version() {
     return '';
 }
-add_filter('the_generator', 'payge_theme_remove_version');
+// Temporarily disabled to test JSON error
+// add_filter('the_generator', 'payge_theme_remove_version');
 
 // Disable XML-RPC
-add_filter('xmlrpc_enabled', '__return_false');
+// Temporarily disabled to test JSON error
+// add_filter('xmlrpc_enabled', '__return_false');
 
 /**
  * Performance optimizations
