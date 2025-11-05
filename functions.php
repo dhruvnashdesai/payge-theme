@@ -233,7 +233,8 @@ function payge_theme_body_classes($classes) {
 function payge_theme_excerpt_length($length) {
     return 25;
 }
-add_filter('excerpt_length', 'payge_theme_excerpt_length');
+// Temporarily disabled to test JSON error
+// add_filter('excerpt_length', 'payge_theme_excerpt_length');
 
 /**
  * Modify excerpt more string
@@ -241,7 +242,8 @@ add_filter('excerpt_length', 'payge_theme_excerpt_length');
 function payge_theme_excerpt_more($more) {
     return '...';
 }
-add_filter('excerpt_more', 'payge_theme_excerpt_more');
+// Temporarily disabled to test JSON error
+// add_filter('excerpt_more', 'payge_theme_excerpt_more');
 
 /**
  * Add support for custom header image
@@ -284,7 +286,8 @@ function payge_theme_header_style() {
 function payge_theme_login_stylesheet() {
     wp_enqueue_style('payge-theme-login', get_template_directory_uri() . '/css/pmpro-styling.css', array(), wp_get_theme()->get('Version'));
 }
-add_action('login_enqueue_scripts', 'payge_theme_login_stylesheet');
+// Temporarily disabled to test JSON error
+// add_action('login_enqueue_scripts', 'payge_theme_login_stylesheet');
 
 /**
  * Customize Login Page - DISABLED
@@ -314,7 +317,8 @@ function payge_theme_logout_redirect() {
  * Security enhancements
  */
 // Remove WordPress version from head
-remove_action('wp_head', 'wp_generator');
+// Temporarily disabled to test JSON error
+// remove_action('wp_head', 'wp_generator');
 
 // Remove WordPress version from RSS feeds
 function payge_theme_remove_version() {
