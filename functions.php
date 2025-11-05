@@ -201,3 +201,14 @@ add_filter('the_generator', 'payge_theme_remove_version');
 // Disable XML-RPC
 add_filter('xmlrpc_enabled', '__return_false');
 
+/**
+ * Performance optimizations
+ */
+// Remove query strings from static resources
+function payge_theme_remove_query_strings($src) {
+    $parts = explode('?ver', $src);
+    return $parts[0];
+}
+add_filter('script_loader_src', 'payge_theme_remove_query_strings', 15, 1);
+add_filter('style_loader_src', 'payge_theme_remove_query_strings', 15, 1);
+
