@@ -391,3 +391,13 @@ function payge_theme_force_css_priority() {
 // Temporarily disabled to test JSON error
 // add_action('wp_enqueue_scripts', 'payge_theme_force_css_priority', 999);
 
+/**
+ * Fallback menu if no menu is assigned
+ */
+function payge_theme_fallback_menu() {
+    echo '<ul id="primary-menu" class="nav-menu">';
+    echo '<li><a href="' . esc_url(home_url('/')) . '">' . esc_html__('Home', 'payge-theme') . '</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/library/')) . '">' . esc_html__('Library', 'payge-theme') . '</a></li>';
+    echo '</ul>';
+}
+

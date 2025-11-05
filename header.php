@@ -60,15 +60,3 @@
     </header>
 
     <div id="content" class="site-content">
-
-<?php
-/**
- * Fallback menu if no menu is assigned
- */
-function payge_theme_fallback_menu() {
-    echo '<ul id="primary-menu" class="nav-menu">';
-    echo '<li><a href="' . esc_url(home_url('/')) . '">' . esc_html__('Home', 'payge-theme') . '</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/library/')) . '">' . esc_html__('Library', 'payge-theme') . '</a></li>';
-    echo '</ul>';
-}
-?>
