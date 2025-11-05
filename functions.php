@@ -186,3 +186,18 @@ function payge_theme_header_style() {
     <?php
 }
 
+/**
+ * Security enhancements
+ */
+// Remove WordPress version from head
+remove_action('wp_head', 'wp_generator');
+
+// Remove WordPress version from RSS feeds
+function payge_theme_remove_version() {
+    return '';
+}
+add_filter('the_generator', 'payge_theme_remove_version');
+
+// Disable XML-RPC
+add_filter('xmlrpc_enabled', '__return_false');
+
