@@ -253,3 +253,20 @@ function payge_theme_force_css_priority() {
 }
 add_action('wp_enqueue_scripts', 'payge_theme_force_css_priority', 999);
 
+/**
+ * Custom Login Page Styling
+ */
+function payge_theme_login_stylesheet() {
+    wp_enqueue_style('payge-theme-login', get_template_directory_uri() . '/css/pmpro-styling.css', array(), wp_get_theme()->get('Version'));
+}
+add_action('login_enqueue_scripts', 'payge_theme_login_stylesheet');
+
+/**
+ * PMPro Logout Redirect Fix
+ */
+function payge_theme_logout_redirect() {
+    wp_redirect(home_url('/'));
+    exit();
+}
+add_action('wp_logout', 'payge_theme_logout_redirect');
+
