@@ -151,3 +151,38 @@ function payge_theme_scripts() {
 }
 add_action('wp_enqueue_scripts', 'payge_theme_scripts');
 
+/**
+ * Add support for custom header image
+ */
+function payge_theme_custom_header_setup() {
+    add_theme_support('custom-header', apply_filters('payge_theme_custom_header_args', array(
+        'default-image'      => '',
+        'default-text-color' => '1a1a1a',
+        'width'              => 1920,
+        'height'             => 1080,
+        'flex-height'        => true,
+        'wp-head-callback'   => 'payge_theme_header_style',
+    )));
+}
+add_action('after_setup_theme', 'payge_theme_custom_header_setup');
+
+/**
+ * Styles the header image and text displayed on the blog.
+ */
+function payge_theme_header_style() {
+    $header_text_color = get_header_textcolor();
+
+    if (get_theme_support('custom-header', 'default-text-color') === $header_text_color) {
+        return;
+    }
+
+    ?>
+    <style type="text/css">
+    .site-title,
+    .site-description {
+        color: #<?php echo esc_attr($header_text_color); ?>;
+    }
+    </style>
+    <?php
+}
+
