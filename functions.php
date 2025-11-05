@@ -76,3 +76,19 @@ function payge_theme_widgets_init() {
 }
 add_action('widgets_init', 'payge_theme_widgets_init');
 
+/**
+ * Add custom body classes
+ */
+function payge_theme_body_classes($classes) {
+    if (is_front_page()) {
+        $classes[] = 'front-page-template';
+    }
+
+    if (is_page('library') || is_page_template('page-library.php')) {
+        $classes[] = 'library-template';
+    }
+
+    return $classes;
+}
+add_filter('body_class', 'payge_theme_body_classes');
+
