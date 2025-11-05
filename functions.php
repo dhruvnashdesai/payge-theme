@@ -50,3 +50,29 @@ function payge_theme_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'payge_theme_excerpt_more');
 
+/**
+ * Register widget area.
+ */
+function payge_theme_widgets_init() {
+    register_sidebar(array(
+        'name'          => esc_html__('Sidebar', 'payge-theme'),
+        'id'            => 'sidebar-1',
+        'description'   => esc_html__('Add widgets here.', 'payge-theme'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ));
+
+    register_sidebar(array(
+        'name'          => esc_html__('Footer Widget Area', 'payge-theme'),
+        'id'            => 'footer-1',
+        'description'   => esc_html__('Add widgets to the footer.', 'payge-theme'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ));
+}
+add_action('widgets_init', 'payge_theme_widgets_init');
+
