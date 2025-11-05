@@ -31,3 +31,19 @@ function payge_theme_fallback_menu() {
     echo '</ul>';
 }
 
+/**
+ * Modify excerpt length
+ */
+function payge_theme_excerpt_length($length) {
+    return 25;
+}
+add_filter('excerpt_length', 'payge_theme_excerpt_length');
+
+/**
+ * Modify excerpt more string
+ */
+function payge_theme_excerpt_more($more) {
+    return '...';
+}
+add_filter('excerpt_more', 'payge_theme_excerpt_more');
+
