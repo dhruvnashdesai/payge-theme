@@ -111,10 +111,8 @@ function payge_theme_scripts() {
     ";
     wp_add_inline_style('payge-theme-style', $font_css);
 
-    // Enqueue custom CSS for front page and video library
-    if (is_front_page() || is_home() || is_page_template('front-page.php')) {
-        wp_enqueue_style('payge-theme-front-page', get_template_directory_uri() . '/css/front-page.css', array('payge-theme-style'), time() . rand(1, 1000));
-    }
+    // Enqueue custom CSS for front page and video library - FORCE LOAD FOR TESTING
+    wp_enqueue_style('payge-theme-front-page', get_template_directory_uri() . '/css/front-page.css', array('payge-theme-style'), time() . rand(1, 1000));
 
     if (is_page('library') || is_page_template('page-library.php')) {
         wp_enqueue_style('payge-theme-library', get_template_directory_uri() . '/css/library.css', array('payge-theme-style'), time() . rand(1, 1000));
