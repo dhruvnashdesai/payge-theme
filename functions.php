@@ -291,3 +291,8 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/custom-post-types.php';
 
+/**
+ * Vimeotheque integration functions
+ */
+require get_template_directory() . '/inc/vimeotheque-integration.php';
+
