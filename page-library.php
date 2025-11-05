@@ -24,7 +24,7 @@ $is_logged_in = is_user_logged_in();
                     // Get the featured video with custom unbranded embed
                     $featured_video = get_post(45);
 
-                    if ($featured_video && $featured_video->post_type === 'cvm_video' && $featured_video->post_status === 'publish') {
+                    if ($featured_video && $featured_video->post_status === 'publish') {
                         // Display unbranded Vimeo video
                         echo '<div class="hero-video-embed">';
 
