@@ -146,6 +146,9 @@ function payge_theme_scripts() {
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
+
+    // Enqueue custom JavaScript
+    wp_enqueue_script('payge-theme-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), wp_get_theme()->get('Version'), true);
 }
 add_action('wp_enqueue_scripts', 'payge_theme_scripts');
 
