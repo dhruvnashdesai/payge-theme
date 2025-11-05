@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<!-- DEBUG: front-page.php template is loading -->
+
 <?php
 // Get customizer values with defaults
 $hero_title = get_theme_mod('payge_hero_title', 'Transform Your Body Through Pilates');
