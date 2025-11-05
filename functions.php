@@ -256,7 +256,7 @@ function payge_theme_custom_header_setup() {
         'wp-head-callback'   => 'payge_theme_header_style',
     )));
 }
-add_action('after_setup_theme', 'payge_theme_custom_header_setup');
+// add_action('after_setup_theme', 'payge_theme_custom_header_setup');
 
 /**
  * Styles the header image and text displayed on the blog.
