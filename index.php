@@ -12,8 +12,6 @@
 get_header();
 ?>
 
-<?php ?>
-
 <main id="primary" class="site-main">
     <?php if (have_posts()) : ?>
         <?php if (is_home() && !is_front_page()) : ?>
