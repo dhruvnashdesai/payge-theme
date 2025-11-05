@@ -212,3 +212,44 @@ function payge_theme_remove_query_strings($src) {
 add_filter('script_loader_src', 'payge_theme_remove_query_strings', 15, 1);
 add_filter('style_loader_src', 'payge_theme_remove_query_strings', 15, 1);
 
+/**
+ * Force theme CSS to load after PMPro CSS - Following PMPro CSS Guidelines
+ * This ensures our custom styles override PMPro's default styles
+ */
+function payge_theme_force_css_priority() {
+    // Check for SPECIFIC PMPro pages only - avoid homepage and library
+    $is_pmpro_page = false;
+    $current_url = $_SERVER['REQUEST_URI'] ?? '';
+
+    // Check for account pages
+    if (function_exists('pmpro_is_account_page') && pmpro_is_account_page()) {
+        $is_pmpro_page = true;
+    }
+
+    // Check for login pages - but NOT homepage or library
+    if (function_exists('pmpro_is_login_page') && pmpro_is_login_page() &&
+        !is_front_page() && !is_page('library')) {
+        $is_pmpro_page = true;
+    }
+
+    // Only target specific membership URLs, exclude homepage and library
+    if ((strpos($current_url, 'membership-account') !== false ||
+         strpos($current_url, '/login') !== false) &&
+        strpos($current_url, '/library') === false &&
+        $current_url !== '/' && !is_front_page()) {
+        $is_pmpro_page = true;
+    }
+
+    if ($is_pmpro_page) {
+        // Add cache busting to force CSS reload
+        wp_dequeue_style('payge-theme-style');
+        wp_enqueue_style(
+            'payge-theme-style-pmpro',
+            get_stylesheet_uri(),
+            array(),
+            time() . '-' . rand(1000, 9999)
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'payge_theme_force_css_priority', 999);
+
