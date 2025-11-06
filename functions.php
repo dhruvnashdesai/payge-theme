@@ -294,5 +294,5 @@ require get_template_directory() . '/inc/custom-post-types.php';
 /**
  * Vimeotheque integration functions
  */
-// require get_template_directory() . '/inc/vimeotheque-integration.php';
+require get_template_directory() . '/inc/vimeotheque-integration-clean.php';
 
