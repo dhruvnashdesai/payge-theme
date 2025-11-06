@@ -302,5 +302,78 @@ $is_logged_in = is_user_logged_in();
     </section>
 </main>
 
+<!-- Video Modal (HTML only for now) -->
+<div id="video-modal" class="video-modal" style="display: none;">
+    <div class="video-modal-backdrop"></div>
+    <div class="video-modal-content">
+        <button class="video-modal-close" aria-label="Close video">&times;</button>
+        <div class="video-modal-header">
+            <h2 id="video-modal-title">Video Title</h2>
+        </div>
+        <div class="video-modal-body">
+            <div id="video-modal-embed">Modal content will go here</div>
+        </div>
+    </div>
+</div>
+
+<style>
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.video-modal-content {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 900px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.video-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.video-modal-header {
+    padding: 20px 20px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.video-modal-body {
+    padding: 20px;
+    min-height: 400px;
+}
+</style>
 
 <?php get_footer(); ?>
