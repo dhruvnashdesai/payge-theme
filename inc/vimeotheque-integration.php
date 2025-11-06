@@ -381,42 +381,7 @@ function payge_theme_render_video_card($video_post) {
     <?php
 }
 
-/**
- * AJAX handler for video embed modal
- */
-function payge_theme_get_video_embed() {
-    // Check if POST data exists
-    if (!isset($_POST['nonce']) || !isset($_POST['post_id'])) {
-        wp_die('Missing required data');
-    }
-
-    // Verify nonce
-    if (!wp_verify_nonce($_POST['nonce'], 'video_embed_nonce')) {
-        wp_die('Security check failed');
-    }
-
-    $post_id = intval($_POST['post_id']);
-
-    if (!$post_id) {
-        wp_die('Invalid post ID');
-    }
-
-    // Check if user has access to this video
-    $post = get_post($post_id);
-    if (!$post || $post->post_type !== 'vimeo-video') {
-        wp_die('Video not found');
-    }
-
-    // Generate the video embed using Vimeotheque shortcode
-    $embed_html = do_shortcode('[cvm_video id="' . $post_id . '" width="100%" aspect_ratio="16x9" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
-
-    echo $embed_html;
-    wp_die();
-}
-
-// Hook for logged in and non-logged in users
-// add_action('wp_ajax_get_video_embed', 'payge_theme_get_video_embed');
-// add_action('wp_ajax_nopriv_get_video_embed', 'payge_theme_get_video_embed');
+// Removed AJAX handler - caused critical error
 
 /**
  * Integration hooks for when Vimeotheque is activated
