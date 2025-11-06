@@ -21,17 +21,40 @@ $is_logged_in = is_user_logged_in();
                 <!-- Video on left -->
                 <div class="hero-video-wrapper">
                     <?php
-                    // Get the featured video with custom unbranded embed
+                    // Get the featured video thumbnail
                     $featured_video = get_post(45);
 
                     if ($featured_video && $featured_video->post_status === 'publish') {
-                        // Display unbranded Vimeo video
-                        echo '<div class="hero-video-embed">';
+                        $thumbnail_url = get_the_post_thumbnail_url(45, 'large');
 
-                        // Use Vimeotheque shortcode with custom parameters to remove branding
-                        echo do_shortcode('[cvm_video id="45" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
+                        // If no WordPress thumbnail, try to get Vimeo thumbnail
+                        if (!$thumbnail_url) {
+                            $vimeo_id = get_post_meta(45, '_vimeo_video_id', true);
+                            if ($vimeo_id) {
+                                $thumbnail_url = "https://vumbnail.com/{$vimeo_id}.jpg";
+                            }
+                        }
+                        ?>
+                        <div class="hero-video-thumbnail" data-video-id="45">
+                            <?php if ($thumbnail_url) : ?>
+                                <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($featured_video->post_title); ?>" />
+                            <?php else : ?>
+                                <div class="video-placeholder-content">
+                                    <div class="play-icon">▶</div>
+                                    <h3>Featured Class</h3>
+                                </div>
+                            <?php endif; ?>
 
-                        echo '</div>';
+                            <div class="video-play-overlay">
+                                <div class="play-button">
+                                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="40" cy="40" r="40" fill="rgba(255,255,255,0.9)"/>
+                                        <path d="M32 25L32 55L55 40L32 25Z" fill="#333"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
                     } else {
                         // Fallback placeholder if video not found
                         ?>
@@ -371,6 +394,61 @@ $is_logged_in = is_user_logged_in();
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* Hero video thumbnail styles */
+.hero-video-thumbnail {
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-video-thumbnail:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hero-video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.video-play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+}
+
+.hero-video-thumbnail:hover .video-play-overlay {
+    opacity: 1;
+}
+
+.play-button {
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.hero-video-thumbnail:hover .play-button {
+    transform: scale(1);
+}
+
+.play-button svg {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
 </style>
 
 <script>
@@ -379,15 +457,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalEmbed = document.getElementById('video-modal-embed');
     const backdrop = document.querySelector('.video-modal-backdrop');
 
-    // Test: Open modal when any video card is clicked
+    // Open modal when video card or hero thumbnail is clicked
     document.addEventListener('click', function(e) {
         const videoCard = e.target.closest('.video-card-link');
-        if (videoCard) {
+        const heroThumbnail = e.target.closest('.hero-video-thumbnail');
+
+        if (videoCard || heroThumbnail) {
             e.preventDefault();
 
-            // Get video title for testing
-            const card = videoCard.closest('.video-card');
-            const title = card.querySelector('.video-title').textContent;
+            let postId;
+
+            if (videoCard) {
+                // Regular video card
+                const card = videoCard.closest('.video-card');
+                postId = card.dataset.postId;
+            } else if (heroThumbnail) {
+                // Hero video thumbnail
+                postId = heroThumbnail.dataset.videoId;
+            }
+
+            if (!postId) {
+                console.error('No post ID found');
+                return;
+            }
 
             // Show modal immediately
             modal.style.display = 'flex';
@@ -399,7 +491,6 @@ document.addEventListener('DOMContentLoaded', function() {
             modalEmbed.innerHTML = '<div id="video-loading" style="width: 100%; height: 506px; background: #000;"></div>';
 
             // Load video via AJAX
-            const postId = card.dataset.postId;
             loadVideoEmbed(postId);
         }
     });

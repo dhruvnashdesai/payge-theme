@@ -111,11 +111,11 @@ function payge_theme_scripts() {
     ";
     wp_add_inline_style('payge-theme-style', $font_css);
 
-    // Enqueue custom CSS for front page and video library - FORCE LOAD FOR TESTING
-    wp_enqueue_style('payge-theme-front-page', get_template_directory_uri() . '/css/front-page.css', array('payge-theme-style'), time() . rand(1, 1000));
+    // Enqueue custom CSS for front page and video library
+    wp_enqueue_style('payge-theme-front-page', get_template_directory_uri() . '/css/front-page.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
 
     if (is_page('library') || is_page_template('page-library.php')) {
-        wp_enqueue_style('payge-theme-library', get_template_directory_uri() . '/css/library.css', array('payge-theme-style'), time() . rand(1, 1000));
+        wp_enqueue_style('payge-theme-library', get_template_directory_uri() . '/css/library.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
     }
 
     if (is_page('membership-levels') || is_page_template('page-membership-levels.php')) {
@@ -125,7 +125,7 @@ function payge_theme_scripts() {
     // Enqueue login page CSS
     if (is_page('login') || is_page_template('page-login.php') ||
         (function_exists('pmpro_is_login_page') && pmpro_is_login_page())) {
-        wp_enqueue_style('payge-theme-login', get_template_directory_uri() . '/css/login.css', array('payge-theme-style'), time() . rand(8000, 9999));
+        wp_enqueue_style('payge-theme-login', get_template_directory_uri() . '/css/login.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
     }
 
     // Ensure header styles load on all pages including login
@@ -248,7 +248,7 @@ function payge_theme_force_css_priority() {
             'payge-theme-style-pmpro',
             get_stylesheet_uri(),
             array(),
-            time() . '-' . rand(1000, 9999)
+            wp_get_theme()->get('Version')
         );
     }
 }
