@@ -150,7 +150,7 @@ $is_logged_in = is_user_logged_in();
 
                         $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
                 ?>
-                        <div class="video-card" data-video-id="<?php echo esc_attr($video_url); ?>">
+                        <div class="video-card" data-video-id="<?php echo esc_attr($video_url); ?>" data-post-id="<?php echo get_the_ID(); ?>">
                             <a href="<?php echo esc_url(get_permalink()); ?>" class="video-card-link">
                                 <div class="video-thumbnail">
                                     <?php if ($thumbnail_url) : ?>
@@ -231,7 +231,7 @@ $is_logged_in = is_user_logged_in();
 
                             $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
                 ?>
-                            <div class="video-card" data-video-id="<?php echo esc_attr($video_url); ?>">
+                            <div class="video-card" data-video-id="<?php echo esc_attr($video_url); ?>" data-post-id="<?php echo get_the_ID(); ?>">
                                 <a href="<?php echo esc_url(get_permalink()); ?>" class="video-card-link">
                                     <div class="video-thumbnail">
                                         <?php if ($thumbnail_url) : ?>
@@ -394,11 +394,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const card = videoCard.closest('.video-card');
             const title = card.querySelector('.video-title').textContent;
 
-            // Show modal with test content
+            // Show modal and load video
             modalTitle.textContent = title;
-            modalEmbed.innerHTML = '<p style="text-align: center; padding: 40px;">Modal is working! Video will load here.<br><br>Post ID: ' + card.dataset.videoId + '</p>';
+            modalEmbed.innerHTML = '<div style="text-align: center; padding: 40px;">Loading video...</div>';
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
+
+            // Load video via AJAX
+            const postId = card.dataset.postId;
+            loadVideoEmbed(postId);
         }
     });
 
@@ -418,6 +422,33 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }
     });
+
+    // Function to load video embed via AJAX
+    function loadVideoEmbed(postId) {
+        fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'action': 'payge_video_embed',
+                'post_id': postId,
+                'nonce': '<?php echo wp_create_nonce('video_embed_nonce'); ?>'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                modalEmbed.innerHTML = data.data;
+            } else {
+                modalEmbed.innerHTML = '<div style="text-align: center; padding: 40px; color: #dc3545;">Error loading video: ' + data.data + '</div>';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading video:', error);
+            modalEmbed.innerHTML = '<div style="text-align: center; padding: 40px; color: #dc3545;">Error loading video. Please try again.</div>';
+        });
+    }
 });
 </script>
 

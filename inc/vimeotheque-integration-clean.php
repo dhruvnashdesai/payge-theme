@@ -113,3 +113,38 @@ function payge_theme_debug_vimeotheque() {
 
     return $debug_info;
 }
+
+/**
+ * Simple and safe AJAX handler for video embeds
+ */
+function payge_theme_safe_video_embed() {
+    // Security checks
+    if (!wp_verify_nonce($_POST['nonce'] ?? '', 'video_embed_nonce')) {
+        wp_send_json_error('Security check failed');
+    }
+
+    $post_id = intval($_POST['post_id'] ?? 0);
+
+    if (!$post_id) {
+        wp_send_json_error('Invalid post ID');
+    }
+
+    // Get the post
+    $post = get_post($post_id);
+    if (!$post || $post->post_type !== 'vimeo-video') {
+        wp_send_json_error('Video not found');
+    }
+
+    // Generate embed using Vimeotheque shortcode
+    $embed_html = do_shortcode('[cvm_video id="' . $post_id . '" width="100%" aspect_ratio="16x9" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
+
+    if (empty($embed_html)) {
+        wp_send_json_error('Could not generate video embed');
+    }
+
+    wp_send_json_success($embed_html);
+}
+
+// Safe AJAX registration
+add_action('wp_ajax_payge_video_embed', 'payge_theme_safe_video_embed');
+add_action('wp_ajax_nopriv_payge_video_embed', 'payge_theme_safe_video_embed');
