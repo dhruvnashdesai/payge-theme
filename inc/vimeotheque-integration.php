@@ -203,7 +203,14 @@ function payge_theme_smart_video_query($args = array()) {
         'post_type' => 'vimeo-video',
         'numberposts' => $args['posts_per_page'],
         'post_status' => array('publish', 'private'),
-        'suppress_filters' => true // Key: bypass filters that might interfere
+        'suppress_filters' => true, // Key: bypass filters that might interfere
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'vimeo-videos',
+                'field' => 'slug',
+                'terms' => 'members'
+            )
+        )
     ));
 
     if (!empty($direct_posts)) {
@@ -219,7 +226,14 @@ function payge_theme_smart_video_query($args = array()) {
         'posts_per_page' => $args['posts_per_page'],
         'post_status' => array('publish', 'private'),
         'suppress_filters' => true,
-        'no_found_rows' => false
+        'no_found_rows' => false,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'vimeo-videos',
+                'field' => 'slug',
+                'terms' => 'members'
+            )
+        )
     );
 
     $query = new WP_Query($wp_query_args);
