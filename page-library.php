@@ -396,6 +396,24 @@ $is_logged_in = is_user_logged_in();
     height: 500px !important;
 }
 
+/* Aggressive override for all video elements */
+#video-modal-embed * {
+    max-width: 100% !important;
+}
+
+#video-modal-embed iframe,
+#video-modal-embed .vimeotheque-video,
+#video-modal-embed .video-embed,
+#video-modal-embed .wp-video,
+#video-modal-embed .video-container,
+#video-modal-embed div[style*="width"],
+#video-modal-embed div[style*="height"] {
+    width: 100% !important;
+    height: 500px !important;
+    min-height: 500px !important;
+    max-width: 100% !important;
+}
+
 @media (max-width: 768px) {
     .video-modal-content {
         width: 95vw;
@@ -434,12 +452,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const card = videoCard.closest('.video-card');
             const title = card.querySelector('.video-title').textContent;
 
-            // Show modal and load video
-            modalTitle.textContent = title;
-            // Pre-size the container to prevent flash
-            modalEmbed.innerHTML = '<div style="width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 8px;"><div style="text-align: center;"><div style="margin-bottom: 10px;">Loading video...</div><div style="width: 24px; height: 24px; border: 3px solid #f3f3f3; border-top: 3px solid #878175; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div></div></div>';
+            // Show modal immediately
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
+
+            // Set title
+            modalTitle.textContent = title;
+
+            // Show loading state with proper sizing
+            modalEmbed.style.width = '100%';
+            modalEmbed.style.height = '500px';
+            modalEmbed.innerHTML = '<div id="video-loading" style="width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 8px; position: relative;"><div style="text-align: center;"><div style="margin-bottom: 15px; font-size: 16px; color: #666;">Loading video...</div><div style="width: 32px; height: 32px; border: 4px solid #f3f3f3; border-top: 4px solid #878175; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div></div></div>';
 
             // Load video via AJAX
             const postId = card.dataset.postId;
@@ -482,25 +505,40 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 modalEmbed.innerHTML = data.data;
 
-                // Force video sizing after embed loads
-                setTimeout(() => {
-                    const iframes = modalEmbed.querySelectorAll('iframe');
-                    const videoContainers = modalEmbed.querySelectorAll('.vimeotheque-video, .video-embed');
+                // Aggressive video sizing - multiple attempts
+                const forceVideoSize = () => {
+                    const allElements = modalEmbed.querySelectorAll('*');
 
-                    iframes.forEach(iframe => {
-                        iframe.style.width = '100%';
-                        iframe.style.height = '500px';
-                        iframe.style.minHeight = '500px';
+                    allElements.forEach(element => {
+                        // Force size on iframes
+                        if (element.tagName === 'IFRAME') {
+                            element.style.width = '100% !important';
+                            element.style.height = '500px !important';
+                            element.style.minHeight = '500px !important';
+                            element.style.maxWidth = '100% !important';
+                            element.setAttribute('width', '100%');
+                            element.setAttribute('height', '500');
+                        }
+
+                        // Force size on container elements
+                        if (element.classList.contains('vimeotheque-video') ||
+                            element.classList.contains('video-embed') ||
+                            element.tagName === 'DIV') {
+                            element.style.width = '100% !important';
+                            element.style.height = '500px !important';
+                            element.style.minHeight = '500px !important';
+                            element.style.maxWidth = '100% !important';
+                        }
                     });
+                };
 
-                    videoContainers.forEach(container => {
-                        container.style.width = '100%';
-                        container.style.height = '500px';
-                        container.style.minHeight = '500px';
-                    });
+                // Force sizing immediately and after delays
+                forceVideoSize();
+                setTimeout(forceVideoSize, 100);
+                setTimeout(forceVideoSize, 500);
+                setTimeout(forceVideoSize, 1000);
 
-                    console.log('Found ' + iframes.length + ' iframes and ' + videoContainers.length + ' video containers');
-                }, 500);
+                console.log('Video loaded and sized');
             } else {
                 modalEmbed.innerHTML = '<div style="text-align: center; padding: 40px; color: #dc3545;">Error loading video: ' + data.data + '</div>';
             }
