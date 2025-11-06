@@ -150,8 +150,8 @@ $is_logged_in = is_user_logged_in();
 
                         $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
                 ?>
-                        <div class="video-card" data-video-id="<?php echo esc_attr($video_url); ?>">
-                            <a href="<?php echo esc_url(get_permalink()); ?>" class="video-card-link">
+                        <div class="video-card" data-video-id="<?php echo esc_attr($video_url); ?>" data-post-id="<?php echo get_the_ID(); ?>">
+                            <div class="video-card-link" role="button" tabindex="0">
                                 <div class="video-thumbnail">
                                     <?php if ($thumbnail_url) : ?>
                                         <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title(); ?>" />
@@ -180,7 +180,7 @@ $is_logged_in = is_user_logged_in();
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                 <?php
                     endwhile;
@@ -231,8 +231,8 @@ $is_logged_in = is_user_logged_in();
 
                             $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
                 ?>
-                            <div class="video-card" data-video-id="<?php echo esc_attr($video_url); ?>">
-                                <a href="<?php echo esc_url(get_permalink()); ?>" class="video-card-link">
+                            <div class="video-card" data-video-id="<?php echo esc_attr($video_url); ?>" data-post-id="<?php echo get_the_ID(); ?>">
+                                <div class="video-card-link" role="button" tabindex="0">
                                     <div class="video-thumbnail">
                                         <?php if ($thumbnail_url) : ?>
                                             <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title(); ?>" />
@@ -261,7 +261,7 @@ $is_logged_in = is_user_logged_in();
                                             <?php endif; ?>
                                         </div>
                                     </div>
-                                </a>
+                                </div>
                             </div>
                 <?php
                         endforeach;
@@ -301,5 +301,190 @@ $is_logged_in = is_user_logged_in();
         </div>
     </section>
 </main>
+
+<!-- Video Modal -->
+<div id="video-modal" class="video-modal" style="display: none;">
+    <div class="video-modal-backdrop"></div>
+    <div class="video-modal-content">
+        <button class="video-modal-close" aria-label="Close video">&times;</button>
+        <div class="video-modal-header">
+            <h2 id="video-modal-title"></h2>
+        </div>
+        <div class="video-modal-body">
+            <div id="video-modal-embed"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.video-modal-content {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 900px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.video-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.video-modal-close:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.video-modal-header {
+    padding: 20px 20px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.video-modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.video-modal-body {
+    padding: 0;
+}
+
+#video-modal-embed {
+    width: 100%;
+    min-height: 400px;
+}
+
+#video-modal-embed iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+.video-card-link {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.video-card-link:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .video-modal-content {
+        width: 95vw;
+        margin: 20px;
+    }
+
+    #video-modal-embed iframe {
+        height: 300px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('video-modal');
+    const modalTitle = document.getElementById('video-modal-title');
+    const modalEmbed = document.getElementById('video-modal-embed');
+    const closeBtn = document.querySelector('.video-modal-close');
+    const backdrop = document.querySelector('.video-modal-backdrop');
+
+    // Open modal when video card is clicked
+    document.addEventListener('click', function(e) {
+        const videoCard = e.target.closest('.video-card-link');
+        if (videoCard) {
+            e.preventDefault();
+
+            const card = videoCard.closest('.video-card');
+            const postId = card.dataset.postId;
+            const title = card.querySelector('.video-title').textContent;
+
+            openVideoModal(postId, title);
+        }
+    });
+
+    // Close modal functions
+    function closeModal() {
+        modal.style.display = 'none';
+        modalEmbed.innerHTML = '';
+        document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display !== 'none') {
+            closeModal();
+        }
+    });
+
+    function openVideoModal(postId, title) {
+        modalTitle.textContent = title;
+
+        // Use Vimeotheque shortcode to embed the video
+        modalEmbed.innerHTML = '<div style="text-align: center; padding: 40px;">Loading video...</div>';
+
+        // Make AJAX request to get video embed
+        fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'action=get_video_embed&post_id=' + postId + '&nonce=<?php echo wp_create_nonce('video_embed_nonce'); ?>'
+        })
+        .then(response => response.text())
+        .then(html => {
+            modalEmbed.innerHTML = html;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        })
+        .catch(error => {
+            console.error('Error loading video:', error);
+            modalEmbed.innerHTML = '<div style="padding: 40px; text-align: center;">Error loading video. Please try again.</div>';
+        });
+    }
+});
+</script>
 
 <?php get_footer(); ?>
