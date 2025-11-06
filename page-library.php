@@ -93,9 +93,9 @@ $is_logged_in = is_user_logged_in();
                     </div>
                 <?php endif; ?>
                 <?php
-                // Query both Vimeotheque videos AND manual videos
+                // Query Vimeotheque videos first, then manual videos
                 $video_args = array(
-                    'post_type' => array('video', 'cvm_video'), // Support both types
+                    'post_type' => array('cvm_video', 'video'), // Prioritize Vimeotheque videos first
                     'posts_per_page' => -1,
                     'post_status' => 'publish',
                     'orderby' => 'date',
