@@ -385,6 +385,11 @@ function payge_theme_render_video_card($video_post) {
  * AJAX handler for video embed modal
  */
 function payge_theme_get_video_embed() {
+    // Check if POST data exists
+    if (!isset($_POST['nonce']) || !isset($_POST['post_id'])) {
+        wp_die('Missing required data');
+    }
+
     // Verify nonce
     if (!wp_verify_nonce($_POST['nonce'], 'video_embed_nonce')) {
         wp_die('Security check failed');
