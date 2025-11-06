@@ -376,4 +376,49 @@ $is_logged_in = is_user_logged_in();
 }
 </style>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('video-modal');
+    const modalTitle = document.getElementById('video-modal-title');
+    const modalEmbed = document.getElementById('video-modal-embed');
+    const closeBtn = document.querySelector('.video-modal-close');
+    const backdrop = document.querySelector('.video-modal-backdrop');
+
+    // Test: Open modal when any video card is clicked
+    document.addEventListener('click', function(e) {
+        const videoCard = e.target.closest('.video-card-link');
+        if (videoCard) {
+            e.preventDefault();
+
+            // Get video title for testing
+            const card = videoCard.closest('.video-card');
+            const title = card.querySelector('.video-title').textContent;
+
+            // Show modal with test content
+            modalTitle.textContent = title;
+            modalEmbed.innerHTML = '<p style="text-align: center; padding: 40px;">Modal is working! Video will load here.<br><br>Post ID: ' + card.dataset.videoId + '</p>';
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    // Close modal functions
+    function closeModal() {
+        modal.style.display = 'none';
+        modalEmbed.innerHTML = '';
+        document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display !== 'none') {
+            closeModal();
+        }
+    });
+});
+</script>
+
 <?php get_footer(); ?>
