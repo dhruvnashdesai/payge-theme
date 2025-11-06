@@ -371,8 +371,43 @@ $is_logged_in = is_user_logged_in();
 }
 
 .video-modal-body {
-    padding: 20px;
+    padding: 0;
     min-height: 400px;
+}
+
+#video-modal-embed {
+    width: 100%;
+    min-height: 500px;
+}
+
+#video-modal-embed iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+#video-modal-embed .vimeotheque-video {
+    width: 100% !important;
+    height: 500px !important;
+}
+
+#video-modal-embed .vimeotheque-video iframe {
+    width: 100% !important;
+    height: 500px !important;
+}
+
+@media (max-width: 768px) {
+    .video-modal-content {
+        width: 95vw;
+        margin: 20px;
+    }
+
+    #video-modal-embed,
+    #video-modal-embed iframe,
+    #video-modal-embed .vimeotheque-video,
+    #video-modal-embed .vimeotheque-video iframe {
+        height: 300px !important;
+    }
 }
 </style>
 
