@@ -93,14 +93,15 @@ $is_logged_in = is_user_logged_in();
                     </div>
                 <?php endif; ?>
                 <?php
-                // Query regular posts in "members" category only
+                // Query regular posts in "members" category only (suppress filters to avoid PMPro restrictions)
                 $video_args = array(
                     'post_type' => 'post',
                     'posts_per_page' => -1,
                     'post_status' => array('publish', 'private'),
                     'orderby' => 'date',
                     'order' => 'DESC',
-                    'category_name' => 'members' // Only posts in "members" category
+                    'category_name' => 'members', // Only posts in "members" category
+                    'suppress_filters' => true // Prevent PMPro from filtering the query
                 );
 
                 $video_query = new WP_Query($video_args);
@@ -182,29 +183,16 @@ $is_logged_in = is_user_logged_in();
                         foreach ($smart_videos as $smart_video) :
                             $post = $smart_video;
                             setup_postdata($post);
-                            $post_type = get_post_type();
 
-                            // Handle both Vimeotheque and manual videos
-                            if ($post_type === 'cvm_video' || $post_type === 'vimeo-video') {
-                                // Vimeotheque video
-                                if (function_exists('cvm_get_video_post')) {
-                                    $video_post = cvm_get_video_post(get_the_ID());
-                                    $video_url = $video_post ? $video_post->video_id : '';
-                                    $video_duration = $video_post ? $video_post->duration : '';
-                                } else {
-                                    $video_url = get_post_meta(get_the_ID(), '_vimeo_video_id', true);
-                                    $video_duration = get_post_meta(get_the_ID(), '_video_duration', true);
-                                }
-                            } else {
-                                // Manual video
+                            // Handle Vimeotheque videos imported as regular posts
+                            $video_url = get_post_meta(get_the_ID(), '_vimeo_video_id', true);
+                            if (!$video_url) {
                                 $video_url = get_post_meta(get_the_ID(), 'vimeo_video_id', true);
-                                if (!$video_url) {
-                                    $video_url = get_post_meta(get_the_ID(), '_vimeo_video_id', true);
-                                }
+                            }
+
+                            $video_duration = get_post_meta(get_the_ID(), '_video_duration', true);
+                            if (!$video_duration) {
                                 $video_duration = get_post_meta(get_the_ID(), 'video_duration', true);
-                                if (!$video_duration) {
-                                    $video_duration = get_post_meta(get_the_ID(), '_video_duration', true);
-                                }
                             }
 
                             $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
