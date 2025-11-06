@@ -97,7 +97,7 @@ $is_logged_in = is_user_logged_in();
                 $video_args = array(
                     'post_type' => array('vimeo-video', 'cvm_video', 'video'), // Include correct Vimeotheque post type
                     'posts_per_page' => -1,
-                    'post_status' => 'publish',
+                    'post_status' => 'any', // Temporarily check ALL statuses
                     'orderby' => 'date',
                     'order' => 'DESC'
                 );
