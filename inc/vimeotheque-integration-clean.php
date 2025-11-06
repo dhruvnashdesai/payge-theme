@@ -135,8 +135,8 @@ function payge_theme_safe_video_embed() {
         wp_send_json_error('Video not found');
     }
 
-    // Generate embed using Vimeotheque shortcode - try without forced dimensions
-    $embed_html = do_shortcode('[cvm_video id="' . $post_id . '" width="900" height="500" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
+    // Generate embed using Vimeotheque shortcode - match plugin settings (900x506px)
+    $embed_html = do_shortcode('[cvm_video id="' . $post_id . '" width="900" height="506" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
 
     // Debug: Log what we're getting
     if (current_user_can('manage_options')) {

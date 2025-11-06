@@ -343,23 +343,23 @@ $is_logged_in = is_user_logged_in();
 
 #video-modal-embed {
     width: 100%;
-    min-height: 500px;
+    min-height: 506px;
 }
 
 #video-modal-embed iframe {
     width: 100%;
-    height: 500px;
+    height: 506px;
     border: none;
 }
 
 #video-modal-embed .vimeotheque-video {
     width: 100% !important;
-    height: 500px !important;
+    height: 506px !important;
 }
 
 #video-modal-embed .vimeotheque-video iframe {
     width: 100% !important;
-    height: 500px !important;
+    height: 506px !important;
 }
 
 /* Aggressive override for all video elements */
@@ -375,8 +375,8 @@ $is_logged_in = is_user_logged_in();
 #video-modal-embed div[style*="width"],
 #video-modal-embed div[style*="height"] {
     width: 100% !important;
-    height: 500px !important;
-    min-height: 500px !important;
+    height: 506px !important;
+    min-height: 506px !important;
     max-width: 100% !important;
 }
 
@@ -420,10 +420,10 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
 
-            // Show loading state with proper sizing
+            // Show loading state with proper sizing (match Vimeotheque: 900x506px)
             modalEmbed.style.width = '100%';
-            modalEmbed.style.height = '500px';
-            modalEmbed.innerHTML = '<div id="video-loading" style="width: 100%; height: 500px; background: #000;"></div>';
+            modalEmbed.style.height = '506px';
+            modalEmbed.innerHTML = '<div id="video-loading" style="width: 100%; height: 506px; background: #000;"></div>';
 
             // Load video via AJAX
             const postId = card.dataset.postId;
@@ -473,11 +473,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Force size on iframes
                         if (element.tagName === 'IFRAME') {
                             element.style.width = '100% !important';
-                            element.style.height = '500px !important';
-                            element.style.minHeight = '500px !important';
+                            element.style.height = '506px !important';
+                            element.style.minHeight = '506px !important';
                             element.style.maxWidth = '100% !important';
                             element.setAttribute('width', '100%');
-                            element.setAttribute('height', '500');
+                            element.setAttribute('height', '506');
                         }
 
                         // Force size on container elements
@@ -485,8 +485,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             element.classList.contains('video-embed') ||
                             element.tagName === 'DIV') {
                             element.style.width = '100% !important';
-                            element.style.height = '500px !important';
-                            element.style.minHeight = '500px !important';
+                            element.style.height = '506px !important';
+                            element.style.minHeight = '506px !important';
                             element.style.maxWidth = '100% !important';
                         }
                     });
