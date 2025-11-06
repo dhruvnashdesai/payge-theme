@@ -93,16 +93,44 @@ $is_logged_in = is_user_logged_in();
                     </div>
                 <?php endif; ?>
                 <?php
-                // Query Vimeotheque videos first, then manual videos
+                // Improved Vimeotheque video query with debugging
                 $video_args = array(
-                    'post_type' => array('vimeo-video', 'cvm_video', 'video'), // Include correct Vimeotheque post type
+                    'post_type' => array('vimeo-video', 'cvm_video', 'video'),
                     'posts_per_page' => -1,
-                    'post_status' => 'any', // Temporarily check ALL statuses
+                    'post_status' => array('publish', 'private'), // More specific status check
                     'orderby' => 'date',
-                    'order' => 'DESC'
+                    'order' => 'DESC',
+                    'meta_query' => array(
+                        'relation' => 'OR',
+                        array(
+                            'key' => '_vimeo_video_id',
+                            'compare' => 'EXISTS'
+                        ),
+                        array(
+                            'key' => 'vimeo_video_id',
+                            'compare' => 'EXISTS'
+                        ),
+                        array(
+                            'key' => '_video_url',
+                            'compare' => 'EXISTS'
+                        )
+                    )
                 );
 
+                // Debug output (remove in production)
+                if (current_user_can('manage_options')) {
+                    echo '<!-- Debug: Query args: ' . print_r($video_args, true) . ' -->';
+                }
+
                 $video_query = new WP_Query($video_args);
+
+                // Additional debug info
+                if (current_user_can('manage_options')) {
+                    echo '<!-- Debug: Found posts: ' . $video_query->found_posts . ' -->';
+                    echo '<!-- Debug: SQL Query: ' . $video_query->request . ' -->';
+                    $debug_info = payge_theme_debug_vimeotheque();
+                    echo '<!-- Debug: Vimeotheque status: ' . print_r($debug_info, true) . ' -->';
+                }
 
                 if ($video_query->have_posts()) :
                     while ($video_query->have_posts()) : $video_query->the_post();
@@ -158,8 +186,90 @@ $is_logged_in = is_user_logged_in();
                     endwhile;
                     wp_reset_postdata();
                 else :
-                    // Fallback to placeholder videos if no Vimeotheque videos
-                    for ($i = 1; $i <= 12; $i++):
+                    // Try alternative query method if main query fails
+                    if (current_user_can('manage_options')) {
+                        echo '<!-- Debug: Main query failed, trying smart video query -->';
+                    }
+                    $smart_videos = payge_theme_smart_video_query(array('posts_per_page' => -1));
+
+                    if (!empty($smart_videos)) :
+                        // Convert to query-like structure for the loop
+                        global $post;
+                        $original_post = $post;
+
+                        if (current_user_can('manage_options')) {
+                            echo '<!-- Debug: Smart query found ' . count($smart_videos) . ' videos -->';
+                        }
+
+                        foreach ($smart_videos as $smart_video) :
+                            $post = $smart_video;
+                            setup_postdata($post);
+                            $post_type = get_post_type();
+
+                            // Handle both Vimeotheque and manual videos
+                            if ($post_type === 'cvm_video' || $post_type === 'vimeo-video') {
+                                // Vimeotheque video
+                                if (function_exists('cvm_get_video_post')) {
+                                    $video_post = cvm_get_video_post(get_the_ID());
+                                    $video_url = $video_post ? $video_post->video_id : '';
+                                    $video_duration = $video_post ? $video_post->duration : '';
+                                } else {
+                                    $video_url = get_post_meta(get_the_ID(), '_vimeo_video_id', true);
+                                    $video_duration = get_post_meta(get_the_ID(), '_video_duration', true);
+                                }
+                            } else {
+                                // Manual video
+                                $video_url = get_post_meta(get_the_ID(), 'vimeo_video_id', true);
+                                if (!$video_url) {
+                                    $video_url = get_post_meta(get_the_ID(), '_vimeo_video_id', true);
+                                }
+                                $video_duration = get_post_meta(get_the_ID(), 'video_duration', true);
+                                if (!$video_duration) {
+                                    $video_duration = get_post_meta(get_the_ID(), '_video_duration', true);
+                                }
+                            }
+
+                            $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                ?>
+                            <div class="video-card" data-video-id="<?php echo esc_attr($video_url); ?>">
+                                <a href="<?php echo esc_url(get_permalink()); ?>" class="video-card-link">
+                                    <div class="video-thumbnail">
+                                        <?php if ($thumbnail_url) : ?>
+                                            <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title(); ?>" />
+                                        <?php else : ?>
+                                            <div class="video-placeholder-thumb">
+                                                <div class="placeholder-content">No Thumbnail</div>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <div class="video-overlay">
+                                            <div class="play-button">▶</div>
+                                        </div>
+
+                                        <?php if ($video_duration) : ?>
+                                            <div class="video-duration"><?php echo esc_html($video_duration); ?></div>
+                                        <?php endif; ?>
+                                    </div>
+
+                                    <div class="video-info">
+                                        <h3 class="video-title"><?php the_title(); ?></h3>
+                                        <p class="video-description"><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?></p>
+                                        <div class="video-meta">
+                                            <span class="video-date"><?php echo get_the_date('M j, Y'); ?></span>
+                                            <?php if ($video_duration) : ?>
+                                                <span class="video-length"><?php echo esc_html($video_duration); ?></span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                <?php
+                        endforeach;
+                        wp_reset_postdata();
+                        $post = $original_post;
+                    else :
+                        // Final fallback to placeholder videos if no videos found
+                        for ($i = 1; $i <= 12; $i++):
                 ?>
                         <div class="video-card">
                             <div class="video-thumbnail">
@@ -183,7 +293,8 @@ $is_logged_in = is_user_logged_in();
                         </div>
                 <?php
                     endfor;
-                endif;
+                    endif; // End smart video query check
+                endif; // End main query check
                 ?>
             </div>
 

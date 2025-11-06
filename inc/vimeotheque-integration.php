@@ -17,7 +17,61 @@ if (!defined('ABSPATH')) {
  * Check if Vimeotheque is active
  */
 function payge_theme_is_vimeotheque_active() {
-    return class_exists('Vimeotheque\Core');
+    return class_exists('Vimeotheque\Core') ||
+           class_exists('CVM_Video_Post') ||
+           class_exists('Codeflavors\\VideoPost\\Plugin') ||
+           function_exists('cvm_get_video_post');
+}
+
+/**
+ * Get the correct Vimeotheque post type
+ */
+function payge_theme_get_vimeo_post_type() {
+    // Check which post types exist
+    if (post_type_exists('vimeo-video')) {
+        return 'vimeo-video';
+    } elseif (post_type_exists('cvm_video')) {
+        return 'cvm_video';
+    } elseif (post_type_exists('video')) {
+        return 'video';
+    }
+    return false;
+}
+
+/**
+ * Debug Vimeotheque installation
+ */
+function payge_theme_debug_vimeotheque() {
+    if (!current_user_can('manage_options')) {
+        return;
+    }
+
+    $debug_info = array();
+
+    // Check plugin classes
+    $plugin_classes = array(
+        'Vimeotheque\\Core' => 'Vimeotheque PRO Core',
+        'CVM_Video_Post' => 'Vimeotheque Lite',
+        'Codeflavors\\VideoPost\\Plugin' => 'Vimeotheque PRO (new namespace)'
+    );
+
+    foreach ($plugin_classes as $class => $description) {
+        $debug_info['classes'][$class] = class_exists($class) ? 'Active' : 'Not Found';
+    }
+
+    // Check functions
+    $functions = array('cvm_get_video_post', 'cvm_video_embed_html', 'cvm_get_video_data');
+    foreach ($functions as $func) {
+        $debug_info['functions'][$func] = function_exists($func) ? 'Available' : 'Not Found';
+    }
+
+    // Check post types
+    $post_types = array('vimeo-video', 'cvm_video', 'video');
+    foreach ($post_types as $post_type) {
+        $debug_info['post_types'][$post_type] = post_type_exists($post_type) ? 'Registered' : 'Not Registered';
+    }
+
+    return $debug_info;
 }
 
 /**
@@ -50,30 +104,168 @@ function payge_theme_get_featured_video() {
 /**
  * Get video library grid
  *
- * This function will be used to get videos for the grid display
- * when Vimeotheque is active.
+ * Improved function to get videos for the grid display
+ * Works with or without Vimeotheque active
  */
 function payge_theme_get_video_library($args = array()) {
-    if (!payge_theme_is_vimeotheque_active()) {
+    // Get the correct post type to use
+    $vimeo_post_type = payge_theme_get_vimeo_post_type();
+
+    // Default arguments - include multiple post types as fallback
+    $post_types = array();
+    if ($vimeo_post_type) {
+        $post_types[] = $vimeo_post_type;
+    }
+    // Always include our custom video type as fallback
+    if (post_type_exists('video')) {
+        $post_types[] = 'video';
+    }
+
+    if (empty($post_types)) {
         return false;
     }
 
-    // Default arguments
     $defaults = array(
-        'post_type' => 'vimeo-video',
+        'post_type' => $post_types,
         'posts_per_page' => 12,
-        'post_status' => 'publish',
+        'post_status' => array('publish'),
         'orderby' => 'date',
-        'order' => 'DESC'
+        'order' => 'DESC',
+        'meta_query' => array(
+            'relation' => 'OR',
+            array(
+                'key' => '_vimeo_video_id',
+                'compare' => 'EXISTS'
+            ),
+            array(
+                'key' => 'vimeo_video_id',
+                'compare' => 'EXISTS'
+            ),
+            array(
+                'key' => '_video_url',
+                'compare' => 'EXISTS'
+            )
+        )
+    );
+
+    $final_args = wp_parse_args($args, $defaults);
+
+    return get_posts($final_args);
+}
+
+/**
+ * Alternative direct database query for videos
+ */
+function payge_theme_get_videos_direct($limit = 12) {
+    global $wpdb;
+
+    $post_types = "'vimeo-video', 'cvm_video', 'video'";
+
+    $sql = $wpdb->prepare("
+        SELECT p.*,
+               vm1.meta_value as vimeo_id,
+               vm2.meta_value as video_url,
+               vm3.meta_value as duration
+        FROM {$wpdb->posts} p
+        LEFT JOIN {$wpdb->postmeta} vm1 ON (p.ID = vm1.post_id AND vm1.meta_key = '_vimeo_video_id')
+        LEFT JOIN {$wpdb->postmeta} vm2 ON (p.ID = vm2.post_id AND vm2.meta_key = '_video_url')
+        LEFT JOIN {$wpdb->postmeta} vm3 ON (p.ID = vm3.post_id AND vm3.meta_key = '_video_duration')
+        WHERE p.post_type IN ({$post_types})
+        AND p.post_status = 'publish'
+        ORDER BY p.post_date DESC
+        LIMIT %d
+    ", $limit);
+
+    return $wpdb->get_results($sql);
+}
+
+/**
+ * Smart video query - tries multiple methods with hook interference detection
+ */
+function payge_theme_smart_video_query($args = array()) {
+    $defaults = array(
+        'posts_per_page' => 12,
+        'post_status' => 'publish'
     );
 
     $args = wp_parse_args($args, $defaults);
 
-    // Placeholder for Vimeotheque integration
-    // When implemented, this would return the video posts
-    // return get_posts($args);
+    // Method 1: Try Vimeotheque function if available
+    if (function_exists('cvm_get_videos')) {
+        $videos = cvm_get_videos($args);
+        if (!empty($videos)) {
+            return $videos;
+        }
+    }
 
-    return false;
+    // Method 2: Direct get_posts (bypasses some WP_Query filters)
+    $direct_posts = get_posts(array(
+        'post_type' => 'vimeo-video',
+        'numberposts' => $args['posts_per_page'],
+        'post_status' => array('publish', 'private'),
+        'suppress_filters' => true // Key: bypass filters that might interfere
+    ));
+
+    if (!empty($direct_posts)) {
+        if (current_user_can('manage_options')) {
+            error_log('Vimeotheque Debug: get_posts() found ' . count($direct_posts) . ' videos');
+        }
+        return $direct_posts;
+    }
+
+    // Method 3: WP_Query with filter suppression
+    $wp_query_args = array(
+        'post_type' => 'vimeo-video',
+        'posts_per_page' => $args['posts_per_page'],
+        'post_status' => array('publish', 'private'),
+        'suppress_filters' => true,
+        'no_found_rows' => false
+    );
+
+    $query = new WP_Query($wp_query_args);
+    if ($query->have_posts()) {
+        $posts = $query->posts;
+        wp_reset_postdata();
+        return $posts;
+    }
+
+    // Method 4: Try our improved library function
+    $videos = payge_theme_get_video_library($args);
+    if (!empty($videos)) {
+        return $videos;
+    }
+
+    // Method 5: Try direct database query
+    $videos = payge_theme_get_videos_direct($args['posts_per_page']);
+    if (!empty($videos)) {
+        // Convert to WP_Post objects
+        $post_objects = array();
+        foreach ($videos as $video) {
+            $post_objects[] = get_post($video->ID);
+        }
+        return $post_objects;
+    }
+
+    // Method 6: Last resort - any posts with video-related meta
+    $fallback_args = array(
+        'post_type' => 'any',
+        'posts_per_page' => $args['posts_per_page'],
+        'post_status' => $args['post_status'],
+        'suppress_filters' => true,
+        'meta_query' => array(
+            'relation' => 'OR',
+            array(
+                'key' => '_vimeo_video_id',
+                'compare' => 'EXISTS'
+            ),
+            array(
+                'key' => 'vimeo_video_id',
+                'compare' => 'EXISTS'
+            )
+        )
+    );
+
+    return get_posts($fallback_args);
 }
 
 /**
