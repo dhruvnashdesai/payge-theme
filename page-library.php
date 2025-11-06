@@ -339,6 +339,8 @@ $is_logged_in = is_user_logged_in();
     max-height: 90vh;
     width: 900px;
     overflow: hidden;
+    border-radius: 8px;
+    background: #000;
 }
 
 #video-modal-embed {
@@ -378,6 +380,8 @@ $is_logged_in = is_user_logged_in();
     height: 500px !important;
     min-height: 500px !important;
     max-width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
 }
 
 @media (max-width: 768px) {
@@ -423,7 +427,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show loading state with proper sizing
             modalEmbed.style.width = '100%';
             modalEmbed.style.height = '500px';
-            modalEmbed.innerHTML = '<div id="video-loading" style="width: 100%; height: 500px; background: #000; border-radius: 8px;"></div>';
+            modalEmbed.innerHTML = '<div id="video-loading" style="width: 100%; height: 500px; background: #000;"></div>';
 
             // Load video via AJAX
             const postId = card.dataset.postId;
