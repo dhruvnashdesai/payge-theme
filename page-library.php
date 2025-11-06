@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show loading state with proper sizing
             modalEmbed.style.width = '100%';
             modalEmbed.style.height = '500px';
-            modalEmbed.innerHTML = '<div id="video-loading" style="width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 8px; position: relative;"><div style="text-align: center;"><div style="margin-bottom: 15px; font-size: 16px; color: #666;">Loading video...</div><div style="width: 32px; height: 32px; border: 4px solid #f3f3f3; border-top: 4px solid #878175; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div></div></div>';
+            modalEmbed.innerHTML = '<div id="video-loading" style="width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: #000; border-radius: 8px; position: relative;"><div style="width: 40px; height: 40px; border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid #fff; border-radius: 50%; animation: spin 1s linear infinite;"></div></div>';
 
             // Load video via AJAX
             const postId = card.dataset.postId;
