@@ -475,6 +475,26 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.success) {
                 modalEmbed.innerHTML = data.data;
+
+                // Force video sizing after embed loads
+                setTimeout(() => {
+                    const iframes = modalEmbed.querySelectorAll('iframe');
+                    const videoContainers = modalEmbed.querySelectorAll('.vimeotheque-video, .video-embed');
+
+                    iframes.forEach(iframe => {
+                        iframe.style.width = '100%';
+                        iframe.style.height = '500px';
+                        iframe.style.minHeight = '500px';
+                    });
+
+                    videoContainers.forEach(container => {
+                        container.style.width = '100%';
+                        container.style.height = '500px';
+                        container.style.minHeight = '500px';
+                    });
+
+                    console.log('Found ' + iframes.length + ' iframes and ' + videoContainers.length + ' video containers');
+                }, 500);
             } else {
                 modalEmbed.innerHTML = '<div style="text-align: center; padding: 40px; color: #dc3545;">Error loading video: ' + data.data + '</div>';
             }

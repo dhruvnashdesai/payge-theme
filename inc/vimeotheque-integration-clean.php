@@ -136,13 +136,21 @@ function payge_theme_safe_video_embed() {
     }
 
     // Generate embed using Vimeotheque shortcode
-    $embed_html = do_shortcode('[cvm_video id="' . $post_id . '" width="100%" aspect_ratio="16x9" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
+    $embed_html = do_shortcode('[cvm_video id="' . $post_id . '" width="100%" height="500" title="0" byline="0" portrait="0" color="878175" logo="0" pip="0"]');
+
+    // Debug: Log what we're getting
+    if (current_user_can('manage_options')) {
+        error_log('Vimeotheque embed HTML: ' . $embed_html);
+    }
 
     if (empty($embed_html)) {
         wp_send_json_error('Could not generate video embed');
     }
 
-    wp_send_json_success($embed_html);
+    // Add additional wrapper with explicit sizing
+    $wrapped_html = '<div style="width: 100%; height: 500px; position: relative;">' . $embed_html . '</div>';
+
+    wp_send_json_success($wrapped_html);
 }
 
 // Safe AJAX registration
