@@ -123,34 +123,36 @@ $is_logged_in = is_user_logged_in();
                         $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
                 ?>
                         <div class="video-card" data-video-id="<?php echo esc_attr($video_url); ?>">
-                            <div class="video-thumbnail">
-                                <?php if ($thumbnail_url) : ?>
-                                    <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title(); ?>" />
-                                <?php else : ?>
-                                    <div class="video-placeholder-thumb">
-                                        <div class="placeholder-content">No Thumbnail</div>
+                            <a href="<?php echo esc_url(get_permalink()); ?>" class="video-card-link">
+                                <div class="video-thumbnail">
+                                    <?php if ($thumbnail_url) : ?>
+                                        <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title(); ?>" />
+                                    <?php else : ?>
+                                        <div class="video-placeholder-thumb">
+                                            <div class="placeholder-content">No Thumbnail</div>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <div class="video-overlay">
+                                        <div class="play-button">▶</div>
                                     </div>
-                                <?php endif; ?>
 
-                                <div class="video-overlay">
-                                    <div class="play-button">▶</div>
-                                </div>
-
-                                <?php if ($video_duration) : ?>
-                                    <div class="video-duration"><?php echo esc_html($video_duration); ?></div>
-                                <?php endif; ?>
-                            </div>
-
-                            <div class="video-info">
-                                <h3 class="video-title"><?php the_title(); ?></h3>
-                                <p class="video-description"><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?></p>
-                                <div class="video-meta">
-                                    <span class="video-date"><?php echo get_the_date('M j, Y'); ?></span>
                                     <?php if ($video_duration) : ?>
-                                        <span class="video-length"><?php echo esc_html($video_duration); ?></span>
+                                        <div class="video-duration"><?php echo esc_html($video_duration); ?></div>
                                     <?php endif; ?>
                                 </div>
-                            </div>
+
+                                <div class="video-info">
+                                    <h3 class="video-title"><?php the_title(); ?></h3>
+                                    <p class="video-description"><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?></p>
+                                    <div class="video-meta">
+                                        <span class="video-date"><?php echo get_the_date('M j, Y'); ?></span>
+                                        <?php if ($video_duration) : ?>
+                                            <span class="video-length"><?php echo esc_html($video_duration); ?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                 <?php
                     endwhile;
