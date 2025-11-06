@@ -93,29 +93,14 @@ $is_logged_in = is_user_logged_in();
                     </div>
                 <?php endif; ?>
                 <?php
-                // Query regular posts in members category (Vimeotheque videos imported as regular posts)
+                // Query regular posts in "members" category only
                 $video_args = array(
                     'post_type' => 'post',
                     'posts_per_page' => -1,
                     'post_status' => array('publish', 'private'),
                     'orderby' => 'date',
                     'order' => 'DESC',
-                    'category_name' => 'members', // Regular category slug
-                    'meta_query' => array(
-                        'relation' => 'OR',
-                        array(
-                            'key' => '_vimeo_video_id',
-                            'compare' => 'EXISTS'
-                        ),
-                        array(
-                            'key' => 'vimeo_video_id',
-                            'compare' => 'EXISTS'
-                        ),
-                        array(
-                            'key' => '_video_url',
-                            'compare' => 'EXISTS'
-                        )
-                    )
+                    'category_name' => 'members' // Only posts in "members" category
                 );
 
                 $video_query = new WP_Query($video_args);
