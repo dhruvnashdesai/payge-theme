@@ -7,14 +7,39 @@
 
 get_header();
 
-// Check membership status
+// Check membership status with debugging
 $has_membership = function_exists('pmpro_hasMembershipLevel') ? pmpro_hasMembershipLevel() : false;
 $is_logged_in = is_user_logged_in();
+
+// Debug info (remove in production)
+if (current_user_can('manage_options')) {
+    echo '<!-- Debug: PMPro function exists: ' . (function_exists('pmpro_hasMembershipLevel') ? 'YES' : 'NO') . ' -->';
+    echo '<!-- Debug: Has membership: ' . ($has_membership ? 'YES' : 'NO') . ' -->';
+    echo '<!-- Debug: Is logged in: ' . ($is_logged_in ? 'YES' : 'NO') . ' -->';
+    if (function_exists('pmpro_hasMembershipLevel') && $is_logged_in) {
+        $user_level = pmpro_getMembershipLevelForUser();
+        echo '<!-- Debug: User level: ' . print_r($user_level, true) . ' -->';
+    }
+}
 ?>
 
 <main class="single-video-page">
     <div class="container">
         <?php while (have_posts()) : the_post(); ?>
+
+            <!-- Temporary debug info -->
+            <?php if (current_user_can('manage_options')) : ?>
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; margin: 20px 0; border-radius: 5px;">
+                    <strong>Debug Info (Admin Only):</strong><br>
+                    PMPro Function Exists: <?php echo function_exists('pmpro_hasMembershipLevel') ? 'YES' : 'NO'; ?><br>
+                    Is Logged In: <?php echo $is_logged_in ? 'YES' : 'NO'; ?><br>
+                    Has Membership: <?php echo $has_membership ? 'YES' : 'NO'; ?><br>
+                    <?php if ($is_logged_in && function_exists('pmpro_getMembershipLevelForUser')) :
+                        $user_level = pmpro_getMembershipLevelForUser();
+                        echo 'User Level: ' . ($user_level ? $user_level->name . ' (ID: ' . $user_level->id . ')' : 'None');
+                    endif; ?>
+                </div>
+            <?php endif; ?>
 
             <?php if ($has_membership) : ?>
                 <!-- Member: Show full video content -->
