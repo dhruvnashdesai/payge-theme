@@ -129,12 +129,28 @@ function payge_theme_safe_video_embed() {
     }
 
     // Verify this post has video meta (is a Vimeotheque video)
+    // Check all possible meta field variations
     $video_id = get_post_meta($post_id, '_vimeo_video_id', true);
     if (!$video_id) {
         $video_id = get_post_meta($post_id, 'vimeo_video_id', true);
     }
     if (!$video_id) {
-        wp_send_json_error('No video found for this post');
+        $video_id = get_post_meta($post_id, '_video_id', true);
+    }
+    if (!$video_id) {
+        $video_id = get_post_meta($post_id, 'video_id', true);
+    }
+
+    // Debug: Log all meta fields for this post
+    if (current_user_can('manage_options')) {
+        $all_meta = get_post_meta($post_id);
+        error_log('Post ' . $post_id . ' meta fields: ' . print_r($all_meta, true));
+    }
+
+    // For now, let's allow the embed to proceed even without finding video_id
+    // The Vimeotheque shortcode will handle it
+    if (!$video_id) {
+        error_log('No video ID found for post ' . $post_id . ', proceeding with shortcode anyway');
     }
 
     // Generate embed using Vimeotheque shortcode - match plugin settings (900x506px)
