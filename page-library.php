@@ -409,6 +409,11 @@ $is_logged_in = is_user_logged_in();
         height: 300px !important;
     }
 }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 </style>
 
 <script>
@@ -431,7 +436,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Show modal and load video
             modalTitle.textContent = title;
-            modalEmbed.innerHTML = '<div style="text-align: center; padding: 40px;">Loading video...</div>';
+            // Pre-size the container to prevent flash
+            modalEmbed.innerHTML = '<div style="width: 100%; height: 500px; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 8px;"><div style="text-align: center;"><div style="margin-bottom: 10px;">Loading video...</div><div style="width: 24px; height: 24px; border: 3px solid #f3f3f3; border-top: 3px solid #878175; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div></div></div>';
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
 
