@@ -302,17 +302,11 @@ $is_logged_in = is_user_logged_in();
     </section>
 </main>
 
-<!-- Video Modal (HTML only for now) -->
+<!-- Video Modal (just video) -->
 <div id="video-modal" class="video-modal" style="display: none;">
     <div class="video-modal-backdrop"></div>
     <div class="video-modal-content">
-        <button class="video-modal-close" aria-label="Close video">&times;</button>
-        <div class="video-modal-header">
-            <h2 id="video-modal-title">Video Title</h2>
-        </div>
-        <div class="video-modal-body">
-            <div id="video-modal-embed">Modal content will go here</div>
-        </div>
+        <div id="video-modal-embed">Modal content will go here</div>
     </div>
 </div>
 
@@ -341,38 +335,10 @@ $is_logged_in = is_user_logged_in();
 
 .video-modal-content {
     position: relative;
-    background: #fff;
-    border-radius: 8px;
     max-width: 90vw;
     max-height: 90vh;
     width: 900px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.video-modal-close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.video-modal-header {
-    padding: 20px 20px 10px;
-    border-bottom: 1px solid #eee;
-}
-
-.video-modal-body {
-    padding: 0;
-    min-height: 400px;
 }
 
 #video-modal-embed {
@@ -437,9 +403,7 @@ $is_logged_in = is_user_logged_in();
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('video-modal');
-    const modalTitle = document.getElementById('video-modal-title');
     const modalEmbed = document.getElementById('video-modal-embed');
-    const closeBtn = document.querySelector('.video-modal-close');
     const backdrop = document.querySelector('.video-modal-backdrop');
 
     // Test: Open modal when any video card is clicked
@@ -455,9 +419,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show modal immediately
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
-
-            // Set title
-            modalTitle.textContent = title;
 
             // Show loading state with proper sizing
             modalEmbed.style.width = '100%';
@@ -477,7 +438,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
 
-    closeBtn.addEventListener('click', closeModal);
     backdrop.addEventListener('click', closeModal);
 
     // Close on Escape key
