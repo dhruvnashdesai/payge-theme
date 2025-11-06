@@ -415,8 +415,8 @@ function payge_theme_get_video_embed() {
 }
 
 // Hook for logged in and non-logged in users
-add_action('wp_ajax_get_video_embed', 'payge_theme_get_video_embed');
-add_action('wp_ajax_nopriv_get_video_embed', 'payge_theme_get_video_embed');
+// add_action('wp_ajax_get_video_embed', 'payge_theme_get_video_embed');
+// add_action('wp_ajax_nopriv_get_video_embed', 'payge_theme_get_video_embed');
 
 /**
  * Integration hooks for when Vimeotheque is activated
