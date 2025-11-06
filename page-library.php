@@ -95,7 +95,7 @@ $is_logged_in = is_user_logged_in();
                 <?php
                 // Query Vimeotheque videos first, then manual videos
                 $video_args = array(
-                    'post_type' => array('cvm_video', 'video'), // Prioritize Vimeotheque videos first
+                    'post_type' => array('vimeo-video', 'cvm_video', 'video'), // Include correct Vimeotheque post type
                     'posts_per_page' => -1,
                     'post_status' => 'publish',
                     'orderby' => 'date',
@@ -109,7 +109,7 @@ $is_logged_in = is_user_logged_in();
                         $post_type = get_post_type();
 
                         // Handle both Vimeotheque and manual videos
-                        if ($post_type === 'cvm_video') {
+                        if ($post_type === 'cvm_video' || $post_type === 'vimeo-video') {
                             // Vimeotheque video
                             $video_post = cvm_get_video_post(get_the_ID());
                             $video_url = $video_post ? $video_post->video_id : '';
