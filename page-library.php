@@ -93,13 +93,14 @@ $is_logged_in = is_user_logged_in();
                     </div>
                 <?php endif; ?>
                 <?php
-                // Improved Vimeotheque video query with debugging
+                // Query regular posts in members category (Vimeotheque videos imported as regular posts)
                 $video_args = array(
-                    'post_type' => array('vimeo-video', 'cvm_video', 'video'),
+                    'post_type' => 'post',
                     'posts_per_page' => -1,
-                    'post_status' => array('publish', 'private'), // More specific status check
+                    'post_status' => array('publish', 'private'),
                     'orderby' => 'date',
                     'order' => 'DESC',
+                    'category_name' => 'members', // Regular category slug
                     'meta_query' => array(
                         'relation' => 'OR',
                         array(
@@ -117,11 +118,6 @@ $is_logged_in = is_user_logged_in();
                     )
                 );
 
-                // Debug output (remove in production)
-                if (current_user_can('manage_options')) {
-                    echo '<!-- Debug: Query args: ' . print_r($video_args, true) . ' -->';
-                }
-
                 $video_query = new WP_Query($video_args);
 
                 // Additional debug info
@@ -134,17 +130,14 @@ $is_logged_in = is_user_logged_in();
 
                 if ($video_query->have_posts()) :
                     while ($video_query->have_posts()) : $video_query->the_post();
-                        $post_type = get_post_type();
-
-                        // Handle both Vimeotheque and manual videos
-                        if ($post_type === 'cvm_video' || $post_type === 'vimeo-video') {
-                            // Vimeotheque video
-                            $video_post = cvm_get_video_post(get_the_ID());
-                            $video_url = $video_post ? $video_post->video_id : '';
-                            $video_duration = $video_post ? $video_post->duration : '';
-                        } else {
-                            // Manual video
+                        // Handle Vimeotheque videos imported as regular posts
+                        $video_url = get_post_meta(get_the_ID(), '_vimeo_video_id', true);
+                        if (!$video_url) {
                             $video_url = get_post_meta(get_the_ID(), 'vimeo_video_id', true);
+                        }
+
+                        $video_duration = get_post_meta(get_the_ID(), '_video_duration', true);
+                        if (!$video_duration) {
                             $video_duration = get_post_meta(get_the_ID(), 'video_duration', true);
                         }
 

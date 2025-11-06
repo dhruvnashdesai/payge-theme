@@ -38,7 +38,7 @@ function payge_theme_get_vimeo_post_type() {
 }
 
 /**
- * Smart video query - simplified working version
+ * Smart video query - updated for regular posts with members category
  */
 function payge_theme_smart_video_query($args = array()) {
     $defaults = array(
@@ -48,34 +48,27 @@ function payge_theme_smart_video_query($args = array()) {
 
     $args = wp_parse_args($args, $defaults);
 
-    // Method 1: Direct get_posts with members category filter
-    $direct_posts = get_posts(array(
-        'post_type' => 'vimeo-video',
+    // Query regular posts in "members" category
+    $video_posts = get_posts(array(
+        'post_type' => 'post',
         'numberposts' => $args['posts_per_page'],
         'post_status' => array('publish', 'private'),
         'suppress_filters' => true,
-        'tax_query' => array(
+        'category_name' => 'members', // Regular category slug
+        'meta_query' => array(
+            'relation' => 'OR',
             array(
-                'taxonomy' => 'vimeo-videos',
-                'field' => 'slug',
-                'terms' => 'members'
+                'key' => '_vimeo_video_id',
+                'compare' => 'EXISTS'
+            ),
+            array(
+                'key' => 'vimeo_video_id',
+                'compare' => 'EXISTS'
             )
         )
     ));
 
-    if (!empty($direct_posts)) {
-        return $direct_posts;
-    }
-
-    // Method 2: Fallback without taxonomy filter
-    $fallback_posts = get_posts(array(
-        'post_type' => 'vimeo-video',
-        'numberposts' => $args['posts_per_page'],
-        'post_status' => array('publish', 'private'),
-        'suppress_filters' => true
-    ));
-
-    return $fallback_posts;
+    return $video_posts;
 }
 
 /**
@@ -129,10 +122,19 @@ function payge_theme_safe_video_embed() {
         wp_send_json_error('Invalid post ID');
     }
 
-    // Get the post
+    // Get the post (now regular posts)
     $post = get_post($post_id);
-    if (!$post || $post->post_type !== 'vimeo-video') {
+    if (!$post || $post->post_type !== 'post') {
         wp_send_json_error('Video not found');
+    }
+
+    // Verify this post has video meta (is a Vimeotheque video)
+    $video_id = get_post_meta($post_id, '_vimeo_video_id', true);
+    if (!$video_id) {
+        $video_id = get_post_meta($post_id, 'vimeo_video_id', true);
+    }
+    if (!$video_id) {
+        wp_send_json_error('No video found for this post');
     }
 
     // Generate embed using Vimeotheque shortcode - match plugin settings (900x506px)
@@ -156,3 +158,31 @@ function payge_theme_safe_video_embed() {
 // Safe AJAX registration
 add_action('wp_ajax_payge_video_embed', 'payge_theme_safe_video_embed');
 add_action('wp_ajax_nopriv_payge_video_embed', 'payge_theme_safe_video_embed');
+
+/**
+ * Use custom video template for posts in members category with video content
+ */
+function payge_theme_video_template($template) {
+    if (is_single() && get_post_type() === 'post') {
+        // Check if post is in members category
+        $post_categories = wp_get_post_categories(get_the_ID());
+        $members_cat = get_category_by_slug('members');
+
+        if ($members_cat && in_array($members_cat->term_id, $post_categories)) {
+            // Check if post has video content
+            $video_id = get_post_meta(get_the_ID(), '_vimeo_video_id', true);
+            if (!$video_id) {
+                $video_id = get_post_meta(get_the_ID(), 'vimeo_video_id', true);
+            }
+
+            if ($video_id) {
+                $video_template = locate_template('single-video.php');
+                if ($video_template) {
+                    return $video_template;
+                }
+            }
+        }
+    }
+    return $template;
+}
+add_filter('template_include', 'payge_theme_video_template');
