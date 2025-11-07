@@ -355,3 +355,28 @@ function payge_save_video_difficulty_meta_box($post_id) {
 }
 add_action('save_post', 'payge_save_video_difficulty_meta_box');
 
+/**
+ * Add Instagram URL setting to WordPress Customizer
+ */
+function payge_theme_customize_register($wp_customize) {
+    // Add Social Media Section
+    $wp_customize->add_section('payge_social_media', array(
+        'title'    => 'Social Media',
+        'priority' => 30,
+    ));
+
+    // Add Instagram URL Setting
+    $wp_customize->add_setting('payge_instagram_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control('payge_instagram_url', array(
+        'label'    => 'Instagram URL',
+        'section'  => 'payge_social_media',
+        'type'     => 'url',
+        'description' => 'Enter your Instagram profile URL (e.g., https://instagram.com/yourprofile)',
+    ));
+}
+add_action('customize_register', 'payge_theme_customize_register');
+
