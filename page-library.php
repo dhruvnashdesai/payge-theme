@@ -21,39 +21,46 @@ $is_logged_in = is_user_logged_in();
                 <!-- Video on left -->
                 <div class="hero-video-wrapper">
                     <?php
-                    // Get the featured video thumbnail
-                    $featured_video = get_post(45);
+                    // Get the first video from members category using the smart query
+                    $featured_videos = payge_theme_smart_video_query(array('posts_per_page' => 1));
 
-                    if ($featured_video && $featured_video->post_status === 'publish') {
-                        $thumbnail_url = get_the_post_thumbnail_url(45, 'large');
+                    if (!empty($featured_videos)) {
+                        $featured_video = $featured_videos[0];
+                        $video_id = $featured_video->ID;
+                        $thumbnail_url = get_the_post_thumbnail_url($video_id, 'large');
 
                         // If no WordPress thumbnail, try to get Vimeo thumbnail
                         if (!$thumbnail_url) {
-                            $vimeo_id = get_post_meta(45, '_vimeo_video_id', true);
+                            $vimeo_id = get_post_meta($video_id, '_vimeo_video_id', true);
+                            if (!$vimeo_id) {
+                                $vimeo_id = get_post_meta($video_id, 'vimeo_video_id', true);
+                            }
                             if ($vimeo_id) {
                                 $thumbnail_url = "https://vumbnail.com/{$vimeo_id}.jpg";
                             }
                         }
                         ?>
-                        <div class="hero-video-thumbnail" data-video-id="45">
-                            <?php if ($thumbnail_url) : ?>
-                                <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($featured_video->post_title); ?>" />
-                            <?php else : ?>
-                                <div class="video-placeholder-content">
-                                    <div class="play-icon">▶</div>
-                                    <h3>Featured Class</h3>
-                                </div>
-                            <?php endif; ?>
+                        <a href="<?php echo esc_url(get_permalink($video_id)); ?>" class="hero-video-link">
+                            <div class="hero-video-thumbnail" data-video-id="<?php echo $video_id; ?>">
+                                <?php if ($thumbnail_url) : ?>
+                                    <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($featured_video->post_title); ?>" />
+                                <?php else : ?>
+                                    <div class="video-placeholder-content">
+                                        <div class="play-icon">▶</div>
+                                        <h3>Featured Class</h3>
+                                    </div>
+                                <?php endif; ?>
 
-                            <div class="video-play-overlay">
-                                <div class="play-button">
-                                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="40" cy="40" r="40" fill="rgba(255,255,255,0.9)"/>
-                                        <path d="M32 25L32 55L55 40L32 25Z" fill="#333"/>
-                                    </svg>
+                                <div class="video-play-overlay">
+                                    <div class="play-button">
+                                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="40" cy="40" r="40" fill="rgba(255,255,255,0.9)"/>
+                                            <path d="M32 25L32 55L55 40L32 25Z" fill="#333"/>
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                         <?php
                     } else {
                         // Fallback placeholder if video not found

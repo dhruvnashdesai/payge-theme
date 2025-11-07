@@ -17,6 +17,21 @@
     position: relative;
 }
 
+/* Hero Video Link Styling */
+.hero-video-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hero-video-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
 .hero-video-embed {
     position: relative;
     width: 100%;
