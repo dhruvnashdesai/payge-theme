@@ -25,49 +25,17 @@ $is_logged_in = is_user_logged_in();
                     $debug_output = array();
                     $debug_output[] = '=== HERO VIDEO DEBUG START ===';
 
-                    // Try multiple approaches to find a video
+                    // Use specific post ID 215 for hero video
                     $featured_videos = array();
+                    $hero_post = get_post(215);
 
-                    // Method 1: Try smart query if function exists
-                    if (function_exists('payge_theme_smart_video_query')) {
-                        $featured_videos = payge_theme_smart_video_query(array('posts_per_page' => 1));
-                        $debug_output[] = 'Method 1 - Smart query found ' . count($featured_videos) . ' videos';
+                    if ($hero_post && $hero_post->post_status === 'publish') {
+                        $featured_videos = array($hero_post);
+                        $debug_output[] = 'Found hero video post 215: ' . $hero_post->post_title;
+                    } else {
+                        $debug_output[] = 'Hero video post 215 not found or not published';
                     }
 
-                    // Method 2: If no videos found, try members category
-                    if (empty($featured_videos)) {
-                        $featured_videos = get_posts(array(
-                            'post_type' => 'post',
-                            'numberposts' => 1,
-                            'post_status' => array('publish', 'private'),
-                            'category_name' => 'members'
-                        ));
-                        $debug_output[] = 'Method 2 - Members category found ' . count($featured_videos) . ' posts';
-                    }
-
-                    // Method 3: If still no videos, try old Vimeotheque post types
-                    if (empty($featured_videos)) {
-                        $post_types_to_try = array('cvm_video', 'vimeo-video', 'video');
-                        foreach ($post_types_to_try as $post_type) {
-                            if (post_type_exists($post_type)) {
-                                $featured_videos = get_posts(array(
-                                    'post_type' => $post_type,
-                                    'numberposts' => 1,
-                                    'post_status' => 'publish'
-                                ));
-                                if (!empty($featured_videos)) {
-                                    $debug_output[] = 'Method 3 - Found videos in post type: ' . $post_type;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-
-                    // Method 4: Last resort - use hardcoded post ID 45 if it exists
-                    if (empty($featured_videos) && get_post(45)) {
-                        $featured_videos = array(get_post(45));
-                        $debug_output[] = 'Method 4 - Using hardcoded post ID 45';
-                    }
 
                     if (!empty($featured_videos)) {
                         $featured_video = $featured_videos[0];
