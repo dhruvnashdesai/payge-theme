@@ -21,22 +21,75 @@ $is_logged_in = is_user_logged_in();
                 <!-- Video on left -->
                 <div class="hero-video-wrapper">
                     <?php
-                    // Get the first video from members category using the smart query
-                    $featured_videos = payge_theme_smart_video_query(array('posts_per_page' => 1));
+                    // DEBUG: Let's see what's happening with visible output
+                    $debug_output = array();
+                    $debug_output[] = '=== HERO VIDEO DEBUG START ===';
+
+                    // Try multiple approaches to find a video
+                    $featured_videos = array();
+
+                    // Method 1: Try smart query if function exists
+                    if (function_exists('payge_theme_smart_video_query')) {
+                        $featured_videos = payge_theme_smart_video_query(array('posts_per_page' => 1));
+                        $debug_output[] = 'Method 1 - Smart query found ' . count($featured_videos) . ' videos';
+                    }
+
+                    // Method 2: If no videos found, try members category
+                    if (empty($featured_videos)) {
+                        $featured_videos = get_posts(array(
+                            'post_type' => 'post',
+                            'numberposts' => 1,
+                            'post_status' => array('publish', 'private'),
+                            'category_name' => 'members'
+                        ));
+                        $debug_output[] = 'Method 2 - Members category found ' . count($featured_videos) . ' posts';
+                    }
+
+                    // Method 3: If still no videos, try old Vimeotheque post types
+                    if (empty($featured_videos)) {
+                        $post_types_to_try = array('cvm_video', 'vimeo-video', 'video');
+                        foreach ($post_types_to_try as $post_type) {
+                            if (post_type_exists($post_type)) {
+                                $featured_videos = get_posts(array(
+                                    'post_type' => $post_type,
+                                    'numberposts' => 1,
+                                    'post_status' => 'publish'
+                                ));
+                                if (!empty($featured_videos)) {
+                                    $debug_output[] = 'Method 3 - Found videos in post type: ' . $post_type;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    // Method 4: Last resort - use hardcoded post ID 45 if it exists
+                    if (empty($featured_videos) && get_post(45)) {
+                        $featured_videos = array(get_post(45));
+                        $debug_output[] = 'Method 4 - Using hardcoded post ID 45';
+                    }
 
                     if (!empty($featured_videos)) {
                         $featured_video = $featured_videos[0];
                         $video_id = $featured_video->ID;
+                        $debug_output[] = 'Found video ID: ' . $video_id . ' - Title: ' . $featured_video->post_title;
+
                         $thumbnail_url = get_the_post_thumbnail_url($video_id, 'large');
+                        $debug_output[] = 'WordPress thumbnail URL: ' . ($thumbnail_url ? $thumbnail_url : 'NONE');
 
                         // If no WordPress thumbnail, try to get Vimeo thumbnail
                         if (!$thumbnail_url) {
                             $vimeo_id = get_post_meta($video_id, '_vimeo_video_id', true);
+                            $debug_output[] = '_vimeo_video_id meta: ' . ($vimeo_id ? $vimeo_id : 'NONE');
+
                             if (!$vimeo_id) {
                                 $vimeo_id = get_post_meta($video_id, 'vimeo_video_id', true);
+                                $debug_output[] = 'vimeo_video_id meta: ' . ($vimeo_id ? $vimeo_id : 'NONE');
                             }
+
                             if ($vimeo_id) {
                                 $thumbnail_url = "https://vumbnail.com/{$vimeo_id}.jpg";
+                                $debug_output[] = 'Generated Vimeo thumbnail: ' . $thumbnail_url;
                             }
                         }
                         ?>
@@ -63,6 +116,31 @@ $is_logged_in = is_user_logged_in();
                         </a>
                         <?php
                     } else {
+                        $debug_output[] = 'ERROR: No videos found in members category';
+
+                        // Check what categories exist
+                        $all_categories = get_categories();
+                        $cat_names = array_map(function($cat) { return $cat->slug; }, $all_categories);
+                        $debug_output[] = 'Available categories: ' . implode(', ', $cat_names);
+
+                        // Check if members category exists
+                        $members_cat = get_category_by_slug('members');
+                        if ($members_cat) {
+                            $debug_output[] = 'Members category exists with ID: ' . $members_cat->term_id;
+                        } else {
+                            $debug_output[] = 'ERROR: Members category does not exist';
+                        }
+
+                        $debug_output[] = '=== HERO VIDEO DEBUG END ===';
+
+                        // Display debug info visibly
+                        echo '<div style="background: #fff; border: 2px solid #ff0000; padding: 10px; margin: 10px; font-family: monospace; font-size: 12px; max-width: 400px;">';
+                        echo '<strong style="color: #ff0000;">HERO VIDEO DEBUG:</strong><br>';
+                        foreach ($debug_output as $line) {
+                            echo esc_html($line) . '<br>';
+                        }
+                        echo '</div>';
+
                         // Fallback placeholder if video not found
                         ?>
                         <div class="hero-video-placeholder">
