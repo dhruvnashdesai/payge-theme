@@ -281,3 +281,77 @@ require get_template_directory() . '/inc/custom-post-types.php';
  */
 require get_template_directory() . '/inc/vimeotheque-integration-clean.php';
 
+/**
+ * Add Video Difficulty Level Meta Box
+ */
+function payge_add_video_difficulty_meta_box() {
+    add_meta_box(
+        'video_difficulty',
+        'Video Difficulty Level',
+        'payge_video_difficulty_meta_box_callback',
+        'post',
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'payge_add_video_difficulty_meta_box');
+
+/**
+ * Video Difficulty Meta Box Callback
+ */
+function payge_video_difficulty_meta_box_callback($post) {
+    wp_nonce_field('payge_save_video_difficulty', 'payge_video_difficulty_nonce');
+
+    $current_difficulty = get_post_meta($post->ID, '_video_difficulty', true);
+    if (!$current_difficulty) {
+        $current_difficulty = 'intermediate'; // Default
+    }
+
+    $difficulties = array(
+        'beginner' => 'Beginner',
+        'intermediate' => 'Intermediate',
+        'advanced' => 'Advanced'
+    );
+
+    echo '<p><strong>Select difficulty level for this video:</strong></p>';
+    foreach ($difficulties as $value => $label) {
+        $checked = $current_difficulty === $value ? 'checked' : '';
+        echo '<label style="display: block; margin-bottom: 8px;">';
+        echo '<input type="radio" name="video_difficulty" value="' . esc_attr($value) . '" ' . $checked . '> ';
+        echo esc_html($label);
+        echo '</label>';
+    }
+}
+
+/**
+ * Save Video Difficulty Meta Box Data
+ */
+function payge_save_video_difficulty_meta_box($post_id) {
+    // Check nonce
+    if (!isset($_POST['payge_video_difficulty_nonce']) ||
+        !wp_verify_nonce($_POST['payge_video_difficulty_nonce'], 'payge_save_video_difficulty')) {
+        return;
+    }
+
+    // Check autosave
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    // Check permissions
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    // Save the difficulty level
+    if (isset($_POST['video_difficulty'])) {
+        $difficulty = sanitize_text_field($_POST['video_difficulty']);
+        $valid_difficulties = array('beginner', 'intermediate', 'advanced');
+
+        if (in_array($difficulty, $valid_difficulties)) {
+            update_post_meta($post_id, '_video_difficulty', $difficulty);
+        }
+    }
+}
+add_action('save_post', 'payge_save_video_difficulty_meta_box');
+

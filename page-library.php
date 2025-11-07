@@ -156,6 +156,14 @@ $is_logged_in = is_user_logged_in();
         <div class="container">
             <?php if ($has_membership) : ?>
                 <h2>Your Complete Video Library</h2>
+
+                <!-- Difficulty Level Filter -->
+                <div class="video-filters">
+                    <button class="filter-btn active" data-filter="all">All Levels</button>
+                    <button class="filter-btn" data-filter="beginner">Beginner</button>
+                    <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+                    <button class="filter-btn" data-filter="advanced">Advanced</button>
+                </div>
             <?php endif; ?>
 
             <div class="video-grid">
@@ -236,7 +244,14 @@ $is_logged_in = is_user_logged_in();
                                     <h3 class="video-title"><?php the_title(); ?></h3>
                                     <p class="video-description"><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?></p>
                                     <div class="video-meta">
-                                        <span class="video-date"><?php echo get_the_date('M j, Y'); ?></span>
+                                        <?php
+                                        // Get difficulty level from custom field
+                                        $difficulty = get_post_meta(get_the_ID(), '_video_difficulty', true);
+                                        if (!$difficulty) {
+                                            $difficulty = 'intermediate'; // Default fallback
+                                        }
+                                        ?>
+                                        <span class="video-level <?php echo esc_attr($difficulty); ?>"><?php echo ucfirst($difficulty); ?></span>
                                         <?php if ($video_duration) : ?>
                                             <span class="video-length"><?php echo esc_html($video_duration); ?></span>
                                         <?php endif; ?>
@@ -304,7 +319,14 @@ $is_logged_in = is_user_logged_in();
                                         <h3 class="video-title"><?php the_title(); ?></h3>
                                         <p class="video-description"><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?></p>
                                         <div class="video-meta">
-                                            <span class="video-date"><?php echo get_the_date('M j, Y'); ?></span>
+                                            <?php
+                                            // Get difficulty level from custom field
+                                            $difficulty = get_post_meta(get_the_ID(), '_video_difficulty', true);
+                                            if (!$difficulty) {
+                                                $difficulty = 'intermediate'; // Default fallback
+                                            }
+                                            ?>
+                                            <span class="video-level <?php echo esc_attr($difficulty); ?>"><?php echo ucfirst($difficulty); ?></span>
                                             <?php if ($video_duration) : ?>
                                                 <span class="video-length"><?php echo esc_html($video_duration); ?></span>
                                             <?php endif; ?>
@@ -335,8 +357,7 @@ $is_logged_in = is_user_logged_in();
                                 <h3 class="video-title">Sample Class <?php echo $i; ?></h3>
                                 <p class="video-description">A focused Pilates session targeting core strength and flexibility.</p>
                                 <div class="video-meta">
-                                    <span class="video-date">Dec <?php echo $i; ?>, 2024</span>
-                                    <span class="video-level"><?php echo ucfirst(['beginner', 'intermediate', 'advanced'][($i - 1) % 3]); ?></span>
+                                    <span class="video-level <?php echo ['beginner', 'intermediate', 'advanced'][($i - 1) % 3]; ?>"><?php echo ucfirst(['beginner', 'intermediate', 'advanced'][($i - 1) % 3]); ?></span>
                                 </div>
                             </div>
                         </div>
@@ -625,6 +646,34 @@ document.addEventListener('DOMContentLoaded', function() {
             modalEmbed.innerHTML = '<div style="text-align: center; padding: 40px; color: #dc3545;">Error loading video. Please try again.</div>';
         });
     }
+
+    // Difficulty Level Filter Functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const videoCards = document.querySelectorAll('.video-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            const filter = this.dataset.filter;
+
+            videoCards.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    const cardDifficulty = card.querySelector('.video-level');
+                    if (cardDifficulty && cardDifficulty.classList.contains(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
 });
 </script>
 
