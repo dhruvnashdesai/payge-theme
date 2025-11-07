@@ -275,11 +275,8 @@ body.pmpro-login .entry-content {
     padding: 2rem 1rem !important;
 }
 
-/* Login Form Card - Enhanced Design */
-.pmpro_login_wrap,
-.pmpro_login,
-#pmpro_login,
-.pmpro_checkout {
+/* Login Form Card - Enhanced Design - Target only the main wrapper */
+.pmpro_login_wrap {
     max-width: 450px !important;
     margin: 3rem auto !important;
     background-color: white !important;
@@ -292,19 +289,40 @@ body.pmpro-login .entry-content {
     position: relative !important;
 }
 
-.pmpro_login_wrap:hover,
-.pmpro_login:hover,
-#pmpro_login:hover,
-.pmpro_checkout:hover {
+/* Remove card styling from nested elements to prevent double cards */
+.pmpro_login_wrap .pmpro_login,
+.pmpro_login_wrap #pmpro_login,
+.pmpro_login_wrap .pmpro_checkout,
+.pmpro_login_wrap .pmpro_form,
+.pmpro_login_wrap .wp-block-pmpro-login {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+}
+
+/* Also reset any potential ::before or ::after pseudo-elements on nested elements */
+.pmpro_login_wrap .pmpro_login::before,
+.pmpro_login_wrap .pmpro_login::after,
+.pmpro_login_wrap #pmpro_login::before,
+.pmpro_login_wrap #pmpro_login::after,
+.pmpro_login_wrap .pmpro_checkout::before,
+.pmpro_login_wrap .pmpro_checkout::after {
+    display: none !important;
+    content: none !important;
+}
+
+.pmpro_login_wrap:hover {
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04) !important;
     transform: translateY(-2px) !important;
 }
 
-/* Subtle top border accent */
-.pmpro_login_wrap::before,
-.pmpro_login::before,
-#pmpro_login::before,
-.pmpro_checkout::before {
+/* Subtle top border accent - only on main wrapper */
+.pmpro_login_wrap::before {
     content: '' !important;
     position: absolute !important;
     top: 0 !important;
@@ -356,17 +374,11 @@ body.pmpro-login .entry-content {
     text-align: center !important;
 }
 
-/* Card Content - Enhanced */
+/* Card Content - Enhanced - Only target forms within the wrapper */
 .pmpro_login_wrap form,
-.pmpro_login_wrap .pmpro_login_form,
-.pmpro_login form,
-.pmpro_login .pmpro_login_form,
-#pmpro_login form,
-#pmpro_login .pmpro_login_form,
-.pmpro_checkout form,
-.pmpro_checkout .pmpro_login_form {
+.pmpro_login_wrap .pmpro_login_form {
     padding: 1.5rem 2.5rem 2.5rem 2.5rem !important;
-    background-color: white !important;
+    background-color: transparent !important;
 }
 
 /* Form Structure */
