@@ -258,74 +258,115 @@ input[type="submit"].pmpro_btn:hover {
 /* Login Page Background */
 body.login-page,
 body[class*="pmpro-login"],
-body[class*="login"] {
+body[class*="login"],
+body.pmpro-login,
+.pmpro-login {
     background-color: #ecede7 !important;
     min-height: 100vh !important;
 }
 
-/* Login Form Card - Enhanced Design */
-.pmpro_login_wrap {
-    max-width: 450px;
-    margin: 3rem auto;
-    background-color: white;
-    border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    overflow: hidden;
-    padding: 0;
-    transition: all 0.3s ease;
-    position: relative;
+/* Center the login content */
+body.pmpro-login #content,
+body.pmpro-login .entry-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: calc(100vh - 120px) !important;
+    padding: 2rem 1rem !important;
 }
 
-.pmpro_login_wrap:hover {
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
-    transform: translateY(-2px);
+/* Login Form Card - Enhanced Design */
+.pmpro_login_wrap,
+.pmpro_login,
+#pmpro_login,
+.pmpro_checkout {
+    max-width: 450px !important;
+    margin: 3rem auto !important;
+    background-color: white !important;
+    border-radius: 16px !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+}
+
+.pmpro_login_wrap:hover,
+.pmpro_login:hover,
+#pmpro_login:hover,
+.pmpro_checkout:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04) !important;
+    transform: translateY(-2px) !important;
 }
 
 /* Subtle top border accent */
-.pmpro_login_wrap::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #1a1a1a 0%, #4a4a4a 50%, #1a1a1a 100%);
-    border-radius: 16px 16px 0 0;
+.pmpro_login_wrap::before,
+.pmpro_login::before,
+#pmpro_login::before,
+.pmpro_checkout::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, #1a1a1a 0%, #4a4a4a 50%, #1a1a1a 100%) !important;
+    border-radius: 16px 16px 0 0 !important;
 }
 
 /* Card Header - Enhanced */
-.pmpro_login_wrap .pmpro_login_header {
-    padding: 2.5rem 2.5rem 1.5rem 2.5rem;
-    background-color: white;
-    border-bottom: 1px solid #f3f4f6;
-    text-align: center;
+.pmpro_login_wrap .pmpro_login_header,
+.pmpro_login .pmpro_login_header,
+#pmpro_login .pmpro_login_header,
+.pmpro_checkout .pmpro_login_header {
+    padding: 2.5rem 2.5rem 1.5rem 2.5rem !important;
+    background-color: white !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    text-align: center !important;
 }
 
 .pmpro_login_wrap h2,
-.pmpro_login_wrap .login-title {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: #111827;
-    margin: 0 0 0.75rem 0;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
+.pmpro_login_wrap .login-title,
+.pmpro_login h2,
+.pmpro_login .login-title,
+#pmpro_login h2,
+#pmpro_login .login-title,
+.pmpro_checkout h2,
+.pmpro_checkout .login-title {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-size: 1.75rem !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+    margin: 0 0 0.75rem 0 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.025em !important;
+    text-align: center !important;
 }
 
-.pmpro_login_wrap .login-description {
-    font-size: 0.95rem;
-    color: #6b7280;
-    margin: 0;
-    line-height: 1.5;
-    font-weight: 400;
+.pmpro_login_wrap .login-description,
+.pmpro_login .login-description,
+#pmpro_login .login-description,
+.pmpro_checkout .login-description {
+    font-size: 0.95rem !important;
+    color: #6b7280 !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    text-align: center !important;
 }
 
 /* Card Content - Enhanced */
 .pmpro_login_wrap form,
-.pmpro_login_wrap .pmpro_login_form {
-    padding: 1.5rem 2.5rem 2.5rem 2.5rem;
-    background-color: white;
+.pmpro_login_wrap .pmpro_login_form,
+.pmpro_login form,
+.pmpro_login .pmpro_login_form,
+#pmpro_login form,
+#pmpro_login .pmpro_login_form,
+.pmpro_checkout form,
+.pmpro_checkout .pmpro_login_form {
+    padding: 1.5rem 2.5rem 2.5rem 2.5rem !important;
+    background-color: white !important;
 }
 
 /* Form Structure */
@@ -352,17 +393,27 @@ body[class*="login"] {
 
 .pmpro_login_wrap input[type="text"],
 .pmpro_login_wrap input[type="email"],
-.pmpro_login_wrap input[type="password"] {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 0.875rem;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    background-color: white;
-    box-sizing: border-box;
-    transition: all 0.15s ease;
-    color: #111827;
+.pmpro_login_wrap input[type="password"],
+.pmpro_login input[type="text"],
+.pmpro_login input[type="email"],
+.pmpro_login input[type="password"],
+#pmpro_login input[type="text"],
+#pmpro_login input[type="email"],
+#pmpro_login input[type="password"],
+.pmpro_checkout input[type="text"],
+.pmpro_checkout input[type="email"],
+.pmpro_checkout input[type="password"] {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 8px !important;
+    font-size: 0.875rem !important;
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    background-color: white !important;
+    box-sizing: border-box !important;
+    transition: all 0.15s ease !important;
+    color: #111827 !important;
+    margin-bottom: 1rem !important;
 }
 
 .pmpro_login_wrap input[type="text"]::placeholder,
@@ -373,11 +424,20 @@ body[class*="login"] {
 
 .pmpro_login_wrap input[type="text"]:focus,
 .pmpro_login_wrap input[type="email"]:focus,
-.pmpro_login_wrap input[type="password"]:focus {
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
-    transform: translateY(-1px);
+.pmpro_login_wrap input[type="password"]:focus,
+.pmpro_login input[type="text"]:focus,
+.pmpro_login input[type="email"]:focus,
+.pmpro_login input[type="password"]:focus,
+#pmpro_login input[type="text"]:focus,
+#pmpro_login input[type="email"]:focus,
+#pmpro_login input[type="password"]:focus,
+.pmpro_checkout input[type="text"]:focus,
+.pmpro_checkout input[type="email"]:focus,
+.pmpro_checkout input[type="password"]:focus {
+    outline: none !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1) !important;
+    transform: translateY(-1px) !important;
 }
 
 .pmpro_login_wrap input[type="text"]:hover:not(:focus),
@@ -412,21 +472,29 @@ body[class*="login"] {
 
 /* Submit Button - Enhanced */
 .pmpro_login_wrap input[type="submit"],
-.pmpro_login_wrap .login-submit-btn {
-    width: 100%;
-    background-color: #111827;
-    color: white;
-    border: none;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    margin-top: 1rem;
-    position: relative;
-    overflow: hidden;
+.pmpro_login_wrap .login-submit-btn,
+.pmpro_login input[type="submit"],
+.pmpro_login .login-submit-btn,
+#pmpro_login input[type="submit"],
+#pmpro_login .login-submit-btn,
+.pmpro_checkout input[type="submit"],
+.pmpro_checkout .login-submit-btn,
+.pmpro_btn,
+.pmpro_btn-submit {
+    width: 100% !important;
+    background-color: #111827 !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 8px !important;
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    margin-top: 1rem !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
 .pmpro_login_wrap input[type="submit"]:hover,
