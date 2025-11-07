@@ -218,18 +218,25 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
+/* Override PMPro account section headings - remove background */
+body.pmpro-account .pmpro_account-membership h2,
+body.pmpro-account .pmpro_account-profile h2,
+body.pmpro-account .pmpro_account-invoices h2,
+body.pmpro-account .pmpro_account-links h2,
 .pmpro_account-membership h2,
 .pmpro_account-profile h2,
 .pmpro_account-invoices h2,
 .pmpro_account-links h2 {
-    background-color: transparent;
+    background-color: transparent !important;
+    background: none !important;
     color: #1a1a1a;
     font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
     font-size: 1.2rem;
-    margin: 0 0 1.5rem 0;
-    padding: 0;
-    border-radius: 0;
-    border-bottom: none;
+    margin: 0 0 1.5rem 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    border-bottom: none !important;
+    border: none !important;
     font-weight: normal;
 }
 
