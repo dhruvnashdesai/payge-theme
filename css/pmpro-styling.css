@@ -18,6 +18,14 @@
     min-height: 70vh;
 }
 
+/* Ensure account page body has consistent background */
+body.pmpro-account,
+body.pmpro-billing,
+body.pmpro-orders,
+body.pmpro-profile {
+    background-color: #ecede7 !important;
+}
+
 /* Container and Layout */
 .pmpro-account .container,
 .pmpro-billing .container,
