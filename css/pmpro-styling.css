@@ -345,6 +345,29 @@ body[class*="login"] {
     box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
+/* Style lost password link */
+.pmpro_login_form .pmpro_login-links,
+.pmpro_login_form .pmpro_actions_nav {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-top: 1rem !important;
+    text-align: center;
+}
+
+.pmpro_login_form .pmpro_login-links a,
+.pmpro_login_form .pmpro_actions_nav a {
+    color: #666;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.pmpro_login_form .pmpro_login-links a:hover,
+.pmpro_login_form .pmpro_actions_nav a:hover {
+    color: #1a1a1a;
+    text-decoration: underline;
+}
+
 /* ========================================================================
    MOBILE OPTIMIZATIONS - Login & Forms
    ======================================================================== */
