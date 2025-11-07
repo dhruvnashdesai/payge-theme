@@ -275,8 +275,15 @@ body.pmpro-login .entry-content {
     padding: 2rem 1rem !important;
 }
 
-/* Login Form Card - Enhanced Design - Target only the main wrapper */
-.pmpro_login_wrap {
+/* Style the actual login form card - comprehensive selectors */
+div[id*="pmpro"],
+div[class*="pmpro"],
+.pmpro_login_wrap,
+.pmpro_login,
+form[id*="pmpro"],
+form[class*="pmpro"],
+.wp-block-pmpro-login,
+#pmpro_form {
     max-width: 450px !important;
     margin: 3rem auto !important;
     background-color: white !important;
@@ -284,7 +291,7 @@ body.pmpro-login .entry-content {
     border: 1px solid #e5e7eb !important;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) !important;
     overflow: hidden !important;
-    padding: 0 !important;
+    padding: 2rem !important;
     transition: all 0.3s ease !important;
     position: relative !important;
 }
@@ -374,10 +381,50 @@ body.pmpro-login .entry-content {
     text-align: center !important;
 }
 
+/* Style all headings in PMPro forms */
+div[id*="pmpro"] h1,
+div[id*="pmpro"] h2,
+div[id*="pmpro"] h3,
+div[class*="pmpro"] h1,
+div[class*="pmpro"] h2,
+div[class*="pmpro"] h3,
+form[id*="pmpro"] h1,
+form[id*="pmpro"] h2,
+form[id*="pmpro"] h3,
+.pmpro_login_wrap h1,
+.pmpro_login_wrap h2,
+.pmpro_login_wrap h3,
+.wp-block-pmpro-login h1,
+.wp-block-pmpro-login h2,
+.wp-block-pmpro-login h3 {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-size: 1.75rem !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+    margin: 0 0 1.5rem 0 !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+}
+
+/* Style all labels */
+div[id*="pmpro"] label,
+div[class*="pmpro"] label,
+form[id*="pmpro"] label,
+form[class*="pmpro"] label,
+.pmpro_login_wrap label,
+.wp-block-pmpro-login label {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    color: #374151 !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+}
+
 /* Card Content - Enhanced - Only target forms within the wrapper */
 .pmpro_login_wrap form,
 .pmpro_login_wrap .pmpro_login_form {
-    padding: 1.5rem 2.5rem 2.5rem 2.5rem !important;
+    padding: 0 !important;
     background-color: transparent !important;
 }
 
@@ -403,6 +450,19 @@ body.pmpro-login .entry-content {
     transition: color 0.15s ease;
 }
 
+/* Style all input fields - comprehensive targeting */
+div[id*="pmpro"] input[type="text"],
+div[id*="pmpro"] input[type="email"],
+div[id*="pmpro"] input[type="password"],
+div[class*="pmpro"] input[type="text"],
+div[class*="pmpro"] input[type="email"],
+div[class*="pmpro"] input[type="password"],
+form[id*="pmpro"] input[type="text"],
+form[id*="pmpro"] input[type="email"],
+form[id*="pmpro"] input[type="password"],
+form[class*="pmpro"] input[type="text"],
+form[class*="pmpro"] input[type="email"],
+form[class*="pmpro"] input[type="password"],
 .pmpro_login_wrap input[type="text"],
 .pmpro_login_wrap input[type="email"],
 .pmpro_login_wrap input[type="password"],
@@ -414,7 +474,13 @@ body.pmpro-login .entry-content {
 #pmpro_login input[type="password"],
 .pmpro_checkout input[type="text"],
 .pmpro_checkout input[type="email"],
-.pmpro_checkout input[type="password"] {
+.pmpro_checkout input[type="password"],
+.wp-block-pmpro-login input[type="text"],
+.wp-block-pmpro-login input[type="email"],
+.wp-block-pmpro-login input[type="password"],
+#pmpro_form input[type="text"],
+#pmpro_form input[type="email"],
+#pmpro_form input[type="password"] {
     width: 100% !important;
     padding: 0.75rem 1rem !important;
     border: 1px solid #d1d5db !important;
@@ -482,7 +548,11 @@ body.pmpro-login .entry-content {
     text-decoration: underline;
 }
 
-/* Submit Button - Enhanced */
+/* Submit Button - Enhanced - Target all possible submit buttons */
+div[id*="pmpro"] input[type="submit"],
+div[class*="pmpro"] input[type="submit"],
+form[id*="pmpro"] input[type="submit"],
+form[class*="pmpro"] input[type="submit"],
 .pmpro_login_wrap input[type="submit"],
 .pmpro_login_wrap .login-submit-btn,
 .pmpro_login input[type="submit"],
@@ -491,8 +561,13 @@ body.pmpro-login .entry-content {
 #pmpro_login .login-submit-btn,
 .pmpro_checkout input[type="submit"],
 .pmpro_checkout .login-submit-btn,
+.wp-block-pmpro-login input[type="submit"],
+#pmpro_form input[type="submit"],
 .pmpro_btn,
-.pmpro_btn-submit {
+.pmpro_btn-submit,
+input[value*="Log In"],
+input[value*="Login"],
+input[value*="Sign In"] {
     width: 100% !important;
     background-color: #111827 !important;
     color: white !important;
