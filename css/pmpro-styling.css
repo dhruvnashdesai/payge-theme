@@ -303,11 +303,46 @@
    LOGIN PAGE STYLING - Default PMPro with theme background
    ======================================================================== */
 
-/* Just set the background color to match theme */
+/* Login page styling using PMPro's existing structure */
 body.pmpro-login,
 body[class*="pmpro-login"],
 body[class*="login"] {
     background-color: #ecede7;
+}
+
+/* Style the existing PMPro login form */
+.pmpro_login_form {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pmpro_login_form h3 {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+.pmpro_login_form .input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+.pmpro_login_form .input:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 /* ========================================================================
