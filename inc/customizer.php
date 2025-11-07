@@ -148,6 +148,25 @@ function payge_theme_customize_register($wp_customize) {
         'label'   => esc_html__('Accent Color', 'payge-theme'),
         'section' => 'payge_theme_options',
     )));
+
+    // Add Social Media Section
+    $wp_customize->add_section('payge_social_media', array(
+        'title'    => esc_html__('Social Media', 'payge-theme'),
+        'priority' => 30,
+    ));
+
+    // Add Instagram URL Setting
+    $wp_customize->add_setting('payge_instagram_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control('payge_instagram_url', array(
+        'label'       => esc_html__('Instagram URL', 'payge-theme'),
+        'section'     => 'payge_social_media',
+        'type'        => 'url',
+        'description' => esc_html__('Enter your Instagram profile URL (e.g., https://instagram.com/yourprofile)', 'payge-theme'),
+    ));
 }
 add_action('customize_register', 'payge_theme_customize_register');
 
