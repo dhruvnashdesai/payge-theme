@@ -222,14 +222,14 @@
 .pmpro_account-profile h2,
 .pmpro_account-invoices h2,
 .pmpro_account-links h2 {
-    background-color: #f0e7d7;
+    background-color: transparent;
     color: #1a1a1a;
     font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
     font-size: 1.2rem;
-    margin: -2rem -2rem 1.5rem -2rem;
-    padding: 1.5rem 2rem;
-    border-radius: 8px 8px 0 0;
-    border-bottom: 1px solid #d0c7b7;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    border-radius: 0;
+    border-bottom: none;
     font-weight: normal;
 }
 
