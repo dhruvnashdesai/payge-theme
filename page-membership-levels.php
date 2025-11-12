@@ -13,14 +13,8 @@ $levels = pmpro_getAllLevels(false, true);
 ?>
 
 <main class="membership-levels-page">
-    <!-- Hero Section -->
-    <section class="membership-hero">
-        <div class="container">
-            <div class="membership-hero-content">
-                <h1>Choose Your Membership</h1>
-            </div>
-        </div>
-    </section>
+    <!-- Hero Section - REMOVED -->
+    <?php // Title removed for cleaner layout ?>
 
     <!-- Pricing Cards Section -->
     <section class="membership-pricing-section">
