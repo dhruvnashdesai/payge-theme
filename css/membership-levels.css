@@ -59,7 +59,7 @@ with position: absolute that's affecting this page
     position: relative;
     transition: box-shadow 0.2s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    width: 400px;
+    width: 350px;
     max-width: 90vw;
     display: flex;
     flex-direction: column;
