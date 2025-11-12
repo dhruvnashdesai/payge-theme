@@ -400,6 +400,30 @@ function payge_theme_checkout_font_override() {
         #pmpro_form .pmpro_tos {
             font-family: "Helvetica World", "Helvetica", Arial, sans-serif !important;
         }
+
+        /* REDUCE TOP SPACING ON CHECKOUT PAGE */
+        body.pmpro-checkout,
+        .pmpro-checkout {
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+        }
+
+        body.pmpro-checkout #content,
+        body.pmpro-checkout .site-main,
+        body.pmpro-checkout main,
+        .pmpro-checkout #content,
+        .pmpro-checkout .site-main,
+        .pmpro-checkout main {
+            padding-top: 2rem !important;
+            margin-top: 0 !important;
+        }
+
+        #pmpro_form,
+        .pmpro_form,
+        .pmpro-checkout-form {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
         </style>';
     }
 }
