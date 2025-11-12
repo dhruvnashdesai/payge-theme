@@ -1828,3 +1828,47 @@ body.pmpro-login input[value="SHOW PASSWORD"]::after {
     cursor: pointer !important;
     opacity: 1 !important;
 }
+
+/* Terms of Service and other content pages - consistent text styling */
+.page #content,
+.page .entry-content,
+.page .entry-content p,
+.page .entry-content h1,
+.page .entry-content h2,
+.page .entry-content h3,
+.page .entry-content h4,
+.page .entry-content h5,
+.page .entry-content h6 {
+    color: #1a1a1a !important;
+    background: none !important;
+}
+
+/* Ensure page content has proper styling */
+.page .entry-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    line-height: 1.6;
+}
+
+.page .entry-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #1a1a1a !important;
+}
+
+.page .entry-content h1,
+.page .entry-content h2 {
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    color: #1a1a1a !important;
+    font-family: 'TAN AEGEAN', Georgia, serif !important;
+}
+
+.page .entry-content h3,
+.page .entry-content h4 {
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    color: #1a1a1a !important;
+}
