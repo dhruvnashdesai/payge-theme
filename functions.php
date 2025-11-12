@@ -380,7 +380,24 @@ function payge_theme_checkout_font_override() {
         #pmpro_form h3,
         .pmpro_form h1,
         .pmpro_form h2,
-        .pmpro_form h3 {
+        .pmpro_form h3,
+        /* FORM LABELS AND TEXT */
+        body.pmpro-checkout label,
+        .pmpro-checkout label,
+        #pmpro_form label,
+        .pmpro_form label,
+        .pmpro_checkout-field label,
+        .pmpro_checkout-fields label,
+        .pmpro_checkout-field-username label,
+        .pmpro_checkout-field-password label,
+        .pmpro_checkout-field-password2 label,
+        .pmpro_checkout-field-bemail label,
+        .pmpro_checkout-field-bconfirmemail label,
+        .pmpro_checkout-field-tos label,
+        .pmpro_tos label,
+        body.pmpro-checkout .pmpro_tos,
+        .pmpro-checkout .pmpro_tos,
+        #pmpro_form .pmpro_tos {
             font-family: "Helvetica World", "Helvetica", Arial, sans-serif !important;
         }
         </style>';
