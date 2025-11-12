@@ -23,9 +23,9 @@
 
 .membership-pricing-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 2rem;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -34,16 +34,19 @@
     background: white;
     border: 2px solid #e0e0e0;
     border-radius: 12px;
-    padding: 2rem;
+    padding: 3rem 2.5rem;
     text-align: center;
     position: relative;
-    transition: all 0.3s ease;
+    transition: box-shadow 0.2s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .membership-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Featured Card */
@@ -154,27 +157,32 @@
 /* Card Description */
 .card-description {
     color: #666;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
     text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
 }
 
 /* Card Buttons */
 .card-btn {
     display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 6px;
+    padding: 1.2rem 2.5rem;
+    border-radius: 8px;
     text-decoration: none;
     font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     font-weight: normal;
     width: 100%;
     text-align: center;
     cursor: pointer;
+    margin-top: auto;
 }
 
 .card-btn.primary {
@@ -186,7 +194,6 @@
 .card-btn.primary:hover {
     background-color: #333;
     border-color: #333;
-    transform: translateY(-2px);
 }
 
 .card-btn.secondary {
@@ -198,7 +205,6 @@
 .card-btn.secondary:hover {
     background-color: #1a1a1a;
     color: #f0e7d7;
-    transform: translateY(-2px);
 }
 
 /* Free Card Specific */
