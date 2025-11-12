@@ -19,25 +19,32 @@ with position: absolute that's affecting this page
     width: auto !important;
 }
 
-/* Hero Section */
-.membership-hero {
-    background-color: #ecede7;
-    padding: 2rem 0 1rem 0;
-    text-align: center;
+/* Hero Section - FORCE COMPACT SPACING */
+.membership-levels-page .membership-hero,
+body .membership-hero {
+    background-color: #ecede7 !important;
+    padding: 1rem 0 0.5rem 0 !important;
+    text-align: center !important;
+    margin: 0 !important;
 }
 
-.membership-hero-content h1 {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: 3rem;
-    color: #1a1a1a;
-    margin-bottom: 0;
-    font-weight: normal;
+.membership-levels-page .membership-hero-content h1,
+body .membership-hero-content h1 {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-size: 3rem !important;
+    color: #1a1a1a !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    font-weight: normal !important;
+    padding: 0 !important;
 }
 
-/* Pricing Section */
-.membership-pricing-section {
-    padding: 1rem 0 4rem 0;
-    background-color: #ecede7;
+/* Pricing Section - FORCE COMPACT SPACING */
+.membership-levels-page .membership-pricing-section,
+body .membership-pricing-section {
+    padding: 0.5rem 0 4rem 0 !important;
+    background-color: #ecede7 !important;
+    margin: 0 !important;
 }
 
 .membership-pricing-cards {
