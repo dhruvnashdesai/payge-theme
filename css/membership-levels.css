@@ -1,111 +1,22 @@
-/* Membership Levels Page Styles - PMPro 3.1+ Compatible */
+/* Membership Levels Page Styles - CUSTOM TEMPLATE FIX */
 
 /*
-=== PMPro 3.1+ CSS OVERRIDES ===
-Using standardized PMPro 3.1+ selectors and approach
+=== TARGETING CUSTOM TEMPLATE CLASSES ===
+This site uses a custom page-membership-levels.php template
+NOT PMPro's default output, so we target the custom classes
+
+ISSUE FOUND: front-page.css has conflicting .membership-card styles
+with position: absolute that's affecting this page
 */
 
-/* Override PMPro 3.1+ default styles */
-.pmpro_form,
-.pmpro_form .pmpro_levels_table {
-    max-width: none !important;
-    width: 100% !important;
-    margin: 0 auto !important;
-    background: none !important;
-    border: none !important;
-    border-collapse: separate !important;
-}
-
-/* Target the specific PMPro 3.1+ level containers */
-.pmpro_form .pmpro_level,
-.pmpro_levels_table .pmpro_level {
-    display: block !important;
-    width: 600px !important;
-    max-width: 90vw !important;
-    margin: 2rem auto !important;
-    background: white !important;
-    border: 2px solid #e0e0e0 !important;
-    border-radius: 16px !important;
-    padding: 3rem 4rem !important;
-    text-align: center !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-    position: relative !important;
-}
-
-/* Remove PMPro 3.1+ table styling */
-.pmpro_levels_table tr,
-.pmpro_levels_table td,
-.pmpro_levels_table th {
-    display: block !important;
-    width: 100% !important;
-    border: none !important;
-    background: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    text-align: center !important;
-}
-
-/* Style PMPro 3.1+ level elements */
-.pmpro_level h2,
-.pmpro_level .pmpro_level_name {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
-    font-size: 1.5rem !important;
-    color: #1a1a1a !important;
-    margin-bottom: 1rem !important;
-    font-weight: normal !important;
-    text-align: center !important;
-}
-
-.pmpro_level .pmpro_level_cost {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
-    font-size: 2.5rem !important;
-    color: #1a1a1a !important;
-    font-weight: normal !important;
-    display: block !important;
-    line-height: 1 !important;
-    margin-bottom: 1.5rem !important;
-    text-align: center !important;
-}
-
-.pmpro_level .pmpro_level_description,
-.pmpro_level p {
-    color: #666 !important;
-    font-size: 1rem !important;
-    line-height: 1.6 !important;
-    margin-bottom: 2rem !important;
-    text-align: center !important;
-    padding: 1rem 0 !important;
-}
-
-/* PMPro 3.1+ buttons */
-.pmpro_level .pmpro_btn,
-.pmpro_level .pmpro_btn-submit,
-.pmpro_level a[href*="checkout"] {
-    display: inline-block !important;
-    padding: 1.2rem 2.5rem !important;
-    border-radius: 8px !important;
-    text-decoration: none !important;
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
-    font-size: 1rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
-    transition: all 0.2s ease !important;
-    font-weight: normal !important;
-    width: 100% !important;
-    text-align: center !important;
-    cursor: pointer !important;
-    margin-top: auto !important;
-    background-color: #1a1a1a !important;
-    color: #f0e7d7 !important;
-    border: 2px solid #1a1a1a !important;
-}
-
-.pmpro_level .pmpro_btn:hover,
-.pmpro_level .pmpro_btn-submit:hover,
-.pmpro_level a[href*="checkout"]:hover {
-    background-color: #333 !important;
-    border-color: #333 !important;
-    color: #f0e7d7 !important;
+/* Override front-page.css conflicts - CRITICAL FIX */
+.membership-levels-page .membership-card,
+.membership-pricing-section .membership-card {
+    position: static !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: auto !important;
 }
 
 /* Hero Section */
