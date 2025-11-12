@@ -449,30 +449,35 @@ body[class*="login"] {
    CHECKOUT PAGE FONT UPDATE - HELVETICA WORLD
    ======================================================================== */
 
-/* All checkout page text to Helvetica World */
+/* FORCE ALL CHECKOUT TEXT TO HELVETICA WORLD - NO EXCEPTIONS */
 .pmpro-checkout,
 .pmpro-checkout *,
 body.pmpro-checkout,
-body.pmpro-checkout * {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
-}
-
-/* Checkout page headings - keep TAN AEGEAN for h1, Helvetica World for others */
+body.pmpro-checkout *,
 .pmpro-checkout h1,
-body.pmpro-checkout h1 {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
-}
-
 .pmpro-checkout h2,
 .pmpro-checkout h3,
 .pmpro-checkout h4,
 .pmpro-checkout h5,
 .pmpro-checkout h6,
+body.pmpro-checkout h1,
 body.pmpro-checkout h2,
 body.pmpro-checkout h3,
 body.pmpro-checkout h4,
 body.pmpro-checkout h5,
 body.pmpro-checkout h6 {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
+/* Override any TAN AEGEAN that might be inherited */
+.pmpro-checkout .pmpro_checkout-field,
+.pmpro-checkout .pmpro_checkout-fields,
+.pmpro-checkout #pmpro_form,
+.pmpro-checkout .pmpro_form,
+body.pmpro-checkout .pmpro_checkout-field,
+body.pmpro-checkout .pmpro_checkout-fields,
+body.pmpro-checkout #pmpro_form,
+body.pmpro-checkout .pmpro_form {
     font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
 }
 
@@ -524,5 +529,21 @@ body.pmpro-checkout a {
 body.pmpro-checkout table,
 body.pmpro-checkout th,
 body.pmpro-checkout td {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
+/* NUCLEAR OPTION - Override ANY TAN AEGEAN on checkout pages */
+body.pmpro-checkout [style*="TAN AEGEAN"],
+.pmpro-checkout [style*="TAN AEGEAN"],
+body.pmpro-checkout *[style*="font-family"],
+.pmpro-checkout *[style*="font-family"] {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
+/* Final catchall for any missed elements */
+html body.pmpro-checkout,
+html body.pmpro-checkout *,
+html .pmpro-checkout,
+html .pmpro-checkout * {
     font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
 }
