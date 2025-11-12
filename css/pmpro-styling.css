@@ -444,3 +444,85 @@ body[class*="login"] {
         text-align: center;
     }
 }
+
+/* ========================================================================
+   CHECKOUT PAGE FONT UPDATE - HELVETICA WORLD
+   ======================================================================== */
+
+/* All checkout page text to Helvetica World */
+.pmpro-checkout,
+.pmpro-checkout *,
+body.pmpro-checkout,
+body.pmpro-checkout * {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
+/* Checkout page headings - keep TAN AEGEAN for h1, Helvetica World for others */
+.pmpro-checkout h1,
+body.pmpro-checkout h1 {
+    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
+.pmpro-checkout h2,
+.pmpro-checkout h3,
+.pmpro-checkout h4,
+.pmpro-checkout h5,
+.pmpro-checkout h6,
+body.pmpro-checkout h2,
+body.pmpro-checkout h3,
+body.pmpro-checkout h4,
+body.pmpro-checkout h5,
+body.pmpro-checkout h6 {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
+/* Checkout form elements */
+.pmpro-checkout input,
+.pmpro-checkout textarea,
+.pmpro-checkout select,
+.pmpro-checkout label,
+.pmpro-checkout p,
+.pmpro-checkout span,
+.pmpro-checkout div,
+body.pmpro-checkout input,
+body.pmpro-checkout textarea,
+body.pmpro-checkout select,
+body.pmpro-checkout label,
+body.pmpro-checkout p,
+body.pmpro-checkout span,
+body.pmpro-checkout div {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
+/* Checkout buttons */
+.pmpro-checkout .pmpro_btn,
+.pmpro-checkout button,
+.pmpro-checkout input[type="submit"],
+body.pmpro-checkout .pmpro_btn,
+body.pmpro-checkout button,
+body.pmpro-checkout input[type="submit"] {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
+/* Checkout links */
+.pmpro-checkout a,
+body.pmpro-checkout a {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
+/* Checkout error/success messages */
+.pmpro_message,
+.pmpro_error,
+.pmpro_success {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
+/* Checkout table elements */
+.pmpro-checkout table,
+.pmpro-checkout th,
+.pmpro-checkout td,
+body.pmpro-checkout table,
+body.pmpro-checkout th,
+body.pmpro-checkout td {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
