@@ -13,9 +13,6 @@ $levels = pmpro_getAllLevels(false, true);
 ?>
 
 <main class="membership-levels-page">
-    <!-- DEBUG: CUSTOM TEMPLATE IS LOADING -->
-    <div style="background: red; color: white; padding: 10px; text-align: center;">CUSTOM TEMPLATE ACTIVE</div>
-
     <!-- Hero Section - REMOVED -->
     <?php // Title removed for cleaner layout ?>
 
@@ -34,10 +31,8 @@ $levels = pmpro_getAllLevels(false, true);
                         ?>
 
                         <!-- Membership Card -->
-                        <div class="membership-card <?php echo $is_free ? 'free-card' : 'premium-card'; ?> <?php echo (!$is_free && $level->id == 1) ? 'featured' : ''; ?>">
-                            <?php if (!$is_free && $level->id == 1) : ?>
-                                <div class="featured-badge">Most Popular</div>
-                            <?php endif; ?>
+                        <div class="membership-card <?php echo $is_free ? 'free-card' : 'premium-card'; ?>">
+                            <?php // Most Popular badge removed for cleaner design ?>
 
                             <div class="card-icon">
                                 <?php if ($is_free) : ?>
