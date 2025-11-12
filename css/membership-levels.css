@@ -22,11 +22,12 @@
 }
 
 .membership-pricing-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    display: flex;
+    justify-content: center;
     gap: 2rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
 /* Membership Cards */
@@ -34,12 +35,13 @@
     background: white;
     border: 2px solid #e0e0e0;
     border-radius: 12px;
-    padding: 3rem 2.5rem;
+    padding: 2.5rem 3rem;
     text-align: center;
     position: relative;
     transition: box-shadow 0.2s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    min-height: 400px;
+    width: 400px;
+    max-width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -161,9 +163,6 @@
     line-height: 1.6;
     margin-bottom: 2rem;
     text-align: center;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
     padding: 1rem 0;
 }
 
@@ -256,13 +255,16 @@
     }
 
     .membership-pricing-cards {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
         gap: 1.5rem;
         padding: 0 1rem;
     }
 
     .membership-card {
-        padding: 1.5rem;
+        padding: 2rem;
+        width: 100%;
+        max-width: 400px;
     }
 
     .price-amount {
