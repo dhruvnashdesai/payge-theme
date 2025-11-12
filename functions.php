@@ -355,4 +355,37 @@ function payge_save_video_difficulty_meta_box($post_id) {
 }
 add_action('save_post', 'payge_save_video_difficulty_meta_box');
 
+/**
+ * Add inline CSS for checkout page to override fonts - NUCLEAR OPTION
+ */
+function payge_theme_checkout_font_override() {
+    // Only load on checkout pages
+    if (function_exists('pmpro_is_checkout') && pmpro_is_checkout()) {
+        echo '<style type="text/css">
+        /* CHECKOUT PAGE FONT OVERRIDE - INLINE TO ENSURE MAXIMUM PRIORITY */
+        body.pmpro-checkout h1,
+        body.pmpro-checkout h2,
+        body.pmpro-checkout h3,
+        body.pmpro-checkout h4,
+        body.pmpro-checkout h5,
+        body.pmpro-checkout h6,
+        .pmpro-checkout h1,
+        .pmpro-checkout h2,
+        .pmpro-checkout h3,
+        .pmpro-checkout h4,
+        .pmpro-checkout h5,
+        .pmpro-checkout h6,
+        #pmpro_form h1,
+        #pmpro_form h2,
+        #pmpro_form h3,
+        .pmpro_form h1,
+        .pmpro_form h2,
+        .pmpro_form h3 {
+            font-family: "Helvetica World", "Helvetica", Arial, sans-serif !important;
+        }
+        </style>';
+    }
+}
+add_action('wp_head', 'payge_theme_checkout_font_override', 1000);
+
 
