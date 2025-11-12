@@ -13,6 +13,9 @@ $levels = pmpro_getAllLevels(false, true);
 ?>
 
 <main class="membership-levels-page">
+    <!-- DEBUG: CUSTOM TEMPLATE IS LOADING -->
+    <div style="background: red; color: white; padding: 10px; text-align: center;">CUSTOM TEMPLATE ACTIVE</div>
+
     <!-- Hero Section - REMOVED -->
     <?php // Title removed for cleaner layout ?>
 
