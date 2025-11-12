@@ -547,3 +547,16 @@ html .pmpro-checkout,
 html .pmpro-checkout * {
     font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
 }
+
+/* OVERRIDE GLOBAL TAN AEGEAN RULE FOR CHECKOUT TITLES SPECIFICALLY */
+body.pmpro-checkout h1,
+body.pmpro-checkout h2,
+body.pmpro-checkout h3,
+.pmpro-checkout h1,
+.pmpro-checkout h2,
+.pmpro-checkout h3,
+html body.pmpro-checkout h1,
+html body.pmpro-checkout h2,
+html body.pmpro-checkout h3 {
+    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
