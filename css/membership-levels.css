@@ -1,37 +1,59 @@
 /* Membership Levels Page Styles - PMPro Override */
 
+/* Ensure the page container allows full width */
+.pmpro-levels #content,
+.pmpro-levels .entry-content,
+body.pmpro-page #content,
+body.pmpro-page .entry-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow-x: visible !important;
+}
+
+/* Page wrapper adjustments */
+.pmpro-levels #primary,
+.pmpro-levels .site-main,
+body.pmpro-page #primary,
+body.pmpro-page .site-main {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
 /* Override PMPro default styles - Force Card Layout */
 .pmpro_levels_table,
-.pmpro_level,
 #pmpro_levels_table {
     display: flex !important;
     justify-content: center !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     flex-wrap: wrap !important;
     gap: 2rem !important;
     width: 100% !important;
-    max-width: 1200px !important;
+    max-width: none !important;
     margin: 0 auto !important;
-    padding: 2rem !important;
+    padding: 3rem 2rem !important;
     background: none !important;
     border: none !important;
+    box-sizing: border-box !important;
 }
 
 /* Force each level to be a card */
 .pmpro_level {
     display: flex !important;
     flex-direction: column !important;
-    width: 400px !important;
+    width: 600px !important;
     max-width: 90vw !important;
     min-height: auto !important;
     background: white !important;
     border: 2px solid #e0e0e0 !important;
-    border-radius: 12px !important;
-    padding: 2.5rem 3rem !important;
+    border-radius: 16px !important;
+    padding: 3rem 4rem !important;
     text-align: center !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
     transition: box-shadow 0.2s ease !important;
     position: relative !important;
+    margin: 0 auto !important;
 }
 
 /* Remove table styling completely */
@@ -375,6 +397,19 @@
         padding: 2rem;
         width: 100%;
         max-width: 400px;
+    }
+
+    /* PMPro mobile adjustments */
+    .pmpro_level {
+        width: 95vw !important;
+        max-width: 500px !important;
+        padding: 2rem 2.5rem !important;
+        margin: 0 auto !important;
+    }
+
+    .pmpro_levels_table,
+    #pmpro_levels_table {
+        padding: 2rem 1rem !important;
     }
 
     .price-amount {
