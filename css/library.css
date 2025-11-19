@@ -42,7 +42,7 @@
 }
 
 .hero-video-info h1 {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 2.5rem;
     color: #1a1a1a;
     margin: 0 0 1rem 0;
@@ -73,7 +73,7 @@
     background-color: white;
     color: #131313;
     text-decoration: none;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-weight: 500;
     font-size: 0.9rem;
     border-radius: 50px;
@@ -259,7 +259,7 @@
     background: white;
     border: 2px solid #e0e0e0;
     border-radius: 25px;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
     color: #666;
@@ -279,7 +279,7 @@
 }
 
 .video-grid-section h2 {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 2.5rem;
     color: #1a1a1a;
     margin-bottom: 3rem;
@@ -432,7 +432,7 @@
 }
 
 .paywall-cta h3 {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #f0e7d7;
@@ -440,7 +440,7 @@
 }
 
 .paywall-cta p {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 1.1rem;
     margin-bottom: 2rem;
     opacity: 0.9;
@@ -458,7 +458,7 @@
     padding: 1rem 2rem;
     border-radius: 6px;
     text-decoration: none;
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -500,7 +500,7 @@
 }
 
 .membership-notice h2 {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #1a1a1a;
@@ -523,7 +523,7 @@
 }
 
 .subscription-cta h3 {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #f0e7d7;
@@ -551,7 +551,7 @@
     padding: 1rem 2rem;
     border-radius: 6px;
     text-decoration: none;
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;

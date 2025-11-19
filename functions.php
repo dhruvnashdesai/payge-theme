@@ -412,7 +412,7 @@ function payge_theme_checkout_font_override() {
         body.pmpro-checkout .pmpro_tos,
         .pmpro-checkout .pmpro_tos,
         #pmpro_form .pmpro_tos {
-            font-family: "Helvetica World", "Helvetica", Arial, sans-serif !important;
+            font-family: "Gotham Rounded", "Helvetica", Arial, sans-serif !important;
         }
 
         /* REDUCE TOP SPACING ON CHECKOUT PAGE */

@@ -209,7 +209,7 @@
 }
 
 .membership-notice h2 {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #1a1a1a;
@@ -283,7 +283,7 @@
 .subscription-prompt {
     text-align: center;
     color: #f0e7d7;
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
 }
 
 .subscription-prompt .lock-icon {
@@ -316,7 +316,7 @@
 }
 
 .subscription-cta h3 {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #f0e7d7;
@@ -344,7 +344,7 @@
     padding: 1rem 2rem;
     border-radius: 6px;
     text-decoration: none;
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;

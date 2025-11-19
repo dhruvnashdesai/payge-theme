@@ -34,7 +34,7 @@ h1, h2, h3, .community-title, .pricing-title, .faq-title {
 }
 
 body {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: #f6e9cf;
@@ -44,7 +44,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-weight: normal;
     letter-spacing: -0.01em;
     line-height: 1.1;
@@ -307,7 +307,7 @@ a:hover {
 .nav-menu a {
     color: #131313;
     text-decoration: none;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-weight: 500;
     font-size: 1.1rem;
     letter-spacing: 0.02em;
@@ -351,7 +351,7 @@ a:hover {
 .membership-account-btn {
     color: #131313;
     text-decoration: none;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-weight: 500;
     font-size: 0.95rem;
     letter-spacing: 0.02em;
@@ -480,7 +480,7 @@ body.home .logo-image {
 .primary-menu a {
     text-decoration: none;
     color: #1a1a1a;
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -830,7 +830,7 @@ body.profile-page-view .pmpro_form h2,
 body.change-password-view .pmpro_form h2 {
     background: #f0e7d7 !important;
     color: #1a1a1a !important;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     font-size: 1.2rem !important;
     margin: 0 !important;
     padding: 1.5rem 2rem !important;
@@ -930,7 +930,7 @@ body[class*="membership-account"] h1.entry-title,
     display: none !important;
 }
 
-/* Update all PMPro account page titles to Helvetica World font */
+/* Update all PMPro account page titles to Gotham Rounded font */
 body.pmpro_account h1,
 body.pmpro_account h2,
 body.pmpro_account h3,
@@ -941,7 +941,7 @@ body[class*="pmpro"] h3,
 body[class*="membership-account"] h1,
 body[class*="membership-account"] h2,
 body[class*="membership-account"] h3 {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Hide profile picture/avatar on PMPro account pages */
@@ -958,7 +958,7 @@ body[class*="membership-account"] img.avatar,
     display: none !important;
 }
 
-/* Update order history and invoice titles to Helvetica World */
+/* Update order history and invoice titles to Gotham Rounded */
 body.pmpro_account .pmpro_account-invoices h2,
 body.pmpro_account .pmpro_account-invoices h3,
 body[class*="pmpro"] .pmpro_account-invoices h2,
@@ -971,10 +971,10 @@ body.invoice-page h1,
 body.invoice-page h2,
 .pmpro_invoice h1,
 .pmpro_invoice h2 {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
-/* Update date fields and table headers to Helvetica World */
+/* Update date fields and table headers to Gotham Rounded */
 body.pmpro_account table th,
 body.pmpro_account table td,
 body[class*="pmpro"] table th,
@@ -985,7 +985,7 @@ body[class*="pmpro"] table td,
 .pmpro_invoices table td,
 .pmpro_invoice table th,
 .pmpro_invoice table td {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* PMPro Login Page Customizations - Using Correct Selectors */
@@ -1038,7 +1038,7 @@ body[class*="library"] .hero-video-info h1,
 body.home .hero-line-1,
 body.front-page-template .hero-line-1,
 .hero-text-1 {
-    font-family: 'Glacial Indifference', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Glacial Indifference', 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 body.home .hero-line-2,
@@ -1047,7 +1047,7 @@ body.front-page-template .hero-line-2,
 body.front-page-template .hero-line-3,
 .hero-text-2,
 .hero-text-3 {
-    font-family: 'Gotham Rounded', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Hide "Your Complete Video Library" title on library page */
@@ -1149,7 +1149,7 @@ body.invoice-page h2,
 .pmpro_invoice h2 {
     background-color: #f0e7d7;
     color: #1a1a1a;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 1.5rem;
     margin: 0 0 2rem 0;
     padding: 1.5rem 2rem;
@@ -1236,7 +1236,7 @@ body.pmpro-profile .pmpro_profile_form select {
 
 body.pmpro-profile .pmpro_profile_form label {
     display: block !important;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     font-size: 0.9rem !important;
     color: #1a1a1a !important;
     margin-bottom: 0.5rem !important;
@@ -1250,7 +1250,7 @@ body.pmpro-profile .pmpro_profile_form .pmpro_btn-submit {
     border: none !important;
     padding: 1rem 2rem !important;
     border-radius: 6px !important;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     font-size: 0.9rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
@@ -1281,7 +1281,7 @@ body.login #login h1 {
 }
 
 body.login #login h1 a {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     color: #1a1a1a !important;
     text-decoration: none !important;
     font-size: 1.5rem !important;
@@ -1310,7 +1310,7 @@ body.login #wp-submit {
     border: none !important;
     padding: 1rem 2rem !important;
     border-radius: 6px !important;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     width: 100% !important;
     cursor: pointer !important;
 }
@@ -1353,7 +1353,7 @@ body.login #wp-submit {
 .pmpro_checkout label,
 #pmpro_form label {
     display: block !important;
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     font-size: 0.9rem !important;
     color: #1a1a1a !important;
     margin-bottom: 0.5rem !important;
@@ -1370,7 +1370,7 @@ body.login #wp-submit {
     border: none !important;
     padding: 1rem 2rem !important;
     border-radius: 6px !important;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     font-size: 0.9rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
@@ -1490,7 +1490,7 @@ body.pmpro-login .pmpro_login::before,
 body.pmpro-login .pmpro_login_wrap::before {
     content: 'Sign in to your account' !important;
     display: block !important;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     font-size: 1.5rem !important;
     font-weight: 600 !important;
     color: #111827 !important;
@@ -1504,7 +1504,7 @@ body.pmpro-login .pmpro_login::after,
 body.pmpro-login .pmpro_login_wrap::after {
     content: 'Enter your email and password to access your account' !important;
     display: block !important;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     font-size: 0.875rem !important;
     font-weight: 400 !important;
     color: #6b7280 !important;
@@ -1523,7 +1523,7 @@ body.pmpro-login .pmpro_login h1 {
 
 body.pmpro-login .pmpro_login_wrap label {
     display: block !important;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     font-size: 0.875rem !important;
     color: #374151 !important;
     margin-bottom: 0.375rem !important;
@@ -1538,7 +1538,7 @@ body.pmpro-login .pmpro_login_wrap input[type="password"] {
     border: 1px solid #d1d5db !important;
     border-radius: 6px !important;
     font-size: 0.875rem !important;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     margin-bottom: 1rem !important;
     background-color: white !important;
     box-sizing: border-box !important;
@@ -1560,7 +1560,7 @@ body.pmpro-login .pmpro_login_wrap input[type="password"] {
 body.pmpro-login .pmpro_login_wrap a {
     color: #3b82f6 !important;
     text-decoration: none !important;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     font-size: 0.875rem !important;
     text-align: center !important;
     display: block !important;
@@ -1584,7 +1584,7 @@ body.pmpro-login .pmpro_login_wrap .pmpro_btn-submit {
     border: none !important;
     padding: 0.625rem 1rem !important;
     border-radius: 6px !important;
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     font-size: 0.875rem !important;
     font-weight: 500 !important;
     text-transform: none !important;

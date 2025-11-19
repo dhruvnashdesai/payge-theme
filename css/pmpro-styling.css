@@ -43,7 +43,7 @@ body.pmpro-profile {
 .pmpro-profile h1,
 .pmpro-checkout h1,
 .pmpro-levels h1 {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 2.5rem;
     color: #1a1a1a;
     margin-bottom: 2rem;
@@ -55,7 +55,7 @@ body.pmpro-profile {
 .pmpro-billing h2,
 .pmpro-orders h2,
 .pmpro-profile h2 {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 1.75rem;
     color: #1a1a1a;
     margin-bottom: 1.5rem;
@@ -165,7 +165,7 @@ body.pmpro-profile {
 .pmpro-orders table th {
     background-color: #f0e7d7;
     color: #1a1a1a;
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-weight: normal;
     padding: 1rem;
     text-align: left;
@@ -245,7 +245,7 @@ body.pmpro-account .pmpro_account-links h2,
     background-color: transparent !important;
     background: none !important;
     color: #1a1a1a !important;
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     font-size: 1.2rem !important;
     margin: 0 0 1.5rem 0 !important;
     padding: 0 !important;
@@ -343,7 +343,7 @@ body[class*="login"] {
 }
 
 .pmpro_login_form h3 {
-    font-family: 'TAN AEGEAN', 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'TAN AEGEAN', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: 1.5rem;
     color: #1a1a1a;
     margin-bottom: 1.5rem;
@@ -466,7 +466,7 @@ body.pmpro-checkout h3,
 body.pmpro-checkout h4,
 body.pmpro-checkout h5,
 body.pmpro-checkout h6 {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Override any TAN AEGEAN that might be inherited */
@@ -478,7 +478,7 @@ body.pmpro-checkout .pmpro_checkout-field,
 body.pmpro-checkout .pmpro_checkout-fields,
 body.pmpro-checkout #pmpro_form,
 body.pmpro-checkout .pmpro_form {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Checkout form elements */
@@ -496,7 +496,7 @@ body.pmpro-checkout label,
 body.pmpro-checkout p,
 body.pmpro-checkout span,
 body.pmpro-checkout div {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Checkout buttons */
@@ -506,20 +506,20 @@ body.pmpro-checkout div {
 body.pmpro-checkout .pmpro_btn,
 body.pmpro-checkout button,
 body.pmpro-checkout input[type="submit"] {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Checkout links */
 .pmpro-checkout a,
 body.pmpro-checkout a {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Checkout error/success messages */
 .pmpro_message,
 .pmpro_error,
 .pmpro_success {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Checkout table elements */
@@ -529,7 +529,7 @@ body.pmpro-checkout a {
 body.pmpro-checkout table,
 body.pmpro-checkout th,
 body.pmpro-checkout td {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* NUCLEAR OPTION - Override ANY TAN AEGEAN on checkout pages */
@@ -537,7 +537,7 @@ body.pmpro-checkout [style*="TAN AEGEAN"],
 .pmpro-checkout [style*="TAN AEGEAN"],
 body.pmpro-checkout *[style*="font-family"],
 .pmpro-checkout *[style*="font-family"] {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Final catchall for any missed elements */
@@ -545,7 +545,7 @@ html body.pmpro-checkout,
 html body.pmpro-checkout *,
 html .pmpro-checkout,
 html .pmpro-checkout * {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* OVERRIDE GLOBAL TAN AEGEAN RULE FOR CHECKOUT TITLES SPECIFICALLY */
@@ -558,5 +558,5 @@ body.pmpro-checkout h3,
 html body.pmpro-checkout h1,
 html body.pmpro-checkout h2,
 html body.pmpro-checkout h3 {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
