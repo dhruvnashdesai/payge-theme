@@ -98,12 +98,12 @@
 
 .hero-line-2 {
     font-family: 'Gotham Rounded', 'Helvetica World', 'Helvetica', Arial, sans-serif;
-    font-size: clamp(0.8rem, 2.5vw, 1.5rem);
+    font-size: clamp(0.65rem, 2.2vw, 1.3rem);
     font-weight: 300;
     color: #F6E9CF;
     margin: 0.5rem 0 0.25rem 0;
     line-height: 1.2;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
@@ -2070,5 +2070,32 @@
     .testimonials-navigation {
         justify-content: center;
         padding: 0 1rem;
+    }
+}
+
+/* Mobile Hero Text Adjustments */
+@media (max-width: 768px) {
+    .hero-line-2 {
+        font-size: 0.75rem !important;
+        letter-spacing: 0.02em !important;
+        margin: 0.3rem 0 0.2rem 0 !important;
+        padding: 0 1rem !important;
+        text-align: center !important;
+    }
+
+    .hero-text-content {
+        padding: 0 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-line-2 {
+        font-size: 0.7rem !important;
+        letter-spacing: 0.01em !important;
+        padding: 0 0.5rem !important;
+    }
+
+    .hero-text-content {
+        padding: 0 0.5rem !important;
     }
 }
