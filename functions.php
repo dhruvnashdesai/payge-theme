@@ -273,6 +273,28 @@ add_action('wp_logout', 'payge_theme_logout_redirect');
 */
 
 /**
+ * EMERGENCY: Temporarily disable PMPro login redirects to restore wp-admin access
+ * TODO: Remove this after fixing PMPro settings in wp-admin
+ */
+function payge_emergency_disable_pmpro_redirects() {
+    // Remove PMPro login redirect hooks
+    remove_action('init', 'pmpro_login_redirect');
+    remove_filter('login_url', 'pmpro_login_url');
+    remove_filter('wp_login_url', 'pmpro_login_url');
+    remove_filter('register_url', 'pmpro_register_url');
+
+    // Disable PMPro login page redirect
+    add_filter('pmpro_login_redirect', '__return_false');
+    add_filter('pmpro_register_redirect', '__return_false');
+
+    // Force WordPress default login
+    add_filter('login_url', function($login_url, $redirect) {
+        return wp_login_url($redirect);
+    }, 99, 2);
+}
+add_action('init', 'payge_emergency_disable_pmpro_redirects', 1);
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
