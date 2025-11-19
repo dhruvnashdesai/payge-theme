@@ -17,7 +17,7 @@ Requires PHP: 8.0
 
 /* Custom Font - TAN AEGEAN - Using absolute path */
 
-h1, h2, h3, .hero-line-1, .hero-line-2, .hero-line-3, .community-title, .pricing-title, .faq-title {
+h1, h2, h3, .community-title, .pricing-title, .faq-title {
     font-family: 'TAN AEGEAN', Georgia, serif !important;
 }
 
@@ -1034,7 +1034,7 @@ body[class*="library"] .hero-video-info h1,
     font-family: 'TAN AEGEAN', Georgia, serif !important;
 }
 
-/* Keep hero text as Helvetica World */
+/* Keep hero text as Glacial Indifference */
 body.home .hero-line-1,
 body.home .hero-line-2,
 body.home .hero-line-3,
@@ -1044,7 +1044,7 @@ body.front-page-template .hero-line-3,
 .hero-text-1,
 .hero-text-2,
 .hero-text-3 {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Glacial Indifference', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Hide "Your Complete Video Library" title on library page */
