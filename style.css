@@ -1034,17 +1034,20 @@ body[class*="library"] .hero-video-info h1,
     font-family: 'TAN AEGEAN', Georgia, serif !important;
 }
 
-/* Keep hero text as Glacial Indifference */
+/* Keep hero text with proper fonts */
 body.home .hero-line-1,
+body.front-page-template .hero-line-1,
+.hero-text-1 {
+    font-family: 'Glacial Indifference', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+}
+
 body.home .hero-line-2,
 body.home .hero-line-3,
-body.front-page-template .hero-line-1,
 body.front-page-template .hero-line-2,
 body.front-page-template .hero-line-3,
-.hero-text-1,
 .hero-text-2,
 .hero-text-3 {
-    font-family: 'Glacial Indifference', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
+    font-family: 'Gotham Rounded', 'Helvetica World', 'Helvetica', Arial, sans-serif !important;
 }
 
 /* Hide "Your Complete Video Library" title on library page */
