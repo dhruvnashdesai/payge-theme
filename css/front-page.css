@@ -96,6 +96,11 @@
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
+/* Hide mobile break on desktop */
+.mobile-break {
+    display: none;
+}
+
 .hero-line-2 {
     font-family: 'Gotham Rounded', 'Helvetica World', 'Helvetica', Arial, sans-serif;
     font-size: clamp(0.65rem, 2.2vw, 1.3rem);
@@ -2075,6 +2080,15 @@
 
 /* Mobile Hero Text Adjustments */
 @media (max-width: 768px) {
+    .hero-line-1 {
+        line-height: 1.1 !important;
+        text-align: center !important;
+    }
+
+    .mobile-break {
+        display: block !important;
+    }
+
     .hero-line-2 {
         font-size: 0.75rem !important;
         letter-spacing: 0.02em !important;
@@ -2089,6 +2103,15 @@
 }
 
 @media (max-width: 480px) {
+    .hero-line-1 {
+        line-height: 1.1 !important;
+        text-align: center !important;
+    }
+
+    .mobile-break {
+        display: block !important;
+    }
+
     .hero-line-2 {
         font-size: 0.7rem !important;
         letter-spacing: 0.01em !important;
