@@ -273,26 +273,33 @@ add_action('wp_logout', 'payge_theme_logout_redirect');
 */
 
 /**
- * EMERGENCY: Temporarily disable PMPro login redirects to restore wp-admin access
+ * EMERGENCY: Safely disable PMPro login redirects to restore wp-admin access
  * TODO: Remove this after fixing PMPro settings in wp-admin
  */
 function payge_emergency_disable_pmpro_redirects() {
-    // Remove PMPro login redirect hooks
-    remove_action('init', 'pmpro_login_redirect');
-    remove_filter('login_url', 'pmpro_login_url');
-    remove_filter('wp_login_url', 'pmpro_login_url');
-    remove_filter('register_url', 'pmpro_register_url');
+    // Only run if PMPro is active
+    if (!function_exists('pmpro_getOption')) {
+        return;
+    }
 
-    // Disable PMPro login page redirect
-    add_filter('pmpro_login_redirect', '__return_false');
-    add_filter('pmpro_register_redirect', '__return_false');
+    // Safely remove hooks only if they exist
+    if (has_action('init', 'pmpro_login_redirect')) {
+        remove_action('init', 'pmpro_login_redirect');
+    }
 
-    // Force WordPress default login
+    // Disable PMPro login page redirect filters
+    add_filter('pmpro_login_redirect', '__return_false', 99);
+    add_filter('pmpro_register_redirect', '__return_false', 99);
+
+    // Override login URL only for admin access
     add_filter('login_url', function($login_url, $redirect) {
-        return wp_login_url($redirect);
+        if (strpos($redirect, 'wp-admin') !== false) {
+            return wp_login_url($redirect);
+        }
+        return $login_url;
     }, 99, 2);
 }
-add_action('init', 'payge_emergency_disable_pmpro_redirects', 1);
+add_action('plugins_loaded', 'payge_emergency_disable_pmpro_redirects', 99);
 
 /**
  * Custom template tags for this theme.
