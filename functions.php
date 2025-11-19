@@ -262,20 +262,13 @@ function payge_theme_login_stylesheet() {
 add_action('login_enqueue_scripts', 'payge_theme_login_stylesheet');
 
 /**
- * PMPro Logout Redirect Fix - DISABLED to fix wp-admin access issues
+ * PMPro Logout Redirect Fix
  */
-/*
 function payge_theme_logout_redirect() {
     wp_redirect(home_url('/'));
     exit();
 }
 add_action('wp_logout', 'payge_theme_logout_redirect');
-*/
-
-/**
- * EMERGENCY CODE REMOVED - was causing redirect loops
- * Need to try alternative approach from WPZoom article
- */
 
 /**
  * Custom template tags for this theme.
