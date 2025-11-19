@@ -96,9 +96,19 @@
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-/* Hide mobile break on desktop */
-.mobile-break {
+/* Desktop and mobile text control */
+.desktop-text {
+    display: inline;
+}
+
+.mobile-text {
     display: none;
+}
+
+.mobile-text .line-1,
+.mobile-text .line-2 {
+    display: block;
+    text-align: center;
 }
 
 .hero-line-2 {
@@ -2080,13 +2090,17 @@
 
 /* Mobile Hero Text Adjustments */
 @media (max-width: 768px) {
+    .desktop-text {
+        display: none !important;
+    }
+
+    .mobile-text {
+        display: block !important;
+    }
+
     .hero-line-1 {
         line-height: 1.1 !important;
         text-align: center !important;
-    }
-
-    .mobile-break {
-        display: block !important;
     }
 
     .hero-line-2 {
@@ -2103,13 +2117,17 @@
 }
 
 @media (max-width: 480px) {
+    .desktop-text {
+        display: none !important;
+    }
+
+    .mobile-text {
+        display: block !important;
+    }
+
     .hero-line-1 {
         line-height: 1.1 !important;
         text-align: center !important;
-    }
-
-    .mobile-break {
-        display: block !important;
     }
 
     .hero-line-2 {
