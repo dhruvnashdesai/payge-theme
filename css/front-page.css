@@ -96,19 +96,13 @@
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-/* Desktop and mobile text control */
-.desktop-text {
-    display: inline;
+/* Word control for hero text */
+.word-1, .word-2, .word-3 {
+    white-space: nowrap;
 }
 
-.mobile-text {
-    display: none;
-}
-
-.mobile-text .line-1,
-.mobile-text .line-2 {
-    display: block;
-    text-align: center;
+.word-group {
+    white-space: nowrap;
 }
 
 .hero-line-2 {
@@ -2090,16 +2084,13 @@
 
 /* Mobile Hero Text Adjustments */
 @media (max-width: 768px) {
-    .desktop-text {
-        display: none !important;
-    }
-
-    .mobile-text {
-        display: block !important;
-    }
-
     .hero-line-1 {
         line-height: 1.1 !important;
+        text-align: center !important;
+    }
+
+    .word-group {
+        display: block !important;
         text-align: center !important;
     }
 
@@ -2117,16 +2108,13 @@
 }
 
 @media (max-width: 480px) {
-    .desktop-text {
-        display: none !important;
-    }
-
-    .mobile-text {
-        display: block !important;
-    }
-
     .hero-line-1 {
         line-height: 1.1 !important;
+        text-align: center !important;
+    }
+
+    .word-group {
+        display: block !important;
         text-align: center !important;
     }
 
