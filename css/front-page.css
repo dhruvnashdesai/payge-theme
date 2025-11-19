@@ -86,7 +86,7 @@
 }
 
 .hero-line-1 {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'Glacial Indifference', 'Helvetica World', 'Helvetica', Arial, sans-serif;
     font-size: clamp(2rem, 6vw, 4rem);
     font-weight: 700;
     color: #F6E9CF;
@@ -97,7 +97,7 @@
 }
 
 .hero-line-2 {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'Glacial Indifference', 'Helvetica World', 'Helvetica', Arial, sans-serif;
     font-size: clamp(0.8rem, 2.5vw, 1.5rem);
     font-weight: 400;
     color: #F6E9CF;
@@ -108,7 +108,7 @@
 }
 
 .hero-line-3 {
-    font-family: 'Helvetica World', 'Helvetica', Arial, sans-serif;
+    font-family: 'Glacial Indifference', 'Helvetica World', 'Helvetica', Arial, sans-serif;
     font-size: clamp(0.7rem, 2vw, 1rem);
     font-weight: 300;
     color: #F6E9CF;

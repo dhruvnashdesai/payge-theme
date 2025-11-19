@@ -108,6 +108,13 @@ function payge_theme_scripts() {
             font-style: normal;
             font-display: swap;
         }
+        @font-face {
+            font-family: 'Glacial Indifference';
+            src: url('" . get_template_directory_uri() . "/assets/fonts/GlacialIndifference-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
     ";
     wp_add_inline_style('payge-theme-style', $font_css);
 
