@@ -273,34 +273,9 @@ add_action('wp_logout', 'payge_theme_logout_redirect');
 */
 
 /**
- * EMERGENCY: Force wp-admin access by bypassing ALL PMPro redirects
- * TODO: Remove this after fixing PMPro settings in wp-admin
+ * EMERGENCY CODE REMOVED - was causing redirect loops
+ * Need to try alternative approach from WPZoom article
  */
-function payge_force_wp_admin_access() {
-    // Detect if this is a wp-admin request
-    if (isset($_GET['redirect_to']) && strpos($_GET['redirect_to'], 'wp-admin') !== false) {
-        // Force redirect to WordPress login
-        wp_redirect(wp_login_url($_GET['redirect_to']));
-        exit;
-    }
-
-    // Override all login URLs for admin access
-    add_filter('login_url', function($login_url, $redirect) {
-        if ($redirect && strpos($redirect, 'wp-admin') !== false) {
-            return site_url('/wp-login.php?redirect_to=' . urlencode($redirect));
-        }
-        return $login_url;
-    }, 9999, 2);
-
-    // Nuclear option: Override PMPro login page redirect
-    add_action('template_redirect', function() {
-        if (is_page('login') && isset($_GET['redirect_to']) && strpos($_GET['redirect_to'], 'wp-admin') !== false) {
-            wp_redirect(wp_login_url($_GET['redirect_to']));
-            exit;
-        }
-    });
-}
-add_action('init', 'payge_force_wp_admin_access', 1);
 
 /**
  * Custom template tags for this theme.
