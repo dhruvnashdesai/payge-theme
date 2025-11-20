@@ -106,6 +106,27 @@
     display: none;
 }
 
+/* Prevent all word breaking and hyphenation globally */
+* {
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    -moz-hyphens: none !important;
+    -ms-hyphens: none !important;
+}
+
+/* Ensure hero text never breaks words */
+.hero-line-1, .hero-line-1 * {
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    white-space: nowrap !important;
+}
+
 .hero-line-2 {
     font-family: 'Gotham Rounded', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-size: clamp(0.65rem, 2.2vw, 1.3rem);
@@ -2091,11 +2112,18 @@
     }
 }
 
-/* Mobile Hero Text Adjustments */
+/* Mobile Hero Text Adjustments - Covers all iPhones including iPhone 15 Pro Max */
 @media (max-width: 768px) {
     .hero-line-1 {
         line-height: 1.1 !important;
         text-align: center !important;
+        white-space: normal !important; /* Allow breaks only where we specify */
+    }
+
+    .hero-line-1 .word-1,
+    .hero-line-1 .word-2,
+    .hero-line-1 .word-3 {
+        white-space: nowrap !important; /* Keep individual words intact */
     }
 
     .mobile-break {
@@ -2119,6 +2147,13 @@
     .hero-line-1 {
         line-height: 1.1 !important;
         text-align: center !important;
+        white-space: normal !important; /* Allow breaks only where we specify */
+    }
+
+    .hero-line-1 .word-1,
+    .hero-line-1 .word-2,
+    .hero-line-1 .word-3 {
+        white-space: nowrap !important; /* Keep individual words intact */
     }
 
     .mobile-break {
