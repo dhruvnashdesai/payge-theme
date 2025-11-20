@@ -269,13 +269,13 @@ function payge_theme_login_stylesheet() {
 add_action('login_enqueue_scripts', 'payge_theme_login_stylesheet');
 
 /**
- * PMPro Logout Redirect Fix
+ * PMPro Logout Redirect Fix - TEMPORARILY DISABLED FOR STAGING DEPLOYMENT
  */
-function payge_theme_logout_redirect() {
-    wp_redirect(home_url('/'));
-    exit();
-}
-add_action('wp_logout', 'payge_theme_logout_redirect');
+// function payge_theme_logout_redirect() {
+//     wp_redirect(home_url('/'));
+//     exit();
+// }
+// add_action('wp_logout', 'payge_theme_logout_redirect');
 
 /**
  * Custom template tags for this theme.
