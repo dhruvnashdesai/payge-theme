@@ -2103,9 +2103,12 @@
     }
 
     .word-1, .word-2, .word-3 {
-        display: inline !important;
+        display: inline-block !important;
         white-space: nowrap !important;
         word-break: keep-all !important;
+        overflow-wrap: normal !important;
+        word-wrap: normal !important;
+        hyphens: none !important;
     }
 
     .hero-line-2 {
@@ -2135,9 +2138,12 @@
     }
 
     .word-1, .word-2, .word-3 {
-        display: inline !important;
+        display: inline-block !important;
         white-space: nowrap !important;
         word-break: keep-all !important;
+        overflow-wrap: normal !important;
+        word-wrap: normal !important;
+        hyphens: none !important;
     }
 
     .hero-line-2 {
