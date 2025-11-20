@@ -2093,19 +2093,19 @@
     .hero-line-1 {
         line-height: 1.1 !important;
         text-align: center !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+        display: block !important;
+    }
+
+    .word-1::after,
+    .word-2::after {
+        content: "\A" !important;
+        white-space: pre !important;
     }
 
     .word-1, .word-2, .word-3 {
-        display: inline-block !important;
-        line-height: 1 !important;
-        text-align: center !important;
+        display: inline !important;
         white-space: nowrap !important;
-        width: 100% !important;
         word-break: keep-all !important;
-        overflow-wrap: normal !important;
     }
 
     .hero-line-2 {
@@ -2125,16 +2125,18 @@
     .hero-line-1 {
         line-height: 1.1 !important;
         text-align: center !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+        display: block !important;
+    }
+
+    .word-1::after,
+    .word-2::after {
+        content: "\A" !important;
+        white-space: pre !important;
     }
 
     .word-1, .word-2, .word-3 {
-        display: inline-block !important;
-        text-align: center !important;
+        display: inline !important;
         white-space: nowrap !important;
-        width: 100% !important;
         word-break: keep-all !important;
     }
 
