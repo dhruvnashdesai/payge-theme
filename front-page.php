@@ -27,7 +27,9 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
             <div class="hero-content">
                 <div class="hero-text-content">
                     <h1 class="hero-line-1" data-text="POWERED BY PAYGE">
-                        <span class="word-1">POWERED</span> <span class="word-group"><span class="word-2">BY</span> <span class="word-3">PAYGE</span></span>
+                        <span class="word-1">POWERED</span>
+                        <span class="word-2">BY</span>
+                        <span class="word-3">PAYGE</span>
                     </h1>
                     <h2 class="hero-line-2" data-text="PILATES INSPIRED STRENGTH MOVEMENT">PILATES INSPIRED STRENGTH MOVEMENT</h2>
                     <h3 class="hero-line-3" data-text="EST. 2025">EST. 2025</h3>

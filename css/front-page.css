@@ -101,9 +101,7 @@
     white-space: nowrap;
 }
 
-.word-group {
-    white-space: nowrap;
-}
+/* Mobile: Stack each word on separate lines - handled in main mobile styles section below */
 
 .hero-line-2 {
     font-family: 'Gotham Rounded', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
@@ -2095,10 +2093,14 @@
     .hero-line-1 {
         line-height: 1.1 !important;
         text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
-    .word-group {
+    .word-1, .word-2, .word-3 {
         display: block !important;
+        line-height: 1 !important;
         text-align: center !important;
     }
 
