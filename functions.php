@@ -124,7 +124,7 @@ function payge_theme_scripts() {
         }
         @font-face {
             font-family: 'Gotham Rounded';
-            src: url('" . get_template_directory_uri() . "/assets/fonts/gotham-rounded-light.otf') format('opentype');
+            src: url('" . get_template_directory_uri() . "/assets/fonts/gotham-rounded-medium.otf') format('opentype');
             font-weight: 700;
             font-style: normal;
             font-display: swap;
