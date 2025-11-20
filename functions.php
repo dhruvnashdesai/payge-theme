@@ -122,6 +122,13 @@ function payge_theme_scripts() {
             font-style: normal;
             font-display: swap;
         }
+        @font-face {
+            font-family: 'Gotham Rounded';
+            src: url('" . get_template_directory_uri() . "/assets/fonts/gotham-rounded-light.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
     ";
     wp_add_inline_style('payge-theme-style', $font_css);
 

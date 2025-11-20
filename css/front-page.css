@@ -397,6 +397,14 @@
     display: none;
 }
 
+/* Strong text styling for community descriptions */
+.community-description-desktop strong,
+.community-description-mobile strong {
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
 .community-description {
     display: none;
 }
