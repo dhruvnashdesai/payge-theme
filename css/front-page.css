@@ -101,7 +101,10 @@
     white-space: nowrap;
 }
 
-/* Mobile: Stack each word on separate lines - handled in main mobile styles section below */
+/* Hide mobile breaks on desktop */
+.mobile-break {
+    display: none;
+}
 
 .hero-line-2 {
     font-family: 'Gotham Rounded', 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
@@ -2093,22 +2096,10 @@
     .hero-line-1 {
         line-height: 1.1 !important;
         text-align: center !important;
+    }
+
+    .mobile-break {
         display: block !important;
-    }
-
-    .word-1::after,
-    .word-2::after {
-        content: "\A" !important;
-        white-space: pre !important;
-    }
-
-    .word-1, .word-2, .word-3 {
-        display: inline-block !important;
-        white-space: nowrap !important;
-        word-break: keep-all !important;
-        overflow-wrap: normal !important;
-        word-wrap: normal !important;
-        hyphens: none !important;
     }
 
     .hero-line-2 {
@@ -2128,22 +2119,10 @@
     .hero-line-1 {
         line-height: 1.1 !important;
         text-align: center !important;
+    }
+
+    .mobile-break {
         display: block !important;
-    }
-
-    .word-1::after,
-    .word-2::after {
-        content: "\A" !important;
-        white-space: pre !important;
-    }
-
-    .word-1, .word-2, .word-3 {
-        display: inline-block !important;
-        white-space: nowrap !important;
-        word-break: keep-all !important;
-        overflow-wrap: normal !important;
-        word-wrap: normal !important;
-        hyphens: none !important;
     }
 
     .hero-line-2 {
