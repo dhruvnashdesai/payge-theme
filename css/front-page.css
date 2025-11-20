@@ -101,30 +101,21 @@
     white-space: nowrap;
 }
 
-/* Hide mobile breaks on desktop */
-.mobile-break {
-    display: none;
+/* Desktop/Mobile hero text control */
+.mobile-hero {
+    display: none; /* Hide mobile version by default */
 }
 
-/* Prevent all word breaking and hyphenation globally */
-* {
-    word-break: normal !important;
-    overflow-wrap: normal !important;
-    word-wrap: normal !important;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-    -moz-hyphens: none !important;
-    -ms-hyphens: none !important;
+.desktop-hero {
+    display: block; /* Show desktop version by default */
 }
 
-/* Ensure hero text never breaks words */
-.hero-line-1, .hero-line-1 * {
-    word-break: keep-all !important;
-    overflow-wrap: normal !important;
-    word-wrap: normal !important;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-    white-space: nowrap !important;
+/* Mobile hero structure */
+.mobile-line {
+    display: block;
+    text-align: center;
+    line-height: 1.1;
+    white-space: nowrap;
 }
 
 .hero-line-2 {
@@ -2114,20 +2105,23 @@
 
 /* Mobile Hero Text Adjustments - Covers all iPhones including iPhone 15 Pro Max */
 @media (max-width: 768px) {
-    .hero-line-1 {
+    /* Hide desktop version, show mobile version */
+    .desktop-hero {
+        display: none !important;
+    }
+
+    .mobile-hero {
+        display: block !important;
         line-height: 1.1 !important;
         text-align: center !important;
-        white-space: normal !important; /* Allow breaks only where we specify */
     }
 
-    .hero-line-1 .word-1,
-    .hero-line-1 .word-2,
-    .hero-line-1 .word-3 {
-        white-space: nowrap !important; /* Keep individual words intact */
-    }
-
-    .mobile-break {
+    .mobile-line {
         display: block !important;
+        text-align: center !important;
+        line-height: 1.1 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .hero-line-2 {
@@ -2144,20 +2138,23 @@
 }
 
 @media (max-width: 480px) {
-    .hero-line-1 {
+    /* Hide desktop version, show mobile version */
+    .desktop-hero {
+        display: none !important;
+    }
+
+    .mobile-hero {
+        display: block !important;
         line-height: 1.1 !important;
         text-align: center !important;
-        white-space: normal !important; /* Allow breaks only where we specify */
     }
 
-    .hero-line-1 .word-1,
-    .hero-line-1 .word-2,
-    .hero-line-1 .word-3 {
-        white-space: nowrap !important; /* Keep individual words intact */
-    }
-
-    .mobile-break {
+    .mobile-line {
         display: block !important;
+        text-align: center !important;
+        line-height: 1.1 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .hero-line-2 {
