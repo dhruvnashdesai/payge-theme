@@ -207,7 +207,7 @@
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 0.5rem; /* Reduced from 1rem to move button up */
+    margin-top: 0; /* No margin - button right against image */
     opacity: 0;
     transform: translateY(20px);
     animation: buttonDissolveIn 1s ease-out 1.5s forwards;
