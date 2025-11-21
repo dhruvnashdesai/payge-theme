@@ -21,9 +21,6 @@ $annual_price = get_theme_mod('payge_annual_price', '290');
 <main class="landing-page">
     <!-- Hero Section -->
     <section class="hero">
-        <!-- TEST: This should show if page-home.php is loading -->
-        <h1 style="color: blue; font-size: 3rem; text-align: center;">TEST: PAGE-HOME.PHP IS LOADING!</h1>
-
         <!-- Membership Card -->
         <div class="membership-card">
             <div class="card-header">
