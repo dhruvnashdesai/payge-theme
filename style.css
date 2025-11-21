@@ -40,6 +40,9 @@ body {
     color: #f6e9cf;
     overflow-x: hidden;
     background-color: #ecede7;
+    /* 2025 Safe Area Support for all devices */
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
 }
 
 /* Typography */
@@ -99,10 +102,46 @@ a:hover {
     padding: 0 3vw;
 }
 
-/* Mobile Header - Show navigation normally */
+/* 2025 Mobile-First Responsive Strategy */
+
+/* Base mobile styles (320px+) - Mobile First */
+@media (min-width: 320px) {
+    .site-header {
+        padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 1rem) 0 env(safe-area-inset-left, 1rem);
+    }
+}
+
+/* Small mobile optimization (360px+) */
+@media (min-width: 360px) {
+    .container {
+        padding: 0 clamp(1rem, 4vw, 2rem);
+    }
+}
+
+/* Standard mobile (480px+) */
+@media (min-width: 480px) {
+    .header-container {
+        padding: 0 clamp(1.5rem, 4vw, 2.5rem);
+    }
+}
+
+/* Large mobile / small tablet (600px+) */
+@media (min-width: 600px) {
+    .site-header {
+        height: 80px;
+    }
+
+    .header-container {
+        height: 80px;
+    }
+}
+
+/* Standard tablet breakpoint (768px+) */
 @media (max-width: 768px) {
     .site-header {
         padding: 1rem 0;
+        /* Safe area insets for notched devices */
+        padding-top: max(1rem, env(safe-area-inset-top, 0));
     }
 
     .header-content {
@@ -114,8 +153,9 @@ a:hover {
     .nav-menu {
         display: flex;
         flex-direction: row;
-        gap: 2rem;
+        gap: clamp(1rem, 5vw, 2rem);
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .nav-menu li {
@@ -123,18 +163,46 @@ a:hover {
     }
 
     .nav-menu a {
-        font-size: 0.9rem;
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
         padding: 0.5rem 0;
+        /* Touch-friendly sizing */
+        min-height: 44px;
+        display: flex;
+        align-items: center;
     }
 
     .auth-navigation {
         display: flex;
         justify-content: center;
+        gap: 1rem;
+    }
+
+    .membership-account-btn {
+        /* Touch-friendly button sizing */
+        min-height: 44px;
+        min-width: 80px;
+        padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.5rem);
     }
 
     .menu-toggle,
     .menu-close {
         display: none !important;
+    }
+}
+
+/* Landscape mobile optimization */
+@media (max-height: 500px) and (orientation: landscape) {
+    .site-header {
+        padding: 0.5rem 0;
+        height: 70px;
+    }
+
+    .header-container {
+        height: 70px;
+    }
+
+    .nav-menu {
+        gap: 1rem;
     }
 }
 

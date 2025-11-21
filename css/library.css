@@ -395,7 +395,7 @@
     color: #888;
 }
 
-/* Paywall Overlay for Non-Members */
+/* Paywall Overlay for Non-Members - 2025 Cross-Device Compatible */
 .video-grid-section.no-membership::after {
     content: '';
     position: absolute;
@@ -408,6 +408,9 @@
     -webkit-backdrop-filter: blur(4px);
     z-index: 10;
     margin-left: calc(-50vw + 50%);
+    /* Safe area support for all devices */
+    padding-top: env(safe-area-inset-top, 0);
+    padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 /* Paywall Overlay Content */
@@ -692,22 +695,68 @@
     }
 }
 
-/* Extra small mobile devices - more conservative spacing */
+/* 2025 Mobile Breakpoint Strategy - Content-First Approach */
+
+/* Small mobile devices (320px - 480px) */
 @media (max-width: 480px) {
-    /* Give even more space for the hero section on small devices */
+    /* Dynamic spacing based on actual viewport height */
     .video-grid-section.no-membership::after {
-        top: 300px; /* More space on very small screens */
-        height: calc(100% - 300px);
-        min-height: 350px;
+        top: max(300px, 35vh); /* Responsive to viewport height */
+        height: calc(100% - max(300px, 35vh));
+        min-height: min(350px, 40vh);
     }
 
     .paywall-overlay-content {
-        top: 70%; /* Push modal further down on small screens */
+        top: 70%;
         width: 90%;
         max-width: 320px;
+        /* Safe area support */
+        margin-bottom: env(safe-area-inset-bottom, 1rem);
     }
 
     .paywall-cta {
-        padding: 1.5rem 1rem; /* Reduce padding on very small screens */
+        padding: clamp(1rem, 3vw, 1.5rem);
+        margin: env(safe-area-inset-top, 0.5rem) env(safe-area-inset-right, 0.5rem) env(safe-area-inset-bottom, 0.5rem) env(safe-area-inset-left, 0.5rem);
+    }
+
+    /* Hero section protection */
+    .hero-video-section {
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 15; /* Above modal overlay */
+    }
+}
+
+/* Medium mobile devices (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .video-grid-section.no-membership::after {
+        top: max(280px, 32vh);
+        height: calc(100% - max(280px, 32vh));
+        min-height: min(380px, 45vh);
+    }
+
+    .paywall-overlay-content {
+        top: 65%;
+        width: 85%;
+        max-width: 400px;
+    }
+}
+
+/* Landscape mobile devices */
+@media (max-height: 500px) and (orientation: landscape) {
+    .video-grid-section.no-membership::after {
+        top: 200px; /* Fixed spacing for landscape */
+        height: calc(100% - 200px);
+        min-height: 300px;
+    }
+
+    .paywall-overlay-content {
+        top: 60%;
+        width: 80%;
+        max-width: 500px;
+    }
+
+    .paywall-cta {
+        padding: 1rem 1.5rem;
     }
 }

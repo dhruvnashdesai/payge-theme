@@ -96,8 +96,8 @@ add_filter('body_class', 'payge_theme_body_classes');
  * Enqueue scripts and styles.
  */
 function payge_theme_scripts() {
-    // Add timestamp for cache busting
-    $cache_buster = time(); // Current timestamp
+    // Enhanced cache busting for 2025 - version + timestamp for critical mobile fixes
+    $cache_buster = wp_get_theme()->get('Version') . '.' . time();
 
     // Enqueue theme stylesheet
     wp_enqueue_style('payge-theme-style', get_stylesheet_uri(), array(), $cache_buster);
