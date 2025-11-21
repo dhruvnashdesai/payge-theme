@@ -458,20 +458,20 @@
 
         // Initialize hero animations on front page
         if ($('body').hasClass('home')) {
-            // Wrap hero text lines in letter spans
-            const heroLine1 = document.querySelector('.hero-line-1');
-            const heroLine2 = document.querySelector('.hero-line-2');
-            const heroLine3 = document.querySelector('.hero-line-3');
+            // Hero text animations disabled - now using images
+            // const heroLine1 = document.querySelector('.hero-line-1');
+            // const heroLine2 = document.querySelector('.hero-line-2');
+            // const heroLine3 = document.querySelector('.hero-line-3');
 
-            if (heroLine1) {
-                window.wrapTextInLetters(heroLine1);
-            }
-            if (heroLine2) {
-                window.wrapTextInLetters(heroLine2);
-            }
-            if (heroLine3) {
-                window.wrapTextInLetters(heroLine3);
-            }
+            // if (heroLine1) {
+            //     window.wrapTextInLetters(heroLine1);
+            // }
+            // if (heroLine2) {
+            //     window.wrapTextInLetters(heroLine2);
+            // }
+            // if (heroLine3) {
+            //     window.wrapTextInLetters(heroLine3);
+            // }
 
             // Initialize scroll animations
             window.initScrollAnimations();

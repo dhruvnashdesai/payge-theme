@@ -1,4 +1,4 @@
-/* Front Page Specific Styles */
+/* Front Page Specific Styles - Updated for desktop hero image */
 
 /* Body padding handled in main style.css for better specificity */
 
@@ -119,11 +119,13 @@
 
 /* Desktop/Mobile hero image control */
 .desktop-hero-image {
-    display: block; /* Show desktop image by default */
+    display: block !important; /* Show desktop image by default */
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .mobile-hero-image {
-    display: none; /* Hide mobile image by default */
+    display: none !important; /* Hide mobile image by default */
 }
 
 .desktop-hero-image img,
