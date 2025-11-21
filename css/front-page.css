@@ -128,11 +128,18 @@
     display: none !important; /* Hide mobile image by default */
 }
 
-.desktop-hero-image img,
+.desktop-hero-image img {
+    width: 100%;
+    max-width: 800px; /* Limit max size for readability */
+    height: 400px; /* Fixed height for cropping */
+    object-fit: cover; /* Crop to fit */
+    object-position: center 15%; /* Crop 15% off top - show from 15% down */
+}
+
 .mobile-hero-image img {
     width: 100%;
     height: auto;
-    max-width: 800px; /* Limit max size for readability */
+    max-width: 800px;
     object-fit: contain;
 }
 
