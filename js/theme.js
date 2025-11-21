@@ -326,29 +326,10 @@
             });
         }
 
-        // Hero Animation Functions (defined early for use in window.load)
+        // Hero Animation Functions DISABLED - using images instead
         window.wrapTextInLetters = function(element) {
-            // Get text from data-text attribute
-            const text = element.getAttribute('data-text');
-            if (!text) return;
-
-            element.innerHTML = '';
-
-            // Wrap each character
-            for (let i = 0; i < text.length; i++) {
-                const char = text[i];
-                const span = document.createElement('span');
-                span.classList.add('hero-letter');
-
-                if (char === ' ') {
-                    span.classList.add('space');
-                    span.innerHTML = '&nbsp;';
-                } else {
-                    span.textContent = char;
-                }
-
-                element.appendChild(span);
-            }
+            console.log('wrapTextInLetters called but disabled');
+            return; // Exit early - do nothing
         };
 
         window.animateLetters = function(element, delay = 0) {
