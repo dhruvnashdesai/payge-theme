@@ -528,22 +528,22 @@
                 $('.hero-content').addClass('animate-in');
             }, 1200); // Start after image animation
 
-            // Step 3: Animate hero text lines
-            setTimeout(() => {
-                const heroLine1 = document.querySelector('.hero-line-1');
-                const heroLine2 = document.querySelector('.hero-line-2');
-                const heroLine3 = document.querySelector('.hero-line-3');
+            // Step 3: Hero text animation disabled - now using images
+            // setTimeout(() => {
+            //     const heroLine1 = document.querySelector('.hero-line-1');
+            //     const heroLine2 = document.querySelector('.hero-line-2');
+            //     const heroLine3 = document.querySelector('.hero-line-3');
 
-                if (heroLine1) {
-                    window.animateLetters(heroLine1, 0);
-                }
-                if (heroLine2) {
-                    window.animateLettersQuick(heroLine2, 500);
-                }
-                if (heroLine3) {
-                    window.animateLettersQuick(heroLine3, 800);
-                }
-            }, 1400); // Start 200ms after content fade
+            //     if (heroLine1) {
+            //         window.animateLetters(heroLine1, 0);
+            //     }
+            //     if (heroLine2) {
+            //         window.animateLettersQuick(heroLine2, 500);
+            //     }
+            //     if (heroLine3) {
+            //         window.animateLettersQuick(heroLine3, 800);
+            //     }
+            // }, 1400); // Start 200ms after content fade
 
             // Step 5: Animate buttons
             setTimeout(() => {

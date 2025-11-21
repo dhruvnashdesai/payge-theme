@@ -26,6 +26,9 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
         <div class="hero-image-container">
             <div class="hero-content">
                 <div class="hero-text-content">
+                    <!-- TEST: This should show on homepage -->
+                    <h1 style="color: red; font-size: 3rem; text-align: center;">TEST: FRONT-PAGE.PHP IS LOADING</h1>
+
                     <!-- Desktop/Tablet version - image -->
                     <div class="desktop-hero-image">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/desktophero.png" alt="POWERED BY PAYGE - PILATES INSPIRED STRENGTH MOVEMENT - EST. 2025" />
