@@ -25,15 +25,15 @@ $is_logged_in = is_user_logged_in();
                     $debug_output = array();
                     $debug_output[] = '=== HERO VIDEO DEBUG START ===';
 
-                    // Use specific post ID 215 for hero video
+                    // Use specific post ID 291 for hero video
                     $featured_videos = array();
-                    $hero_post = get_post(215);
+                    $hero_post = get_post(291);
 
                     if ($hero_post && $hero_post->post_status === 'publish') {
                         $featured_videos = array($hero_post);
-                        $debug_output[] = 'Found hero video post 215: ' . $hero_post->post_title;
+                        $debug_output[] = 'Found hero video post 291: ' . $hero_post->post_title;
                     } else {
-                        $debug_output[] = 'Hero video post 215 not found or not published';
+                        $debug_output[] = 'Hero video post 291 not found or not published';
                     }
 
 
