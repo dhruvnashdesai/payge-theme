@@ -101,6 +101,22 @@
     white-space: nowrap;
 }
 
+/* Individual word letter spacing - make letters touch */
+.word-1 {
+    /* POWERED - already looks good */
+    letter-spacing: -0.09em;
+}
+
+.word-2 {
+    /* BY - make letters touch */
+    letter-spacing: -0.15em;
+}
+
+.word-3 {
+    /* PAYGE - make letters touch */
+    letter-spacing: -0.12em;
+}
+
 /* Desktop/Mobile hero text control */
 .mobile-hero-image {
     display: none; /* Hide mobile image by default */
