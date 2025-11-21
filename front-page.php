@@ -26,19 +26,15 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
         <div class="hero-image-container">
             <div class="hero-content">
                 <div class="hero-text-content">
-                    <!-- Desktop version -->
-                    <h1 class="hero-line-1 desktop-hero" data-text="POWERED BY PAYGE">
-                        <span class="word-1">POWERED</span>
-                        <span class="word-2">BY</span>
-                        <span class="word-3">PAYGE</span>
-                    </h1>
-
-                    <!-- Mobile version - image instead of text -->
-                    <div class="mobile-hero-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mobileimage2.png" alt="POWERED BY PAYGE" />
+                    <!-- Desktop/Tablet version - image -->
+                    <div class="desktop-hero-image">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/desktophero.png" alt="POWERED BY PAYGE - PILATES INSPIRED STRENGTH MOVEMENT - EST. 2025" />
                     </div>
-                    <h2 class="hero-line-2" data-text="PILATES INSPIRED STRENGTH MOVEMENT">PILATES INSPIRED STRENGTH MOVEMENT</h2>
-                    <h3 class="hero-line-3" data-text="EST. 2025">EST. 2025</h3>
+
+                    <!-- Mobile version - image -->
+                    <div class="mobile-hero-image">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mobileimage2.png" alt="POWERED BY PAYGE - PILATES INSPIRED STRENGTH MOVEMENT - EST. 2025" />
+                    </div>
                 </div>
                 <div class="hero-buttons">
                     <a href="/membership-levels" class="universal-btn">

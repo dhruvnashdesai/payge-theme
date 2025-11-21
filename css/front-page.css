@@ -117,13 +117,32 @@
     letter-spacing: -0.55em;
 }
 
-/* Desktop/Mobile hero text control */
+/* Desktop/Mobile hero image control */
+.desktop-hero-image {
+    display: block; /* Show desktop image by default */
+}
+
 .mobile-hero-image {
     display: none; /* Hide mobile image by default */
 }
 
-.desktop-hero {
-    display: block; /* Show desktop version by default */
+.desktop-hero-image img,
+.mobile-hero-image img {
+    width: 100%;
+    height: auto;
+    max-width: 800px; /* Limit max size for readability */
+    object-fit: contain;
+}
+
+/* Responsive breakpoints for hero images */
+@media (max-width: 767px) {
+    .desktop-hero-image {
+        display: none !important; /* Hide desktop image on mobile */
+    }
+
+    .mobile-hero-image {
+        display: block !important; /* Show mobile image */
+    }
 }
 
 /* Mobile hero image */
