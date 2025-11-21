@@ -122,10 +122,29 @@
     display: block !important; /* Show desktop image by default */
     text-align: center;
     margin-bottom: 2rem;
+    /* Initial animation state */
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-hero-image {
     display: none !important; /* Hide mobile image by default */
+    /* Initial animation state */
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Animation states */
+.desktop-hero-image.animate-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.mobile-hero-image.animate-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .desktop-hero-image img {
@@ -150,6 +169,15 @@
 
     .mobile-hero-image {
         display: block !important; /* Show mobile image */
+        /* Reset animation state for mobile display */
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mobile-hero-image.animate-in {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 

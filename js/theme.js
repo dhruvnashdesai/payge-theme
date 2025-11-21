@@ -509,24 +509,13 @@
                 $('.hero-content').addClass('animate-in');
             }, 1200); // Start after image animation
 
-            // Step 3: Hero text animation disabled - now using images
-            // setTimeout(() => {
-            //     const heroLine1 = document.querySelector('.hero-line-1');
-            //     const heroLine2 = document.querySelector('.hero-line-2');
-            //     const heroLine3 = document.querySelector('.hero-line-3');
+            // Step 3: Animate hero text image (replaces text animation)
+            setTimeout(() => {
+                $('.desktop-hero-image').addClass('animate-in');
+                $('.mobile-hero-image').addClass('animate-in');
+            }, 1600); // Start 400ms after content fade
 
-            //     if (heroLine1) {
-            //         window.animateLetters(heroLine1, 0);
-            //     }
-            //     if (heroLine2) {
-            //         window.animateLettersQuick(heroLine2, 500);
-            //     }
-            //     if (heroLine3) {
-            //         window.animateLettersQuick(heroLine3, 800);
-            //     }
-            // }, 1400); // Start 200ms after content fade
-
-            // Step 5: Animate buttons
+            // Step 4: Animate buttons with proper coordination
             setTimeout(() => {
                 $('.hero-buttons .universal-btn, .hero-buttons .btn-primary, .hero-buttons .btn-secondary').each(function(index) {
                     const $btn = $(this);
@@ -538,7 +527,7 @@
                         });
                     }, index * 200); // Stagger buttons
                 });
-            }, 3000); // Start after subtitle animation
+            }, 2400); // Start 800ms after image animation (1600 + 800)
         }
     });
 
