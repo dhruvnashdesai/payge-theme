@@ -625,6 +625,25 @@
         max-width: 280px;
     }
 
+    /* Mobile paywall positioning - respect hero section space */
+    .paywall-overlay-content {
+        top: 65%; /* Push down from center to avoid covering hero signup button */
+        transform: translate(-50%, -50%);
+    }
+
+    /* Adjust overlay to start after hero section on mobile */
+    .video-grid-section.no-membership::after {
+        top: 250px; /* Start overlay below the hero section on mobile */
+        height: calc(100% - 250px); /* Adjust height accordingly */
+        min-height: 400px; /* Ensure modal has enough space */
+    }
+
+    /* Reduce modal padding on mobile for better fit */
+    .paywall-overlay-content {
+        width: 95%;
+        max-width: 350px;
+    }
+
     /* Mobile Header - Show navigation normally */
     .site-header {
         padding: 1rem 0;
@@ -670,5 +689,25 @@
 @media (max-width: 1024px) {
     .video-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Extra small mobile devices - more conservative spacing */
+@media (max-width: 480px) {
+    /* Give even more space for the hero section on small devices */
+    .video-grid-section.no-membership::after {
+        top: 300px; /* More space on very small screens */
+        height: calc(100% - 300px);
+        min-height: 350px;
+    }
+
+    .paywall-overlay-content {
+        top: 70%; /* Push modal further down on small screens */
+        width: 90%;
+        max-width: 320px;
+    }
+
+    .paywall-cta {
+        padding: 1.5rem 1rem; /* Reduce padding on very small screens */
     }
 }
