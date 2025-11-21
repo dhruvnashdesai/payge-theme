@@ -130,10 +130,9 @@
 
 .desktop-hero-image img {
     width: 100%;
+    height: auto; /* Natural height */
     max-width: 800px; /* Limit max size for readability */
-    height: 400px; /* Fixed height for cropping */
-    object-fit: cover; /* Crop to fit */
-    object-position: center 15%; /* Crop 15% off top - show from 15% down */
+    object-fit: contain; /* Show full image */
 }
 
 .mobile-hero-image img {

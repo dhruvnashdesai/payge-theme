@@ -28,7 +28,7 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
                 <div class="hero-text-content">
                     <!-- Desktop/Tablet version - image -->
                     <div class="desktop-hero-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/desktophero.png" alt="POWERED BY PAYGE - PILATES INSPIRED STRENGTH MOVEMENT - EST. 2025" />
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/herosizing2.png" alt="POWERED BY PAYGE - PILATES INSPIRED STRENGTH MOVEMENT - EST. 2025" />
                     </div>
 
                     <!-- Mobile version - image -->
