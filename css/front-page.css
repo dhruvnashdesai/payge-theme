@@ -2111,6 +2111,12 @@
         display: none !important;
     }
 
+    /* Hide subtitle and year since image contains all text */
+    .hero-line-2,
+    .hero-line-3 {
+        display: none !important;
+    }
+
     .mobile-hero-image {
         display: block !important;
         text-align: center !important;
@@ -2118,8 +2124,8 @@
     }
 
     .mobile-hero-image img {
-        max-width: 250px !important;
-        width: auto !important;
+        max-width: 350px !important;
+        width: 90% !important;
         height: auto !important;
     }
 
@@ -2142,6 +2148,12 @@
         display: none !important;
     }
 
+    /* Hide subtitle and year since image contains all text */
+    .hero-line-2,
+    .hero-line-3 {
+        display: none !important;
+    }
+
     .mobile-hero-image {
         display: block !important;
         text-align: center !important;
@@ -2149,8 +2161,8 @@
     }
 
     .mobile-hero-image img {
-        max-width: 220px !important;
-        width: auto !important;
+        max-width: 300px !important;
+        width: 85% !important;
         height: auto !important;
     }
 
