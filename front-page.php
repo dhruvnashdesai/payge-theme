@@ -33,12 +33,10 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
                         <span class="word-3">PAYGE</span>
                     </h1>
 
-                    <!-- Mobile version - separate structure -->
-                    <h1 class="hero-line-1 mobile-hero" data-text="POWERED BY PAYGE">
-                        <div class="mobile-line">POWERED</div>
-                        <div class="mobile-line">BY</div>
-                        <div class="mobile-line">PAYGE</div>
-                    </h1>
+                    <!-- Mobile version - image instead of text -->
+                    <div class="mobile-hero-image">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mobilelanding1.png" alt="POWERED BY PAYGE" />
+                    </div>
                     <h2 class="hero-line-2" data-text="PILATES INSPIRED STRENGTH MOVEMENT">PILATES INSPIRED STRENGTH MOVEMENT</h2>
                     <h3 class="hero-line-3" data-text="EST. 2025">EST. 2025</h3>
                 </div>

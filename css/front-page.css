@@ -102,20 +102,21 @@
 }
 
 /* Desktop/Mobile hero text control */
-.mobile-hero {
-    display: none; /* Hide mobile version by default */
+.mobile-hero-image {
+    display: none; /* Hide mobile image by default */
 }
 
 .desktop-hero {
     display: block; /* Show desktop version by default */
 }
 
-/* Mobile hero structure */
-.mobile-line {
+/* Mobile hero image */
+.mobile-hero-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     display: block;
-    text-align: center;
-    line-height: 1.1;
-    white-space: nowrap;
+    margin: 0 auto;
 }
 
 .hero-line-2 {
@@ -2103,25 +2104,23 @@
     }
 }
 
-/* Mobile Hero Text Adjustments - Covers all iPhones including iPhone 15 Pro Max */
+/* Mobile Hero Image - Covers all iPhones including iPhone 15 Pro Max */
 @media (max-width: 768px) {
-    /* Hide desktop version, show mobile version */
+    /* Hide desktop text, show mobile image */
     .desktop-hero {
         display: none !important;
     }
 
-    .mobile-hero {
+    .mobile-hero-image {
         display: block !important;
-        line-height: 1.1 !important;
         text-align: center !important;
+        margin-bottom: 1rem !important;
     }
 
-    .mobile-line {
-        display: block !important;
-        text-align: center !important;
-        line-height: 1.1 !important;
-        margin: 0 !important;
-        padding: 0 !important;
+    .mobile-hero-image img {
+        max-width: 250px !important;
+        width: auto !important;
+        height: auto !important;
     }
 
     .hero-line-2 {
@@ -2138,23 +2137,21 @@
 }
 
 @media (max-width: 480px) {
-    /* Hide desktop version, show mobile version */
+    /* Hide desktop text, show mobile image */
     .desktop-hero {
         display: none !important;
     }
 
-    .mobile-hero {
+    .mobile-hero-image {
         display: block !important;
-        line-height: 1.1 !important;
         text-align: center !important;
+        margin-bottom: 1rem !important;
     }
 
-    .mobile-line {
-        display: block !important;
-        text-align: center !important;
-        line-height: 1.1 !important;
-        margin: 0 !important;
-        padding: 0 !important;
+    .mobile-hero-image img {
+        max-width: 220px !important;
+        width: auto !important;
+        height: auto !important;
     }
 
     .hero-line-2 {
