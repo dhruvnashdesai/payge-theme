@@ -2124,8 +2124,8 @@
     }
 
     .mobile-hero-image img {
-        max-width: 350px !important;
-        width: 90% !important;
+        max-width: 500px !important;
+        width: 95% !important;
         height: auto !important;
     }
 
@@ -2161,8 +2161,8 @@
     }
 
     .mobile-hero-image img {
-        max-width: 300px !important;
-        width: 85% !important;
+        max-width: 450px !important;
+        width: 92% !important;
         height: auto !important;
     }
 
