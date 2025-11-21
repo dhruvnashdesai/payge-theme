@@ -96,8 +96,11 @@ add_filter('body_class', 'payge_theme_body_classes');
  * Enqueue scripts and styles.
  */
 function payge_theme_scripts() {
+    // Add timestamp for cache busting
+    $cache_buster = time(); // Current timestamp
+
     // Enqueue theme stylesheet
-    wp_enqueue_style('payge-theme-style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
+    wp_enqueue_style('payge-theme-style', get_stylesheet_uri(), array(), $cache_buster);
 
     // Add custom font CSS with correct absolute path
     $font_css = "
@@ -133,7 +136,7 @@ function payge_theme_scripts() {
     wp_add_inline_style('payge-theme-style', $font_css);
 
     // Enqueue custom CSS for front page and video library
-    wp_enqueue_style('payge-theme-front-page', get_template_directory_uri() . '/css/front-page.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
+    wp_enqueue_style('payge-theme-front-page', get_template_directory_uri() . '/css/front-page.css', array('payge-theme-style'), $cache_buster);
 
     if (is_page('library') || is_page_template('page-library.php')) {
         wp_enqueue_style('payge-theme-library', get_template_directory_uri() . '/css/library.css', array('payge-theme-style'), wp_get_theme()->get('Version'));
@@ -154,7 +157,7 @@ function payge_theme_scripts() {
     }
 
     // Enqueue custom JavaScript
-    wp_enqueue_script('payge-theme-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), wp_get_theme()->get('Version'), true);
+    wp_enqueue_script('payge-theme-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), $cache_buster, true);
 }
 add_action('wp_enqueue_scripts', 'payge_theme_scripts');
 
@@ -301,6 +304,18 @@ require get_template_directory() . '/inc/custom-post-types.php';
  * Vimeotheque integration functions
  */
 require get_template_directory() . '/inc/vimeotheque-integration-clean.php';
+
+/**
+ * Prevent caching for updated pages
+ */
+function payge_theme_no_cache_headers() {
+    if (is_front_page()) {
+        header('Cache-Control: no-cache, no-store, must-revalidate');
+        header('Pragma: no-cache');
+        header('Expires: 0');
+    }
+}
+add_action('send_headers', 'payge_theme_no_cache_headers');
 
 /**
  * Add Video Difficulty Level Meta Box
