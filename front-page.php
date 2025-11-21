@@ -35,7 +35,7 @@ $monthly_title = $monthly_level ? $monthly_level->name : 'Monthly Access';
 
                     <!-- Mobile version - image instead of text -->
                     <div class="mobile-hero-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mobilelanding1.png" alt="POWERED BY PAYGE" />
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mobilelanding2.png" alt="POWERED BY PAYGE" />
                     </div>
                     <h2 class="hero-line-2" data-text="PILATES INSPIRED STRENGTH MOVEMENT">PILATES INSPIRED STRENGTH MOVEMENT</h2>
                     <h3 class="hero-line-3" data-text="EST. 2025">EST. 2025</h3>
