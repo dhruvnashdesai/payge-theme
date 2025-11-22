@@ -1611,8 +1611,8 @@
 
     /* Ensure proper spacing for sections following hero */
     .community-section {
-        margin-top: 6rem !important; /* Move section FURTHER down from hero */
-        padding: 4rem 2rem 0.5rem 2rem !important; /* Minimal bottom padding to eliminate white space */
+        margin-top: 8rem !important; /* Move section EVEN FURTHER down from hero */
+        padding: 2rem 2rem 1rem 2rem !important; /* Compact padding */
         clear: both; /* Ensure no floating issues */
     }
 
@@ -1650,15 +1650,32 @@
         margin-bottom: 2rem !important;
     }
 
-    /* Hide/adjust community media for landscape to save space */
-    .community-media {
-        display: none !important; /* Hide entire media container */
+    /* Switch to landscape video and adjust layout */
+    .community-layout {
+        grid-template-columns: 1fr 1fr !important; /* Restore two-column layout for video */
+        gap: 3rem !important;
+        align-items: center !important;
     }
 
-    .community-image,
-    .community-secondary-image {
-        display: none !important; /* Hide images in landscape to focus on text and save space */
+    .community-media {
+        display: block !important; /* Show media container */
     }
+
+    .community-image {
+        display: flex !important; /* Show image container */
+        max-height: 300px !important; /* Constrain height for landscape */
+        padding: 0 !important;
+        justify-content: center !important;
+    }
+
+    .community-image video {
+        width: 100% !important;
+        max-height: 280px !important; /* Compact video for landscape */
+        object-fit: cover !important;
+        border-radius: 12px !important;
+    }
+
+    /* Video will be switched via JavaScript for proper playback */
 
     /* Eliminate white space before pricing section */
     .pricing-section {
@@ -1684,8 +1701,27 @@
     }
 
     .community-section {
-        margin-top: 4rem !important; /* Still move down even on very short screens */
-        padding: 3rem 2rem 0.5rem 2rem !important; /* Minimal bottom padding */
+        margin-top: 6rem !important; /* Move down even on very short screens */
+        padding: 2rem 2rem 0.5rem 2rem !important; /* Minimal bottom padding */
+    }
+
+    /* Show video in two-column layout for very short screens too */
+    .community-layout {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .community-media {
+        display: block !important;
+    }
+
+    .community-image {
+        display: flex !important;
+        max-height: 250px !important; /* Even more compact for very short screens */
+    }
+
+    .community-image video {
+        max-height: 230px !important;
     }
 
     /* Aggressive white space elimination for very short screens */

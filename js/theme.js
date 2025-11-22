@@ -531,6 +531,42 @@
         }
     });
 
+    // Landscape Video Switching for Community Section
+    function handleCommunityVideoSwitching() {
+        const communityVideo = document.querySelector('.community-image video');
+        const communityVideoSource = document.querySelector('.community-image video source');
+
+        if (communityVideo && communityVideoSource) {
+            const isLandscape = window.innerHeight < 500 && window.innerWidth > window.innerHeight;
+            const themeDir = window.location.origin + '/wp-content/themes/payge-theme';
+
+            if (isLandscape) {
+                // Switch to landscape video
+                const landscapeVideoUrl = themeDir + '/assets/videos/landscapevid.mp4';
+                if (communityVideoSource.src !== landscapeVideoUrl) {
+                    communityVideoSource.src = landscapeVideoUrl;
+                    communityVideo.load(); // Reload video with new source
+                    communityVideo.play(); // Ensure autoplay continues
+                }
+            } else {
+                // Switch back to vertical video
+                const verticalVideoUrl = themeDir + '/assets/videos/section2vid.mp4';
+                if (communityVideoSource.src !== verticalVideoUrl) {
+                    communityVideoSource.src = verticalVideoUrl;
+                    communityVideo.load(); // Reload video with new source
+                    communityVideo.play(); // Ensure autoplay continues
+                }
+            }
+        }
+    }
+
+    // Run video switching on load and orientation change
+    handleCommunityVideoSwitching();
+    window.addEventListener('orientationchange', function() {
+        setTimeout(handleCommunityVideoSwitching, 100); // Small delay for orientation change
+    });
+    window.addEventListener('resize', handleCommunityVideoSwitching);
+
     // FAQ Toggle functionality
     const faqItems = document.querySelectorAll('.faq-item');
 
