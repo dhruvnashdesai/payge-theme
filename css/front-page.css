@@ -1762,6 +1762,7 @@
     }
 
     .community-section .community-image video {
+        display: none !important; /* Override: Hide videos in landscape per requirements */
         width: 100% !important;
         max-height: 280px !important; /* Compact video for landscape */
         object-fit: cover !important;
@@ -1861,13 +1862,14 @@
     }
 }
 
+/* TEMPORARILY COMMENTED OUT - ORPHANED CSS BREAKING MOBILE LANDSCAPE STYLES
+   TODO: Properly organize this CSS into appropriate media queries
+
     .community-title {
         font-size: clamp(1.8rem, 3.5vw, 2.4rem);
         line-height: 1.2;
         margin-bottom: 2rem;
     }
-
-    /* Temporarily removed desktop/mobile description toggles for debugging */
 
     .community-media {
         display: flex;
@@ -1878,8 +1880,6 @@
         justify-content: center;
         padding-right: 0;
     }
-
-    /* Removed pricing title center alignment */
 
     .contact-btn {
         display: none;
@@ -1906,13 +1906,10 @@
         padding: 2rem 0.5rem;
     }
 
-    /* Temporarily removed pricing layout overrides for debugging */
-
     .faq-title {
         line-height: 1.3;
     }
 
-    /* Mobile Header - Show navigation normally */
     .site-header {
         padding: 1rem 0;
     }
@@ -1935,7 +1932,6 @@
         justify-content: center;
     }
 
-    /* Mobile navigation styling simplified */
     .nav-menu li {
         margin: 0;
     }
@@ -1951,13 +1947,11 @@
         color: #666;
     }
 
-    /* Mobile menu CSS removed - using standard navigation */
-
-    /* Position mobile menu container */
     .main-navigation {
         position: relative;
     }
-}
+
+END COMMENTED OUT ORPHANED CSS */
 
 /* Mobile menu removed - no desktop overrides needed */
 
