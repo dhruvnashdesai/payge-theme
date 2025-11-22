@@ -1582,7 +1582,7 @@
     .hero {
         min-height: 85vh;
         height: 85vh;
-        padding-top: 20px; /* Small buffer for mobile header */
+        padding-top: 85px; /* Increased buffer to prevent mobile cutoff */
     }
 
     .hero-image-container {
