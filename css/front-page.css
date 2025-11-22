@@ -1786,10 +1786,6 @@
         margin-bottom: 2rem;
     }
 
-    .pricing-video-container {
-        display: none;
-    }
-
     /* Temporarily removed desktop/mobile description toggles for debugging */
 
     .community-media {
@@ -1831,27 +1827,7 @@
         padding: 2rem 0.5rem;
     }
 
-    .pricing-layout {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        max-width: 100%;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .pricing-content {
-        padding-right: 0;
-        text-align: center;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .pricing-cards {
-        justify-content: center;
-        width: 100%;
-        overflow: hidden;
-        padding: 0 0.5rem;
-    }
+    /* Temporarily removed pricing layout overrides for debugging */
 
     .faq-title {
         line-height: 1.3;
