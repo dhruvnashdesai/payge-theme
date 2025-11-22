@@ -1617,72 +1617,72 @@
         clear: both; /* Ensure no floating issues */
     }
 
-    /* Fix text alignment issues in landscape */
-    .community-layout {
-        grid-template-columns: 1fr !important; /* Single column for landscape */
-        gap: 2rem !important;
-        text-align: center !important;
+    /* OVERRIDE: Landscape community layout with maximum specificity */
+    .community-section .community-layout {
+        grid-template-columns: 1fr 1fr !important; /* Two-column for video */
+        gap: 0.5rem !important; /* MINIMAL gap */
+        align-items: stretch !important; /* Stretch to fill height */
+        text-align: left !important; /* Reset text alignment */
+        max-width: 1400px !important;
+        margin: 0 auto !important;
     }
 
-    .community-content {
+    .community-section .community-content {
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 !important; /* Remove any padding */
-        justify-content: flex-start !important; /* Align content to top */
+        justify-content: flex-start !important;
+        align-items: flex-start !important; /* Left align content */
+        text-align: left !important; /* Left align text */
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
-    .community-title {
-        text-align: center !important;
+    .community-section .community-title {
+        text-align: left !important; /* Left align title */
         font-size: clamp(1.5rem, 4vw, 2rem) !important;
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 1rem !important; /* Compact spacing */
     }
 
-    .community-description-container {
-        text-align: center !important;
-        max-width: 600px;
-        margin: 0 auto 1rem auto; /* REDUCED bottom margin from 2rem to 1rem */
+    .community-section .community-description-container {
+        text-align: left !important; /* Left align description */
+        max-width: none !important;
+        margin: 0 0 1rem 0 !important;
     }
 
-    .community-description-mobile {
-        text-align: center !important;
+    .community-section .community-description-mobile {
+        text-align: left !important; /* Left align description */
         font-size: 1rem !important;
-        margin-bottom: 1rem !important; /* REDUCED from 2rem to 1rem */
+        margin-bottom: 1rem !important;
+        margin-left: 0 !important;
     }
 
-    /* Reduce spacing for community button */
-    .community-btn {
-        margin-top: 0.5rem !important; /* Minimal top margin */
+    .community-section .community-btn {
+        margin-top: 0.5rem !important;
+        align-self: flex-start !important; /* Left align button */
     }
 
-    /* Switch to landscape video and adjust layout */
-    .community-layout {
-        grid-template-columns: 1fr 1fr !important; /* Restore two-column layout for video */
-        gap: 1rem !important; /* REDUCED gap from 3rem to 1rem */
-        align-items: start !important; /* Align to top instead of center to reduce spacing */
-    }
-
-    .community-media {
+    .community-section .community-media {
         display: block !important; /* Show media container */
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-    .community-image {
+    .community-section .community-image {
         display: flex !important; /* Show image container */
         max-height: 300px !important; /* Constrain height for landscape */
         padding: 0 !important;
         justify-content: center !important;
         margin: 0 !important; /* Remove any margins */
-        align-self: start !important; /* Align video to top of grid cell */
+        align-self: flex-start !important; /* Align video to top of grid cell */
     }
 
-    .community-image video {
+    .community-section .community-image video {
         width: 100% !important;
         max-height: 280px !important; /* Compact video for landscape */
         object-fit: cover !important;
         border-radius: 12px !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     /* Video will be switched via JavaScript for proper playback */
