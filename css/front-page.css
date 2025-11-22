@@ -1615,16 +1615,20 @@
         padding: 2rem 2rem 0 2rem !important; /* NO bottom padding to eliminate gap */
         margin-bottom: 0 !important; /* No bottom margin */
         clear: both; /* Ensure no floating issues */
+        min-height: auto !important; /* Don't force section height */
+        height: auto !important; /* Let content determine height */
     }
 
     /* OVERRIDE: Landscape community layout with maximum specificity */
     .community-section .community-layout {
         grid-template-columns: 1fr 1fr !important; /* Two-column for video */
         gap: 0.5rem !important; /* MINIMAL gap */
-        align-items: stretch !important; /* Stretch to fill height */
+        align-items: start !important; /* Align to top - don't stretch */
         text-align: left !important; /* Reset text alignment */
         max-width: 1400px !important;
         margin: 0 auto !important;
+        min-height: auto !important; /* Don't force grid height */
+        height: auto !important; /* Content-based height */
     }
 
     .community-section .community-content {
@@ -1689,9 +1693,11 @@
 
     /* Eliminate white space before pricing section */
     .pricing-section {
-        margin-top: -2rem !important; /* More aggressive negative margin to close gap */
+        margin-top: -4rem !important; /* VERY aggressive negative margin to close gap */
         padding: 1rem 2rem !important; /* Even smaller padding */
-        padding-top: 2rem !important; /* Just enough top padding for content */
+        padding-top: 2.5rem !important; /* Adequate top padding for content */
+        position: relative !important; /* Ensure proper layering */
+        z-index: 2 !important; /* Above community section */
     }
 
     /* Header adjustments handled in main style.css for landscape */
@@ -1740,8 +1746,10 @@
     /* Aggressive white space elimination for very short screens */
     .pricing-section {
         padding: 0.5rem 2rem !important; /* Very compact */
-        margin-top: -1.5rem !important; /* More aggressive negative margin */
-        padding-top: 1.5rem !important; /* Just enough top padding for content */
+        margin-top: -3rem !important; /* Very aggressive negative margin for short screens */
+        padding-top: 2rem !important; /* Just enough top padding for content */
+        position: relative !important;
+        z-index: 2 !important;
     }
 
     /* Header styling handled by main style.css landscape rules */
