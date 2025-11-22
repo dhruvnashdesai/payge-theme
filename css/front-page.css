@@ -1014,6 +1014,64 @@
     }
 }
 
+/* Mobile Landscape Optimization */
+@media (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
+    /* Use mobile text block on landscape */
+    .community-description-desktop {
+        display: none;
+    }
+
+    .community-description-mobile {
+        display: block;
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Remove vertical video and adjust spacing */
+    .community-image video {
+        display: none;
+    }
+
+    .community-section {
+        padding: 1rem 2rem;
+        margin-top: 2rem;
+    }
+
+    .community-layout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .community-content {
+        text-align: center;
+        padding: 0;
+        min-height: auto;
+    }
+
+    .community-title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .community-btn {
+        align-self: center;
+        margin-top: 1rem;
+    }
+
+    /* Compact pricing section */
+    .pricing-section {
+        padding: 1rem 2rem;
+        margin-top: 0;
+    }
+
+    .pricing-video-container {
+        display: none;
+    }
+}
+
 /* Membership Card */
 .membership-card {
     position: absolute;
