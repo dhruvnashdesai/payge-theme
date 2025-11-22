@@ -231,7 +231,7 @@ a:hover {
 
     /* Ensure content doesn't overlap with mobile header */
     .site-content {
-        margin-top: 70px; /* Reduced gap for tighter layout */
+        margin-top: 75px; /* Slight increase to prevent header overlap */
     }
 }
 
