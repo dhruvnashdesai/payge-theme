@@ -383,7 +383,7 @@ a:hover {
    HEADER STYLES - Clean WordPress Flexbox Implementation
    ========================================================================== */
 
-/* Basic Header Structure */
+/* Basic Header Structure - 2025 Accessibility Optimized */
 .site-header {
     background-color: #ecede7;
     position: fixed;
@@ -394,18 +394,23 @@ a:hover {
     z-index: 1000;
     transition: all 0.3s ease;
     height: 90px;
-    overflow: hidden; /* Prevent content from breaking out */
+    min-height: 60px; /* Accessibility: minimum height for zoom */
+    overflow: visible; /* Allow content to scale for accessibility zoom */
+    /* Accessibility: Use relative units for better scaling */
+    padding: 0 max(1rem, env(safe-area-inset-left)) 0 max(1rem, env(safe-area-inset-right));
 }
 
-/* Header Container - Simple Flexbox Layout */
+/* Header Container - Simple Flexbox Layout - Accessibility Optimized */
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 90px;
+    height: 100%; /* Use full header height instead of fixed pixels */
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 clamp(1rem, 3vw, 2rem); /* Responsive padding for accessibility */
+    /* Accessibility: Ensure minimum spacing for touch targets */
+    gap: clamp(0.5rem, 2vw, 1rem);
 }
 
 /* Logo Section */
@@ -454,7 +459,7 @@ a:hover {
     text-decoration: none;
     font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem); /* Accessibility: scalable font size */
     letter-spacing: 0.02em;
     transition: all 0.3s ease;
     display: flex;
@@ -462,7 +467,10 @@ a:hover {
     justify-content: center;
     height: 100%;
     position: relative;
-    padding: 0 0.5rem;
+    /* Accessibility: Minimum touch target size and scalable padding */
+    min-height: 44px;
+    padding: 0.5rem clamp(0.5rem, 2vw, 1rem);
+    border-radius: 4px;
 }
 
 .nav-menu a:hover {
@@ -498,14 +506,20 @@ a:hover {
     text-decoration: none;
     font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 2.2vw, 0.95rem); /* Accessibility: scalable font size */
     letter-spacing: 0.02em;
-    padding: 0.75rem 1.5rem;
+    padding: clamp(0.6rem, 2vw, 0.75rem) clamp(1.2rem, 3vw, 1.5rem); /* Accessibility: scalable padding */
     border: 1px solid #131313;
     border-radius: 25px;
     transition: all 0.3s ease;
+    /* Accessibility: Minimum touch target size */
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* Prevent text wrapping on zoom */
     background-color: transparent;
-    white-space: nowrap;
 }
 
 .membership-account-btn:hover {
