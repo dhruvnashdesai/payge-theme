@@ -1756,16 +1756,15 @@ body.pmpro-login .pmpro_message.pmpro_error {
 @media (max-width: 768px) {
     body.pmpro-login #content,
     body.pmpro-login .entry-content {
-        min-height: 100vh !important;
-        padding: 0 !important;
-        padding-top: 10px !important;
+        padding: 1rem !important;
+        margin-top: 80px !important;
     }
 
     body.pmpro-login .pmpro_login_wrap {
         width: 100% !important;
-        height: calc(100vh - 100px) !important;
-        min-height: 600px !important;
-        border-radius: 0 !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+        border-radius: 15px !important;
         padding: 1.5rem !important;
     }
 
@@ -1776,7 +1775,7 @@ body.pmpro-login .pmpro_message.pmpro_error {
     }
 
     body.pmpro-login .pmpro_login_wrap h1 {
-        font-size: 1.5rem !important;
+        font-size: 1.8rem !important;
         margin-bottom: 1.5rem !important;
     }
 }
@@ -1784,16 +1783,17 @@ body.pmpro-login .pmpro_message.pmpro_error {
 @media (max-width: 480px) {
     body.pmpro-login .pmpro_login_wrap {
         padding: 1rem !important;
-        border-radius: 0 !important;
+        margin: 0 1rem !important;
+        border-radius: 15px !important;
     }
 
     body.pmpro-login .pmpro_login {
         padding: 1.5rem !important;
-        border-radius: 10px !important;
+        border-radius: 15px !important;
     }
 
     body.pmpro-login .pmpro_login_wrap h1 {
-        font-size: 1.3rem !important;
+        font-size: 1.5rem !important;
     }
 }
 
