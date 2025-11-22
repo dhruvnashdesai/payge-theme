@@ -1612,7 +1612,8 @@
     /* Ensure proper spacing for sections following hero */
     .community-section {
         margin-top: 8rem !important; /* Move section EVEN FURTHER down from hero */
-        padding: 2rem 2rem 1rem 2rem !important; /* Compact padding */
+        padding: 2rem 2rem 0 2rem !important; /* NO bottom padding to eliminate gap */
+        margin-bottom: 0 !important; /* No bottom margin */
         clear: both; /* Ensure no floating issues */
     }
 
@@ -1679,8 +1680,9 @@
 
     /* Eliminate white space before pricing section */
     .pricing-section {
-        margin-top: -1rem !important; /* Negative margin to close gap */
-        padding: 1.5rem 2rem !important; /* Much smaller padding */
+        margin-top: -2rem !important; /* More aggressive negative margin to close gap */
+        padding: 1rem 2rem !important; /* Even smaller padding */
+        padding-top: 2rem !important; /* Just enough top padding for content */
     }
 
     /* Header adjustments handled in main style.css for landscape */
@@ -1702,7 +1704,8 @@
 
     .community-section {
         margin-top: 6rem !important; /* Move down even on very short screens */
-        padding: 2rem 2rem 0.5rem 2rem !important; /* Minimal bottom padding */
+        padding: 2rem 2rem 0 2rem !important; /* NO bottom padding */
+        margin-bottom: 0 !important; /* No bottom margin */
     }
 
     /* Show video in two-column layout for very short screens too */
@@ -1726,8 +1729,9 @@
 
     /* Aggressive white space elimination for very short screens */
     .pricing-section {
-        padding: 1rem 2rem !important; /* Very compact */
-        margin-top: -0.5rem !important; /* Negative margin to close gap */
+        padding: 0.5rem 2rem !important; /* Very compact */
+        margin-top: -1.5rem !important; /* More aggressive negative margin */
+        padding-top: 1.5rem !important; /* Just enough top padding for content */
     }
 
     /* Header styling handled by main style.css landscape rules */
