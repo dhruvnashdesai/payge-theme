@@ -1569,7 +1569,7 @@ body.pmpro-login .pmpro_login_wrap {
     padding: 0 !important;
     box-shadow: none !important;
     border: none !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
 }
 
 /* Login Form Card - Supabase-inspired design */
