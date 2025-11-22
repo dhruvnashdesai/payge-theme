@@ -1611,8 +1611,8 @@
 
     /* Ensure proper spacing for sections following hero */
     .community-section {
-        margin-top: 4rem !important; /* More space from hero as requested */
-        padding: 3rem 2rem 1.5rem 2rem !important; /* Reduced padding, more space from hero */
+        margin-top: 6rem !important; /* Move section FURTHER down from hero */
+        padding: 4rem 2rem 0.5rem 2rem !important; /* Minimal bottom padding to eliminate white space */
         clear: both; /* Ensure no floating issues */
     }
 
@@ -1660,10 +1660,10 @@
         display: none !important; /* Hide images in landscape to focus on text and save space */
     }
 
-    /* Reduce white space before pricing section */
+    /* Eliminate white space before pricing section */
     .pricing-section {
-        margin-top: 0 !important;
-        padding: 2.5rem 2rem !important; /* Reduced from 6rem */
+        margin-top: -1rem !important; /* Negative margin to close gap */
+        padding: 1.5rem 2rem !important; /* Much smaller padding */
     }
 
     /* Header adjustments handled in main style.css for landscape */
@@ -1684,14 +1684,14 @@
     }
 
     .community-section {
-        margin-top: 3rem !important;
-        padding: 2.5rem 2rem 1rem 2rem !important; /* Compact for very short screens */
+        margin-top: 4rem !important; /* Still move down even on very short screens */
+        padding: 3rem 2rem 0.5rem 2rem !important; /* Minimal bottom padding */
     }
 
-    /* Reduce white space even more for very short screens */
+    /* Aggressive white space elimination for very short screens */
     .pricing-section {
-        padding: 2rem 2rem !important;
-        margin-top: 0 !important;
+        padding: 1rem 2rem !important; /* Very compact */
+        margin-top: -0.5rem !important; /* Negative margin to close gap */
     }
 
     /* Header styling handled by main style.css landscape rules */
