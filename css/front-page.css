@@ -1611,9 +1611,8 @@
 
     /* Ensure proper spacing for sections following hero */
     .community-section {
-        margin-top: 3rem !important; /* Force separation from hero */
-        padding-top: 4rem !important;
-        padding-bottom: 2rem !important; /* Reduce bottom padding */
+        margin-top: 4rem !important; /* More space from hero as requested */
+        padding: 3rem 2rem 1.5rem 2rem !important; /* Reduced padding, more space from hero */
         clear: both; /* Ensure no floating issues */
     }
 
@@ -1652,9 +1651,19 @@
     }
 
     /* Hide/adjust community media for landscape to save space */
+    .community-media {
+        display: none !important; /* Hide entire media container */
+    }
+
     .community-image,
     .community-secondary-image {
         display: none !important; /* Hide images in landscape to focus on text and save space */
+    }
+
+    /* Reduce white space before pricing section */
+    .pricing-section {
+        margin-top: 0 !important;
+        padding: 2.5rem 2rem !important; /* Reduced from 6rem */
     }
 
     /* Header adjustments handled in main style.css for landscape */
@@ -1675,9 +1684,14 @@
     }
 
     .community-section {
-        margin-top: 4rem !important;
-        padding-top: 3rem !important;
-        padding-bottom: 1.5rem !important;
+        margin-top: 3rem !important;
+        padding: 2.5rem 2rem 1rem 2rem !important; /* Compact for very short screens */
+    }
+
+    /* Reduce white space even more for very short screens */
+    .pricing-section {
+        padding: 2rem 2rem !important;
+        margin-top: 0 !important;
     }
 
     /* Header styling handled by main style.css landscape rules */
