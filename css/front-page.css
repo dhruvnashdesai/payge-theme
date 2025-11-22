@@ -1704,8 +1704,8 @@
     /* Removed conflicting landscape header styles */
 }
 
-/* Extra precaution for very short landscape screens */
-@media (max-width: 968px) and (orientation: landscape) and (max-height: 400px) {
+/* Extra precaution for very short landscape screens - mobile only */
+@media (max-width: 768px) and (orientation: landscape) and (max-height: 400px) {
     .hero {
         height: 70vh !important;
         min-height: 70vh !important;
