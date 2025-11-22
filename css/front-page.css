@@ -11,7 +11,7 @@
     align-items: flex-start;
     justify-content: center;
     padding: 0.5rem;
-    padding-top: 85px; /* Slight buffer to clear header completely */
+    padding-top: 95px; /* Increased buffer to prevent cutoff at top */
     margin-top: 0;
     position: relative;
 }
