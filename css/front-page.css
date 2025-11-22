@@ -683,6 +683,7 @@
     margin: 2rem 0 1rem 0;
     line-height: 1.2;
     white-space: nowrap;
+    text-align: left;
 }
 
 .pricing-bottom {
@@ -983,6 +984,10 @@
 
     .pricing-content {
         padding-right: 0;
+        text-align: center;
+    }
+
+    .pricing-title {
         text-align: center;
     }
 
