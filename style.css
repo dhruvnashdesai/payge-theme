@@ -235,19 +235,49 @@ a:hover {
     }
 }
 
-/* Landscape mobile optimization */
+/* 2025 Landscape Mobile Optimization - Using Modern Viewport Units */
 @media (max-height: 500px) and (orientation: landscape) {
     .site-header {
-        padding: 0.5rem 0;
-        height: 70px;
+        /* Use small viewport height (svh) for consistent header sizing */
+        height: max(80px, 12svh) !important;
+        min-height: 80px !important;
+        padding: 0.5rem 0 !important;
+        overflow: visible !important;
     }
 
     .header-container {
-        height: 70px;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 1rem !important;
     }
 
     .nav-menu {
         gap: 1rem;
+    }
+
+    .nav-menu a {
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 0.5rem 0 !important;
+    }
+
+    .membership-account-btn {
+        min-height: 44px !important;
+        padding: 0.7rem 1.2rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 0.9rem !important;
+        line-height: 1.2 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Adjust content spacing for dynamic header */
+    .site-content {
+        margin-top: max(75px, 11svh) !important;
     }
 }
 
