@@ -136,7 +136,7 @@ a:hover {
     }
 }
 
-/* Standard tablet breakpoint (768px+) */
+/* UNIVERSAL: Mobile header styles for ALL pages - Consistent Layout */
 @media (max-width: 768px) {
     .site-header {
         position: fixed !important;
@@ -146,82 +146,99 @@ a:hover {
         width: 100% !important;
         z-index: 1000 !important;
         background-color: #ecede7 !important;
-        height: 80px; /* Fixed height for mobile */
-        padding: 0;
+        height: 80px !important; /* Consistent height across all pages */
+        padding: 0 !important;
         /* Safe area insets for notched devices */
-        padding-top: env(safe-area-inset-top, 0);
+        padding-top: env(safe-area-inset-top, 0) !important;
     }
 
     .header-container {
         display: flex !important;
-        flex-direction: row !important; /* Keep horizontal layout */
+        flex-direction: row !important; /* Horizontal layout for all pages */
         align-items: center !important;
         justify-content: space-between !important; /* Logo left, auth right */
-        height: 80px;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 1rem;
-        position: relative;
+        height: 80px !important;
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+        padding: 0 clamp(1rem, 3vw, 1.5rem) !important; /* Responsive padding */
+        position: relative !important;
     }
 
     .site-branding {
-        flex: 0 0 auto; /* Logo on the left, don't grow/shrink */
+        flex: 0 0 auto !important; /* Fixed logo size */
     }
 
     .main-navigation {
-        flex: 1; /* Take up remaining space */
-        display: flex;
-        justify-content: center; /* Center the navigation */
+        flex: 1 !important; /* Take remaining space */
+        display: flex !important;
+        justify-content: center !important; /* Center navigation */
     }
 
-    .nav-menu {
+    /* UNIVERSAL: Mobile nav menu - consistent across ALL pages */
+    .site-header .nav-menu,
+    .primary-menu,
+    body.home .nav-menu,
+    body.page .nav-menu,
+    body.single .nav-menu {
         display: flex !important;
         flex-direction: row !important;
-        gap: clamp(1.5rem, 5vw, 2.5rem);
+        gap: clamp(1.5rem, 5vw, 2.5rem) !important;
         justify-content: center !important;
-        align-items: center;
+        align-items: center !important;
         margin: 0 !important;
         padding: 0 !important;
         list-style: none !important;
-        height: 100%;
+        height: 100% !important;
     }
 
-    .nav-menu li {
+    .site-header .nav-menu li,
+    .primary-menu li,
+    body.home .nav-menu li,
+    body.page .nav-menu li,
+    body.single .nav-menu li {
         margin: 0 !important;
         padding: 0 !important;
-        display: flex;
-        align-items: center;
-        height: 100%;
+        display: flex !important;
+        align-items: center !important;
+        height: 100% !important;
     }
 
-    .nav-menu a {
-        font-size: clamp(0.9rem, 2.5vw, 1rem);
-        padding: 0.5rem 0;
-        /* Touch-friendly sizing */
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        color: #131313;
-        text-decoration: none;
-        font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif;
-        font-weight: 500;
-        letter-spacing: 0.02em;
-        transition: all 0.3s ease;
+    /* UNIVERSAL: Mobile nav links - consistent across ALL pages */
+    .site-header .nav-menu a,
+    .primary-menu a,
+    body.home .nav-menu a,
+    body.page .nav-menu a,
+    body.single .nav-menu a {
+        font-size: clamp(0.9rem, 2.5vw, 1rem) !important; /* Consistent mobile size */
+        padding: 0.5rem 0 !important;
+        min-height: 44px !important; /* Touch accessibility */
+        display: flex !important;
+        align-items: center !important;
+        color: #131313 !important;
+        text-decoration: none !important;
+        font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.02em !important;
+        transition: all 0.3s ease !important;
     }
 
     .auth-navigation {
-        flex: 0 0 auto; /* Auth on the right, don't grow/shrink */
-        display: flex;
-        align-items: center;
-        gap: 1rem;
+        flex: 0 0 auto !important; /* Fixed auth section size */
+        display: flex !important;
+        align-items: center !important;
+        gap: 1rem !important;
     }
 
-    .membership-account-btn {
-        /* Touch-friendly button sizing */
-        min-height: 44px;
-        min-width: 80px;
-        padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.5rem);
-        font-size: clamp(0.8rem, 2vw, 0.9rem);
+    /* UNIVERSAL: Mobile membership button - consistent across ALL pages */
+    .site-header .membership-account-btn,
+    body.home .membership-account-btn,
+    body.page .membership-account-btn,
+    body.single .membership-account-btn {
+        min-height: 44px !important;
+        min-width: 80px !important;
+        padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.5rem) !important;
+        font-size: clamp(0.8rem, 2vw, 0.9rem) !important;
+        font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
     }
 
     .menu-toggle,
@@ -229,9 +246,12 @@ a:hover {
         display: none !important;
     }
 
-    /* Ensure content doesn't overlap with mobile header */
-    .site-content {
-        margin-top: 75px; /* Slight increase to prevent header overlap */
+    /* UNIVERSAL: Content spacing for all pages */
+    .site-content,
+    body.home .site-content,
+    body.page .site-content,
+    body.single .site-content {
+        margin-top: 75px !important; /* Consistent spacing */
     }
 }
 
@@ -551,27 +571,51 @@ a:hover {
 }
 
 /* Front page navigation colors for transparent header over beige */
-body.home .primary-menu a {
-    color: #131313;
+/* UNIVERSAL: Header navigation styles for ALL pages - Consistent Across Site */
+.site-header .nav-menu a,
+.primary-menu a,
+body.home .primary-menu a,
+body.page .primary-menu a,
+body.single .primary-menu a {
+    color: #131313 !important;
+    font-size: clamp(1rem, 2.5vw, 1.1rem) !important; /* Consistent size across all pages */
+    font-weight: 500 !important;
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
-body.home .primary-menu a:hover {
-    color: #636360;
+.site-header .nav-menu a:hover,
+.primary-menu a:hover,
+body.home .primary-menu a:hover,
+body.page .primary-menu a:hover,
+body.single .primary-menu a:hover {
+    color: #636360 !important;
 }
 
-body.home .primary-menu a::after {
-    background-color: #131313;
+.site-header .nav-menu a::after,
+.primary-menu a::after,
+body.home .primary-menu a::after,
+body.page .primary-menu a::after,
+body.single .primary-menu a::after {
+    background-color: #131313 !important;
 }
 
-/* Front page membership account button colors */
-body.home .membership-account-btn {
-    color: #131313;
-    border-color: #131313;
+/* UNIVERSAL: Membership account button styles for ALL pages */
+.site-header .membership-account-btn,
+body.home .membership-account-btn,
+body.page .membership-account-btn,
+body.single .membership-account-btn {
+    color: #131313 !important;
+    border-color: #131313 !important;
+    font-size: clamp(0.85rem, 2.2vw, 0.95rem) !important; /* Consistent size */
+    font-family: 'Gotham Rounded', 'Helvetica', Arial, sans-serif !important;
 }
 
-body.home .membership-account-btn:hover {
-    background-color: #131313;
-    color: #ecede7;
+.site-header .membership-account-btn:hover,
+body.home .membership-account-btn:hover,
+body.page .membership-account-btn:hover,
+body.single .membership-account-btn:hover {
+    background-color: #131313 !important;
+    color: #ecede7 !important;
 }
 
 .site-header .container {
