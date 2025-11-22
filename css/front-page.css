@@ -1973,12 +1973,12 @@
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    transition: max-height 0.4s ease, padding 0.3s ease;
     padding: 0 2rem;
 }
 
 .faq-item.active .faq-answer {
-    max-height: 200px;
+    max-height: 500px; /* Increased for longer content */
     padding: 1rem 2rem 2rem 2rem;
 }
 
@@ -2013,6 +2013,50 @@
     .card-image {
         width: 100px;
         height: 100px;
+    }
+
+    /* FAQ Mobile Optimizations */
+    .faq-item.active .faq-answer {
+        max-height: 600px; /* Even more space on mobile for longer answers */
+        padding: 1rem 1.5rem 2rem 1.5rem; /* Reduced horizontal padding on mobile */
+    }
+
+    .faq-answer {
+        padding: 0 1.5rem; /* Reduced padding when closed */
+    }
+
+    .faq-answer p {
+        font-size: 0.95rem; /* Slightly smaller text on mobile for better fit */
+        line-height: 1.7; /* Increased line height for readability */
+    }
+
+    .faq-question {
+        padding: 1.5rem 1.5rem; /* Consistent padding with answer */
+    }
+
+    .faq-list {
+        gap: 1rem; /* Reduced gap between items on mobile */
+    }
+}
+
+/* Extra small mobile devices - FAQ specific */
+@media (max-width: 480px) {
+    .faq-item.active .faq-answer {
+        max-height: 700px; /* Maximum space for very small screens */
+        padding: 1rem 1rem 2rem 1rem; /* Minimal horizontal padding */
+    }
+
+    .faq-answer {
+        padding: 0 1rem;
+    }
+
+    .faq-question {
+        padding: 1.25rem 1rem;
+    }
+
+    .faq-answer p {
+        font-size: 0.9rem; /* Smaller text for very small screens */
+        line-height: 1.8; /* Better readability */
     }
 }
 
