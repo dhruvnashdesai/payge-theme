@@ -975,16 +975,26 @@
     color: #131313;
 }
 
-/* Responsive Design */
-@media (max-width: 480px) {
+/* Mobile Portrait Styles */
+@media (max-width: 768px) {
+    /* Prevent overflow with proper width constraints */
+    .pricing-section, .community-section, .hero {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+
     .pricing-layout {
         grid-template-columns: 1fr;
         gap: 3rem;
+        width: 100%;
+        max-width: 100%;
     }
 
     .pricing-content {
         padding-right: 0;
         text-align: center;
+        width: 100%;
+        max-width: 100%;
     }
 
     .pricing-title {
@@ -993,6 +1003,8 @@
 
     .pricing-cards {
         grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 100%;
     }
 
     /* Show mobile description, hide desktop description */
@@ -1006,11 +1018,25 @@
 
     /* Hide community sign up button and pricing video on mobile */
     .community-btn {
-        display: none;
+        display: none !important;
     }
 
     .pricing-video-container {
-        display: none;
+        display: none !important;
+    }
+
+    /* Ensure community layout doesn't overflow */
+    .community-layout {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .community-content {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
     }
 }
 
