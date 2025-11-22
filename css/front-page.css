@@ -11,7 +11,7 @@
     align-items: flex-start;
     justify-content: center;
     padding: 0.5rem;
-    padding-top: 90px; /* Space for header so image container is below it */
+    padding-top: 70px; /* Reduced space for tighter layout */
     margin-top: 0;
     position: relative;
 }
@@ -1577,6 +1577,7 @@
     .hero {
         min-height: 85vh;
         height: 85vh;
+        padding-top: 10px; /* Reduced from 90px to minimize white space */
     }
 
     .hero-image-container {
