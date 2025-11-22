@@ -1803,9 +1803,7 @@
         padding-right: 0;
     }
 
-    .pricing-title {
-        text-align: center;
-    }
+    /* Removed pricing title center alignment */
 
     .contact-btn {
         display: none;
