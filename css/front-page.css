@@ -1588,6 +1588,85 @@
     .hero-content {
         margin-top: 60px;
     }
+}
+
+/* 2025 Mobile Landscape Optimization - Based on Research */
+@media (max-width: 968px) and (orientation: landscape) and (max-height: 500px) {
+    /* Reduce hero height for landscape to prevent bleeding */
+    .hero {
+        min-height: 80vh !important;
+        height: 80vh !important;
+        padding-top: 15px;
+        padding-bottom: 2rem; /* Add bottom padding for separation */
+    }
+
+    .hero-image-container {
+        height: calc(75vh - 60px) !important;
+        min-height: 400px !important; /* Reduced for landscape */
+    }
+
+    .hero-content {
+        margin-top: 40px;
+    }
+
+    /* Ensure proper spacing for sections following hero */
+    .community-section {
+        margin-top: 3rem !important; /* Force separation from hero */
+        padding-top: 4rem !important;
+        clear: both; /* Ensure no floating issues */
+    }
+
+    /* Adjust header for landscape */
+    .site-header {
+        height: 60px !important;
+    }
+
+    .header-container {
+        height: 60px !important;
+        padding: 0 1rem;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+    }
+
+    .nav-menu a {
+        font-size: 0.85rem;
+        padding: 0.25rem 0;
+        min-height: 40px;
+    }
+
+    .membership-account-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        min-height: 40px;
+        min-width: 70px;
+    }
+
+    /* Adjust site content margin for smaller landscape header */
+    .site-content {
+        margin-top: 55px !important;
+    }
+}
+
+/* Extra precaution for very short landscape screens */
+@media (max-width: 968px) and (orientation: landscape) and (max-height: 400px) {
+    .hero {
+        height: 70vh !important;
+        min-height: 70vh !important;
+        padding-bottom: 3rem;
+    }
+
+    .hero-image-container {
+        height: calc(65vh - 50px) !important;
+        min-height: 320px !important;
+    }
+
+    .community-section {
+        margin-top: 4rem !important;
+        padding-top: 3rem !important;
+    }
+}
 
     .community-title {
         font-size: clamp(1.8rem, 3.5vw, 2.4rem);
