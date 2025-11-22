@@ -994,6 +994,15 @@
     .pricing-cards {
         grid-template-columns: 1fr;
     }
+
+    /* Show mobile description, hide desktop description */
+    .community-description-desktop {
+        display: none;
+    }
+
+    .community-description-mobile {
+        display: block;
+    }
 }
 
 /* Membership Card */
