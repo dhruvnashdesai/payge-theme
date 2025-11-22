@@ -1613,7 +1613,48 @@
     .community-section {
         margin-top: 3rem !important; /* Force separation from hero */
         padding-top: 4rem !important;
+        padding-bottom: 2rem !important; /* Reduce bottom padding */
         clear: both; /* Ensure no floating issues */
+    }
+
+    /* Fix text alignment issues in landscape */
+    .community-layout {
+        grid-template-columns: 1fr !important; /* Single column for landscape */
+        gap: 2rem !important;
+        text-align: center !important;
+    }
+
+    .community-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .community-title {
+        text-align: center !important;
+        font-size: clamp(1.5rem, 4vw, 2rem) !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .community-description-container {
+        text-align: center !important;
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .community-description-mobile {
+        text-align: center !important;
+        font-size: 1rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    /* Hide/adjust community media for landscape to save space */
+    .community-image,
+    .community-secondary-image {
+        display: none !important; /* Hide images in landscape to focus on text and save space */
     }
 
     /* Adjust header for landscape */
@@ -1641,6 +1682,9 @@
         font-size: 0.8rem;
         min-height: 40px;
         min-width: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     /* Adjust site content margin for smaller landscape header */
@@ -1665,6 +1709,32 @@
     .community-section {
         margin-top: 4rem !important;
         padding-top: 3rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    /* Maintain text alignment for very short screens */
+    .community-layout {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        text-align: center !important;
+    }
+
+    .community-content {
+        text-align: center !important;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .community-title {
+        font-size: clamp(1.3rem, 4vw, 1.8rem) !important;
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .community-description-mobile {
+        font-size: 0.9rem !important;
+        text-align: center !important;
+        margin-bottom: 1.5rem !important;
     }
 }
 
