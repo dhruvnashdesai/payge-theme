@@ -1003,6 +1003,15 @@
     .community-description-mobile {
         display: block;
     }
+
+    /* Hide community sign up button and pricing video on mobile */
+    .community-btn {
+        display: none;
+    }
+
+    .pricing-video-container {
+        display: none;
+    }
 }
 
 /* Membership Card */
