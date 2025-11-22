@@ -1591,7 +1591,7 @@
 }
 
 /* 2025 Mobile Landscape Optimization - Based on Research */
-@media (max-width: 968px) and (orientation: landscape) and (max-height: 500px) {
+@media (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
     /* Reduce hero height for landscape to prevent bleeding */
     .hero {
         min-height: 80vh !important;
@@ -1705,7 +1705,7 @@
 }
 
 /* Extra precaution for very short landscape screens - mobile only */
-@media (max-width: 768px) and (orientation: landscape) and (max-height: 400px) {
+@media (max-width: 480px) and (orientation: landscape) and (max-height: 400px) {
     .hero {
         height: 70vh !important;
         min-height: 70vh !important;
