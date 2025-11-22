@@ -1657,14 +1657,17 @@
         display: none !important; /* Hide images in landscape to focus on text and save space */
     }
 
-    /* Adjust header for landscape */
+    /* Adjust header for landscape - increased height for better button fit */
     .site-header {
-        height: 60px !important;
+        height: 70px !important; /* Increased from 60px */
     }
 
     .header-container {
-        height: 60px !important;
+        height: 70px !important; /* Increased from 60px */
         padding: 0 1rem;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
     }
 
     .nav-menu {
@@ -1673,23 +1676,27 @@
 
     .nav-menu a {
         font-size: 0.85rem;
-        padding: 0.25rem 0;
-        min-height: 40px;
+        padding: 0.5rem 0; /* Increased padding for better touch target */
+        min-height: 44px; /* Increased for better touch accessibility */
+        display: flex;
+        align-items: center;
     }
 
     .membership-account-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-        min-height: 40px;
-        min-width: 70px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        padding: 0.6rem 1rem !important; /* Increased padding */
+        font-size: 0.85rem !important; /* Slightly larger text */
+        min-height: 44px !important; /* Standard touch target */
+        min-width: 80px !important; /* Wider for better fit */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        line-height: 1 !important; /* Prevent text from going outside bounds */
+        box-sizing: border-box !important;
     }
 
-    /* Adjust site content margin for smaller landscape header */
+    /* Adjust site content margin for landscape header */
     .site-content {
-        margin-top: 55px !important;
+        margin-top: 65px !important; /* Adjusted for 70px header */
     }
 }
 
@@ -1710,6 +1717,20 @@
         margin-top: 4rem !important;
         padding-top: 3rem !important;
         padding-bottom: 1.5rem !important;
+    }
+
+    /* Keep consistent header height even on very short screens */
+    .site-header {
+        height: 70px !important;
+    }
+
+    .header-container {
+        height: 70px !important;
+    }
+
+    /* Adjust content margin */
+    .site-content {
+        margin-top: 65px !important;
     }
 
     /* Maintain text alignment for very short screens */
