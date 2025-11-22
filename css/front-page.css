@@ -1631,6 +1631,8 @@
         text-align: center !important;
         max-width: 800px;
         margin: 0 auto;
+        padding: 0 !important; /* Remove any padding */
+        justify-content: flex-start !important; /* Align content to top */
     }
 
     .community-title {
@@ -1642,20 +1644,25 @@
     .community-description-container {
         text-align: center !important;
         max-width: 600px;
-        margin: 0 auto 2rem auto;
+        margin: 0 auto 1rem auto; /* REDUCED bottom margin from 2rem to 1rem */
     }
 
     .community-description-mobile {
         text-align: center !important;
         font-size: 1rem !important;
-        margin-bottom: 2rem !important;
+        margin-bottom: 1rem !important; /* REDUCED from 2rem to 1rem */
+    }
+
+    /* Reduce spacing for community button */
+    .community-btn {
+        margin-top: 0.5rem !important; /* Minimal top margin */
     }
 
     /* Switch to landscape video and adjust layout */
     .community-layout {
         grid-template-columns: 1fr 1fr !important; /* Restore two-column layout for video */
-        gap: 3rem !important;
-        align-items: center !important;
+        gap: 1rem !important; /* REDUCED gap from 3rem to 1rem */
+        align-items: start !important; /* Align to top instead of center to reduce spacing */
     }
 
     .community-media {
@@ -1667,6 +1674,8 @@
         max-height: 300px !important; /* Constrain height for landscape */
         padding: 0 !important;
         justify-content: center !important;
+        margin: 0 !important; /* Remove any margins */
+        align-self: start !important; /* Align video to top of grid cell */
     }
 
     .community-image video {
@@ -1711,7 +1720,8 @@
     /* Show video in two-column layout for very short screens too */
     .community-layout {
         grid-template-columns: 1fr 1fr !important;
-        gap: 2rem !important;
+        gap: 0.5rem !important; /* Very small gap for tight screens */
+        align-items: start !important; /* Align to top */
     }
 
     .community-media {
