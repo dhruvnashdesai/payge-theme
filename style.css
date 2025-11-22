@@ -1756,8 +1756,13 @@ body.pmpro-login .pmpro_message.pmpro_error {
 @media (max-width: 768px) {
     body.pmpro-login #content,
     body.pmpro-login .entry-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
         padding: 1rem !important;
         margin-top: 80px !important;
+        min-height: calc(100vh - 120px) !important;
     }
 
     body.pmpro-login .pmpro_login_wrap {
