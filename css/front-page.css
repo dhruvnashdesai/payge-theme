@@ -1790,20 +1790,7 @@
         display: none;
     }
 
-    .community-description-desktop {
-        display: none;
-    }
-
-    .community-description-mobile {
-        display: block;
-        font-size: 1.2rem;
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-
-    .community-btn {
-        display: none;
-    }
+    /* Temporarily removed desktop/mobile description toggles for debugging */
 
     .community-media {
         display: flex;
