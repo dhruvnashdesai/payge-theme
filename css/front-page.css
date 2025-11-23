@@ -1854,7 +1854,13 @@
         margin: 0 0 1rem 0 !important;
     }
 
+    /* Hide desktop text, show mobile text in landscape */
+    .community-section .community-description-desktop {
+        display: none !important;
+    }
+
     .community-section .community-description-mobile {
+        display: block !important; /* Ensure mobile text is shown */
         text-align: left !important; /* Left align description */
         font-size: 1rem !important;
         margin-bottom: 1rem !important;
