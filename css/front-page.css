@@ -964,8 +964,8 @@
     }
 
     .community-section {
-        padding: 2rem 1rem !important; /* Tighter padding for mobile portrait */
-        margin-top: 1.5rem !important; /* Reduced top margin */
+        padding: 2.5rem 1rem 2rem 1rem !important; /* More top padding to prevent title cutoff */
+        margin-top: 0.5rem !important; /* Reduced top margin */
         margin-bottom: 0.5rem !important; /* Minimal bottom margin */
     }
 
