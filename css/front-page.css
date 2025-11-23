@@ -975,26 +975,25 @@
         width: 100%;
         max-width: 100%;
         overflow: hidden;
-        justify-items: center; /* Center the grid items */
+        justify-items: stretch; /* Let flexbox handle centering */
     }
 
     .community-media {
         width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: center; /* This will actually center the video card */
         align-items: center;
     }
 
     .community-image {
-        width: 100%;
-        max-width: 350px; /* Reasonable max width for mobile */
+        width: 350px; /* Fixed width - no 100% + max-width conflict */
         height: 400px;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 8px;
         overflow: hidden;
-        margin: 0 auto; /* Center the card itself */
+        /* No margin needed - parent flex centers it */
     }
 
     .community-image video {
