@@ -987,20 +987,22 @@
 
     .community-media {
         width: 100%;
-        display: grid; /* Use CSS Grid for better centering */
-        place-items: center; /* Perfect centering */
-        padding: 1rem 0; /* Add some vertical padding */
+        display: flex;
+        justify-content: center; /* Horizontal centering */
+        align-items: center; /* Vertical centering */
+        padding: 1rem; /* Symmetric padding all around */
     }
 
     .community-image {
-        width: min(90%, 480px); /* Larger, responsive width */
+        width: min(85%, 450px); /* Slightly smaller for better centering */
         height: 500px; /* Taller for vertical video */
-        display: block; /* Remove flex to eliminate container styling */
-        border-radius: 12px; /* Apply border radius to video */
-        overflow: hidden; /* Ensure video respects border radius */
-        margin: 0; /* Remove margins since grid handles centering */
-        background: transparent; /* Remove any background */
+        display: block;
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 0 auto; /* Explicit centering with auto margins */
+        background: transparent;
         box-shadow: none; /* Remove shadow from container */
+        position: relative; /* Ensure proper positioning */
     }
 
     .community-image video {
@@ -1009,7 +1011,12 @@
         object-fit: cover; /* Fill the card completely */
         border-radius: 12px; /* Apply border radius directly to video */
         display: block; /* Remove any inline spacing */
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Move shadow to video */
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Clean shadow */
+        border: none; /* Remove any default borders */
+        outline: none; /* Remove any outlines */
+        margin: 0; /* Remove any default margins */
+        padding: 0; /* Remove any default padding */
+        vertical-align: top; /* Prevent baseline spacing issues */
     }
 
     .community-secondary-image {
