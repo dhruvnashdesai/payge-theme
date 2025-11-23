@@ -948,8 +948,8 @@
     color: #131313;
 }
 
-/* Mobile Portrait Styles - Expanded */
-@media (max-width: 768px) {
+/* Mobile Portrait Styles - More Specific */
+@media (max-width: 480px) {
     /* Ensure sections are visible and prevent overflow */
     .community-section, .pricing-section {
         display: block !important;
