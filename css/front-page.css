@@ -1212,26 +1212,31 @@
         display: none !important;
     }
 
-    /* Reduce whitespace between sections */
+    /* Eliminate whitespace between sections */
     .community-section {
-        padding: 1rem !important;
-        margin-bottom: 0.5rem !important;
+        padding: 0.5rem 1rem !important;
+        margin-bottom: 0 !important;
     }
 
     .pricing-section {
-        padding: 1rem !important;
-        margin-top: 0.5rem !important;
+        padding: 0.5rem 1rem !important;
+        margin-top: 0 !important;
     }
 
-    /* Compact title spacing */
-    .community-title,
+    /* Center community title on landscape */
+    .community-title {
+        text-align: center !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Compact pricing title spacing */
     .pricing-title {
-        margin-bottom: 1rem !important;
+        margin-bottom: 0.5rem !important;
     }
 
-    /* Ensure pricing card is properly centered and sized */
+    /* Move pricing cards up closer */
     .pricing-cards {
-        margin-top: 0.5rem !important;
+        margin-top: 0 !important;
     }
 }
 
