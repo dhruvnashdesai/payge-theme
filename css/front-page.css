@@ -964,9 +964,9 @@
     }
 
     .community-section {
-        padding: 3rem 1rem !important; /* Compact padding for mobile portrait */
-        margin-top: 2rem !important; /* Reduced top margin */
-        margin-bottom: 1rem !important; /* Small bottom margin */
+        padding: 2rem 1rem !important; /* Tighter padding for mobile portrait */
+        margin-top: 1.5rem !important; /* Reduced top margin */
+        margin-bottom: 0.5rem !important; /* Minimal bottom margin */
     }
 
     .hero {
@@ -977,7 +977,7 @@
     /* Community Section Mobile Styles */
     .community-layout {
         grid-template-columns: 1fr;
-        gap: 2rem; /* Reduced gap for better spacing */
+        gap: 1.5rem; /* Tighter gap between text and video */
         width: 100%;
         max-width: 100%;
         overflow: hidden;
@@ -990,16 +990,17 @@
         display: flex;
         justify-content: center; /* Horizontal centering */
         align-items: center; /* Vertical centering */
-        padding: 1rem; /* Symmetric padding all around */
+        padding: 0; /* Remove padding to eliminate left offset */
+        margin: 0; /* Ensure no margins */
     }
 
     .community-image {
-        width: min(85%, 450px); /* Slightly smaller for better centering */
+        width: min(95%, 520px); /* Much wider for mobile - was too thin */
         height: 500px; /* Taller for vertical video */
         display: block;
         border-radius: 12px;
         overflow: hidden;
-        margin: 0 auto; /* Explicit centering with auto margins */
+        margin: 0; /* Remove auto margins - let flexbox handle centering */
         background: transparent;
         box-shadow: none; /* Remove shadow from container */
         position: relative; /* Ensure proper positioning */
