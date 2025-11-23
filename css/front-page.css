@@ -1037,25 +1037,29 @@
 
     .pricing-content {
         padding-right: 0;
-        text-align: center;
+        text-align: left; /* Left align content container */
         width: 100%;
         max-width: 100%;
     }
 
     .pricing-title {
-        text-align: center;
+        text-align: left; /* Left align pricing title on mobile */
     }
 
     .pricing-cards {
+        display: grid; /* Use CSS Grid for mobile */
         grid-template-columns: 1fr;
+        place-items: center; /* Modern CSS centering */
+        justify-content: center; /* Override desktop flex-end */
         width: 100%;
         max-width: 100%;
+        padding: 0 1rem; /* Add padding to prevent edge overflow */
     }
 
     .pricing-cards .pricing-card {
-        width: calc(100% - 1rem) !important;
-        max-width: none !important;
-        margin: 0 auto;
+        width: 100% !important;
+        max-width: min(400px, calc(100% - 2rem)) !important; /* Safe responsive width */
+        margin: 0 !important; /* Remove auto margins since CSS Grid handles centering */
         padding: 1.5rem !important;
         box-sizing: border-box;
         flex-shrink: 1;
@@ -1087,8 +1091,12 @@
         word-wrap: break-word;
     }
 
-    /* Hide community sign up button and pricing video on mobile */
+    /* Hide community sign up button, contact button, and pricing video on mobile */
     .community-btn {
+        display: none !important;
+    }
+
+    .contact-btn {
         display: none !important;
     }
 
@@ -1111,9 +1119,10 @@
         margin-bottom: 1rem !important;
     }
 
-    /* Remove vertical video and adjust spacing */
+    /* Center vertical video for landscape viewing */
     .community-image video {
-        display: none !important;
+        display: block !important; /* Show video, don't hide it */
+        margin: 0 auto !important; /* Center the video */
     }
 
     .community-section {
@@ -1845,12 +1854,12 @@
     }
 
     .community-section .community-image video {
-        display: none !important; /* Override: Hide videos in landscape per requirements */
+        display: block !important; /* Show video in landscape - it should be visible */
         width: 100% !important;
         max-height: 280px !important; /* Compact video for landscape */
         object-fit: cover !important;
         border-radius: 12px !important;
-        margin: 0 !important;
+        margin: 0 auto !important; /* Center the video */
         padding: 0 !important;
     }
 
