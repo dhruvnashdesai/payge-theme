@@ -401,13 +401,13 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: max(100%, 80vh);
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     z-index: 10;
-    margin-left: calc(-50vw + 50%);
+    margin-left: calc(-50% + 50%);
     /* Safe area support for all devices */
     padding-top: env(safe-area-inset-top, 0);
     padding-bottom: env(safe-area-inset-bottom, 0);
