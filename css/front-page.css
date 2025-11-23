@@ -978,23 +978,23 @@
         justify-items: stretch; /* Let flexbox handle centering */
     }
 
-    .community-section .community-media {
-        width: 100% !important;
-        display: flex !important;
-        justify-content: center !important; /* This will actually center the video card */
-        align-items: center !important;
-        padding: 0 1rem !important; /* Add padding to prevent edge overflow */
+    .community-media {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
     }
 
-    .community-section .community-image {
-        width: min(350px, calc(100vw - 2rem)) !important; /* Responsive width with viewport constraint */
-        height: 400px !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        border-radius: 8px !important;
-        overflow: hidden !important;
-        margin: 0 auto !important; /* Additional centering insurance */
+    .community-image {
+        width: min(350px, calc(100vw - 2rem));
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 0 auto;
     }
 
     .community-image video {
@@ -1011,13 +1011,12 @@
         right: -60px;
     }
 
-    .community-section .community-title {
-        text-align: center !important;
-        font-size: clamp(1.8rem, 5vw, 2.5rem) !important; /* Responsive sizing */
-        line-height: 1.2 !important;
-        margin: 0 1rem 1.5rem 1rem !important; /* Add side margins to prevent cutoff */
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
+    .community-title {
+        text-align: center;
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        line-height: 1.2;
+        margin: 0 1rem 1.5rem 1rem;
+        word-wrap: break-word;
     }
 
     .community-content {
@@ -1058,14 +1057,13 @@
         display: none;
     }
 
-    .community-section .community-description-mobile {
-        display: block !important;
-        font-size: 1rem !important;
-        line-height: 1.5 !important;
-        margin: 0 1rem 2rem 1rem !important; /* Add side margins */
-        text-align: center !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
+    .community-description-mobile {
+        display: block;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 0 1rem 2rem 1rem;
+        text-align: center;
+        word-wrap: break-word;
     }
 
     /* Hide community sign up button and pricing video on mobile */
@@ -1078,8 +1076,8 @@
     }
 }
 
-/* Mobile Landscape Optimization - Force Override */
-@media (max-width: 768px) and (orientation: landscape) {
+/* Mobile Landscape Optimization - More Specific */
+@media (max-width: 768px) and (orientation: landscape) and (min-aspect-ratio: 4/3) {
     /* Use mobile text block on landscape */
     .community-description-desktop {
         display: none !important;
