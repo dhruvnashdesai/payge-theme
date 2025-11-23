@@ -979,6 +979,18 @@
 
     .community-image {
         max-height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .community-image video {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain; /* Prevent cropping, show full video */
+        border-radius: 8px;
     }
 
     .community-secondary-image {
