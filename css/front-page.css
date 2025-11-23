@@ -975,21 +975,32 @@
         width: 100%;
         max-width: 100%;
         overflow: hidden;
+        justify-items: center; /* Center the grid items */
     }
 
-    .community-image {
-        max-height: 400px;
+    .community-media {
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .community-image {
         width: 100%;
+        max-width: 350px; /* Reasonable max width for mobile */
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 0 auto; /* Center the card itself */
     }
 
     .community-image video {
         width: 100%;
-        height: auto;
-        max-height: 400px;
-        object-fit: contain; /* Prevent cropping, show full video */
+        height: 100%;
+        object-fit: cover; /* Fill the card completely */
         border-radius: 8px;
     }
 
