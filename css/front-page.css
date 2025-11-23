@@ -1199,13 +1199,8 @@
     }
 }
 
-/* TESTING: Alternative landscape media query with different conditions */
+/* WORKING: Landscape media query with proper spacing */
 @media (orientation: landscape) and (max-height: 600px) {
-    /* DEBUG: Blue background for alternative landscape detection */
-    body {
-        background-color: #0000ff !important;
-    }
-
     .community-description-container,
     .community-description-desktop,
     .community-description-mobile,
@@ -1215,6 +1210,28 @@
     .contact-btn,
     .community-btn {
         display: none !important;
+    }
+
+    /* Reduce whitespace between sections */
+    .community-section {
+        padding: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .pricing-section {
+        padding: 1rem !important;
+        margin-top: 0.5rem !important;
+    }
+
+    /* Compact title spacing */
+    .community-title,
+    .pricing-title {
+        margin-bottom: 1rem !important;
+    }
+
+    /* Ensure pricing card is properly centered and sized */
+    .pricing-cards {
+        margin-top: 0.5rem !important;
     }
 }
 
