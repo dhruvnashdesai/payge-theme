@@ -1873,21 +1873,25 @@
     }
 
     .community-section .community-image {
-        display: flex !important; /* Show image container */
+        /* Use CSS Grid positioning instead of conflicting flex */
+        display: block !important; /* Simple block display */
         max-height: 300px !important; /* Constrain height for landscape */
         padding: 0 !important;
-        justify-content: center !important;
         margin: 0 !important; /* Remove any margins */
-        align-self: flex-start !important; /* Align video to top of grid cell */
+        justify-self: center !important; /* Center in grid column */
+        align-self: start !important; /* Align to top of grid cell */
+        width: 100% !important; /* Fill grid column */
+        position: relative !important; /* Allow proper positioning */
     }
 
     .community-section .community-image video {
         display: block !important; /* Show video in landscape - it should be visible */
         width: 100% !important;
+        height: auto !important; /* Let height adapt naturally */
         max-height: 280px !important; /* Compact video for landscape */
         object-fit: cover !important;
         border-radius: 12px !important;
-        margin: 0 auto !important; /* Center the video */
+        margin: 0 auto !important; /* Center the video horizontally */
         padding: 0 !important;
     }
 
@@ -1937,8 +1941,9 @@
     }
 
     .community-image {
-        display: flex !important;
+        display: block !important; /* Consistent with Query #2 fix */
         max-height: 250px !important; /* Even more compact for very short screens */
+        justify-self: center !important; /* Center in grid column */
     }
 
     .community-image video {
