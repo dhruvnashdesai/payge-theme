@@ -1199,44 +1199,35 @@
     }
 }
 
-/* WORKING: Landscape media query with proper spacing */
+/* WORKING: Ultra-clean landscape layout - Hero + Pricing only */
 @media (orientation: landscape) and (max-height: 600px) {
-    .community-description-container,
-    .community-description-desktop,
-    .community-description-mobile,
-    .community-media,
-    .community-image,
-    .pricing-video-container,
-    .contact-btn,
-    .community-btn {
+    /* Hide entire community section */
+    .community-section {
         display: none !important;
     }
 
-    /* Eliminate whitespace between sections */
-    .community-section {
-        padding: 0.5rem 1rem !important;
-        margin-bottom: 0 !important;
+    /* Hide pricing video and contact button */
+    .pricing-video-container,
+    .contact-btn {
+        display: none !important;
     }
 
+    /* Move pricing section directly under hero */
     .pricing-section {
-        padding: 0.5rem 1rem !important;
-        margin-top: 0 !important;
+        margin-top: 1rem !important;
+        padding: 1rem !important;
     }
 
-    /* Center community title on landscape */
-    .community-title {
-        text-align: center !important;
-        margin-bottom: 0.5rem !important;
-    }
-
-    /* Compact pricing title spacing */
+    /* Ensure pricing title and card are properly styled */
     .pricing-title {
-        margin-bottom: 0.5rem !important;
+        text-align: center !important;
+        margin-bottom: 1rem !important;
     }
 
-    /* Move pricing cards up closer */
     .pricing-cards {
-        margin-top: 0 !important;
+        display: grid !important;
+        place-items: center !important;
+        margin: 0 auto !important;
     }
 }
 
