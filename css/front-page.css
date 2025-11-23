@@ -1043,7 +1043,7 @@
     }
 
     .pricing-title {
-        text-align: left; /* Left align pricing title on mobile */
+        text-align: center; /* Center pricing title on mobile */
     }
 
     .pricing-cards {
