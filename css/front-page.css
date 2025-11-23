@@ -1135,6 +1135,10 @@
 
 /* SIMPLIFIED Mobile Landscape Layout - Show only titles and pricing card */
 @media (max-width: 768px) and (orientation: landscape) {
+    /* DEBUG: Bright red background to confirm media query is working */
+    body {
+        background-color: #ff0000 !important;
+    }
     /* COMMUNITY SECTION: Hide all text and video, keep only title */
     .community-description-container,
     .community-description-desktop,
@@ -1192,6 +1196,33 @@
     .pricing-layout {
         display: block !important;
         grid-template-columns: none !important;
+    }
+}
+
+/* TESTING: Alternative landscape media query with different conditions */
+@media (orientation: landscape) and (max-height: 600px) {
+    /* DEBUG: Blue background for alternative landscape detection */
+    body {
+        background-color: #0000ff !important;
+    }
+
+    .community-description-container,
+    .community-description-desktop,
+    .community-description-mobile,
+    .community-media,
+    .community-image,
+    .pricing-video-container,
+    .contact-btn,
+    .community-btn {
+        display: none !important;
+    }
+}
+
+/* TESTING: Broad landscape catch-all */
+@media (orientation: landscape) {
+    /* DEBUG: Green background for basic landscape detection */
+    .hero-section {
+        border: 10px solid #00ff00 !important;
     }
 }
 
