@@ -969,6 +969,11 @@
         margin-bottom: 0.5rem !important; /* Minimal bottom margin */
     }
 
+    .community-section .container {
+        padding: 0 !important; /* Remove container padding to allow perfect centering */
+        max-width: none !important; /* Remove max-width constraint */
+    }
+
     .hero {
         overflow-x: hidden;
         max-width: 100%;
