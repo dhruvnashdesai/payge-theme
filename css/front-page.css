@@ -963,6 +963,12 @@
         min-height: 200px !important; /* Ensure some height */
     }
 
+    .community-section {
+        padding: 3rem 1rem !important; /* Compact padding for mobile portrait */
+        margin-top: 2rem !important; /* Reduced top margin */
+        margin-bottom: 1rem !important; /* Small bottom margin */
+    }
+
     .hero {
         overflow-x: hidden;
         max-width: 100%;
@@ -971,30 +977,31 @@
     /* Community Section Mobile Styles */
     .community-layout {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem; /* Reduced gap for better spacing */
         width: 100%;
         max-width: 100%;
         overflow: hidden;
-        justify-items: stretch; /* Let flexbox handle centering */
+        justify-items: center; /* Center grid items */
+        align-items: start; /* Align to top for better spacing */
     }
 
     .community-media {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
+        display: grid; /* Use CSS Grid for better centering */
+        place-items: center; /* Perfect centering */
+        padding: 1rem 0; /* Add some vertical padding */
     }
 
     .community-image {
-        width: min(350px, calc(100% - 2rem));
-        height: 400px;
+        width: min(90%, 480px); /* Larger, responsive width */
+        height: 500px; /* Taller for vertical video */
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 8px;
+        border-radius: 12px; /* Slightly larger border radius */
         overflow: hidden;
-        margin: 0 auto;
+        margin: 0; /* Remove margins since grid handles centering */
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Add depth */
     }
 
     .community-image video {
