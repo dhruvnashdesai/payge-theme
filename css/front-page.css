@@ -1012,7 +1012,7 @@
         object-fit: cover; /* Fill the card completely */
         border-radius: 12px; /* Apply border radius directly to video */
         display: block; /* Remove any inline spacing */
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Clean shadow */
+        box-shadow: none; /* Remove shadow causing visual offset */
         border: none; /* Remove any default borders */
         outline: none; /* Remove any outlines */
         margin: 0; /* Remove any default margins */
