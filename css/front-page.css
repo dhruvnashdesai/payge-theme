@@ -1133,14 +1133,26 @@
     }
 }
 
-/* Universal Mobile Landscape Text Fix - Covers ALL landscape orientations */
+/* NUCLEAR Mobile Landscape Text Fix - Multiple override methods */
 @media (max-width: 768px) and (orientation: landscape) {
+    .community-section .community-description-container .community-description-desktop,
     .community-description-desktop {
         display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        left: -9999px !important;
     }
 
+    .community-section .community-description-container .community-description-mobile,
     .community-description-mobile {
         display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: static !important;
+        height: auto !important;
     }
 }
 
