@@ -2011,11 +2011,11 @@
 
     /* Eliminate white space before pricing section */
     .pricing-section {
-        margin-top: -4rem !important; /* VERY aggressive negative margin to close gap */
+        margin-top: -2rem !important; /* Reduced negative margin to prevent overlap */
         padding: 1rem 2rem !important; /* Even smaller padding */
         padding-top: 2.5rem !important; /* Adequate top padding for content */
         position: relative !important; /* Ensure proper layering */
-        z-index: 2 !important; /* Above community section */
+        z-index: 1 !important; /* Below community section to prevent title cutoff */
     }
 
     /* Header adjustments handled in main style.css for landscape */
