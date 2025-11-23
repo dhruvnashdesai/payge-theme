@@ -1133,26 +1133,65 @@
     }
 }
 
-/* NUCLEAR Mobile Landscape Text Fix - Multiple override methods */
+/* SIMPLIFIED Mobile Landscape Layout - Show only titles and pricing card */
 @media (max-width: 768px) and (orientation: landscape) {
-    .community-section .community-description-container .community-description-desktop,
-    .community-description-desktop {
+    /* COMMUNITY SECTION: Hide all text and video, keep only title */
+    .community-description-container,
+    .community-description-desktop,
+    .community-description-mobile {
         display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        height: 0 !important;
-        overflow: hidden !important;
-        position: absolute !important;
-        left: -9999px !important;
     }
 
-    .community-section .community-description-container .community-description-mobile,
-    .community-description-mobile {
+    .community-media,
+    .community-image,
+    .community-image video {
+        display: none !important;
+    }
+
+    .community-btn {
+        display: none !important;
+    }
+
+    /* PRICING SECTION: Hide video and button, keep title and card */
+    .pricing-video-container {
+        display: none !important;
+    }
+
+    .contact-btn {
+        display: none !important;
+    }
+
+    /* Ensure titles remain visible */
+    .community-title,
+    .pricing-title {
         display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: static !important;
-        height: auto !important;
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Ensure pricing card stays visible and centered */
+    .pricing-cards,
+    .pricing-card {
+        display: block !important;
+        margin: 0 auto !important;
+    }
+
+    /* Clean up spacing for minimal landscape layout */
+    .community-section {
+        padding: 1rem 2rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .pricing-section {
+        padding: 1rem 2rem !important;
+        margin-top: 1rem !important;
+    }
+
+    /* Single column layout for clean presentation */
+    .community-layout,
+    .pricing-layout {
+        display: block !important;
+        grid-template-columns: none !important;
     }
 }
 
