@@ -501,14 +501,7 @@ $is_logged_in = is_user_logged_in();
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity 0.3s ease;
     border-radius: 12px;
-}
-
-.hero-video-thumbnail:hover .video-play-overlay {
-    opacity: 1;
 }
 
 .play-button {
